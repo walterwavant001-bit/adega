@@ -1,0 +1,1262 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<meta name="claude:viewport-fit-sides" content="cover">
+<title>Adega dos Brutos</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Space+Grotesk:wght@400;500;700&display=swap">
+<style>
+/* Futuro-retrô: fundo espacial escuro, grade néon, vidro fosco e brilho ciano/magenta.
+   Cada item ganha uma ilustração de embalagem com gradiente (não é foto). */
+:root{
+  --bg:#2b1a10;
+  --panel:rgba(38,24,15,.78);
+  --line:rgba(242,196,109,.22);
+  --cyan:#f2c46d;
+  --magenta:#c8702a;
+  --lime:#f6d27a;
+  --fg:#f7ead2;
+  --muted:#c4a77d;
+  --glow:#f2c46d;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+body{
+  margin:0;min-height:100vh;color:var(--fg);
+  font:400 16px/1.5 "Space Grotesk",system-ui,sans-serif;
+  background:
+    radial-gradient(900px 480px at 50% -8%,rgba(255,184,102,.30),transparent 62%),
+    radial-gradient(700px 420px at 100% 100%,rgba(255,150,70,.12),transparent 60%),
+    linear-gradient(180deg,#3b2415 0%,#24150c 100%),
+    var(--bg);
+  background-attachment:fixed;
+}
+body::before{ /* grade em perspectiva */
+  content:"";position:fixed;inset:0;pointer-events:none;z-index:0;
+  background-image:repeating-linear-gradient(90deg,rgba(0,0,0,.16) 0 1px,transparent 1px 9px),repeating-linear-gradient(0deg,rgba(255,220,170,.035) 0 2px,transparent 2px 14px);
+  background-size:48px 48px;
+  mask-image:linear-gradient(to bottom,rgba(0,0,0,.9),transparent 75%);
+}
+.wrap{position:relative;z-index:1;max-width:1120px;margin:0 auto;padding-block:0 64px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.scan{height:2px;margin-top:14px;background:linear-gradient(90deg,transparent,var(--cyan),transparent);box-shadow:0 0 14px var(--cyan);animation:scan 4s ease-in-out infinite}
+@keyframes scan{0%,100%{opacity:.35}50%{opacity:1}}
+
+.hero{text-align:center;padding:34px 0 10px}
+.masthead{position:relative;isolation:isolate;margin-inline:calc(50% - 50vw)}
+.masthead::before{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;background:radial-gradient(ellipse at 50% 45%,transparent 40%,rgba(10,5,2,.55) 100%),linear-gradient(rgba(20,11,6,.06),rgba(20,11,6,.06)),url("4fd792a8b0a0bce9042aaecc7f0e12e9.png") center 35%/cover no-repeat;filter:brightness(1.18) contrast(1.04);mask-image:linear-gradient(to bottom,#000 74%,transparent);-webkit-mask-image:linear-gradient(to bottom,#000 74%,transparent)}
+.masthead-in{max-width:1120px;margin:0 auto;padding:0 max(16px,env(safe-area-inset-right,0px)) 64px max(16px,env(safe-area-inset-left,0px))}
+.tag{display:inline-block;font:500 12px "Space Grotesk",sans-serif;letter-spacing:.3em;text-transform:uppercase;color:var(--cyan);border:1px solid var(--line);padding:7px 14px;border-radius:999px;background:rgba(0,229,255,.05)}
+h1{
+  font:900 clamp(34px,9vw,84px)/1 Orbitron,system-ui,sans-serif;letter-spacing:.04em;margin:20px 0 10px;text-transform:uppercase;text-wrap:balance;
+  color:#2aa8ff;
+  filter:drop-shadow(0 0 22px rgba(242,196,109,.35));
+}
+.sub{font:500 13px Orbitron,sans-serif;letter-spacing:.2em;color:var(--muted);margin:0;text-transform:uppercase}
+.intro{color:var(--muted);max-width:62ch;margin:16px auto 0;text-align:center;font-size:15px}
+.bar{margin:30px 0 6px;display:grid;gap:12px;padding:14px;border:1px solid var(--line);border-radius:16px;background:rgba(8,12,22,.6);backdrop-filter:blur(10px)}
+.search{width:100%;font:400 16px "Space Grotesk",sans-serif;color:var(--fg);background:rgba(0,0,0,.35);border:1px solid var(--line);border-radius:10px;padding:13px 16px}
+.search::placeholder{color:var(--muted)}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{font:500 13px "Space Grotesk",sans-serif;color:var(--fg);background:transparent;border:1px solid var(--line);border-radius:999px;padding:7px 14px;cursor:pointer;transition:.2s}
+.chip:hover{border-color:var(--cyan)}
+.chip[aria-pressed="true"]{background:linear-gradient(90deg,var(--cyan),var(--magenta));border-color:transparent;color:#05060b;font-weight:700;box-shadow:0 0 18px rgba(0,229,255,.35)}
+.chip:focus-visible,.btn:focus-visible,.search:focus-visible,input:focus-visible,select:focus-visible{outline:2px solid var(--cyan);outline-offset:2px}
+.toolbar{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;min-height:1.6em;margin-top:6px}
+.status{font-size:14px;color:var(--muted);margin:0}
+.btn{font:700 13px Orbitron,sans-serif;letter-spacing:.08em;text-transform:uppercase;color:#05060b;background:var(--cyan);border:0;border-radius:10px;padding:11px 18px;cursor:pointer;box-shadow:0 0 18px rgba(0,229,255,.35)}
+.btn[aria-pressed="true"]{background:var(--magenta);color:#fff;box-shadow:0 0 18px rgba(255,46,154,.45)}
+.btn.small{font-size:11px;padding:8px 10px;margin-top:2px;width:100%}
+.acts{display:grid;grid-template-columns:1fr 1fr;gap:6px}
+.art.wood{background:radial-gradient(ellipse at 30% 15%,rgba(255,240,220,.12),transparent 55%),linear-gradient(180deg,transparent 55%,color-mix(in srgb,var(--glow) 30%,transparent) 100%),repeating-linear-gradient(90deg,rgba(0,0,0,.12) 0 1px,transparent 1px 9px),repeating-linear-gradient(1deg,rgba(255,255,255,.03) 0 2px,transparent 2px 11px),linear-gradient(135deg,#7d6c5e 0%,#5b4b40 45%,#6e5d4f 100%);box-shadow:inset 0 0 0 1px rgba(255,255,255,.06),inset 0 -24px 40px rgba(0,0,0,.35)}
+.art.wood::before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(255,255,255,.08),transparent 40%);pointer-events:none;z-index:0}
+.item.poster{background:linear-gradient(180deg,#2b2e36,#15171c);border:1px solid #3b3f4a;border-radius:6px;box-shadow:none;padding:0 0 12px;backdrop-filter:none}
+.item.poster:hover{transform:none;box-shadow:none;border-color:#e0201b}
+.item.poster .art{background:linear-gradient(180deg,#9a9ea6,#4b4f58);border-radius:0;height:200px}
+.item.poster .art::after{display:none}
+.item.poster .art img{object-fit:cover!important}
+.item.poster .ficha{display:none}
+.pbadge{position:absolute;left:8px;top:8px;z-index:2;background:#000;color:#fff;font:700 13px "Space Grotesk",sans-serif;padding:3px 7px;border-radius:3px;border:1px solid #fff}
+.psize{position:absolute;right:8px;bottom:8px;z-index:2;background:#000;color:#fff;font:700 12px "Space Grotesk",sans-serif;padding:3px 7px;border-radius:3px}
+.item.poster .nm{text-align:center;color:#fff;font:700 15px/1.25 "Space Grotesk",sans-serif;padding:0 10px;margin-top:4px}
+.item.poster .pr{text-align:center;color:#ff2a2a;font:800 22px Orbitron,sans-serif;text-shadow:none;padding:0 10px}
+.item.poster .pr.empty{display:block;margin:0 10px;background:#e0201b;color:#fff;font:700 13px "Space Grotesk",sans-serif;padding:5px;text-align:center;font-style:normal;text-shadow:none}
+.item.poster .acts{padding:0 10px}
+.item.lista{display:grid;grid-template-columns:50px 150px minmax(0,1fr);grid-template-rows:auto auto auto;column-gap:10px;row-gap:4px;align-items:center;background:#fbfbf7;color:#111;border:1px solid #111;border-radius:0;padding:8px 10px 8px 0;box-shadow:none;backdrop-filter:none}
+.item.lista:hover{transform:none;box-shadow:none;border-color:#111}
+.item.lista .ficha{grid-column:1;grid-row:1 / span 3;align-self:center;justify-self:center;font:800 20px "Space Grotesk",sans-serif;color:#111;letter-spacing:0;text-transform:none}
+.item.lista .ficha span:last-child{display:none}
+.item.lista .art{grid-column:2;grid-row:1 / span 3;height:190px;background:transparent;border-radius:0;padding:0;overflow:visible}
+.item.lista .art::after{display:none}
+.item.lista .art img{object-fit:contain!important}
+.item.lista .acts{grid-column:3;grid-row:3;padding:0}
+.item.lista .nm{grid-column:3;grid-row:1;align-self:end;font:700 16px/1.25 "Space Grotesk",sans-serif;color:#111}
+.item.lista .pr{grid-column:3;grid-row:2;align-self:start;color:#e0201b;font:800 18px Orbitron,sans-serif;text-shadow:none}
+.item.lista .pr.empty{font:700 13px "Space Grotesk",sans-serif;font-style:normal;background:#e0201b;color:#fff;display:inline-block;padding:2px 8px;justify-self:start}
+.item.lista .acts input{color:#111;background:#fff;border-color:#999}
+.art:has(img){background:#f3efe6}
+.acts input{grid-column:1/-1;min-width:0;font:400 15px "Space Grotesk",sans-serif;color:var(--fg);background:rgba(0,0,0,.4);border:1px solid var(--line);border-radius:8px;padding:8px 10px;box-sizing:border-box;width:100%}
+.group{margin-top:40px}
+.group h2{font:700 15px Orbitron,sans-serif;letter-spacing:.18em;text-transform:uppercase;color:var(--cyan);margin:0 0 14px;display:flex;align-items:center;gap:12px}
+.group h2::after{content:"";flex:1;height:1px;background:linear-gradient(90deg,var(--line),transparent)}
+.vitrine{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin:0;padding:0;list-style:none}
+@media (min-width:640px){ .vitrine{grid-template-columns:repeat(3,minmax(0,1fr))} }
+@media (min-width:960px){ .vitrine{grid-template-columns:repeat(4,minmax(0,1fr))} }
+.vitrine:has(> .item.lista){grid-template-columns:minmax(0,1fr)}
+@media (min-width:640px){ .vitrine:has(> .item.lista){grid-template-columns:repeat(2,minmax(0,1fr))} }
+.item{position:relative;background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:12px;display:grid;gap:8px;min-width:0;align-content:start;backdrop-filter:blur(8px);transition:transform .25s,box-shadow .25s,border-color .25s;overflow:hidden}
+.item:hover{transform:translateY(-4px);border-color:var(--glow);box-shadow:0 14px 40px -12px var(--glow)}
+.art{--glow:#00e5ff;position:relative;height:172px;display:flex;align-items:center;justify-content:center;border-radius:12px;overflow:hidden;background:radial-gradient(circle at 50% 60%,color-mix(in srgb,var(--glow) 35%,transparent),transparent 65%),#070b15}
+.art svg{width:100%;height:100%;display:block;position:relative;z-index:1;filter:drop-shadow(0 10px 14px rgba(0,0,0,.6))}
+.art::after{content:"";position:absolute;left:10%;right:10%;bottom:14px;height:10px;border-radius:50%;background:var(--glow);opacity:.35;filter:blur(8px)}
+.ficha{display:flex;justify-content:space-between;align-items:center;gap:8px;font:500 10px Orbitron,sans-serif;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.ficha span:last-child{text-align:right;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.nm{font:500 16px/1.25 "Space Grotesk",sans-serif;overflow-wrap:anywhere;min-width:0}
+.pr{font:700 20px Orbitron,sans-serif;color:var(--lime);text-shadow:0 0 12px rgba(182,255,59,.35);font-variant-numeric:tabular-nums}
+.pr.empty{font:italic 400 14px "Space Grotesk",sans-serif;color:var(--muted);text-shadow:none}
+.edit{display:grid;gap:6px;min-width:0}
+.edit input{min-width:0;font:400 15px "Space Grotesk",sans-serif;color:var(--fg);background:rgba(0,0,0,.4);border:1px solid var(--line);border-radius:8px;padding:8px 10px;box-sizing:border-box;width:100%}
+[hidden]{display:none!important}
+.buy{margin-top:4px}
+.addcart{width:100%;font:700 13px "Space Grotesk",sans-serif;letter-spacing:.01em;color:#1b120c;background:var(--cyan);border:0;border-radius:10px;padding:10px 12px;cursor:pointer;box-shadow:0 6px 16px -8px rgba(242,196,109,.7);transition:background .2s,color .2s,transform .15s,filter .2s;text-wrap:balance}
+.addcart:hover{filter:brightness(1.07)}
+.addcart:active{transform:scale(.98)}
+.addcart.done{background:#33d17a;color:#05210f}
+.item.lista .buy{grid-column:3;grid-row:3;align-self:start;margin:0}
+.item.lista .addcart{background:#111;color:#fbfbf7;box-shadow:none}
+.item.lista .addcart:hover{filter:none;background:#2c2c2c}
+.item.lista .addcart.done{background:#15803d;color:#fff}
+.item.lista.whisky .art svg{width:auto;height:150px}
+.item.poster .buy{padding:0 10px}
+.cart{scroll-margin-top:24px;padding:20px 20px 16px;background:var(--panel);border:1px solid var(--line);border-radius:16px}
+.cart-empty{color:var(--muted);margin:4px 0 0;font-size:15px}
+.cart-list{list-style:none;margin:0;padding:0}
+.cart-row{display:grid;grid-template-columns:minmax(0,1fr);gap:10px;padding:14px 0;border-bottom:1px solid var(--line);align-items:center}
+.cart-row:last-child{border-bottom:0}
+@media (min-width:640px){ .cart-row{grid-template-columns:minmax(0,1fr) auto} }
+.cart-info{min-width:0}
+.cart-name{font:500 16px/1.3 "Space Grotesk",sans-serif;overflow-wrap:anywhere}
+.cart-cat{font:500 10px Orbitron,sans-serif;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-top:3px}
+.cart-ctrl{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.qty{display:inline-flex;align-items:center;gap:6px}
+.qty button,.cart-rm{width:32px;height:32px;display:inline-grid;place-items:center;border-radius:8px;border:1px solid var(--line);background:rgba(0,0,0,.3);color:var(--fg);font:700 16px Orbitron,sans-serif;cursor:pointer;padding:0}
+.qty button:hover,.cart-rm:hover{border-color:var(--cyan)}
+.qty output{min-width:28px;text-align:center;font:700 15px Orbitron,sans-serif;font-variant-numeric:tabular-nums}
+.cart-line{font:700 16px Orbitron,sans-serif;color:var(--lime);min-width:104px;text-align:right;font-variant-numeric:tabular-nums}
+.cart-line.empty{font:italic 400 14px "Space Grotesk",sans-serif;color:var(--muted)}
+.cart-rm{color:var(--muted);font-size:18px}
+.cart-foot{display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:14px;margin-top:18px;padding-top:18px;border-top:1px solid var(--line)}
+.cart-total-l{display:block;font:700 12px Orbitron,sans-serif;letter-spacing:.16em;text-transform:uppercase;color:var(--cyan)}
+.cart-total-v{display:block;font:900 26px Orbitron,sans-serif;color:var(--lime);font-variant-numeric:tabular-nums;margin-top:4px}
+.cart-note{font-size:13px;color:var(--muted);margin:4px 0 0}
+.btn.ghost{background:transparent;color:var(--fg);border:1px solid var(--line);box-shadow:none}
+.btn.ghost:hover{border-color:var(--cyan)}
+.addform{margin-top:40px;padding:18px;background:var(--panel);border:1px dashed var(--magenta);border-radius:16px;display:grid;gap:10px}
+.addform h2{font:700 15px Orbitron,sans-serif;letter-spacing:.16em;text-transform:uppercase;color:var(--magenta);margin:0}
+.addform .fields{display:grid;gap:8px;grid-template-columns:minmax(0,1fr)}
+.addform input,.addform select{font:400 16px "Space Grotesk",sans-serif;color:var(--fg);background:rgba(0,0,0,.4);border:1px solid var(--line);border-radius:8px;padding:10px 12px;box-sizing:border-box;width:100%;min-width:0}
+.empty-state{text-align:center;padding:44px 16px;color:var(--muted);border:1px dashed var(--line);border-radius:16px}
+.empty-state strong{display:block;color:var(--cyan);font:700 18px Orbitron,sans-serif;margin-bottom:6px}
+.foot{margin-top:48px;text-align:center;color:var(--muted);font:500 11px Orbitron,sans-serif;letter-spacing:.24em;text-transform:uppercase}
+@media (min-width:640px){
+  .bar{grid-template-columns:minmax(0,1fr) auto;align-items:center}
+  .addform .fields{grid-template-columns:minmax(0,2fr) minmax(0,1fr) minmax(0,1fr) auto}
+}
+@media (prefers-reduced-motion:reduce){ .scan{animation:none} .item{transition:none} h1{animation:none} }
+
+/* ---- finalizar pedido ---- */
+.cart-acts{display:flex;gap:10px;flex-wrap:wrap}
+.btn.pagar{background:#25d366;color:#05210f;box-shadow:0 0 18px rgba(37,211,102,.35)}
+.btn.pagar:disabled{opacity:.45;cursor:not-allowed;box-shadow:none}
+.checkout{scroll-margin-top:24px;padding:20px 20px 18px;background:var(--panel);border:1px solid var(--line);border-radius:16px}
+.ck-intro{color:var(--muted);margin:0 0 18px;font-size:14px}
+.ck-block{border:0;margin:0 0 22px;padding:0;min-width:0}
+.ck-block legend{font:700 13px Orbitron,sans-serif;letter-spacing:.12em;text-transform:uppercase;color:var(--fg);margin:0 0 4px;padding:0}
+.field{display:grid;gap:6px;font:500 14px "Space Grotesk",sans-serif;color:var(--muted);margin-top:12px}
+.field input,.field select{width:100%;min-width:0;box-sizing:border-box;font:400 16px "Space Grotesk",sans-serif;color:var(--fg);background:rgba(0,0,0,.35);border:1px solid var(--line);border-radius:10px;padding:12px 14px}
+.field select option{background:#2b1a10;color:var(--fg)}
+.ent-opts{display:grid;gap:10px;margin-top:12px}
+@media (min-width:640px){ .ent-opts{grid-template-columns:repeat(3,minmax(0,1fr))} }
+.ent-opt{position:relative;display:block;cursor:pointer;min-width:0}
+.ent-opt input,.banco input{position:absolute;opacity:0;pointer-events:none;width:1px;height:1px}
+.ent-opt span{display:grid;gap:4px;padding:14px;border:1px solid var(--line);border-radius:12px;background:rgba(0,0,0,.25);transition:border-color .2s,background .2s}
+.ent-opt b{font:700 14px "Space Grotesk",sans-serif;color:var(--fg)}
+.ent-opt small{font:700 13px Orbitron,sans-serif;color:var(--lime)}
+.ent-opt input:checked + span,.banco input:checked + span{border-color:var(--cyan);background:rgba(242,196,109,.14);box-shadow:0 0 0 1px var(--cyan) inset}
+.ent-opt input:focus-visible + span,.banco input:focus-visible + span{outline:2px solid var(--cyan);outline-offset:2px}
+.bancos{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin-top:12px}
+@media (min-width:640px){ .bancos{grid-template-columns:repeat(3,minmax(0,1fr))} }
+@media (min-width:960px){ .bancos{grid-template-columns:repeat(4,minmax(0,1fr))} }
+.banco{position:relative;cursor:pointer;min-width:0;display:block}
+.banco span{display:flex;align-items:center;gap:10px;min-width:0;padding:10px;border:1px solid var(--line);border-radius:12px;background:rgba(0,0,0,.25);transition:border-color .2s,background .2s}
+.banco img{width:40px;height:40px;flex:0 0 40px;border-radius:10px}
+.banco em{font:600 14px/1.2 "Space Grotesk",sans-serif;font-style:normal;color:var(--fg);overflow-wrap:anywhere;min-width:0}
+.resumo{margin-top:6px;padding:16px;border:1px solid var(--line);border-radius:12px;background:rgba(0,0,0,.2)}
+.resumo h3{font:700 13px Orbitron,sans-serif;letter-spacing:.12em;text-transform:uppercase;color:var(--cyan);margin:0 0 10px}
+.resumo-lista{list-style:none;margin:0;padding:0;display:grid;gap:6px}
+.resumo-lista li{display:flex;justify-content:space-between;gap:12px;font-size:14px;min-width:0}
+.resumo-lista li > span:first-child{overflow-wrap:anywhere;min-width:0}
+.resumo-lista li > span:last-child{white-space:nowrap;font-variant-numeric:tabular-nums;color:var(--lime)}
+.resumo-lista li.semp > span:last-child{color:var(--muted);font-style:italic}
+.resumo-soma{margin:12px 0 0;padding-top:12px;border-top:1px solid var(--line);display:grid;gap:6px}
+.resumo-soma > div{display:flex;justify-content:space-between;align-items:center;gap:12px;font-size:14px}
+.resumo-soma dt{color:var(--muted)}
+.resumo-soma dd{margin:0;font-variant-numeric:tabular-nums}
+.resumo-soma .rtotal dt{color:var(--cyan);font:700 12px Orbitron,sans-serif;letter-spacing:.12em;text-transform:uppercase}
+.resumo-soma .rtotal dd{font:900 22px Orbitron,sans-serif;color:var(--lime)}
+.pix{margin-top:14px;display:grid;gap:8px;justify-items:stretch}
+.pix textarea{width:100%;box-sizing:border-box;font:400 12px/1.4 ui-monospace,Menlo,monospace;color:var(--fg);background:rgba(0,0,0,.4);border:1px dashed var(--line);border-radius:8px;padding:10px;min-height:76px;resize:vertical}
+.pix-titular{margin:0;font-size:13px;color:var(--fg)}
+.pedidos-lista{list-style:none;margin:12px 0 0;padding:0;display:grid;gap:10px}
+.pedidos-lista li{padding:12px;border:1px solid var(--line);border-radius:12px;background:rgba(0,0,0,.25);display:grid;gap:6px;min-width:0}
+.pedidos-lista span{font-size:13px;color:var(--muted);overflow-wrap:anywhere}
+.pedidos-lista .pago{color:#7ee6a3}
+.pedidos-lista pre{white-space:pre-wrap;overflow-wrap:anywhere;font:400 12px/1.4 ui-monospace,Menlo,monospace;margin:8px 0 0;color:var(--fg)}
+.pix code{display:block;width:100%;box-sizing:border-box;font:400 12px/1.4 ui-monospace,Menlo,monospace;color:var(--fg);background:rgba(0,0,0,.4);border:1px dashed var(--line);border-radius:8px;padding:10px;overflow-wrap:anywhere;max-height:96px;overflow:auto}
+.pedido-erro{margin:14px 0 0;color:#ff8a7a;font-size:14px}
+.pedido-copy{display:block;width:100%;margin-top:10px;box-sizing:border-box;cursor:pointer}
+.pedido-txt{margin-top:12px;font-size:13px;color:var(--muted)}
+.pedido-txt summary{cursor:pointer;padding:6px 0}
+.pedido-txt textarea{width:100%;box-sizing:border-box;margin-top:8px;font:400 12px/1.4 ui-monospace,Menlo,monospace;color:var(--fg);background:rgba(0,0,0,.4);border:1px dashed var(--line);border-radius:8px;padding:10px;min-height:160px}
+.btn-enviar{display:block;margin-top:16px;text-align:center;text-decoration:none;font:700 14px Orbitron,sans-serif;letter-spacing:.06em;text-transform:uppercase;color:#05210f;background:#25d366;border-radius:12px;padding:15px 18px;box-shadow:0 0 22px rgba(37,211,102,.35)}
+.btn-enviar[aria-disabled="true"]{opacity:.5;box-shadow:none}
+.btn-enviar:focus-visible{outline:2px solid var(--cyan);outline-offset:3px}
+.ck-note{font-size:13px;color:var(--muted);margin:10px 0 0;text-align:center}
+.planilha-wrap{margin-top:12px;overflow-x:auto;-webkit-overflow-scrolling:touch;border:1px solid var(--line);border-radius:12px;background:rgba(0,0,0,.25)}
+.planilha{width:100%;min-width:720px;border-collapse:collapse;font-size:13px}
+.planilha th,.planilha td{padding:10px 12px;text-align:left;vertical-align:middle;border-bottom:1px solid var(--line);white-space:nowrap}
+.planilha th{font:700 11px Orbitron,sans-serif;letter-spacing:.1em;text-transform:uppercase;color:var(--cyan);background:rgba(0,0,0,.35)}
+.planilha td{color:var(--fg)}
+.planilha td.acoes{white-space:normal}
+.planilha tr.det td{white-space:normal;background:rgba(0,0,0,.25)}
+.planilha pre{white-space:pre-wrap;overflow-wrap:anywhere;font:400 12px/1.4 ui-monospace,Menlo,monospace;margin:0;color:var(--fg)}
+.planilha .pago{color:#7ee6a3;font-size:12px;display:inline-block;margin:0 6px 4px 0}
+.btn.verde{background:#25d366;color:#05210f;box-shadow:0 0 18px rgba(37,211,102,.35);font-size:11px;padding:9px 12px;margin:0 6px 4px 0;white-space:nowrap}
+.btn.verde:disabled{opacity:.5;cursor:default;box-shadow:none}
+.btn.mini{font-size:11px;padding:7px 10px;margin:0 6px 4px 0;white-space:nowrap;box-shadow:none}
+</style>
+
+<div class="wrap">
+  <div class="masthead"><div class="masthead-in">
+  <header class="hero">
+    <span class="tag">Pré-inauguração · Lista de preços</span>
+    <h1 id="titulo">Adega dos Brutos</h1>
+<script>
+(function(){
+  var h = document.getElementById('titulo');
+  if (!h) return;
+  var text = h.textContent;
+  h.textContent = '';
+  var letters = [];
+  for (var i = 0; i < text.length; i++) {
+    var ch = text.charAt(i);
+    if (ch === ' ') { h.appendChild(document.createTextNode(' ')); continue; }
+    var s = document.createElement('span');
+    s.textContent = ch;
+    h.appendChild(s);
+    letters.push(s);
+  }
+  var HEAD = '#2aa8ff';
+  var TRAIL = ['#ff4fa3', '#33d17a', '#ffe81f', '#ff8a1f', '#ff3b3b', '#b35cff', '#5b5bff'];
+  var n = letters.length, step = 0;
+  function paint() {
+    for (var k = 0; k < n; k++) {
+      var age = ((step - k) % n + n) % n;
+      letters[k].style.color = age === 0 ? HEAD : TRAIL[(age - 1) % TRAIL.length];
+    }
+  }
+  paint();
+  var still = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (!still) setInterval(function() { step = (step + 1) % n; paint(); }, 3000);
+})();
+</script>
+    <p class="sub">Bebidas geladas · Variedade extensa · Narguilé &amp; fumaça</p>
+    <div class="scan" aria-hidden="true"></div>
+    
+  </header>
+
+  <section class="bar" aria-label="Busca e filtros">
+    <input id="q" class="search" type="search" placeholder="Buscar item pelo nome" aria-label="Buscar item pelo nome">
+    <div id="editWrap" hidden>
+      <button id="editBtn" class="btn" type="button" aria-pressed="false">Editar catálogo</button>
+    </div>
+    <div id="chips" class="chips" style="grid-column:1/-1" role="group" aria-label="Categorias"></div>
+  </section>
+
+  <div class="toolbar">
+    <p id="status" class="status" role="status" aria-live="polite"></p>
+    <button id="cartBtn" class="btn" type="button">Carrinho vazio</button>
+  </div>
+
+  </div></div>
+
+  <main id="list"></main>
+
+  <section id="addWrap" class="addform" hidden aria-label="Adicionar item">
+    <h2>Adicionar item</h2>
+    <form id="addForm" class="fields">
+      <select id="addCat" aria-label="Categoria"></select>
+      <input id="addNome" type="text" placeholder="Nome do item" aria-label="Nome do item" required>
+      <input id="addPreco" type="text" inputmode="decimal" placeholder="Preço (ex.: 12,50)" aria-label="Preço por unidade">
+      <button class="btn" type="submit">Adicionar</button>
+    </form>
+  </section>
+
+  <section id="carrinho" class="group cart" aria-labelledby="cartTitle">
+    <h2 id="cartTitle">Seu carrinho</h2>
+    <p id="cartEmpty" class="cart-empty">Nenhum item ainda. Toque em “Adicionar ao carrinho” em qualquer bebida.</p>
+    <ul id="cartList" class="cart-list"></ul>
+    <div id="cartFoot" class="cart-foot" hidden>
+      <div>
+        <span class="cart-total-l">Total</span>
+        <strong id="cartSum" class="cart-total-v">R$ 0,00</strong>
+        <p id="cartNote" class="cart-note"></p>
+      </div>
+      <div class="cart-acts">
+        <button id="cartClear" class="btn ghost" type="button">Limpar carrinho</button>
+        <button id="pagarBtn" class="btn pagar" type="button">Pagar</button>
+      </div>
+    </div>
+  </section>
+
+  <section id="pagar" class="group checkout" aria-labelledby="pagarTitle" hidden>
+    <h2 id="pagarTitle">Finalizar pedido</h2>
+    <p class="ck-intro">Preencha os dados, escolha o banco e toque em “Enviar pedido pelo WhatsApp”. O pedido abre no seu WhatsApp, pronto para você pagar e encaminhar.</p>
+
+    <form id="pedidoForm" novalidate>
+      <fieldset class="ck-block">
+        <legend>1. Seu nome</legend>
+        <label class="field">Nome e sobrenome
+          <input id="pNome" type="text" autocomplete="name" placeholder="Ex.: Maria Silva">
+        </label>
+        <label class="field">Seu WhatsApp (com DDD)
+          <input id="pZap" type="tel" inputmode="tel" autocomplete="tel" placeholder="Ex.: (11) 99999-9999">
+        </label>
+      </fieldset>
+
+      <fieldset class="ck-block">
+        <legend>2. Como quer receber</legend>
+        <div class="ent-opts">
+          <label class="ent-opt"><input type="radio" name="entrega" value="mesa"><span><b>Na mesa</b><small>R$ 1,00</small></span></label>
+          <label class="ent-opt"><input type="radio" name="entrega" value="domicilio"><span><b>Entrega a domicílio</b><small>R$ 7,00</small></span></label>
+          <label class="ent-opt"><input type="radio" name="entrega" value="rua"><span><b>Na rua, área de fora</b><small>R$ 5,00</small></span></label>
+          <label class="ent-opt"><input type="radio" name="entrega" value="caixa"><span><b>Receber no caixa</b><small>R$ 0,00</small></span></label>
+        </div>
+
+        <div id="entMesa" class="ent-det" hidden>
+          <label class="field">Número da mesa
+            <select id="pMesa"><option value="">Escolha a mesa</option></select>
+          </label>
+        </div>
+        <div id="entDom" class="ent-det" hidden>
+          <label class="field">Rua e número
+            <input id="pRua" type="text" placeholder="Ex.: Rua das Flores, 123">
+          </label>
+        </div>
+        <div id="entRua" class="ent-det" hidden>
+          <label class="field">Você está
+            <select id="pLadoRua">
+              <option value="">Escolha</option>
+              <option value="deste lado da rua">Deste lado da rua</option>
+              <option value="do outro lado da rua">Do outro lado da rua</option>
+            </select>
+          </label>
+          <label class="field">Lado
+            <select id="pLado">
+              <option value="">Escolha</option>
+              <option value="lado direito">Lado direito</option>
+              <option value="lado esquerdo">Lado esquerdo</option>
+            </select>
+          </label>
+          <label class="field">Ponto de referência (opcional)
+            <input id="pRef" type="text" placeholder="Ex.: perto do portão azul">
+          </label>
+        </div>
+      </fieldset>
+
+      <fieldset class="ck-block">
+        <legend>3. Qual banco você usa</legend>
+        <div id="bancos" class="bancos"></div>
+      </fieldset>
+
+      <div class="resumo">
+        <h3>Resumo do pedido</h3>
+        <ul id="resumoLista" class="resumo-lista"></ul>
+        <dl class="resumo-soma">
+          <div><dt>Itens</dt><dd id="rSub">R$ 0,00</dd></div>
+          <div><dt>Entrega</dt><dd id="rTaxa">escolha acima</dd></div>
+          <div class="rtotal"><dt>Total</dt><dd id="rTotal">R$ 0,00</dd></div>
+        </dl>
+        <p id="rNote" class="cart-note"></p>
+      </div>
+
+      <div id="pixBox" class="pix">
+        <span class="cart-total-l">Pagamento por Pix</span>
+        <p id="pixTitular" class="pix-titular"></p>
+        <p id="pixNote" class="ck-note"></p>
+      </div>
+
+      <p id="pErro" class="pedido-erro" role="alert" hidden></p>
+      <a id="enviarBtn" class="btn-enviar" href="#" target="_blank" rel="noopener" aria-disabled="true">Enviar pedido pelo WhatsApp</a>
+      <button id="pedidoCopy" class="btn ghost pedido-copy" type="button">Copiar pedido</button>
+      <details class="pedido-txt">
+        <summary>Ver texto do pedido</summary>
+        <textarea id="pedidoTxt" readonly rows="10"></textarea>
+      </details>
+      <p class="ck-note">O pedido abre no seu WhatsApp. Pague pelo Pix com o número que aparece no pedido e, depois, encaminhe a mensagem e o comprovante do pagamento para a Adega no WhatsApp <b>(11) 92619-0514</b>. Se o WhatsApp não abrir, toque em Copiar pedido e cole na conversa com você mesmo.</p>
+    </form>
+  </section>
+
+  <section id="pedidosWrap" class="group checkout" aria-labelledby="pedidosTitle" hidden>
+    <h2 id="pedidosTitle">Clientes e pedidos (só o dono vê)</h2>
+    <p id="pedidosStatus" class="ck-note"></p>
+    <div class="planilha-wrap">
+      <table class="planilha">
+        <thead><tr><th>Nº</th><th>Nome e sobrenome</th><th>WhatsApp</th><th>Banco</th><th>Total</th><th>Data</th><th>Situação</th></tr></thead>
+        <tbody id="pedidosLista"></tbody>
+      </table>
+    </div>
+  </section>
+
+  <p class="foot">Adega dos Brutos · 2026</p>
+</div>
+
+<script>
+(function(){
+  var CATS = ["Whiskies","Destilados","Cachaças e vinhos","Energéticos","Cervejas","Bebidas mistas","Refrigerantes e sucos","Doces e salgadinhos","Cigarros e acessórios","Descartáveis","Chope"];
+  var state = { items: [], cat: "Todas", q: "", edit: false, canEdit: false, loaded: false };
+  var db = null;
+  var CART_KEY = "adega-carrinho";
+  var $ = function(id){ return document.getElementById(id); };
+  var uid = 0;
+  var CART = loadCart();
+
+  // [padrão do nome, cor do corpo, cor do rótulo, cor da tinta]
+  var BRANDS = [
+    [/coca/i,                       "#c8102e", "#f5f1e8", "#c8102e"],
+    [/guaran/i,                     "#16a34a", "#f5f1e8", "#166534"],
+    [/fanta uva/i,                  "#8b3fd6", "#f5f1e8", "#6b21a8"],
+    [/laranja|laranjinha/i,         "#ff8a1f", "#fff6e5", "#c2410c"],
+    [/sprite|lim[ãa]o/i,            "#7ddc3c", "#fbffe0", "#2f7a1f"],
+    [/red bull/i,                   "#1d4ed8", "#ffd23f", "#1d4ed8"],
+    [/jack power/i,                 "#22c55e", "#e8fff0", "#166534"],
+    [/monster/i,                    "#0f2a14", "#b6ff3b", "#0f2a14"],
+    [/heineken/i,                   "#15803d", "#f1f5f0", "#15803d"],
+    [/corona/i,                     "#fde047", "#1d4ed8", "#1d4ed8"],
+    [/stella/i,                     "#166534", "#f5f1e8", "#166534"],
+    [/bud/i,                        "#f5c542", "#b91c1c", "#b91c1c"],
+    [/brahma/i,                     "#dc2626", "#fff5f5", "#dc2626"],
+    [/skol/i,                       "#fde047", "#1e3a8a", "#1e3a8a"],
+    [/amstel/i,                     "#e0b25a", "#1e3a8a", "#1e3a8a"],
+    [/itaipava/i,                   "#2563eb", "#f5f1e8", "#1e40af"],
+    [/ant[aá]rctica|imp[ée]rio/i,   "#1e4fbf", "#f5f1e8", "#1e40af"],
+    [/petra|kaiser/i,               "#166b3f", "#f5f1e8", "#166b3f"],
+    [/smirnoff|tabu|vodka/i,        "#bfe6ff", "#1e3a8a", "#1e3a8a"],
+    [/johnnie|black label|red label/i, "#111111", "#ffd166", "#111111"],
+    [/jack/i,                       "#1a1a1a", "#ffd166", "#1a1a1a"],
+    [/ballantine|chivas|old parr|buchanan|white horse|cavalo/i, "#8a4b12", "#f5e6c8", "#8a4b12"],
+    [/cuervo|jimador|tequila/i,     "#e7c15a", "#1b120c", "#7a5a10"],
+    [/campari/i,                    "#dc2643", "#fbe9ee", "#dc2643"],
+    [/chandon/i,                    "#f7eab0", "#8a7020", "#8a7020"],
+    [/limoncello/i,                 "#facc15", "#fffbe0", "#8a7000"],
+    [/51/i,                         "#2563eb", "#f5f1e8", "#1e40af"]
+  ];
+  var CAT_COLOR = {
+    "Whiskies": ["#8a4b12","#ffd166","#8a4b12"],
+    "Destilados": ["#5b3a1e","#f7ead2","#3b2415"],
+    "Cachaças e vinhos":    ["#7c4d1a","#f5e6c8","#7c4d1a"],
+    "Energéticos":          ["#14532d","#b6ff3b","#14532d"],
+    "Cervejas":             ["#d4a017","#1b120c","#7a5a10"],
+    "Bebidas mistas":       ["#be185d","#fdf2f8","#9d174d"],
+    "Refrigerantes e sucos":["#1d4ed8","#e0f2fe","#1e40af"],
+    "Doces e salgadinhos":  ["#ea580c","#fff7ed","#c2410c"],
+    "Cigarros e acessórios":["#1e293b","#00e5ff","#00e5ff"],
+    "Descartáveis":         ["#e2e8f0","#1e293b","#1e293b"],
+    "Chope":                ["#c08a3e","#1b120c","#7a5a10"]
+  };
+
+  function esc(s){ return String(s).replace(/[&<>"']/g, function(ch){ return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[ch]; }); }
+
+  function paletteFor(item){
+    var name = String(item.nome || "");
+    if (item.categoria !== "Cigarros e acessórios") {
+      for (var i = 0; i < BRANDS.length; i++) {
+        if (BRANDS[i][0].test(name)) return { b: BRANDS[i][1], l: BRANDS[i][2], k: BRANDS[i][3] };
+      }
+    }
+    var c = CAT_COLOR[item.categoria] || ["#334155","#e2e8f0","#1e293b"];
+    return { b: c[0], l: c[1], k: c[2] };
+  }
+
+  function shortLabel(name){
+    var s = String(name || "").split(/[ (\/,]/)[0].toUpperCase();
+    return s.length > 9 ? s.slice(0, 9) : s;
+  }
+
+  function kindFor(item){
+    var n = String(item.nome || "");
+    var c = item.categoria;
+    if (c === "Chope") return /torre|aluguel/i.test(n) ? "tower" : "barrel";
+    if (c === "Descartáveis") return /balde/i.test(n) ? "bucket" : "cup";
+    if (c === "Cigarros e acessórios") return /isqueiro|f[óo]sforo|seda|pacotinho/i.test(n) ? "small" : "pack";
+    if (c === "Doces e salgadinhos") return "bag";
+    if (/lata/i.test(n)) return "can";
+    if (/long neck/i.test(n)) return "longneck";
+    return "bottle";
+  }
+
+  // Gradiente metálico/vidro: clareia no centro, escurece nas bordas.
+  function grad(c){
+    var id = "g" + (++uid);
+    return {
+      id: id,
+      defs: '<linearGradient id="'+id+'" x1="0" x2="1" y1="0" y2="0">'
+        + '<stop offset="0" stop-color="#000" stop-opacity=".45"/>'
+        + '<stop offset=".28" stop-color="#fff" stop-opacity=".28"/>'
+        + '<stop offset=".5" stop-color="'+c+'"/>'
+        + '<stop offset=".85" stop-color="#000" stop-opacity=".35"/>'
+        + '<stop offset="1" stop-color="#000" stop-opacity=".55"/>'
+        + '</linearGradient>',
+      fill: "url(#"+id+")"
+    };
+  }
+
+  function artSVG(item){
+    var p = paletteFor(item), kind = kindFor(item), t = shortLabel(item.nome);
+    var B = grad(p.b), L = grad(p.l);
+    var defs = "<defs>" + B.defs + L.defs + "</defs>";
+    var shadow = '<ellipse cx="60" cy="133" rx="34" ry="4" fill="#000" opacity=".5"/>';
+    var lbl = function(x,y,size,fill){ return '<text x="'+x+'" y="'+y+'" text-anchor="middle" font-family="Orbitron,Arial,sans-serif" font-weight="700" font-size="'+size+'" letter-spacing="1" fill="'+fill+'">'+esc(t)+'</text>'; };
+    var g = "";
+    if (kind === "can") {
+      g = '<rect x="36" y="16" width="48" height="112" rx="7" fill="'+B.fill+'"/>'
+        + '<ellipse cx="60" cy="18" rx="24" ry="5" fill="#dfe6ee"/>'
+        + '<rect x="36" y="46" width="48" height="46" fill="'+L.fill+'"/>'
+        + lbl(60, 73, 10, p.k);
+    } else if (kind === "bottle") {
+      g = '<rect x="54" y="6" width="12" height="30" rx="3" fill="'+B.fill+'"/>'
+        + '<path d="M54 34 Q40 42 40 62 L40 122 Q40 128 46 128 L74 128 Q80 128 80 122 L80 62 Q80 42 66 34Z" fill="'+B.fill+'"/>'
+        + '<rect x="40" y="72" width="40" height="36" fill="'+L.fill+'"/>'
+        + '<text x="60" y="95" text-anchor="middle" font-family="Orbitron,Arial,sans-serif" font-weight="700" font-size="9" fill="'+p.k+'" textLength="32" lengthAdjust="spacingAndGlyphs">'+esc(t)+'</text>';
+    } else if (kind === "longneck") {
+      g = '<rect x="57" y="4" width="6" height="40" rx="2" fill="'+B.fill+'"/>'
+        + '<path d="M57 42 Q46 48 46 66 L46 122 Q46 128 52 128 L68 128 Q74 128 74 122 L74 66 Q74 48 63 42Z" fill="'+B.fill+'"/>'
+        + '<rect x="46" y="76" width="28" height="30" fill="'+L.fill+'"/>'
+        + lbl(60, 94, 8, p.k);
+    } else if (kind === "cup") {
+      g = '<path d="M32 24 L88 24 L80 128 Q80 130 78 130 L42 130 Q40 130 40 128 Z" fill="'+B.fill+'"/>'
+        + '<rect x="30" y="16" width="60" height="9" rx="3" fill="#f4f6fa"/>'
+        + '<rect x="37" y="70" width="46" height="20" fill="'+L.fill+'"/>'
+        + lbl(60, 85, 9, p.k);
+    } else if (kind === "bucket") {
+      g = '<path d="M34 38 L86 38 L80 128 L40 128 Z" fill="'+B.fill+'"/>'
+        + '<rect x="30" y="30" width="60" height="9" rx="3" fill="#cfd8e3"/>'
+        + '<path d="M36 32 Q60 6 84 32" stroke="#9aa8b8" stroke-width="4" fill="none"/>'
+        + '<rect x="40" y="70" width="40" height="22" fill="'+L.fill+'"/>'
+        + lbl(60, 86, 8, p.k);
+    } else if (kind === "pack") {
+      g = '<rect x="30" y="20" width="60" height="110" rx="4" fill="'+B.fill+'"/>'
+        + '<rect x="30" y="20" width="60" height="22" rx="4" fill="'+L.fill+'"/>'
+        + '<rect x="30" y="108" width="60" height="6" fill="#000" opacity=".3"/>'
+        + lbl(60, 86, 10, p.l)
+        + '<text x="60" y="122" text-anchor="middle" font-family="Orbitron,Arial,sans-serif" font-size="7" fill="'+p.l+'" letter-spacing="2">CIGARROS</text>';
+    } else if (kind === "small") {
+      g = '<rect x="36" y="42" width="48" height="60" rx="6" fill="'+B.fill+'"/>'
+        + '<rect x="36" y="42" width="48" height="14" rx="4" fill="'+L.fill+'"/>'
+        + lbl(60, 92, 8, p.l);
+    } else if (kind === "bag") {
+      g = '<path d="M30 30 L40 24 L50 30 L60 24 L70 30 L80 24 L90 30 L90 124 L80 130 L70 124 L60 130 L50 124 L40 130 L30 124 Z" fill="'+B.fill+'"/>'
+        + '<rect x="38" y="60" width="44" height="34" fill="'+L.fill+'"/>'
+        + lbl(60, 80, 9, p.k);
+    } else if (kind === "barrel") {
+      g = '<ellipse cx="60" cy="38" rx="34" ry="8" fill="#e9d3a4"/>'
+        + '<rect x="26" y="38" width="68" height="84" fill="'+B.fill+'"/>'
+        + '<rect x="26" y="60" width="68" height="4" fill="#000" opacity=".5"/>'
+        + '<rect x="26" y="102" width="68" height="4" fill="#000" opacity=".5"/>'
+        + '<ellipse cx="60" cy="122" rx="34" ry="6" fill="#000" opacity=".35"/>'
+        + lbl(60, 86, 9, p.k);
+    } else if (kind === "tower") {
+      g = '<rect x="55" y="22" width="10" height="92" fill="#cfd8e3"/>'
+        + '<rect x="44" y="12" width="32" height="12" rx="3" fill="'+B.fill+'"/>'
+        + '<rect x="48" y="44" width="24" height="6" fill="'+B.fill+'"/>'
+        + '<rect x="48" y="62" width="24" height="6" fill="'+B.fill+'"/>'
+        + '<rect x="48" y="80" width="24" height="6" fill="'+B.fill+'"/>'
+        + '<rect x="34" y="114" width="52" height="10" rx="2" fill="#374151"/>';
+    } else {
+      g = '<rect x="54" y="6" width="12" height="30" rx="3" fill="'+B.fill+'"/>'
+        + '<path d="M54 34 Q40 42 40 62 L40 122 Q40 128 46 128 L74 128 Q80 128 80 122 L80 62 Q80 42 66 34Z" fill="'+B.fill+'"/>'
+        + '<rect x="40" y="72" width="40" height="36" fill="'+L.fill+'"/>'
+        + lbl(60, 95, 9, p.k);
+    }
+    return '<svg viewBox="0 0 120 140" role="img" aria-hidden="true" focusable="false">' + defs + shadow + g + '</svg>';
+  }
+
+  function pad3(n){ n = Number(n) || 0; return (n < 10 ? "00" : n < 100 ? "0" : "") + n; }
+
+  function setStatus(msg){ $("status").textContent = msg || ""; }
+
+  function fmt(n){
+    if (n === null || n === undefined || n === "" || isNaN(Number(n))) return null;
+    return Number(n).toLocaleString("pt-BR", { style: "currency", currency: "BRL" });
+  }
+
+  function parsePreco(txt){
+    var t = String(txt).trim();
+    if (t === "") return { ok: true, value: null };
+    var n = Number(t.replace(/\./g, "").replace(",", "."));
+    if (!isFinite(n) || n < 0) return { ok: false };
+    return { ok: true, value: Math.round(n * 100) / 100 };
+  }
+
+  function buildChips(){
+    var box = $("chips");
+    box.textContent = "";
+    ["Todas"].concat(CATS).forEach(function(c){
+      var b = document.createElement("button");
+      b.type = "button";
+      b.className = "chip";
+      b.textContent = c;
+      b.setAttribute("aria-pressed", String(state.cat === c));
+      b.addEventListener("click", function(){ state.cat = c; render(); });
+      box.appendChild(b);
+    });
+    var sel = $("addCat");
+    sel.textContent = "";
+    CATS.forEach(function(c){
+      var o = document.createElement("option");
+      o.value = c; o.textContent = c;
+      sel.appendChild(o);
+    });
+  }
+
+  function save(item, patch, msg){
+    setStatus("Salvando…");
+    db.collection("itens").doc(item.id).update(patch).then(function(){
+      setStatus(msg || "Salvo.");
+    }).catch(function(){
+      setStatus("Não foi possível salvar. Tente de novo.");
+    });
+  }
+
+  // Carrinho: guarda só o código do item e a quantidade (por visitante, no próprio navegador).
+  function loadCart(){
+    try {
+      var o = JSON.parse(localStorage.getItem(CART_KEY) || "{}");
+      return (o && typeof o === "object" && !Array.isArray(o)) ? o : {};
+    } catch(e) { return {}; }
+  }
+  function saveCart(){
+    try { localStorage.setItem(CART_KEY, JSON.stringify(CART)); } catch(e) {}
+  }
+  function addToCart(id){ CART[id] = (CART[id] || 0) + 1; saveCart(); renderCart(); }
+  function changeQty(id, d){
+    var n = (CART[id] || 0) + d;
+    if (n <= 0) delete CART[id]; else CART[id] = n;
+    saveCart(); renderCart();
+  }
+  function removeFromCart(id){ delete CART[id]; saveCart(); renderCart(); }
+  function cartLines(){
+    var out = [];
+    Object.keys(CART).forEach(function(id){
+      var it = null;
+      for (var i = 0; i < state.items.length; i++) { if (state.items[i].id === id) { it = state.items[i]; break; } }
+      if (it) { if (CART[id] > 0) out.push({ item: it, qtd: CART[id] }); }
+      else if (state.loaded) { delete CART[id]; saveCart(); }
+    });
+    return out;
+  }
+  function lineTotal(l){
+    var v = l.item.preco;
+    if (v === null || v === undefined || v === "" || isNaN(Number(v))) return null;
+    return Number(v) * l.qtd;
+  }
+  function renderCart(){
+    var lines = cartLines();
+    var list = $("cartList");
+    list.textContent = "";
+    var count = 0, sum = 0, semPreco = 0;
+    lines.forEach(function(l){
+      var t = lineTotal(l);
+      var id = l.item.id, nome = l.item.nome || "";
+      count += l.qtd;
+      if (t === null) semPreco++; else sum += t;
+
+      var li = document.createElement("li");
+      li.className = "cart-row";
+      var info = document.createElement("div");
+      info.className = "cart-info";
+      var nm = document.createElement("div");
+      nm.className = "cart-name";
+      nm.textContent = nome;
+      var ct = document.createElement("div");
+      ct.className = "cart-cat";
+      ct.textContent = l.item.categoria || "";
+      info.appendChild(nm);
+      info.appendChild(ct);
+
+      var ctrl = document.createElement("div");
+      ctrl.className = "cart-ctrl";
+      var qty = document.createElement("div");
+      qty.className = "qty";
+      var minus = document.createElement("button");
+      minus.type = "button";
+      minus.textContent = "−";
+      minus.setAttribute("aria-label", "Diminuir quantidade de " + nome);
+      var qtyOut = document.createElement("output");
+      qtyOut.textContent = String(l.qtd);
+      var plus = document.createElement("button");
+      plus.type = "button";
+      plus.textContent = "+";
+      plus.setAttribute("aria-label", "Aumentar quantidade de " + nome);
+      minus.addEventListener("click", function(){ changeQty(id, -1); });
+      plus.addEventListener("click", function(){ changeQty(id, 1); });
+      qty.appendChild(minus);
+      qty.appendChild(qtyOut);
+      qty.appendChild(plus);
+
+      var line = document.createElement("div");
+      line.className = "cart-line" + (t === null ? " empty" : "");
+      line.textContent = t === null ? "a confirmar" : fmt(t);
+
+      var rm = document.createElement("button");
+      rm.type = "button";
+      rm.className = "cart-rm";
+      rm.textContent = "×";
+      rm.setAttribute("aria-label", "Remover " + nome + " do carrinho");
+      rm.addEventListener("click", function(){ removeFromCart(id); });
+
+      ctrl.appendChild(qty);
+      ctrl.appendChild(line);
+      ctrl.appendChild(rm);
+      li.appendChild(info);
+      li.appendChild(ctrl);
+      list.appendChild(li);
+    });
+
+    var has = lines.length > 0;
+    $("cartEmpty").hidden = has;
+    $("cartFoot").hidden = !has;
+    $("cartSum").textContent = fmt(sum);
+    $("cartNote").textContent = semPreco
+      ? (semPreco === 1 ? "1 item está sem preço definido e não entra no total." : semPreco + " itens estão sem preço definido e não entram no total.")
+      : "";
+    $("cartBtn").textContent = count
+      ? "Carrinho · " + count + (count === 1 ? " item" : " itens") + " · " + fmt(sum)
+      : "Carrinho vazio";
+    $("pagarBtn").disabled = !has;
+    if (!$("pagar").hidden) renderPedido();
+  }
+
+  // ---------- finalizar pedido ----------
+  var PIX_CHAVE = "+5511958910339";   // chave Pix (celular)
+  var PIX_NOME = "Walter Henrique de Lima";   // nome no código Pix (máximo 25 letras, sem acento)
+  var PIX_TITULAR = "Walter Henrique de Lima Júnior"; // nome completo do dono, mostrado na página e na mensagem
+  var PIX_BANCO = "PicPay";
+  var codigoPedido = "";
+  var uidCliente = null;
+  var PIX_CIDADE = "Embu das Artes";  // cidade do titular
+  var TAXA = { mesa: 1, domicilio: 7, rua: 5, caixa: 0 };
+  var BANCOS = [{"n":"Nubank","u":"https://play.google.com/store/apps/details?id=com.nu.production","img":"data:image/webp;base64,UklGRjwEAABXRUJQVlA4IDAEAABQGACdASpYAFgAPikSiEKhoSEU7FxQGAKEoAzqQm/H3wdx/4B+n/5b8pP6r2nvFV/ufVF8wH66erV6OfQA/V/rO/QK/Zn00PZb/an9qvZ01WuNf66ZTj8J+Q4UbgKafnoiOyIegU3Xf7OYFaw16BpxMMfHm9Ff8DZFa4U0cvogI0eAsuRNYvRd4ZXCNyDwyIBKij1bQh3ymy0qJnM1aIwZqYC1R78v0ci2el4wgPdl6anEzaLpW3WQAzF+cf2l7mWlYHwjwZcOb80TAAD+//8xDeaTiqEOaPsqygYzLTjSzXw0IHWTOpuLD+HrRqlPvfhE+T2AI+YDyC23/bJwjE1R6oDaJCZ0ivbirNdOb+F1295Mkg8M6JTktULg2vX22WgYf4KQ5GQgdwuuNV2fUtKSF5Csb7jAuu+T0qzucFrWDF4duAf1lQJqx6be39x4zdT/51l/KC3ssNQ6uoOJU5WG9tUUhkWzRGHIxw6/P8gs2kCQ/nQImO3oV24ZwzgpsD0dv/jhhAP1TCk7G1qU8ZTmdXpdh9J4SEwwV6Ns3YAig0MgWffCcAIfX3gBD2MO7/9iHjPh+OxmMMh9uggBPqf8n8rL/DX1vj5kmXKYifGRpbBQdsl15S5Fbuxmd2G0c+T6is4Q8OF4A9wGawLFDnQJc4FzpgxYkNhefjIFtuWayWw3xuUFuhlvspbq5EKPA5Eu0tHZxS/JH8/Yj+M5pplSjYhnTyxtf8HJc++u2f//g7v8yAD/3R3l7blJcvkmKrk7LiWmb3sX4z6v+lXR2Jl6bgmZA4Qw24vQ5P+yGHm5zqcn35gY8rNr0Eqf729gabZ+l76yPdVTLh6vcrPQVRMbqxlmeleTNSoV8yEPMa90u6VjZ1d6LfNpV70/WjdjDvI8sb5mf3QYkKtWYVHAWztCq3T6zdz9QjSq34z2X1hrQa129+ZLQp39o4oXySwjL00ld/X72i1TEJUhKGm5z0XT/QeqCQAF+6NOMo5AF4jtxTr2K70owIePitHLT2X7msMlGwSZchme9Rey4YuR6A+JFI+cLG0REPlbYAfGidsrMXHBud7AX5AvgV0sBFWnYaxFRof9eRGopUmI91jZMxNxVQc2yY3Df52ANi7YNsLyTyipwjCvOFsrGVlk7lZYMn0JzFreERqa1gZeBnxn2TeM18M/po4jdqe/FGvtOX+s/DleVsVaeOoWjbfYj6P/Q+GO0nSqOFPqthKfG2/R2b/GciMw+y5V3RnDrDT9acfqYU+e6O0PvZQG9saXZa+Rznncw4aoB+hp41Xx7wtXee+Ic8bEA9gLMGS0Rrhqd8IK9eSWP4HmZOe9JWlaYlIOGeypd6XA5t27GmTwlOWl6M8AlLIONamrWRqTSaEHJCDRCmEBE1jmGgGwG6KKa6RHIv+dAEkIUTdPRR0qBy6fwAAA"},{"n":"Banco Inter","u":"https://play.google.com/store/apps/details?id=br.com.intermedium","img":"data:image/webp;base64,UklGRsYCAABXRUJQVlA4ILoCAAAQEwCdASpYAFgAPikUiEMhoSERzARAGAKEsoBovwCfJ/reSMFO6f2Z/ID5C+iH8vbyDzAfrB+mfu8f5bojut59AD9YOtU/bz0cP/oA+hCmXxuJl+OsF6/49EpnDlBgsiIMTUZqUGw1Nzoxc6pkKi7mivveVQgAFIidA4pJfZFOzGhXuDTEOwu6ixpzr57btOcexYoNNbTJ3/1OVuGa2UpUAAD+//5iEVU7txaoqwzudMn+WouDrCn++QIC3cI6CNzcx8bzNR9Cq2uBYoB0sG4xd6ep/zb333QYWfPNUNDgSk1JEKxP5PaXhqJN+sD+mxi2bQrZ7nRFxVdwon4bR8JpN9TlhJcXTsnEuUJZ00vNAqTLkCesitKiOxdBnC3hze6n60S2fp0LU1pw0kBaCwDrf2Tvqdg1rFUkwVH9yZ30bPLH/PDLrzRJDDDKkNuU60d1JRvk3RZftaVHHI136Yv+MblsGyHxb//EJ0QyGicmz9/Z858vVx/GW7pCdgmdiv/m2fuSEM/8Tg5hHdi8flhgD7qBW/F/+iWWVb69Z+T8B05jdaj3uB3PiMrm4pp/2yL/MeXBLrQaFhpjdj9hH4B4BPqtm6m2rh2Fm8CcJyoxpmywrKheC6Apm6rLsL++ezGThV1a/qaEdr8pVwnvQy6IJ5ZOtJPJQLgGYLa/0rk9p5r9OhwwMlbp4j9lhAhk0g0Yay3BCaPA8pdzWNcgQZitlBpEb0/BhCPqV4u/atAh0IcLgXYDLB1/TFSj2qW3zJMXpMSxF2vHAEYofG8gWHZeyIlDiO0P0fdw5Lab0KmHjMsMSvtrzTA1E85JQFws9gcpDzkZS12K11iC2K/0Tp/3fXLmbGXINDElkm0YhVAg38Y62NEKzTS9mhOSxDkoD1CqMVuR8vWwQVxveDVEeN7BBlboQkZWAAAAAA=="},{"n":"C6 Bank","u":"https://play.google.com/store/apps/details?id=com.c6bank.app","img":"data:image/webp;base64,UklGRhIDAABXRUJQVlA4IAYDAADwFACdASpYAFgAPikUiEMhoSERzARgGAKEtIBqH6tLsNtnzAH6q6wB+s3sAdKXLZfxZyhL4D8ac/Z+RGWlezM4/7r30r/yVEIoqMCgNMCiUq5mlvT2T8oVKDnnr9kOVgZdi1SRAeVk/KeFBUSi1S8Y7bQqpdjAi4aIw87FvPrfPm8iXLf24iIDNHzR5fCRjDeeq0wCUazuQeDtABa1ab+7lw7LQOVdLkdFBphRrLEOwAD+//5iNX7958l7s0Q2ZuJLp65jb6iVAjYKTFXlvYFAknn6BejOYPQCznXtFGRqpROoXHH75/vzP6UPeXnDnBSxoGEwrsZqKNN54yEBnrdtWqf0xAoAQ8R8M6dMBlOFpzUZrZd2fn7mz6grv8xCTfbGMEP+0YpmhU+b7giHmCP766dhyLgms7E3xcHG/gWP40+jm0PfpumaThxHf7/D0xu33JFzPjmJUtOFZLg5x8vTyGX+GnL74o9O13KROQsskXTn/c2Y/uEl4l8fLUutYH9ODVw/jt/yWU37oAhDagEIDYVVDqyTmCuKFpTJfy5d5nSPQKtU8r+5CZxRtQ8xR2h5AkpZ22xPrk6z42fokgnDfjEC53Ani6ue3aSaw43ZRw1diETPZbhPSVqVvNYY664ECT/fBkuXvv00LxejT9Fl6F/V9xt91J1t/qqNt0xv7EtKdy26F9gMXYNA0bfFxBNAC86KsjYG7G+AxDNlhEg7AvjOG//4yTsWtBnkrNPtMN9cLHAKVrOHkvOcqpPGVE84PMCba2hQRTvTFiFiDIvE0ba5QCDAK0SJb6j8S5lhT9hPsyB2Yf2LLJr8SgeHMuLj7OuxPBjlTgjnnlWcw519hyNJs1aIj5GSuaRM9v5AN7xGE3V8519cxy6v16jjOkoObZRLZQftE0eAt6/miqmdpyaqR+mqRe6VDYVp4f4OIRuX4FuvIceoYVPdpA9a6yJ+D3SxRRVs4QhFiEuIXjb8Wrpyf7+H5GlLcgnERNm5kZ9u01rzQnwtsLPTJfAhjwLUAAAAAAA="},{"n":"PicPay","u":"https://play.google.com/store/apps/details?id=com.picpay","img":"data:image/webp;base64,UklGRgoEAABXRUJQVlA4IP4DAAAwFwCdASpYAFgAPikSiEKhoSETnfxsGAKEoAwn5AXx6U/mN95j9vWLQHY18SPpkeYD9Wf1j93n/D+q78ZvcA/ZXrTvQb/Zn03fZk/cr0ev/prJwI0IFIkciDiN5bIefAZA80s9TD8yJPwuq6tTA20EpPzSrp8vN5POlfoUWkXLMXln2n7hqJ61gryvzttUw6sM/m7imIp1b7h+zWVt91SlB8Ey6Rx/PqXUzlzAiQPDheSXYJ8NXDLh+U1PYIK5s62zAAD+//8xC50RePKd9vIaCJlxdbSyRVmcqMqsJtp4Fc/2otYCeQCWmsQt6KBQDd1h9UZHGwjzmJAxQx7xYQESwxQ+UVdSZoAYjx2z3vVuU37/89xsOGTwrmBuQ0V/Rgzt6yMDo/HrC4lp4vGJoba/qSr0zZ8zuRKW44ENm6diWwyEPrn4I+Z3r3P4ZOSP3+T/8OWf0302PPI5i7bvS+WEXCwOhTQOSeEZWz4TOFRdFrDbie10JlcICbNjem12uPl5LZ4z9lPBxodYNeWWzPHD8YYTMPz/jZW6k+Kx/98bx22zW5C+cGWlWgc2X9rw8UNrXfM56nwtYStDz+APTFxRYcHp3CdlQjTAMtO/vs60fzrbdCv9H1U2QuL/D+9wFjAqvkN84lwQfVNI79w+PAFqvi5WsGK+gk/1PQOOr83W4lOl074+P7uf+G86AQaz3CgY2PjPH/ifmSxH4GACnKULMIPdiHcpRxAdjnCGk+P8046xjnMDFjlQ3+AHNyI+URcSoLjjCDqF0kAsf2NPcT8WjzXhebmTL+0oVw/rt2xTA3tfOPdM/+spFqZhN3ftDb3l7xqstK//0tRWSbWuq2xvs7p3orXlz6TVYpiDoEN1hbD5ENHNZpywfvnHC/n67r/LLwhWPJCxiWXuVYcYwCEwnHSgAWowU/qb5PwKw+YO4+4BDahkoAb0kT+783FTe6dCW2fWgPN/rRUfy+eKyhYZupMVfZF9P5lIU/eY9qJ1u9H/agSlFeQEjFz+zXtHjhu54lv6lZXHxFE/M6bRaheiLdPmces86rO+UIcbF8DzI/tS1sIL5Ef3NoxQoW+ToDD8um7D1F+tfcPfDT5oBUSqmJMTQfqGRQGwCRkz4GnXqr78sigO0c8+nllSb9hojz/qk/NcCqBokKMwBq8P7vKyu6SmE65OPz157IMa1vrhDDW6kvVqnyuiqjyo+Jxy72/W2S0UK5YskT2HVeF3fXTmsuhpaJxOjHK06BIEeWrSOMjKrlMOzE5/qjjA2uabsUmIeLorqa18Ad6h1LrplFi38InF5J70y6Wn6gijGkxmbl0NQPyy45+qUhTPUE4VMXHb9AR1uypAjTpb7AAAAA=="},{"n":"Mercado Pago","u":"https://play.google.com/store/apps/details?id=com.mercadopago.wallet","img":"data:image/webp;base64,UklGRgIFAABXRUJQVlA4IPYEAAAwGgCdASpYAFgAPikSh0KhoQnOAkgMAUJQBk4RBvr0j/Mcs56h6w3r/r/Yd90m+b/ZL1Dfrx+t3u5+jX/C+oB/hv7p1qHoAfsd6Yv7YfCP+1H7d/AT+sv/gp075bIF2TvxGcDQQxNJ81ib24h/IguC54BvswK8jEMj3F0M3I4dzuW8pP3c7jZprtynIRx5AspHTjvsy9JEVZqhwgIkhCc9BC5vJJCp7QHLl1lkNxSE3ftTKa5gNeRKY7JYdgmG+nB6+QdFFaUFUg4+SataH3C5FD4sipPreKOAAAD+//6UKz7xqp7Hzp1G9nfzkbDC+UbGQ5qnJnqD0Fuo7mxqspY+P3aeLvMGx3FTgB+dus3dQXI2BbU6t/wOEJLQSaAnKtOt9sLQuvKwxWJRER7oP8Y174dnzquqw1e8AlTwgfaTDdst49OOqR7B0PpxKeinL1VJK7tYGSmyrfVD8RwlOef/ZMhH1WXvwkPhRiB9Drkc/465B7/eNd/OCZGPGXvlmfNvLrR4B+pN0C5abbeYe5sXc9CtGYFxo+JghT+16TQk96e7jyjJHhF4ytUY73iENdH2YKA2U7IBfxpUyty4jk4KmTaCRRdRT1ZA4T80NICv1ugVkSdiN/Jl42s/nJkQ62BgW7SeuzwA7oQZRs/d39lQ6/LDTPsv8/jws7xZRFgMpK9z6vVNso1vrFUej17r+hP5ygxwaWuXKjh+WTnnc08tbGR1JlFI0CXQnf+IbBdRPOmDoJ5Cl3+FowrNeJtw+bNDDF6yCCf6Cteg6Z4H6qe6a+4pmcyrAubYJebbXwYQLjcrmUSYDoF2OcXzpA3bv34VEzkcxCJ/2K+03WuROpSXaN15owvFYTWnLuL5JylPw6tpWK9+39KHtU3xgnV7zt/fvMZ8G0wmpouJU3oqKy30jz8uzQFw/sOw9ECt4jsc41jp/DYO5VOLqK+A9L0pEN9koDbAWmGfS4YrTzDavNq10A2X+hfh8vDFabSJ6tv2/82en5DiG02EzStnfMW4orn1GKQX6dQpLfcgSh3KhQKxy+OTnYBsGV8ZN1vANn9g/K9hXBc2f7teNjst19KX1opsxPL5EsKcpG10TEOWYnhGLmc359ldQyTULT4L11TGtCV85y/dgT8XkwbyEsPLaHGNNsJc0LSdg10VMiR6Lga/x4ehlzyDgfiDbc5z6/ams5O04GXPV2Rpt8V0EZTS/GVINYIKbu/K43ethCqDvj0ng2Pf+oeQFSICaOp69nQqxy8VSBTccybgxl8IqtDTtlQbb6CmDMhajtzIByshHbuvdLkohYS4TA1T+5F+CfpMC1BpvfVqN/cPu/xUXWtx/sVcFbzn7haG5Gv8HyPxjTK2bDwSk7Fjmzkch9HBw2PNubOX/R0SFzyORyrSGh+VNoHxigJJ8O9CqiNjEcP4GRVOwG93IXL9CEMz8gY5B3wurYZLcuVSdG4utzfEvmCw1sOOp+oHM/kbxCOz3KI20k7L/KprJ9fhz68f1ZGM7v/A5hFcnMRmthfzwCLa9yTEfWMqEkadEzaD8h+b22X5l86xYR9Gms8jPDsjOQQ59gRcI/v7T27x2nEcfAHQq9n3cg17zgsWLCWHiX1mPF0JaFo3hYL321XHTt3JtmfN1E2TBadVbWu/66As8AylsXv8Y+ptFI9kCVRzdYANEkooRDzgpKu2AAAA"},{"n":"PagBank","u":"https://play.google.com/store/apps/details?id=br.com.uol.ps.myaccount","img":"data:image/webp;base64,UklGRpwCAABXRUJQVlA4IJACAAAwEgCdASpYAFgAPikUiUMhoSERXVQgGAKEsoBnV6VeA13zyl/HPu5APVHtk/GS/qvtK9IB+gHAIeW37OP7L/sz7Sq5APxmBBpEqHkX4CpYpxFhkuJpnmUE53QOYNSfD5/03Yha01N1gEPzz3IVCx4R+botbkFvdG3XU3j+mCnTXhdkuf9JrmUfz9kYoBVo0gNyYURZ4qU7fwMAAP7//iaQgOnxQO05Of2eBn/RXWCqm1Sr0Mu5z4rwggc4CZQBrwNSKCEYNG9TXn/amx6Shhv4H3Xk6KhJ3R5jqorraTnghoHox6t9aOTwHLP/u26i4hZx6wCjHJv959xdPf6HcD4y8VwWTaSRqItrYH4cREqi6O5EsNsV622+z3uaOf9eOG/9/CF1PuIsGGv8dvOOAtjbayT/xOH30vM64hSKZW76hV+vf9RtdPZ0y8v3/OSnrXGqksW5/hHV/DIfD3oT9WBielJBf5Z/n9voPvxwRfNRouby16Z8Zx//Air+Kf/ZUvOQE3N835sMpn87hOVWf9ebPsM1UxGPWsRmRn0mt+Do89RZP3hB8MtOdjeoWAo2nAwHQ3NKYhJd4eihojtPFNMzphGFlv3kNTgPqn4COrG8VXuLtEIikI8PnrO7lHT5FvmN5QlGxOCKGgiNsW/ki2zINLKkVXwWdogNOmdtzbFsHX9DghwZXRVTDcAlmSDHBg5wT4+brxgYpChgWqMX50pK3808TKJj0UL7jJYthxyzjH7YW3oSQwd2ckbbhWX8XQhwiT2+pRaJeg1HXFcsbwxsWYR0EJ4sG/2aHD38U95yRTcrEXBjsHayl5a4LLXe0ZXzKKT1cPFU6yKaRWW9ZmoZUHnoYGotZ6PEnRs794AAAA=="},{"n":"Next","u":"https://play.google.com/store/apps/details?id=br.com.bradesco.next","img":"data:image/webp;base64,UklGRhoEAABXRUJQVlA4IA4EAAAQGQCdASpYAFgAPikUiEKhoSETnAQkGAKEoAzxx5H2cX2YDryz9ehPxQ+kl5gP1u/V3hAP0760P0D/2M9MD9nvhR/Z39kvgA/Zn//06J8L+TmUp/GZxj/AY7ubcizfWgEUwPopY3Oqsqq9v12c630KkgOptRMpGNDLcZVbORT+CgT7OB6+wL+pQDccDVNd92pWa1BR8m8c+7j8TkVHdi1riobxO+TANGvC4RugmnXVvEPEK9knKAyMVSXWxUQ63nU3Wx2gFgusyHqzRQ5tQxXfWAD+//5iDgLYnJ5V6TnoTG7zHiRsYOeIv/DJlwDLUO2dRD6zA7qd1spG3u9dptB5NeDz/Xf80Q0yGYvhsWoKEI1KMtC8VuAABaUsBVERw82jO7JsT2tN8jUwr/QEB+IFxtfTmADtWLk/+l8WyyU/5gP/LHpYKlCjsVjcr6R7lk5g5CQFk7w18rm1qiIJ/hq46vIZLf+w8kqVLgiirz921N4FzMt34m+HT00p3ENk5KD1MVjXqNtgV7s3tX6Mxz9jpeebzGCAfFmwRfkgEQuDfwYBkn4ysbim1ITex0Yf0kLSl4D/+8/2PUs6VUvGTU1cy2crVODoQr2Apf/42YYGRXhAA3+3WknROc5f4xeqWp8/O86e60aBQejzDlbBodfLERIrZfzdN3TpsmNIO5lWU3iEBv7XaXw9lzA3QFz1chqytDtX4MmgyjS/MTfCovfiuTj/zcg2fiMGfCHhlZSd1K/AEHURkHX/wHRLoFD3oXpqz5gev2k3im8KHrTcFvjaioXzDFYjui+HxInW32VFs9S/O/qh/7NZSlcCOM90+fPD6dhbP6Q55IfTcf/+Vd5oT/4C2NoWxr30L+X/3WuONJ3u9NDYM2ph7ZlBaFQEeR18Hrtv/kx7k7Esy57hoj9Yak2k3RM2GFsY5Bcmu40I8w21G48BUUYnH0FAdmYM3Luj4MlFNkfzneIvOCzUJWbSETIoQc6Y4760dvBo56NGy5+rQzNf9Nu7VL+A3/Bryn0e5RL1VXFGyyK9RO81gq315lqlFBf8piOpy3h74IudmBLSQWO74buO3Ruve9bO4iOZSMWEuk9eKmPo/AV+81m9B+ifY2jtqMi5OjQWp715ELC2Oz0HbChBlCQLvPHHToZ95kSf/v1qCpe4D5zEwcFzwLU12zEyhrjsQDaKztxR368zpNg1w5akrPgK27G4/NcONxaCWgjmOrOP6FZQxSw7E/9V8tL8nrt1rpDQqeinZr1Lc2Z6nltn2usTMX8VNeQFHOmHP4b2QhQIi7adR4f6UDb/n7CAzIjo7WAplPTQl3+xr6mtwPMQI3ajOf5gkyC1AVKLQh/CQwd9IyHU+0dVcRS8Q6hA+YdEswAAAAA="},{"n":"Neon","u":"https://play.google.com/store/search?c=apps&q=Neon%20Conta%20Digital","img":"data:image/webp;base64,UklGRuYCAABXRUJQVlA4INoCAAAQEwCdASpYAFgAPikUiEMhoSERygQgGAKEsYBoRvkvj0C+3YJdzjrT9nPwA9S+2S8xnm9+KB7gH6Mdcz6AHSv/s9/qv9V7MhLOQZ31oCIiA6wbz6sZZOzT3XoQ+Q6LMWaJpMTa8ZG01dfOIDLLN7ZqUJUwwfxpzCrXGS5aEaQHwfpiQi/umC5AzrEmoczoX1E5UxuJxZg2XwrN2/dnD20iAAD+//5iDaFrSuHKElKV3fDtSIuJ3ozIwDGD9Xq7jTs760mApgJ2AJ3HWa8ebpTayj2ysw0mBgKjqXhzfnbN53FxM1xjytZbzuTtv0fmkb2xBgXyID0RZRATB/9SI1pY8LlvKv5ojAeUfnvKjEjxZVPt/78nc5bcpjqUM5oM7p5HGn4nkcMflC/1mKRPR40A6UmX5+nusXp0MW8ZskxBfxNkJ3jq5+TO5c1OO+OENlTfwG7/miOvOP70nUruEOZNwIPy8J4U8Q5iqJNvxM8ul/vttuRx/9afKfdf4iPAYp25+vLw+/jB4OYC+Xn/n2oAVNWaha4/3GpRyeI3e36PhTCREa/4/zylnW+sGlT/Z5FH6M8p5QxdZmw24v5cbr/ttv4dZohJHx3L+Xr7+zaBABzYMt2MvEZzWjge8CQHvMWwgPCTW/eHDN0lSip2uNcGPrX36JxVULzAeYOIOcsIi/Fqr6bkhdir2+eWQqi36cu916u+a9HH4D4oco/fO0UaGYcxV8sYs8x61U87v7AX+i93RITMUEtQT5Wym+X86OP5bGM3xeeFCBlJqfISTk7joyTN3yBW6bneyHCqNcSivE3vB8ShW0ZIgR5w/dch3OoXcVAWlG/GhjfkOBQG4OE5CkB73NX+ep+LL0phBjc4Q6hkMewK9zkbM7DxMSblIlDqPyHqvpDfMrvUr1aJdfVV6oR2Ma/GW5QjG9QdQsoab2xvAX+PNpOTtRMJbMqKKjABlax/oqy4AAAA"},{"n":"Banco PAN","u":"https://play.google.com/store/apps/details?id=br.com.bancopan.cartoes","img":"data:image/webp;base64,UklGRv4DAABXRUJQVlA4IPIDAABQGQCdASpYAFgAPikUiEMhoSESOzSEGAKEoA0bTbDb+6/jt+N3Xi9BdouSuMx6KfAP4D8u/679DvRv5gHOq8xf6zftVwgH8z/mfWc+gB+mfpb/rz8KP7Rfsx8Bv63f92lDfkZlH/z8Zk7il4RGDgENphMKYdJLCkAwzN5FUvx9rX66d8vkj3eiPRNBal4pEXz5U7nMWssqJ6gK0rCIaS83gUWoJ4IVtgbOHI2vzJ8EVc8dodu5ovtHnk57350WUdFVOjfjMtRyyINEQ3nBAPOwFSAAAP7//mIRVB8johe2XQazt61ytUGw5vQnaj9kmWs6n4BNmghqmmhiTNgTb6P+/b4jC960YYMbRreSoReyb3gtN57CcE0t8nQZ32LxM/99W3XHTp+b2oPTc+YjryFXwJXXWgsjZTBTzc2IBE3cml575NDlziDbZdA0gfKXso+y4byg0+LOv5vAlKKTXmiJhY8lyaFfvRmuzU9n2rStkbwS2WMG6y/tWHFBfO+zb//MVeoCLD1TUQP/T32XMbXTP0Ee5X1j9n+pYSJusE/G5g9kcUsqYw/8m9cG6aU/j6McL7BtYafwU06e4ZzDpqnf4oTQXdnKZYweKPVgwEr4AIiMYQ6O9H2+nZf7xSTfEQAv9SYaW5ivb9bSw0PP1QL7+oGt+dUtdxhgXWwV7BKeAhQb64zxEl3Zif9rvs8eWZ9ggy7AYEWA+Agx9abxSd+siuJ/hTK7m65wCZxsxn+K5WNzb4BBYdjcTiGqB2CUYPTsQ/z1LPVUKNMr87033BHvlG+Dwtea8jyD+yoJqViuVucflhF054MSqBCHv+vrFrPXtvF7F+MLtzC455ba59S/tGz6aYEMVofSsqW3EvJebdtI3NCqL5uO/F6X8tGWJXuj/8wV3qSKTblS1MSmT2Zeecv9d3YjP5WfGptrW6itoGauZf8MmZsiB3gULiE2tabOvuHj0siqGznIww6SR21RISV8gOIxDHxJdasKOEBAtAp/qsj0HgulBplmZvUFfpm2TvUdPcbw07H4JKsGRI+2SMMxJwza5GYkE/Zwe2ArWVotACqZyYvMqb+6E7clA5dJMZFiM2uoOQKV1x7aEnIYUo+CjJxVQVNsiBE90adX3ZH/CqTrsPpDs7D84JIczPqneHViFx0cxpnyqBsr/O8aeNTfrIB0Pmbc5sh2FIuZQqgBZ5318xiy48L++fnmPDnfjrOlxYLgUh8UZOr5dkf/2dANSS078fzRFFy9LF71rytixxAgQ7c/04UWsiKs+K5ot0HvuO3FxSIxUJcjpKTjcTVJMaaGhrb0iwBO6JYAMswcWuy9Lz71KzVS/4OvNIAAAA=="},{"n":"iti (Itaú)","u":"https://play.google.com/store/apps/details?id=com.itau","img":"data:image/webp;base64,UklGRqoEAABXRUJQVlA4IJ4EAADwGgCdASpYAFgAPikQh0KhoQnMgxIMAUJaADNvgFenkD90/FX9wP9h1dG4vdH9rsuA5P/tf5cf3L2VfZl5gH6Vf2v8qv6r3HvMB+rH+n/zPtD/rN7yfQA/l39660v0AP1k9MD9svhD/ZX/rf872aqB3yBn43cocyG8zZJcPPXPaEWEtYWOd1KvDfP+5sP3mFLp3LooczbYzTvbn64R8+oWEjyWATZjhOdLzxDXybNU9AdCiScQ7/utmG9R3tXLn19rzWKlykhqOxrpJafgSsTPcol1kXCQ8Rvqnl55ajcwAAD+//5iNYpzAWoHqIZC8Kfcil+NAL5yAFmUuic6YjPv/iwyEekPBlqgO+fRmNqzcTDtjr+O+izuGzl47F5xcNRDrj54bTimWgL2aZV+mdS6v5/SsLzJfIUIn52Jdd/Bp6vkiIhIT2gZ/t+uZQ1cZOTzDmhF3e1m9nd8eZQuOtlBGTKc6Gxv7qJK5FXrypSUZp5Rf1/ovx1wUUMo59rY98C0S7+JTgeInWp7hhOFDlsHi+Hk12DgHIf/+eE/bZhqlu9St9U47/37HNfMQTXLkojva/RprsBs34Rwqg5TRzMhJfjXRLWnn5KBKymfiWgLNLrOLLiDgii+BVNutAT7TYoU7bt7Gh3Cz00GS3CQIibIM3pUUuGmsEZ78Xd14f8XESv5v/KrEcOVv47/hICZ3m/3wCAjV5jqKXx9+nP/kmWMPajYK7X7XPRsOSjmQNA6Mqq/D43GaTJBrbIjyChOD7OVeO2gxOvHLNP7V87jXxPdWwhVMPsH103pRUfrM6FHSqI/6NS67VONb60loE/z0nWITAIB6qr9Lii5OXg8P0+v9Wgx2aR7T98EcF5g5vXUmCflGvgwNKvBb3QI2vEn4evVkzTrRUo+KRa/mb/R261m115C1jyTKLhUfoahQJvvKyK40anNukRcB0cH/hFrBkHUPssjU+YxFmPpWHan+HXt1zBCz3+gCl1BW8EzUBfJBWUJbK5gBiz52oGZ8me6/28y/60SyiXSq23h/w4v5hDHHNyYilSwpFPnwa/y4omgQwA1a04asu+QBUGs8zXyHrzs8krf74iCdO2O/P4EaBtSr4kGK4/9yciNbLST15qU24b4kKoOzvEADq6NzwXm2M8nxow6sDCK7X5mnE7jxDpuFKfx2+ao+gBFQbl+q7akPVzyfgnEBlPaus1uqL7LiHR8Lk5NFDkpUTkIxvFUeky63vk+FdwahwQa1kZDAv57KjeXRAy9mQnAMK8LqOxB9rtPvKHPUIU13dVzTsqE+lYxvmyZ9tEIW43HuJ/RI2xN4zhiuvEnaVTG0rP8GkJsvf/RrU3vLmIFGpO84cWVVWgOeTxRraWGUiEYxVpedP2VkUKpYj2lt8Aygeh9ML9D2fdwgoXJu4I60k8X82j431ny47YOJPoyEKnNp0RkcbTGiwdnHpS4tLJaF3MiHaXJxDloKPouEdkWzMlVQvDw22H8ykhivbXfS2/pHUKU3p+/1mABybMWhvzzjx+1ExaW2Z+ZMIi0rDJpJXbugNrxo4CwjUuHvY2VYbNLBRAAAAA="},{"n":"Agibank","u":"https://play.google.com/store/search?c=apps&q=Agibank","img":"data:image/webp;base64,UklGRnACAABXRUJQVlA4IGQCAAAQEACdASpYAFgAPikUiEMhoSERygQgGAKEsoBoJONbYnztvJzwHPAdbH6AH6gdbP5NlHAxaIHlwBvO+ui0L4hs4eu1vMBrl6WwzHnr5NRlLmyaW8IDjgKBP1vg6k6macXlhKGXdaE2ZT2yn7ojG26wsXsNpGiTKPR9YkWqyndEA/gXk1zRp5BgAAD+//5iEQCWr2Ugdl/4wUq3cTLyFQLG0/JO/PTq0SAfhrEy96Ra0QA0R3qAgjAjtG/vVlYEw0dM2C1K21kaVGV/+P1us7rodXUIApGf3bLmzIYHNQcFI0aUDN99Nbr6TeM0qyG/PV/8QHO7lQ+dgXgNcZOAPn1+A4WUer6tSBD/6e/99U4CDRaGFSTbmQHMKw7dZ/kvZEqz+/OLgNG4kTWAdPuZS1PqpdfMaa95SNi6706EZXEBxt0uj+KVfbUUVvlgvDSmUtkyC9aSXH6+yNv13W7cq//1p7CP6aGb31aO3xn/+q//Enm52KsFPw0s4f5bP90GTo7yuLzUqc236ZCvMEQyCqvgsQUHnvb/83b9OQ/61b71/tFjuIj7PgIfQZkBGRQgzYA8Wuvjt95JPPS+7QtOP3yaoi+1u8N855a3uo/ze+Wus8WciWOhUtURG1Q/07NgRpJS/VWjk2TGmiKRfmUPtefUenm5LTzErzbOzKb01m2svFhVnRzLSzNUXHRlDvqGQao9cFYPc8QHVrwde2Ek5BHmzM6D1QEzUYvViW6zqOFMypmqpW7z+Hj5ZD19F4WOSgy5TjeJVJEBHBzmIArGUWzXX2sFlQL5wUPtgrbRZRtaOyiAAAA="},{"n":"Sofisa Direto","u":"https://play.google.com/store/search?c=apps&q=Sofisa%20Direto","img":"data:image/webp;base64,UklGRqgCAABXRUJQVlA4IJwCAABQEQCdASpYAFgAPikUiUMhoSERzfwgGAKEs4BoC6ItpnKUaa+fUbtqPMB5uenL8+X+yvw8+UcA4uAN8Xw6zdXOPRPyQgV/GPy1u8fakfjdATsxUQPQeN6pSKX81RWo+/CoxgffkDOzAmaSrcp9ahud7l0ROVK8+aRgeKcVUxSWVXsbZNjV1p7EB+sxS881/PcfQ+AA/v/+JpCA6fFA5hoTwCDH79bfQSTaeYi/5vsG2JtSi8hKlfNcv00RCC0WnhM6n2J+lYP6O1JcYmClnz+3Cb52l/lHgvJT07NcAtK2q5rwE7h0CGkj+LGFjceT/EfAu4oPfhBXymqc5eiGI9lpgTOseHA6Xnfxch5jLeyKDp/jE+XaT1k3/nJ1//vBb/fVdUWuZ9Nsgh3mlCRFoCvddRIC8as01G/mmQL98Q/3/I2+UYUk0eecAjLCXrlVeD/yLw/7W+luNlXKHi9cjUY9394byEO/+nwXdmTTWPfv/j3Xjhez59+/cwGwRUfwu/lPPugUZ2p/DIbaffZfL3QP2ot5zUvfKHqv5pxr9sio5X1esnK5R86Vo6BRUNjZBjMLwIHDqhi0/6Lf8g2/pjzX1fl+H+mfTV8Wo/Und/wbmtXIKu2kl3+tCcD4BO7C977BQSGF96/2YOpJCR4TphUp/SN9QdGyE2IcgaHwqlacdCSJkEd46Hv68lNbIRhMZq+l7rTrfUNQtkjWY85Bwa697G3S5nkA9dRr1nheXRZK9IVEj+b6sy1QHC7TOoqgmk0UyJsKp+bUDODdjeSGRsPgV5LVGqkTEma/awlqOLhpyj3vs4QpEBEhtnD4CiFLbFZtJhqlDXC+pLPANZ39XQl+QLgS8jFnao05IDgdxMLQz0AP84cDJ7rT4AAAAA=="},{"n":"BTG Pactual Digital","u":"https://play.google.com/store/search?c=apps&q=BTG%20Pactual","img":"data:image/webp;base64,UklGRgYEAABXRUJQVlA4IPoDAABwFgCdASpYAFgAPikUiEMhoSETK2xIGAKEs4BnV6PdgnTTe/qg24vmY/aL9buCO6in0AP1A61KZMPdfyAyo/3P8ns99+R+S4/yE4v440YIQdLsY7MD38qIDlLyO7LTAMMH3QB4usbZ8FV5sSFylzIqsbdi3AIJIxhMk1T5XfQJA5bg950t/YJbSQwEB/1GccdAJ2lyeIPou3n6JoLmdcwt4UVtdekE/VukgS66qCOAlLXRzdcQ+WqlgCyZAAD+//5iDaFrZQOu7G33rP7IDJM/wq6qPGOhyoqH3hPa8HGwtMb0xQ1owKfGxscdtdYLMDw5HtNlIs7RBMyzBlYIbVTyrjvUZZ9cb+z+n8aSizzpZykdtfBk0COAuhmMcC74MO7lOZh3rWER5kr4QL4oq2qppIP6UlNuwED+5eYMB9R5xPktqR62MauX/507A27ZMm9/oY8vnR3tltmIY/PLaIPXLfUfmgu/Heeul9wj/vId0L9eGvxvZbKb7F0+MhIBS9W9ZYH3rdjiNipI2+teKlpebYuDdLLMixxgnVGS3dPONP8/50pm5BGk/ktYvxmn6YNBhKOPt+PZu3q8dybPlV5LgLuEOoJ7hUbI+1BDvJlD/XX46L9Ubq/fj0SYVrxgJp8yRK6unhpIBVAjxbiTGRsTPkv7+eV2nJZ4jelvN+R/0q+6h6kvBl+a9nR/qtm0i5EHsE2T7IXo53mXfijXZp69PBXh55xtQTTODU0FJEH/LxhEpJtgkdku7Db+VHPzPVDA3OVS22VJ9iGkhl0G/PP/vW1LI6iNX5j4bS+64v//0oEtnxt8Le+nf/45kNX4HJvP53uLK8W9wylp4z9DqfXDSaGjbVeFqibL+6yLsnk64QeKkyb6fjBnYEr3j8j1bPTo/NenApmGE3d7H8DOyHB6HNMMjJ29BcdzbeXfAclzRcKShWaibAyYdMeaYgPBi/oBp5BW7d9PZo8K0TpnVn1z3hnGpAaMrFXO7vmR9wkUMyZaPB8r2CZc2k5V/Lz7oAQmpLi9KhUAiPk9EQqg7zN0GPMimUIX939EL8XE+wrdUffqwzVosfC1f8bmWkURjYuMQ51fj/r5pF+JNXeYgs77jkBZyHqbhipR6Q1ZgIYM4mIMNjeT04J/rcxBLLSy9VOosyG3hgR0veZ4Bm3fwATvDq5MHpMAzlDfl1VMnjH2Z0y/5zgNU/RPH4YauFlnkvnyt9cr8HTLcPwqZVEDBNc++PjIwIA+ITTuMjTdz9T3kjWHsheZ+Up4/ELm7TptB2WM0KxzNRj4DEj/Hll7YvpwBW+rOtziZz/vEvKoYIXKDZ6ESMp0T24HVbs0iPtqxlp2H2tV/ixx8AAA"},{"n":"Banco Original","u":"https://play.google.com/store/search?c=apps&q=Banco%20Original","img":"data:image/webp;base64,UklGRm4CAABXRUJQVlA4IGICAADQEACdASpYAFgAPikUiUMhoSERxCAYAoSygGh+M6mSeDpLbZHneNMr9ADpcP2q9IqjsgW31ngikO8XJyOrXf/vVCtt3i+GchuoPnOo1WBbhTKQBbIV1Em4ZsA6SXoyKRV6gOvkABlEPfM6mJPMYAttv0+vGxNChk/TgwbJ2nSdw9LKnI1gaRnbFcPyczY7gAD+//4mkEcV2mZa5VL7WH0TOLOS0OFT1IqVxfdV2t6BhffR0sGEZGi/ERQ5EbRRFN2+rPKQIWzKG0VgyJV72OUB0dL63yETbAaCoNhWixz/E5DuHW+JDnnCpj6/fAKDqfTyvpIfYuGWpwilf1KH/8ofxpOjxTLNtJ9t2QHwf9TFkH7oHNae7OVe6EKjO6Yt5i5D+B3Xl8L2p5G/SfOi2fzh88TEZD4c98ulKonb/wv4uVo/ydAvXm//s3/M7/r0uDJdDM/+O/NRP9LmZc1N7T//k7pLmWIKnJSODQTeC0NpqaB0d4tkYK2tPWtql+mAJb8ZHX/PzNSrOOfwjq/c6B1LPECxOBXgF8zLenSLBxLy59jya4iivCj6KnSX+fNKJvKoIMlz6IPfAn5hh6V8BcuGgzXvj6GKOd+1/77yza4r23lPRfziwP0l2y1339xlRlVXN/vnn/n+iATxnb8NBO2KZXwnZqjZwOtaL9T5+xXH4iv379ZRRY3KBCakNqbw4bLohVmurlF2WYES/EXU6Se2Z72YpH8YIQGQh21/xsjh4NQugHAZ/MFlCrQwhUl2DZoHmFPKyK2vlzxAXXQZl6RAZWVb+zd9X9WbMTYkQeuQAAAA"}];
+
+  function crc16(str){
+    var crc = 0xFFFF;
+    for (var i = 0; i < str.length; i++){
+      crc ^= (str.charCodeAt(i) & 0xFF) << 8;
+      for (var j = 0; j < 8; j++){
+        crc = (crc & 0x8000) ? (((crc << 1) ^ 0x1021) & 0xFFFF) : ((crc << 1) & 0xFFFF);
+      }
+    }
+    return ("0000" + crc.toString(16).toUpperCase()).slice(-4);
+  }
+  function tlv(id, v){ v = String(v); return id + ("00" + v.length).slice(-2) + v; }
+  function pixCopiaECola(valor){
+    var base = tlv("00", "01") + tlv("01", "12") +
+      tlv("26", tlv("00", "br.gov.bcb.pix") + tlv("01", PIX_CHAVE)) +
+      tlv("52", "0000") + tlv("53", "986") + tlv("54", valor.toFixed(2)) +
+      tlv("58", "BR") + tlv("59", PIX_NOME) + tlv("60", PIX_CIDADE) +
+      tlv("62", tlv("05", "***")) + "6304";
+    return base + crc16(base);
+  }
+
+  function zapDe(f){
+    var d = f.zap;
+    if ((d.length === 12 || d.length === 13) && d.indexOf("55") === 0) d = d.slice(2);
+    return d;
+  }
+  function telFmt(d){
+    return d.length === 11
+      ? "(" + d.slice(0, 2) + ") " + d.slice(2, 7) + "-" + d.slice(7)
+      : "(" + d.slice(0, 2) + ") " + d.slice(2, 6) + "-" + d.slice(6);
+  }
+  function lerPedido(){
+    var ent = document.querySelector('input[name="entrega"]:checked');
+    var ban = document.querySelector('input[name="banco"]:checked');
+    return {
+      nome: $("pNome").value.replace(/\s+/g, " ").trim(),
+      zap: $("pZap").value.replace(/\D/g, ""),
+      ent: ent ? ent.value : "",
+      mesa: $("pMesa").value,
+      rua: $("pRua").value.replace(/\s+/g, " ").trim(),
+      ladoRua: $("pLadoRua").value,
+      lado: $("pLado").value,
+      ref: $("pRef").value.replace(/\s+/g, " ").trim(),
+      banco: ban ? Number(ban.value) : -1
+    };
+  }
+  function resumoDe(f){
+    var itens = [], sub = 0, semPreco = 0;
+    cartLines().forEach(function(l){
+      var t = lineTotal(l);
+      if (t === null) semPreco++; else sub += t;
+      itens.push({ l: l, t: t });
+    });
+    var taxa = f.ent ? TAXA[f.ent] : 0;
+    return { itens: itens, sub: sub, taxa: taxa, total: sub + taxa, semPreco: semPreco };
+  }
+  function erroDe(f, rs){
+    if (!rs.itens.length) return "Seu carrinho está vazio.";
+    if (f.nome.split(" ").length < 2) return "Digite o nome e o sobrenome.";
+    if (zapDe(f).length !== 10 && zapDe(f).length !== 11) return "Digite seu WhatsApp com DDD. Ex.: (11) 99999-9999.";
+    if (!f.ent) return "Escolha como quer receber o pedido.";
+    if (f.ent === "mesa" && !f.mesa) return "Escolha o número da mesa.";
+    if (f.ent === "domicilio" && f.rua.length < 5) return "Digite a rua e o número para a entrega.";
+    if (f.ent === "rua" && (!f.ladoRua || !f.lado)) return "Escolha o lado da rua e o lado (direito ou esquerdo).";
+    if (f.banco < 0) return "Escolha o seu banco.";
+    return "";
+  }
+  function textoDe(f, rs){
+    var entTxt = f.ent === "mesa" ? ("Na mesa " + f.mesa)
+      : f.ent === "domicilio" ? ("Entrega a domicílio: " + f.rua)
+      : f.ent === "caixa" ? "Receber no caixa"
+      : ("Na rua: " + f.ladoRua + ", " + f.lado + (f.ref ? " (referência: " + f.ref + ")" : ""));
+    var linhas = ["*Pedido — Adega dos Brutos*", "*Nº do pedido:* " + codigoPedido, "", "*Cliente:* " + f.nome, "*WhatsApp:* " + telFmt(zapDe(f)),
+      "*Entrega:* " + entTxt + " (" + fmt(rs.taxa) + ")", "", "*Itens:*"];
+    rs.itens.forEach(function(x){
+      linhas.push("• " + x.l.qtd + "x " + x.l.item.nome + (x.t === null ? " (preço a confirmar)" : " — " + fmt(x.t)));
+    });
+    linhas.push("", "Itens: " + fmt(rs.sub), "Entrega: " + fmt(rs.taxa), "*Total: " + fmt(rs.total) + "*");
+    if (rs.semPreco) linhas.push("Obs.: " + (rs.semPreco === 1 ? "1 item está sem preço" : rs.semPreco + " itens estão sem preço") + " e não entra no total.");
+    var banco = BANCOS[f.banco];
+    linhas.push("", "*Banco:* " + banco.n, "*App do banco (Google Play):* " + banco.u);
+    linhas.push("", "*Pagar para:* " + PIX_TITULAR + " (" + PIX_BANCO + ")", "*Pix copia e cola:* 11958910339");
+    return linhas.join("\n");
+  }
+  function renderPedido(){
+    var f = lerPedido();
+    var rs = resumoDe(f);
+    $("entMesa").hidden = f.ent !== "mesa";
+    $("entDom").hidden = f.ent !== "domicilio";
+    $("entRua").hidden = f.ent !== "rua";
+    var ul = $("resumoLista");
+    ul.textContent = "";
+    rs.itens.forEach(function(x){
+      var li = document.createElement("li");
+      if (x.t === null) li.className = "semp";
+      var a = document.createElement("span");
+      a.textContent = x.l.qtd + "× " + x.l.item.nome;
+      var b = document.createElement("span");
+      b.textContent = x.t === null ? "a confirmar" : fmt(x.t);
+      li.appendChild(a);
+      li.appendChild(b);
+      ul.appendChild(li);
+    });
+    $("rSub").textContent = fmt(rs.sub);
+    $("rTaxa").textContent = f.ent ? fmt(rs.taxa) : "escolha acima";
+    $("rTotal").textContent = fmt(rs.total);
+    $("rNote").textContent = rs.semPreco
+      ? (rs.semPreco === 1 ? "1 item está sem preço e não entra no total." : rs.semPreco + " itens estão sem preço e não entram no total.")
+      : "";
+    var temValor = rs.itens.length > 0 && rs.total > 0;
+    $("pixNote").textContent = temValor ? "" : "Sem valor ainda: o código aparece quando os itens tiverem preço.";
+    $("pixTitular").textContent = "Pague para: " + PIX_TITULAR + " (" + PIX_BANCO + ")";
+    var erro = erroDe(f, rs);
+    var btn = $("enviarBtn");
+    btn.setAttribute("aria-disabled", erro ? "true" : "false");
+    var txt = erro ? "" : textoDe(f, rs);
+    btn.href = erro ? "#" : "https://wa.me/55" + zapDe(f) + "?text=" + encodeURIComponent(txt);
+    $("pedidoTxt").value = txt;
+    if (!erro) $("pErro").hidden = true;
+  }
+  function copiarPedido(){
+    var ta = $("pedidoTxt"), btn = $("pedidoCopy");
+    if (!ta.value){
+      var f = lerPedido();
+      $("pErro").textContent = erroDe(f, resumoDe(f)) || "Preencha o pedido antes de copiar.";
+      $("pErro").hidden = false;
+      $("pErro").scrollIntoView({ behavior: "smooth", block: "center" });
+      return;
+    }
+    function ok(){
+      btn.textContent = "Pedido copiado ✓";
+      setTimeout(function(){ btn.textContent = "Copiar pedido"; }, 1600);
+    }
+    function manual(){
+      document.querySelector(".pedido-txt").open = true;
+      ta.focus();
+      ta.select();
+      btn.textContent = "Texto selecionado: toque e copie";
+    }
+    try { navigator.clipboard.writeText(ta.value).then(ok, manual); } catch(e) { manual(); }
+  }
+  function novoCodigo(){
+    return (Date.now().toString(36).slice(-3) + Math.random().toString(36).slice(2, 5)).toUpperCase();
+  }
+  async function salvarPedido(f, rs, txt, cod){
+    if (!db || !uidCliente) return true; // versão do GitHub: não salva pedido, só envia pelo WhatsApp
+    var pedido = {
+      criadoEm: new Date().toISOString(),
+      nome: f.nome,
+      zap: telFmt(zapDe(f)),
+      zapNum: "55" + zapDe(f),
+      banco: BANCOS[f.banco].n,
+      total: rs.total,
+      pago: false,
+      texto: txt
+    };
+    try {
+      var ref = db.collection("pedidos").doc(uidCliente);
+      var snap = await ref.get();
+      // Guarda todos os pedidos do cliente: lê o que já existe e acrescenta o novo.
+      var mapa = (snap.exists && (snap.data() || {}).pedidos) || {};
+      mapa[cod] = pedido;
+      if (snap.exists) await ref.update({ pedidos: mapa });
+      else await ref.set({ pedidos: mapa });
+      return true;
+    } catch(e) { return false; }
+  }
+  async function marcarPago(docId, cod){
+    var ref = db.collection("pedidos").doc(docId);
+    var snap = await ref.get();
+    var mapa = (snap.exists && (snap.data() || {}).pedidos) || {};
+    if (!mapa[cod]) throw new Error("pedido não encontrado");
+    mapa[cod] = Object.assign({}, mapa[cod], { pago: true, pagoEm: new Date().toISOString() });
+    await ref.update({ pedidos: mapa });
+  }
+  // Abre o WhatsApp do cliente com a mensagem pronta. Tem que ser chamada direto no clique.
+  function avisarCliente(digitos){
+    var msg = "Pagamento bem sucedido. Muito obrigado pela sua escolha.";
+    window.open("https://wa.me/" + digitos + "?text=" + encodeURIComponent(msg), "_blank", "noopener");
+  }
+  function renderPedidos(snap){
+    var lista = [];
+    snap.docs.forEach(function(d){
+      if (!d.exists) return;
+      var mapa = (d.data() || {}).pedidos || {};
+      Object.keys(mapa).forEach(function(cod){
+        if (mapa[cod]) lista.push({ docId: d.id, cod: cod, p: mapa[cod] });
+      });
+    });
+    lista.sort(function(a, b){
+      if (!!a.p.pago !== !!b.p.pago) return a.p.pago ? 1 : -1;
+      return String(b.p.criadoEm || "").localeCompare(String(a.p.criadoEm || ""));
+    });
+    var tbody = $("pedidosLista");
+    tbody.textContent = "";
+    var pend = lista.filter(function(x){ return !x.p.pago; }).length;
+    $("pedidosStatus").textContent = lista.length
+      ? (pend + (pend === 1 ? " pedido aguardando pagamento" : " pedidos aguardando pagamento"))
+      : "Nenhum cliente ainda.";
+    lista.forEach(function(x){
+      var digitos = String(x.p.zapNum || ("55" + String(x.p.zap || "").replace(/\D/g, "")));
+      var tr = document.createElement("tr");
+      var campos = [
+        x.cod,
+        String(x.p.nome || "Cliente"),
+        String(x.p.zap || ""),
+        String(x.p.banco || ""),
+        typeof x.p.total === "number" ? fmt(x.p.total) : "",
+        x.p.criadoEm ? new Date(x.p.criadoEm).toLocaleString("pt-BR") : ""
+      ];
+      campos.forEach(function(txt){
+        var td = document.createElement("td");
+        td.textContent = txt;
+        tr.appendChild(td);
+      });
+
+      var sit = document.createElement("td");
+      sit.className = "acoes";
+      if (x.p.pago) {
+        var pg = document.createElement("span");
+        pg.className = "pago";
+        pg.textContent = "Pago" + (x.p.pagoEm ? " em " + new Date(x.p.pagoEm).toLocaleString("pt-BR") : "");
+        sit.appendChild(pg);
+        var re = document.createElement("button");
+        re.type = "button";
+        re.className = "btn ghost mini";
+        re.textContent = "Reenviar confirmação";
+        re.addEventListener("click", function(){ avisarCliente(digitos); });
+        sit.appendChild(re);
+      } else {
+        var ok = document.createElement("button");
+        ok.type = "button";
+        ok.className = "btn verde";
+        ok.textContent = "Pagamento bem sucedido";
+        ok.addEventListener("click", function(){
+          avisarCliente(digitos);
+          ok.disabled = true;
+          ok.textContent = "Salvando…";
+          marcarPago(x.docId, x.cod).catch(function(){
+            ok.disabled = false;
+            ok.textContent = "Não salvou. Tente de novo";
+          });
+        });
+        sit.appendChild(ok);
+      }
+
+      var det = document.createElement("tr");
+      det.className = "det";
+      det.hidden = true;
+      var tdDet = document.createElement("td");
+      tdDet.colSpan = campos.length + 1;
+      var pre = document.createElement("pre");
+      pre.textContent = String(x.p.texto || "");
+      tdDet.appendChild(pre);
+      det.appendChild(tdDet);
+
+      var ver = document.createElement("button");
+      ver.type = "button";
+      ver.className = "btn ghost mini";
+      ver.textContent = "Ver pedido";
+      ver.addEventListener("click", function(){
+        det.hidden = !det.hidden;
+        ver.textContent = det.hidden ? "Ver pedido" : "Fechar pedido";
+      });
+      sit.appendChild(ver);
+
+      tr.appendChild(sit);
+      tbody.appendChild(tr);
+      tbody.appendChild(det);
+    });
+  }
+  function buildMesas(){
+    var sel = $("pMesa");
+    for (var n = 1; n <= 20; n++){
+      var o = document.createElement("option");
+      o.value = String(n);
+      o.textContent = "Mesa " + n;
+      sel.appendChild(o);
+    }
+  }
+  function buildBancos(){
+    var box = $("bancos");
+    BANCOS.forEach(function(b, i){
+      var lab = document.createElement("label");
+      lab.className = "banco";
+      var inp = document.createElement("input");
+      inp.type = "radio";
+      inp.name = "banco";
+      inp.value = String(i);
+      var sp = document.createElement("span");
+      var img = document.createElement("img");
+      img.alt = "";
+      img.src = b.img;
+      var em = document.createElement("em");
+      em.textContent = b.n;
+      sp.appendChild(img);
+      sp.appendChild(em);
+      lab.appendChild(inp);
+      lab.appendChild(sp);
+      box.appendChild(lab);
+    });
+  }
+  function bindPedido(){
+    $("pagarBtn").addEventListener("click", function(){
+      $("pagar").hidden = false;
+      codigoPedido = novoCodigo();
+      renderPedido();
+      $("pagar").scrollIntoView({ behavior: "smooth", block: "start" });
+    });
+    var form = $("pedidoForm");
+    form.addEventListener("input", renderPedido);
+    form.addEventListener("change", renderPedido);
+    form.addEventListener("submit", function(e){ e.preventDefault(); });
+    $("enviarBtn").addEventListener("click", function(e){
+      var f = lerPedido(), rs = resumoDe(f), erro = erroDe(f, rs);
+      if (erro){
+        e.preventDefault();
+        $("pErro").textContent = erro;
+        $("pErro").hidden = false;
+        $("pErro").scrollIntoView({ behavior: "smooth", block: "center" });
+      } else {
+        var cod = codigoPedido;
+        salvarPedido(f, rs, textoDe(f, rs), cod).then(function(ok){
+          if (ok){ codigoPedido = novoCodigo(); renderPedido(); }
+        });
+      }
+    });
+    $("pedidoCopy").addEventListener("click", copiarPedido);
+  }
+
+  function cardFor(item){
+    var li = document.createElement("li");
+    li.className = "item";
+    var p = paletteFor(item);
+    li.style.setProperty("--glow", p.b);
+
+    var art = document.createElement("div");
+    art.className = "art";
+    art.style.setProperty("--glow", p.b);
+    art.innerHTML = item.fotoId ? '<img alt="" src="' + esc(item.fotoId) + '.png" style="width:100%;height:100%;object-fit:contain">' : artSVG(item);
+    li.appendChild(art);
+
+    var ficha = document.createElement("div");
+    ficha.className = "ficha";
+    var no = document.createElement("span");
+    no.textContent = "Nº " + pad3(item.ordem);
+    var cat = document.createElement("span");
+    cat.textContent = item.categoria || "";
+    ficha.appendChild(no);
+    ficha.appendChild(cat);
+    li.appendChild(ficha);
+
+    if (state.edit && state.canEdit) {
+      var wrap = document.createElement("div");
+      wrap.className = "edit";
+      var nome = document.createElement("input");
+      nome.type = "text";
+      nome.value = item.nome || "";
+      nome.setAttribute("aria-label", "Nome");
+      nome.addEventListener("change", function(){
+        var v = nome.value.trim();
+        if (!v) { setStatus("O nome não pode ficar vazio."); nome.value = item.nome || ""; return; }
+        save(item, { nome: v }, "Nome salvo.");
+      });
+      var preco = document.createElement("input");
+      preco.type = "text";
+      preco.inputMode = "decimal";
+      preco.value = item.preco === null || item.preco === undefined ? "" : String(item.preco).replace(".", ",");
+      preco.placeholder = "a preencher";
+      preco.setAttribute("aria-label", "Preço por unidade");
+      preco.addEventListener("change", function(){
+        var r = parsePreco(preco.value);
+        if (!r.ok) { setStatus("Use um valor como 12,50."); preco.value = item.preco === null || item.preco === undefined ? "" : String(item.preco).replace(".", ","); return; }
+        save(item, { preco: r.value }, "Preço salvo.");
+      });
+      wrap.appendChild(nome);
+      wrap.appendChild(preco);
+      li.appendChild(wrap);
+    } else {
+      var n = document.createElement("div");
+      n.className = "nm";
+      n.textContent = item.nome || "";
+      var pr = document.createElement("div");
+      var f = fmt(item.preco);
+      pr.className = f ? "pr" : "pr empty";
+      pr.textContent = f || "a preencher";
+      li.appendChild(n);
+      li.appendChild(pr);
+    }
+    var buy = document.createElement("div");
+    buy.className = "buy";
+    var bb = document.createElement("button");
+    bb.type = "button";
+    bb.className = "addcart";
+    bb.textContent = "Adicionar ao carrinho";
+    bb.addEventListener("click", function(){
+      addToCart(item.id);
+      bb.classList.add("done");
+      bb.textContent = "Adicionado ✓";
+      setTimeout(function(){
+        bb.classList.remove("done");
+        bb.textContent = "Adicionar ao carrinho";
+      }, 1300);
+    });
+    buy.appendChild(bb);
+    li.appendChild(buy);
+    return li;
+  }
+
+  function render(){
+    buildChips();
+    renderCart();
+    var list = $("list");
+    list.textContent = "";
+    if (!state.loaded) return;
+    if (!state.items.length) {
+      var e = document.createElement("div");
+      e.className = "empty-state";
+      var s = document.createElement("strong");
+      s.textContent = "Nada cadastrado ainda";
+      e.appendChild(s);
+      e.appendChild(document.createTextNode("Os itens da adega aparecem aqui assim que forem adicionados."));
+      list.appendChild(e);
+      return;
+    }
+    var q = state.q.trim().toLowerCase();
+    var any = false;
+    CATS.concat(state.items.map(function(i){ return i.categoria; }).filter(function(c){ return CATS.indexOf(c) < 0; })).filter(function(v,i,a){ return a.indexOf(v) === i; }).forEach(function(cat){
+      if (state.cat !== "Todas" && state.cat !== cat) return;
+      var rows = state.items.filter(function(i){
+        return i.categoria === cat && (!q || String(i.nome || "").toLowerCase().indexOf(q) >= 0);
+      });
+      if (!rows.length) return;
+      any = true;
+      var g = document.createElement("section");
+      g.className = "group";
+      var h = document.createElement("h2");
+      h.textContent = cat;
+      g.appendChild(h);
+      var grid = document.createElement("ul");
+      grid.className = "vitrine";
+      rows.forEach(function(item){ grid.appendChild(cardFor(item)); });
+      g.appendChild(grid);
+      list.appendChild(g);
+    });
+    if (!any) setStatus("Nenhum item encontrado.");
+    else if (!state.edit) setStatus("");
+  }
+
+  function bindControls(){
+    buildMesas();
+    buildBancos();
+    bindPedido();
+    $("q").addEventListener("input", function(e){ state.q = e.target.value; render(); });
+    $("cartBtn").addEventListener("click", function(){
+      $("carrinho").scrollIntoView({ behavior: "smooth", block: "start" });
+    });
+    $("cartClear").addEventListener("click", function(){
+      CART = {};
+      saveCart();
+      renderCart();
+    });
+    $("editBtn").addEventListener("click", function(){
+      state.edit = !state.edit;
+      $("editBtn").setAttribute("aria-pressed", String(state.edit));
+      $("editBtn").textContent = state.edit ? "Concluir edição" : "Editar catálogo";
+      $("addWrap").hidden = !state.edit;
+      render();
+    });
+    $("addForm").addEventListener("submit", function(e){
+      e.preventDefault();
+      var nome = $("addNome").value.trim();
+      var r = parsePreco($("addPreco").value);
+      if (!nome) { setStatus("Informe o nome do item."); return; }
+      if (!r.ok) { setStatus("Use um valor como 12,50."); return; }
+      setStatus("Adicionando…");
+      db.collection("itens").add({
+        categoria: $("addCat").value,
+        nome: nome,
+        preco: r.value,
+        ordem: Date.now()
+      }).then(function(){
+        $("addNome").value = "";
+        $("addPreco").value = "";
+        setStatus("Item adicionado.");
+      }).catch(function(err){
+        setStatus(err && err.code === "quota_exceeded" ? "A lista chegou ao limite de itens." : "Não foi possível adicionar. Tente de novo.");
+      });
+    });
+  }
+
+  // Versão do GitHub: catálogo fixo (preços e fotos vêm desta pasta).
+  var ITENS_FIXOS = [{"id": "i001", "categoria": "Whiskies", "nome": "Ballantine's (1L)", "preco": 100.5, "ordem": 1, "fotoId": "273bc8f33a2186af1477855164cac3c4"}, {"id": "i002", "categoria": "Whiskies", "nome": "Cavalo / White Horse (1L) (?)", "preco": 79.5, "ordem": 2, "fotoId": "65a4fbac556f67a0cb0a926225b6ca2e"}, {"id": "i003", "categoria": "Whiskies", "nome": "Johnnie Walker Red Label (1L)", "preco": 58.5, "ordem": 3, "fotoId": "5d3c4037b8b76d73759900041c74b763"}, {"id": "i004", "categoria": "Whiskies", "nome": "Johnnie Walker Black Label (1L)", "preco": 194.5, "ordem": 4, "fotoId": "f762d292c15c7da6962891a73a09e7f8"}, {"id": "i005", "categoria": "Whiskies", "nome": "Jack Daniel's Old No. 7 (1L)", "preco": 126.5, "ordem": 5, "fotoId": ""}, {"id": "i006", "categoria": "Whiskies", "nome": "Jack Daniel's Honey (1L)", "preco": 127.5, "ordem": 6, "fotoId": ""}, {"id": "i007", "categoria": "Whiskies", "nome": "Jack Daniel's Maçã Verde (1L)", "preco": 214.5, "ordem": 7, "fotoId": ""}, {"id": "i008", "categoria": "Whiskies", "nome": "Chivas Regal 12 anos (1L)", "preco": 153.5, "ordem": 8, "fotoId": "556602a5011f5dcc7115f73bc97a8482"}, {"id": "i009", "categoria": "Whiskies", "nome": "Old Parr 12 anos (1L)", "preco": 155.5, "ordem": 9, "fotoId": "dbaaabdd605e433fdfc7e43983b58e38"}, {"id": "i010", "categoria": "Whiskies", "nome": "Buchanan's 12 anos (1L)", "preco": 174.5, "ordem": 10, "fotoId": "89119761381c8cc2832f905cb6b30cf5"}, {"id": "i022", "categoria": "Whiskies", "nome": "Jack (sabor não legível)", "preco": null, "ordem": 22, "fotoId": "07853a5290e3f9cd94e15b8b6f2a3f76"}, {"id": "i048", "categoria": "Whiskies", "nome": "Mansão Maromba whisky (1L)", "preco": 34.49, "ordem": 48, "fotoId": ""}, {"id": "i049", "categoria": "Whiskies", "nome": "Atack zumbi (?)", "preco": null, "ordem": 49, "fotoId": ""}, {"id": "i050", "categoria": "Cachaças e vinhos", "nome": "Pitú (965ml)", "preco": 17.29, "ordem": 50, "fotoId": "8fc709c9e0186f338ff52a6989564d7c"}, {"id": "i051", "categoria": "Energéticos", "nome": "Energético Jack Power (2L)", "preco": 11, "ordem": 51, "fotoId": "4649f4bca6168eb57f3e68f2375e009a"}, {"id": "i052", "categoria": "Energéticos", "nome": "Red Bull lata 250ml", "preco": 8.5, "ordem": 52, "fotoId": "c8397a592d06184a2d7eb668d2099087"}, {"id": "i053", "categoria": "Energéticos", "nome": "Monster lata 473ml", "preco": 10.5, "ordem": 53, "fotoId": "8e96a49fd44f6e937b7f7d378103eebb"}, {"id": "i054", "categoria": "Energéticos", "nome": "Red Bull / Monster em garrafa 2L (outros sabores)", "preco": null, "ordem": 54, "fotoId": "7e9a2b45ef7e059095d3afa7ea689358"}, {"id": "i055", "categoria": "Cervejas", "nome": "Heineken long neck 330ml", "preco": 9.5, "ordem": 55, "fotoId": "f8e20c17c4660565608cd4deba852dcf"}, {"id": "i056", "categoria": "Cervejas", "nome": "Heineken sem álcool long neck 330ml", "preco": 12.99, "ordem": 56, "fotoId": "8a5c93c505e5e188030185f060b6a637"}, {"id": "i057", "categoria": "Cervejas", "nome": "Heineken lata 350ml", "preco": 10, "ordem": 57, "fotoId": "ef2dec8e4dce7b9a60c4919a506027e1"}, {"id": "i058", "categoria": "Cervejas", "nome": "Corona long neck 330ml", "preco": 10, "ordem": 58, "fotoId": "93777afd32971ef73219b5cb5c3c8a0b"}, {"id": "i059", "categoria": "Cervejas", "nome": "Corona Zero long neck 330ml", "preco": 10, "ordem": 59, "fotoId": "c1b156830a031556a58214378f76f105"}, {"id": "i060", "categoria": "Cervejas", "nome": "Stella Artois long neck 330ml", "preco": 9.5, "ordem": 60, "fotoId": "1510b97396f4fa731ed558b4eee6fd79"}, {"id": "i061", "categoria": "Cervejas", "nome": "Budweiser long neck 330ml", "preco": 9.5, "ordem": 61, "fotoId": "6f40e79a8c37b9b52e792225c959d6c1"}, {"id": "i062", "categoria": "Cervejas", "nome": "Brahma Duplo Malte lata 350ml", "preco": 4, "ordem": 62, "fotoId": "d9d85acbf82f73900d3bbcb4533de642"}, {"id": "i063", "categoria": "Cervejas", "nome": "Antarctica Original lata 350ml", "preco": 5, "ordem": 63, "fotoId": "4344c6808ee2dd1a9c0f779e6cc19820"}, {"id": "i064", "categoria": "Cervejas", "nome": "Amstel lata 350ml", "preco": 7.25, "ordem": 64, "fotoId": "682014a4e3afa65a4ba2fae901132436"}, {"id": "i065", "categoria": "Cervejas", "nome": "Itaipava latão 473ml", "preco": 7.5, "ordem": 65, "fotoId": "1c448928bf7866da37076073b21afdc8"}, {"id": "i066", "categoria": "Cervejas", "nome": "Império lata 269ml", "preco": 5.5, "ordem": 66, "fotoId": "22540118fbb6251cefa68033d8c44bd9"}, {"id": "i067", "categoria": "Cervejas", "nome": "Spaten long neck 355ml", "preco": 12.5, "ordem": 67, "fotoId": "6e095de99978a32a59d14c2658fdbd55"}, {"id": "i068", "categoria": "Cervejas", "nome": "Skol Beats Senses (azul, 269ml)", "preco": 11.5, "ordem": 68, "fotoId": "abf43c0891110be5c4e483d6a1169eab"}, {"id": "i069", "categoria": "Cervejas", "nome": "Skol Beats Red Mix (vermelha, 269ml)", "preco": 11.5, "ordem": 69, "fotoId": "0cd8ef2bd5f47f955736f48b45a76283"}, {"id": "i070", "categoria": "Cervejas", "nome": "Antarctica Cerveja Preta", "preco": null, "ordem": 70, "fotoId": "e48a7d5181b9fde0612f535f6da81398"}, {"id": "i071", "categoria": "Cervejas", "nome": "Petra (?)", "preco": null, "ordem": 71, "fotoId": "1fff695ab14097217c6946ff9cf41866"}, {"id": "i072", "categoria": "Cervejas", "nome": "Kaiser (?)", "preco": null, "ordem": 72, "fotoId": "278f3b66c97a1a23c065df3d06ff30b1"}, {"id": "i073", "categoria": "Cervejas", "nome": "Skol original (?)", "preco": 1, "ordem": 73, "fotoId": "21d5a80cf2e257f4b7969d4503d6da6d"}, {"id": "i074", "categoria": "Cervejas", "nome": "Bud Light (?)", "preco": null, "ordem": 74, "fotoId": "90cb2e341c2aafce2642a77c77dce9e5"}, {"id": "i075", "categoria": "Bebidas mistas", "nome": "51 Ice (sabores) 275ml", "preco": 8.5, "ordem": 75, "fotoId": "59ee0e4aedb7c19ec28a64b140807ceb"}, {"id": "i076", "categoria": "Bebidas mistas", "nome": "Smirnoff Ice 275ml", "preco": 10.5, "ordem": 76, "fotoId": "49af162c0ac9302623c85221c079d3dd"}, {"id": "i077", "categoria": "Cachaças e vinhos", "nome": "Vinho tinto suave (1L)", "preco": 28.5, "ordem": 77, "fotoId": "0693614b6c6e62b7efc89a14ae727d13"}, {"id": "i078", "categoria": "Cachaças e vinhos", "nome": "Vinho (2L)", "preco": 58.91, "ordem": 78, "fotoId": "3ab269cb4b4b141d3b674f7268eb2dda"}, {"id": "i079", "categoria": "Refrigerantes e sucos", "nome": "Coca-Cola lata 350ml", "preco": 3.8, "ordem": 79, "fotoId": "ca5a66ccf82f2ec85a5ad5908c3d3431"}, {"id": "i080", "categoria": "Refrigerantes e sucos", "nome": "Coca-Cola Sem Açúcar / Zero lata 350ml", "preco": 5.3, "ordem": 80, "fotoId": "42457ff59621e79c81e89bdc823433f5"}, {"id": "i081", "categoria": "Refrigerantes e sucos", "nome": "Guaraná Antarctica lata 350ml (fardo de 12)", "preco": 2.89, "ordem": 81, "fotoId": "7c274ec1d16884f281034affedf3e977"}, {"id": "i082", "categoria": "Refrigerantes e sucos", "nome": "Fanta laranja lata 350ml", "preco": 3.5, "ordem": 82, "fotoId": "21c4d03b55475140e01008a74b0063bc"}, {"id": "i083", "categoria": "Refrigerantes e sucos", "nome": "Fanta uva lata 350ml", "preco": 3.5, "ordem": 83, "fotoId": "5a6797b5a3f1cc4e47c4fba0bd80fc85"}, {"id": "i084", "categoria": "Refrigerantes e sucos", "nome": "Sprite lata 350ml", "preco": 3.5, "ordem": 84, "fotoId": "d00fd311b324cdbe5c48a09c257c6f38"}, {"id": "i085", "categoria": "Refrigerantes e sucos", "nome": "Dolly guaraná lata 350ml (fardo de 12)", "preco": 4.13, "ordem": 85, "fotoId": "47fa47713041d75ac1b21f44345027c4"}, {"id": "i086", "categoria": "Refrigerantes e sucos", "nome": "Dolly laranja (?)", "preco": null, "ordem": 86, "fotoId": "f0ce8d8537aa80f8e301494e864694b8"}, {"id": "i087", "categoria": "Refrigerantes e sucos", "nome": "Dolly limão (?)", "preco": null, "ordem": 87, "fotoId": "9d5399b29aba305540ce8aa982003b7b"}, {"id": "i088", "categoria": "Refrigerantes e sucos", "nome": "Laranjinha (?)", "preco": null, "ordem": 88, "fotoId": "9b07559855f58abb9202a9c5aa5b83d1"}, {"id": "i089", "categoria": "Refrigerantes e sucos", "nome": "Guaraná (Delinho sabores) (?)", "preco": null, "ordem": 89, "fotoId": "7e3d587068e339c3de2d4ed8039822a6"}, {"id": "i090", "categoria": "Refrigerantes e sucos", "nome": "Suco Del Valle sabores (1L)", "preco": 14.5, "ordem": 90, "fotoId": "e605ac9f5212b9a3ea93ee52cc7f6797"}, {"id": "i091", "categoria": "Refrigerantes e sucos", "nome": "Suco de laranja (1L, Maguary)", "preco": 12.4, "ordem": 91, "fotoId": "58b586828d95eb60e5ea5c69ac9872af"}, {"id": "i092", "categoria": "Doces e salgadinhos", "nome": "Halls (display de 21, menta)", "preco": 2.21, "ordem": 92, "fotoId": "d9ba05cc184e05f15a34e2698969ac98"}, {"id": "i093", "categoria": "Doces e salgadinhos", "nome": "Trident (display de 21)", "preco": 2.98, "ordem": 93, "fotoId": "aa798a5bad762d0b210de02cf9330684"}, {"id": "i094", "categoria": "Doces e salgadinhos", "nome": "Trident (pacote 8g)", "preco": 3.64, "ordem": 94, "fotoId": "5a23556a45e5bbd45d7b970d468a4a23"}, {"id": "i095", "categoria": "Doces e salgadinhos", "nome": "Pururuca (?)", "preco": null, "ordem": 95, "fotoId": "f900c7257fae486592cf4721ad247e3e"}, {"id": "i096", "categoria": "Doces e salgadinhos", "nome": "Lobitos (?)", "preco": null, "ordem": 96, "fotoId": "f262f87582dda44d05eb2de3fbd7b33c"}, {"id": "i097", "categoria": "Doces e salgadinhos", "nome": "Ouriço branco (?)", "preco": null, "ordem": 97, "fotoId": "835e17e3d4ae156fbcc90d3600ca3b0a"}, {"id": "i098", "categoria": "Doces e salgadinhos", "nome": "Palito sabores (?)", "preco": null, "ordem": 98, "fotoId": "379f25c7ba4efbff525935f0bf2b77d1"}, {"id": "i099", "categoria": "Doces e salgadinhos", "nome": "Palito / ovo (?)", "preco": null, "ordem": 99, "fotoId": "700394b3667afa7c15bdb12103bec3ff"}, {"id": "i100", "categoria": "Cigarros e acessórios", "nome": "Hollywood", "preco": null, "ordem": 100, "fotoId": "2df0f51e51bdb608337855dca7a5a277"}, {"id": "i101", "categoria": "Cigarros e acessórios", "nome": "Hollywood vermelho e branco", "preco": null, "ordem": 101, "fotoId": "dc24f7e8e4fbaf90e9dc99cff38751c5"}, {"id": "i102", "categoria": "Cigarros e acessórios", "nome": "Marlboro", "preco": 17.5, "ordem": 102, "fotoId": "fde2f6cdb7a03e48739b2f57010b6f55"}, {"id": "i103", "categoria": "Cigarros e acessórios", "nome": "Black de menta", "preco": null, "ordem": 103, "fotoId": "0587d8b974b6fcf59d2cf42dd0b49582"}, {"id": "i104", "categoria": "Cigarros e acessórios", "nome": "LM", "preco": 13.5, "ordem": 104, "fotoId": "98b6dd25d34d12aa00e2b1a6ccd24726"}, {"id": "i105", "categoria": "Cigarros e acessórios", "nome": "Lucky Strike", "preco": 12.5, "ordem": 105, "fotoId": "decc903501d3a387c3118d709f15e710"}, {"id": "i106", "categoria": "Cigarros e acessórios", "nome": "EYT (?)", "preco": null, "ordem": 106, "fotoId": "3acb7652ba40544caeb2e9b8b9ac9918"}, {"id": "i107", "categoria": "Cigarros e acessórios", "nome": "Chesterfield", "preco": 15.5, "ordem": 107, "fotoId": "9bdac353fa9d38ef95b940ae0de63b14"}, {"id": "i108", "categoria": "Cigarros e acessórios", "nome": "Good (?)", "preco": null, "ordem": 108, "fotoId": "79fa298fce1562a92cb880e56f07219d"}, {"id": "i109", "categoria": "Cigarros e acessórios", "nome": "Isqueiro", "preco": 7.5, "ordem": 109, "fotoId": "3803845099c752ab963b539032fa48ea"}, {"id": "i110", "categoria": "Cigarros e acessórios", "nome": "Fósforo", "preco": null, "ordem": 110, "fotoId": "4853277afd9779da16937b240f91c073"}, {"id": "i111", "categoria": "Cigarros e acessórios", "nome": "Seda solta", "preco": null, "ordem": 111, "fotoId": "b4cb072494bcdb28ee8478921f3fe36c"}, {"id": "i112", "categoria": "Cigarros e acessórios", "nome": "Pacotinho (1)", "preco": null, "ordem": 112, "fotoId": "947b09cbe8cb2656974d04a6724c72f0"}, {"id": "i113", "categoria": "Descartáveis", "nome": "Copo 700 ml (pacote de 50)", "preco": 1.22, "ordem": 113, "fotoId": "e31fbd7d4cc9c1f61c2503245e986e80"}, {"id": "i114", "categoria": "Descartáveis", "nome": "Copo 500 ml (pacote de 50)", "preco": 0.97, "ordem": 114, "fotoId": "8cbfdb5bd8375b0f3f360481e6df1d9b"}, {"id": "i115", "categoria": "Descartáveis", "nome": "Copo 300 ml (pacote de 100)", "preco": 0.67, "ordem": 115, "fotoId": "41efe52511f7d2102f9c72c23c614283"}, {"id": "i116", "categoria": "Descartáveis", "nome": "Copo 180 ml (pacote de 100)", "preco": 0.6, "ordem": 116, "fotoId": "634dbf0603dc61295d9b9083c0470eca"}, {"id": "i117", "categoria": "Descartáveis", "nome": "Copo 100 ml de papel (pacote de 100)", "preco": 0.88, "ordem": 117, "fotoId": "35a421dbbc39e22230c2a63f615e53f1"}, {"id": "i118", "categoria": "Descartáveis", "nome": "Copo 50 ml de café, plástico (pacote de 100)", "preco": 0.62, "ordem": 118, "fotoId": "b322bcdc2545f55cf1ef0be572c20dc4"}, {"id": "i119", "categoria": "Descartáveis", "nome": "Copo 1.000 ml", "preco": null, "ordem": 119, "fotoId": "e6b8a741d136e26e7b3341bcfb4a473e"}, {"id": "i120", "categoria": "Descartáveis", "nome": "Balde 500 ml", "preco": null, "ordem": 120, "fotoId": "f7ab9df6d9dc8f11c43bea56e51e66d7"}, {"id": "i121", "categoria": "Descartáveis", "nome": "Balde 1.000 ml", "preco": null, "ordem": 121, "fotoId": "700087605a530b0ea630bc177d67611a"}, {"id": "i122", "categoria": "Chope", "nome": "Torre de chope 4L (Hopr)", "preco": 325.5, "ordem": 122, "fotoId": "839be142f9c20086aaa6455f095dc6d5"}, {"id": "i123", "categoria": "Chope", "nome": "Chope em barril (por litro, Brahma)", "preco": 19.98, "ordem": 123, "fotoId": "bf50980d85d6c1b2af6ad981d3fe5d2c"}, {"id": "i124", "categoria": "Chope", "nome": "Aluguel de torre de chope", "preco": null, "ordem": 124, "fotoId": "d2e949e77640e39efbc6e90f600b76c8"}, {"id": "i125", "categoria": "Energéticos", "nome": "Monster Zero (473ml)", "preco": 10.5, "ordem": 125, "fotoId": "e94908e6f44965882ea96c9db51e751a"}, {"id": "i126", "categoria": "Energéticos", "nome": "Monster Mango Loco (473ml)", "preco": 10.5, "ordem": 126, "fotoId": "55c7965c2fe4e82ae3b15b2651b45bb3"}, {"id": "i127", "categoria": "Energéticos", "nome": "Monster Energy (473ml)", "preco": 10.5, "ordem": 127, "fotoId": "d70354bd68bea6c87b1f466f887bd67f"}, {"id": "i128", "categoria": "Energéticos", "nome": "Red Bull Sugarfree (250ml)", "preco": 8.5, "ordem": 128, "fotoId": "dcaad444861f3f77a05f2bf1bf7f015a"}, {"id": "i129", "categoria": "Energéticos", "nome": "Red Bull Red Edition (Melancia) (250ml)", "preco": 8.5, "ordem": 129, "fotoId": "ca57bed407faa467e7e327c7aa6c6991"}, {"id": "i130", "categoria": "Energéticos", "nome": "Red Bull Tropical (250ml)", "preco": 8.5, "ordem": 130, "fotoId": "72d2b92733e1206521d174261763255d"}, {"id": "i131", "categoria": "Energéticos", "nome": "Red Bull Purple Edition (Açaí) (250ml)", "preco": 8.5, "ordem": 131, "fotoId": "373a720b38efb220c558f8ccaf83da8b"}, {"id": "i132", "categoria": "Energéticos", "nome": "Monster Ultra Rosa (473ml)", "preco": 10.5, "ordem": 132, "fotoId": "abb5138506625cb880faa35926769e63"}, {"id": "i133", "categoria": "Energéticos", "nome": "Monster Ultra (473ml)", "preco": 10.5, "ordem": 133, "fotoId": "41498797bcc3ff3e0aaf98dff188e161"}, {"id": "i134", "categoria": "Energéticos", "nome": "Monster Ultra Laranja (473ml)", "preco": 10.5, "ordem": 134, "fotoId": "a12abc44d0ddac37ddd2a0f6340b74e3"}, {"id": "i135", "categoria": "Energéticos", "nome": "Monster Ultra Paradise (473ml)", "preco": 10.5, "ordem": 135, "fotoId": "7265fc3d122a46eb4b2d46c3f3532e6e"}, {"id": "i136", "categoria": "Energéticos", "nome": "Baly Energético (473ml)", "preco": 8.5, "ordem": 136, "fotoId": "1d5399954322d07241a49021f13d9db9"}, {"id": "c201", "categoria": "Cigarros e acessórios", "nome": "Camel Blue", "preco": 14.5, "ordem": 201, "fotoId": "59252490252a7c2c215a511ef58d6854"}, {"id": "c202", "categoria": "Cigarros e acessórios", "nome": "Marlboro Gold Selection", "preco": 13.5, "ordem": 202, "fotoId": "71d9bb0cb456e694de641d60f0f300c3"}, {"id": "c203", "categoria": "Cigarros e acessórios", "nome": "Winston Vermelho Classic", "preco": 13.5, "ordem": 203, "fotoId": "b9792868b87e9d99a1a70f813d364b7f"}, {"id": "c204", "categoria": "Cigarros e acessórios", "nome": "Gudang Garam Importado", "preco": 45.5, "ordem": 204, "fotoId": "cc2a261a9c52800af70af74d26f40e8b"}, {"id": "c205", "categoria": "Cigarros e acessórios", "nome": "Bic Pequeno", "preco": 6.5, "ordem": 205, "fotoId": "bbac3613798f4eceff5bc433d1fb3143"}, {"id": "c206", "categoria": "Cigarros e acessórios", "nome": "Winston Azul", "preco": 13.5, "ordem": 206, "fotoId": "7ace12e22d80dfe9328611a03344f54d"}, {"id": "c207", "categoria": "Cigarros e acessórios", "nome": "Lucky Strike Fresh Ice", "preco": 17.5, "ordem": 207, "fotoId": "f65a4b62966e3011b6c8cef128ec4075"}, {"id": "c208", "categoria": "Cigarros e acessórios", "nome": "Dunhill Azul", "preco": 17.5, "ordem": 208, "fotoId": "fc1251495242b3bb5676589639133c69"}, {"id": "c209", "categoria": "Cigarros e acessórios", "nome": "Marlboro Gold", "preco": 17.5, "ordem": 209, "fotoId": "68669e6e4f2280326b57decfba222c44"}, {"id": "c210", "categoria": "Cigarros e acessórios", "nome": "Charuto Titan Chocolate Avulso", "preco": 17.5, "ordem": 210, "fotoId": "27ccb3ab50ac9429a5aaf9787df6af69"}, {"id": "c211", "categoria": "Cigarros e acessórios", "nome": "Charuto Titan Avulso", "preco": 17.5, "ordem": 211, "fotoId": "5c053b4fc00c47314eecc7677a572c05"}, {"id": "c212", "categoria": "Cigarros e acessórios", "nome": "Charuto Titan Chocolate Caixa 5un", "preco": 85.5, "ordem": 212, "fotoId": "f17d3be4e5011633c9d0e113ccc982c8"}, {"id": "c213", "categoria": "Cigarros e acessórios", "nome": "Charuto Titan Tradicional Caixa 5un", "preco": 85.5, "ordem": 213, "fotoId": "f7890c2453fd0089b2f9b0f68bb4fee4"}, {"id": "c214", "categoria": "Cigarros e acessórios", "nome": "Lucky Strike Melancia", "preco": 15.5, "ordem": 214, "fotoId": "20bad91551d6c0825d439be513049674"}, {"id": "c215", "categoria": "Cigarros e acessórios", "nome": "Winston Vermelho Red 8", "preco": 13.5, "ordem": 215, "fotoId": "de8a35c6eba93040908d5b1b1d733294"}, {"id": "c216", "categoria": "Cigarros e acessórios", "nome": "Kent Mix Purple Twist", "preco": 15.5, "ordem": 216, "fotoId": "3f2c7396c73b9f5e3dfaecd2612df884"}, {"id": "c217", "categoria": "Cigarros e acessórios", "nome": "Kent Red Twist", "preco": null, "ordem": 217, "fotoId": "c13ae3978956bca0d8b7615dbf378e59"}, {"id": "c218", "categoria": "Cigarros e acessórios", "nome": "Marlboro Red Selection", "preco": 13.5, "ordem": 218, "fotoId": "7144b7e1ae7d56498c3bf3df451eddf3"}, {"id": "c219", "categoria": "Cigarros e acessórios", "nome": "Dunhill Ice Refresh", "preco": 17.5, "ordem": 219, "fotoId": "d47aaec568df678cc7a1ac9d64cfff01"}, {"id": "c220", "categoria": "Cigarros e acessórios", "nome": "Chesterfield Azul Terras Brasileiras", "preco": 14.5, "ordem": 220, "fotoId": "c55d8a37b59176f11599dfe588549be5"}, {"id": "c221", "categoria": "Cigarros e acessórios", "nome": "Dunhill Mix Refresh", "preco": 17.5, "ordem": 221, "fotoId": "ad7ebe0c42f74025df10749f63365a53"}, {"id": "c222", "categoria": "Cigarros e acessórios", "nome": "Black Vermelho", "preco": 25.5, "ordem": 222, "fotoId": "af89df8350f4aeb551fc733fe6199dde"}, {"id": "c223", "categoria": "Cigarros e acessórios", "nome": "Lucky Strike Purple Mix 1871", "preco": 15.5, "ordem": 223, "fotoId": "4c30f21625afe7965fc18f1b00b781a4"}, {"id": "c224", "categoria": "Cigarros e acessórios", "nome": "LA Menta", "preco": 23.5, "ordem": 224, "fotoId": "6253eed6ec88546245f6757a3dc92fc1"}, {"id": "c225", "categoria": "Cigarros e acessórios", "nome": "Chesterfield Remix Fresh Mint", "preco": 15.5, "ordem": 225, "fotoId": "38a808eb0e602a64975b1a18643bd452"}, {"id": "c226", "categoria": "Cigarros e acessórios", "nome": "LM Kretek", "preco": 17.5, "ordem": 226, "fotoId": "4629ca4ba051b8de6bacfe41eec660d6"}, {"id": "c227", "categoria": "Cigarros e acessórios", "nome": "Camel Kretek Berry", "preco": 20.5, "ordem": 227, "fotoId": "933ea701b3e12350ed5e08ceffc72fd6"}, {"id": "c228", "categoria": "Cigarros e acessórios", "nome": "Camel Melancia", "preco": 17.5, "ordem": 228, "fotoId": "e5205155195e6314fa9852102b4409a5"}, {"id": "c229", "categoria": "Cigarros e acessórios", "nome": "Camel Amarelo", "preco": 14.5, "ordem": 229, "fotoId": "307f453d96fa354608863931bd1fbb78"}, {"id": "c230", "categoria": "Cigarros e acessórios", "nome": "Gift", "preco": 6.5, "ordem": 230, "fotoId": "ea9ad0b43a5545313ceb459faa6cb1b5"}, {"id": "c231", "categoria": "Cigarros e acessórios", "nome": "Camel Kretek Menthol", "preco": 20.5, "ordem": 231, "fotoId": "73aa98193ded2034264a351ada176ff2"}, {"id": "c232", "categoria": "Cigarros e acessórios", "nome": "Marlboro Melancia", "preco": 17.5, "ordem": 232, "fotoId": "56936482fa162b5cc043a98c733721bd"}, {"id": "c233", "categoria": "Cigarros e acessórios", "nome": "Marlboro Filter Plus", "preco": 15.5, "ordem": 233, "fotoId": "e170ececd324e4bf2e59a19aaa1b7943"}, {"id": "c234", "categoria": "Cigarros e acessórios", "nome": "Camel Double", "preco": null, "ordem": 234, "fotoId": "48a9bcb147bf617c2410ca804d7c099b"}, {"id": "c235", "categoria": "Cigarros e acessórios", "nome": "Dunhill Double Refresh", "preco": null, "ordem": 235, "fotoId": "607d2ba15fd591dc659f3a954d5a6cf9"}, {"id": "c236", "categoria": "Cigarros e acessórios", "nome": "Parliament", "preco": 19.5, "ordem": 236, "fotoId": "290c63623296673d1867cf067c82e035"}, {"id": "c237", "categoria": "Cigarros e acessórios", "nome": "Marlboro Kretek Mint", "preco": 17.5, "ordem": 237, "fotoId": "d8c65d79b56fb3b8b30299432f134a51"}, {"id": "c238", "categoria": "Cigarros e acessórios", "nome": "Chesterfield Remix Purple", "preco": 15.5, "ordem": 238, "fotoId": "c483dbeb6acf9b608f91a1c80dcd69fb"}, {"id": "c239", "categoria": "Cigarros e acessórios", "nome": "Black Ice", "preco": 25.5, "ordem": 239, "fotoId": "e52e34fad84485a2b04f4dd5ba4721a9"}, {"id": "c240", "categoria": "Cigarros e acessórios", "nome": "Lucky Strike Mint", "preco": 17.5, "ordem": 240, "fotoId": "cd415445c50600a131c2c660809263bd"}, {"id": "c241", "categoria": "Cigarros e acessórios", "nome": "Rothmans Prata", "preco": 14.5, "ordem": 241, "fotoId": "006f23bdd15704173c1c4fd0c8510c1c"}, {"id": "c242", "categoria": "Cigarros e acessórios", "nome": "Lucky Strike Double", "preco": 17.5, "ordem": 242, "fotoId": "1cba28308ae34ebfdf4c9d5fd52fbba4"}, {"id": "c243", "categoria": "Cigarros e acessórios", "nome": "Rothmans Global Vermelho", "preco": 13.5, "ordem": 243, "fotoId": "821eab5f4a3560fcfbf3aca68e740190"}, {"id": "c244", "categoria": "Cigarros e acessórios", "nome": "Marlboro Blue Ice", "preco": null, "ordem": 244, "fotoId": "62233f3e55b2c0c0b13a4366baba3c50"}, {"id": "c245", "categoria": "Cigarros e acessórios", "nome": "Chesterfield Melancia", "preco": null, "ordem": 245, "fotoId": "74492c65d491c6a742bcd9cda2296e97"}, {"id": "c246", "categoria": "Cigarros e acessórios", "nome": "Kent Azul", "preco": 13.5, "ordem": 246, "fotoId": "b36d7c3da2503cebdc6f0952ee568753"}, {"id": "c247", "categoria": "Cigarros e acessórios", "nome": "Rothmans Azul", "preco": 14.5, "ordem": 247, "fotoId": "0e9b82e1674009ff6adbd96abdafb331"}, {"id": "c248", "categoria": "Cigarros e acessórios", "nome": "Rothmans Vermelho", "preco": null, "ordem": 248, "fotoId": "549d7afe496831fa1ac979c1260fcd70"}, {"id": "c249", "categoria": "Cigarros e acessórios", "nome": "Marlboro Double", "preco": null, "ordem": 249, "fotoId": "6c36d404a520b519e7f7eb1d4965dfe8"}, {"id": "d001", "categoria": "Doces e salgadinhos", "nome": "Bala de hortelã (30x600g)", "preco": null, "ordem": 250, "fotoId": "301da607d2aa5ba06421b103c55ad3ef"}, {"id": "d002", "categoria": "Doces e salgadinhos", "nome": "Bala de banana (30x500g)", "preco": null, "ordem": 251, "fotoId": "40bc69b078f8a1d4ac7014b308b01c9c"}, {"id": "d003", "categoria": "Doces e salgadinhos", "nome": "Bala amendoim crocante (30x500g)", "preco": null, "ordem": 252, "fotoId": "7ba0f4e55a14eaed6ffb32c565716888"}, {"id": "d004", "categoria": "Doces e salgadinhos", "nome": "Bala de hortelã mastigável (30x500g)", "preco": null, "ordem": 253, "fotoId": "77197a9f5e60c1cd057f30ee96b45070"}, {"id": "d005", "categoria": "Doces e salgadinhos", "nome": "Bala frutas sortidas (30x600g)", "preco": null, "ordem": 254, "fotoId": "cbbe5c9aae528631427ed39ca4a6540b"}, {"id": "d006", "categoria": "Doces e salgadinhos", "nome": "Bala de hortelã (50x300g)", "preco": null, "ordem": 255, "fotoId": "c1280b5797946d17875d8af9be66a3fc"}, {"id": "d007", "categoria": "Doces e salgadinhos", "nome": "Wafer Danubio chocolate branco (50x75g)", "preco": null, "ordem": 256, "fotoId": "6e651ba7c00c51e9535549a8218bc8bd"}, {"id": "d008", "categoria": "Doces e salgadinhos", "nome": "Wafer Surf morango (50x75g)", "preco": null, "ordem": 257, "fotoId": "cef919d21fc9f3f0584afaf5fc125e0c"}, {"id": "d009", "categoria": "Doces e salgadinhos", "nome": "Wafer Danny doce de leite (50x75g)", "preco": null, "ordem": 258, "fotoId": "f7df186e25ba3024f09754289b5df140"}, {"id": "d010", "categoria": "Doces e salgadinhos", "nome": "Wafer Danubio chocolate (50x75g)", "preco": null, "ordem": 259, "fotoId": "ee0c0b45e1f352be23ff1b86ad8a6b6b"}, {"id": "b001", "categoria": "Whiskies", "nome": "Kit Whisky Johnnie Walker Red Label (kit)", "preco": 209.02, "ordem": 260, "fotoId": "e1898e3d546a532ece9af31adcec79e3"}, {"id": "b002", "categoria": "Destilados", "nome": "Vodka Absolut Natural 1000ml", "preco": 104.88, "ordem": 261, "fotoId": "957daa07c9e378e0e52e67daabb4633b"}, {"id": "b003", "categoria": "Destilados", "nome": "Beefeater Blackberry 700ml", "preco": 115.97, "ordem": 262, "fotoId": ""}, {"id": "b004", "categoria": "Destilados", "nome": "Gin Tanqueray Ten", "preco": 199.22, "ordem": 263, "fotoId": "0b59881e6943f937f0f83b146dd98791"}, {"id": "b005", "categoria": "Refrigerantes e sucos", "nome": "Refrigerante Guaraná Antarctica Zero", "preco": 3.6, "ordem": 264, "fotoId": "6b9e09c1ee5965d5448515e2aa7509ea"}, {"id": "b006", "categoria": "Refrigerantes e sucos", "nome": "Guaraná Antarctica 200ml (pack com 12)", "preco": 20.58, "ordem": 265, "fotoId": "71b7566f523d69aea6a94c46f11affb7"}, {"id": "b007", "categoria": "Refrigerantes e sucos", "nome": "Água Tônica Antarctica lata 350ml", "preco": 4.34, "ordem": 266, "fotoId": "5560ce6c9cc8b1a56ff48d7abf693380"}, {"id": "b008", "categoria": "Refrigerantes e sucos", "nome": "Água Tônica Antarctica Zero 1L", "preco": 7.93, "ordem": 267, "fotoId": "427a0d38af635365e0c68bd8528d7a45"}, {"id": "b009", "categoria": "Refrigerantes e sucos", "nome": "Refrigerante Guaraná Antarctica 1L", "preco": 6.17, "ordem": 268, "fotoId": "baa1a9c38bb65e8e0e0944ef210a5029"}, {"id": "b010", "categoria": "Energéticos", "nome": "Red Bull Morango e Pêssego 250ml", "preco": 9.58, "ordem": 269, "fotoId": "f9ac4db75e543df1448f8f98ecddfb87"}, {"id": "b011", "categoria": "Energéticos", "nome": "Red Bull 473ml", "preco": 14.48, "ordem": 270, "fotoId": "ea031c19652357d95be57d4ad3809397"}, {"id": "b012", "categoria": "Refrigerantes e sucos", "nome": "Guaracrac Guaraná 290ml", "preco": 2.96, "ordem": 271, "fotoId": "f072e3c3a898acc362809496b1738171"}, {"id": "b013", "categoria": "Refrigerantes e sucos", "nome": "Guaracrac Guaraná (pack com 24)", "preco": 47.14, "ordem": 272, "fotoId": "0707e0ad9c2a8c2c5d378b3a4acff08b"}, {"id": "b014", "categoria": "Refrigerantes e sucos", "nome": "Suco Del Valle Laranja 1L", "preco": 9.35, "ordem": 273, "fotoId": "e45044e44a42036b2c5af0e37d96ae4f"}, {"id": "b015", "categoria": "Refrigerantes e sucos", "nome": "Suco Del Valle Uva 1L", "preco": 9, "ordem": 274, "fotoId": "36c2f58cb4c0b85fc78eb6da2635fc56"}, {"id": "b016", "categoria": "Refrigerantes e sucos", "nome": "Ice Tea Leão Pêssego 300ml", "preco": 5.2, "ordem": 275, "fotoId": "e056552a59a7007ef314e9d712ffbd4e"}, {"id": "b017", "categoria": "Refrigerantes e sucos", "nome": "Guaravita 290ml", "preco": 2.87, "ordem": 276, "fotoId": "61ee11ac46209986562b1b96c8e856f3"}, {"id": "b018", "categoria": "Bebidas mistas", "nome": "Lata Skol Beats Zodiac Elemento Água", "preco": 5.65, "ordem": 277, "fotoId": ""}, {"id": "b019", "categoria": "Bebidas mistas", "nome": "Skol Beats Tropical Long Neck 269ml", "preco": 6.6, "ordem": 278, "fotoId": "00dc0016b64ec3079cd4ab7205deab06"}, {"id": "b020", "categoria": "Bebidas mistas", "nome": "Lata Skol Beats Zodiac Elemento Terra", "preco": 6.15, "ordem": 279, "fotoId": ""}, {"id": "b021", "categoria": "Bebidas mistas", "nome": "Skol Beats GT 269ml Long Neck (gelado)", "preco": 7.61, "ordem": 280, "fotoId": "141f0ddafcfb6436ab93db5515232032"}, {"id": "b022", "categoria": "Chope", "nome": "Cerveja Heineken Premium barril 5L", "preco": 84.46, "ordem": 281, "fotoId": "4ad0de87edcdcb90440a2c76f46ef3b7"}, {"id": "b023", "categoria": "Chope", "nome": "Cerveja Heineken barril (gelado)", "preco": 120.28, "ordem": 282, "fotoId": "cc4bc6a123adf9c4c0f98bc88d4b01a4"}, {"id": "b024", "categoria": "Chope", "nome": "Chopp Brahma Claro 100L + chopeira", "preco": 1649.03, "ordem": 283, "fotoId": "5ce7ab8e92c0bff2d9c6158bdeff4dcc"}, {"id": "b025", "categoria": "Chope", "nome": "Chopp Brahma Claro 50L + chopeira", "preco": 813.17, "ordem": 284, "fotoId": "85aea1d846d1ed0fb818b70fd0c5066c"}, {"id": "b026", "categoria": "Chope", "nome": "Chopp Brahma Claro 50L (só barril)", "preco": 732.7, "ordem": 285, "fotoId": "01a9771f91d83c94a1d3ffba9ac91040"}, {"id": "b027", "categoria": "Cachaças e vinhos", "nome": "Chopp de vinho Pink Moon 2L (gelado)", "preco": 22.45, "ordem": 286, "fotoId": "aef9f18b06b2c0caa78cc04b88bf22ec"}, {"id": "b028", "categoria": "Cachaças e vinhos", "nome": "Vinho Tinto Santa Helena Cabernet Sauvignon 750ml", "preco": 29.7, "ordem": 287, "fotoId": "d6a107a05bbb295c0965b2359d2f5fb4"}, {"id": "b029", "categoria": "Cachaças e vinhos", "nome": "Vinho Branco Galioto Suave 1L", "preco": 18.87, "ordem": 288, "fotoId": "d471bb1bb4390f7f378ff245d319d7c8"}, {"id": "b030", "categoria": "Cachaças e vinhos", "nome": "Vinho Rosé Casal Garcia 750ml (gelado)", "preco": 55.96, "ordem": 289, "fotoId": "decdbbeba0fdbca027eae576d3f6e09a"}, {"id": "b031", "categoria": "Cachaças e vinhos", "nome": "Vinho Branco Verde Casal Garcia 750ml", "preco": 56.23, "ordem": 290, "fotoId": "a6347ba08bd9175dbc7b4db236153bd4"}, {"id": "b032", "categoria": "Cachaças e vinhos", "nome": "Vinho Concha y Toro Reservado Cabernet", "preco": 24.33, "ordem": 291, "fotoId": "abec903064aaedf37d575fccbfe81157"}, {"id": "b033", "categoria": "Cachaças e vinhos", "nome": "Vinho Cosecha Tarapacá Chardonnay", "preco": 31.58, "ordem": 292, "fotoId": "8122e16822f792f4035037df5d6d9047"}, {"id": "b034", "categoria": "Cervejas", "nome": "Cerveja Heineken Retornável 600ml (caixa com 24)", "preco": 206.51, "ordem": 293, "fotoId": "cfb5ade8c028f5de22f29e5208c4ad9c"}, {"id": "b035", "categoria": "Cervejas", "nome": "Cerveja Corona 473ml (pack com 12)", "preco": 72.52, "ordem": 294, "fotoId": "c7497435e203f3374c4421c28a8e5fb4"}, {"id": "b036", "categoria": "Cervejas", "nome": "Cerveja Budweiser 473ml (pack com 12)", "preco": 56.86, "ordem": 295, "fotoId": "80dc7f7ac02da2d09b28d91fa6603508"}, {"id": "b037", "categoria": "Cervejas", "nome": "Stella Artois Pure Gold long neck 330ml (caixa)", "preco": 163.55, "ordem": 296, "fotoId": "e3359dfa709f16b0df439dce5d42ac29"}, {"id": "b038", "categoria": "Cervejas", "nome": "Cerveja Spaten 473ml (pack com 12)", "preco": 57.54, "ordem": 297, "fotoId": "5014ec260a4e4d3d7cba241c46cb8f29"}, {"id": "b039", "categoria": "Cervejas", "nome": "Cerveja Antarctica Original retornável 300ml", "preco": 79.19, "ordem": 298, "fotoId": "5cfe2dddd341cac312f67984f27b233b"}, {"id": "w01", "categoria": "Whiskies", "nome": "Buffalo Trace Bourbon (750ml)", "preco": null, "ordem": 301, "fotoId": "69f8b8e7b227656c011bfa8393ef88cc"}, {"id": "w02", "categoria": "Whiskies", "nome": "Jameson Triple Distilled (750ml)", "preco": null, "ordem": 302, "fotoId": "4fb2bd77570991946ff57dce15002caa"}, {"id": "w03", "categoria": "Whiskies", "nome": "Hibiki Japanese Harmony (700ml)", "preco": null, "ordem": 303, "fotoId": "c6e60b75bac7f4ea1ece3ee8e09c7b4f"}, {"id": "w04", "categoria": "Whiskies", "nome": "Royal Salute 21 anos (700ml)", "preco": null, "ordem": 304, "fotoId": "70769c1033a3e345bfcf99997f3a90ef"}, {"id": "w05", "categoria": "Whiskies", "nome": "Jameson Irish Whiskey (1L)", "preco": null, "ordem": 305, "fotoId": "3b8ac11246b491a0d4c686312baddc90"}, {"id": "w06", "categoria": "Whiskies", "nome": "Jim Beam Black 7 anos (1L)", "preco": null, "ordem": 306, "fotoId": "b9246b0c308e888d05e55bbdd3096f37"}, {"id": "w07", "categoria": "Whiskies", "nome": "Jack Daniel's Old No. 7 Mini (50ml)", "preco": null, "ordem": 307, "fotoId": "8882378fe36ab227b94c83cb2a434659"}, {"id": "w08", "categoria": "Whiskies", "nome": "Grant's Blended (1L)", "preco": null, "ordem": 308, "fotoId": "2ac02d079410383674522a0b0175cd84"}, {"id": "w09", "categoria": "Whiskies", "nome": "Ballantine's Finest (750ml)", "preco": null, "ordem": 309, "fotoId": "8aabb21b33c8e9b9df936dc9135a443e"}, {"id": "w10", "categoria": "Whiskies", "nome": "Maker's Mark Kentucky Straight (750ml)", "preco": null, "ordem": 310, "fotoId": "7104e6a5a1c3359881f7f222d893c29f"}, {"id": "w11", "categoria": "Whiskies", "nome": "Macallan Double Cask 12 anos (700ml)", "preco": null, "ordem": 311, "fotoId": "c49cac0cffca33a835d2f24f40371d4b"}, {"id": "w12", "categoria": "Whiskies", "nome": "Jim Beam Rye (700ml)", "preco": null, "ordem": 312, "fotoId": "a35756a59418a08351318e98ec603b87"}, {"id": "w13", "categoria": "Whiskies", "nome": "Jim Beam Honey (1L)", "preco": null, "ordem": 313, "fotoId": "4bb2b3e719b0c42b7a3f505e3cb76584"}, {"id": "w14", "categoria": "Whiskies", "nome": "Johnnie Walker Blonde (750ml)", "preco": null, "ordem": 314, "fotoId": "67461740029052e2c3129455966db4a7"}, {"id": "w15", "categoria": "Whiskies", "nome": "Black & White (1L)", "preco": null, "ordem": 315, "fotoId": "68052bbcc95e7cb1f1d34b1a816df017"}, {"id": "w16", "categoria": "Whiskies", "nome": "Jack Daniel's Tennessee Fire (1L)", "preco": null, "ordem": 316, "fotoId": "1a4e8fab6711d97618f1329587552dd0"}, {"id": "w17", "categoria": "Whiskies", "nome": "Johnnie Walker Black Label (750ml)", "preco": null, "ordem": 317, "fotoId": "8125e9591f0939d9eb5f45bc891b7bc9"}, {"id": "w18", "categoria": "Whiskies", "nome": "Kit Box Jack Daniel's Mel Honey com 2 copos", "preco": null, "ordem": 318, "fotoId": "ee1552f54cd8cec206f1f0175edce454"}, {"id": "w19", "categoria": "Whiskies", "nome": "Old Parr 12 anos Scotch (500ml)", "preco": null, "ordem": 319, "fotoId": "a021c001876043db6f9a6ae088f28227"}, {"id": "w20", "categoria": "Whiskies", "nome": "Johnnie Walker Black Label (500ml)", "preco": null, "ordem": 320, "fotoId": "276dde7150cba8e709b676f66366a30e"}, {"id": "w21", "categoria": "Whiskies", "nome": "Jack Daniel's Honey (375ml)", "preco": null, "ordem": 321, "fotoId": "c402d0cbd05404628fb22b8c9ff89899"}, {"id": "w22", "categoria": "Whiskies", "nome": "Macallan Sherry Oak Cask 12 anos (700ml)", "preco": null, "ordem": 322, "fotoId": "3c8a28d4df32aaa1496e547326a0f1d9"}, {"id": "w23", "categoria": "Whiskies", "nome": "White Horse Cavalo Branco (500ml)", "preco": null, "ordem": 323, "fotoId": "e80e1f5b4ddde252518a63830090d852"}, {"id": "w24", "categoria": "Whiskies", "nome": "Cesta Whisky Jack Daniel's (maleta)", "preco": null, "ordem": 324, "fotoId": "e3153a5542c209a3006efaa93cc6eb03"}, {"id": "w25", "categoria": "Whiskies", "nome": "Cutty Sark (1L)", "preco": null, "ordem": 325, "fotoId": "4f15e0eb402451248046cd15d1ed9d6a"}, {"id": "w26", "categoria": "Whiskies", "nome": "Woodford Reserve Bourbon (750ml)", "preco": null, "ordem": 326, "fotoId": "b1ab7cd9748197cd34e0cdd7df3c3ede"}, {"id": "w27", "categoria": "Whiskies", "nome": "Wild Turkey 101 Bourbon (700ml)", "preco": null, "ordem": 327, "fotoId": "b7f0ba5090200018a3059744af9dd7e5"}, {"id": "w28", "categoria": "Whiskies", "nome": "Buchanan's Deluxe 12 anos (750ml)", "preco": null, "ordem": 328, "fotoId": "dc93435300d9edc235610e257024d97c"}, {"id": "w29", "categoria": "Destilados", "nome": "Ballantine's Sunshine Abacaxi (700ml)", "preco": null, "ordem": 329, "fotoId": "93fe8b849b3500b5d4d951d9b5924a70"}, {"id": "w30", "categoria": "Whiskies", "nome": "Laphroaig 10 anos (750ml)", "preco": null, "ordem": 330, "fotoId": "4eb320794bafec0647fa6bb734bb48bf"}, {"id": "w31", "categoria": "Whiskies", "nome": "Macallan Double Cask 15 anos (700ml)", "preco": null, "ordem": 331, "fotoId": "e0f2c2ce52e43ef2503e7c945b9dfd90"}, {"id": "w32", "categoria": "Whiskies", "nome": "Jim Beam White Bourbon (1L)", "preco": null, "ordem": 332, "fotoId": "547a247364ed468047d3974539651ffe"}, {"id": "w33", "categoria": "Whiskies", "nome": "Chivas Regal 12 anos (750ml)", "preco": null, "ordem": 333, "fotoId": "0e973df06d6a1f7ae157d9653e2ba97e"}, {"id": "w34", "categoria": "Whiskies", "nome": "Dewar's 12 anos (750ml)", "preco": null, "ordem": 334, "fotoId": "b1c4035c51e8a6a5d90730e4cdf9453b"}, {"id": "w35", "categoria": "Whiskies", "nome": "Old Parr 12 anos (750ml)", "preco": null, "ordem": 335, "fotoId": "8524bdb136d145727fdf0bf6b151ce2f"}, {"id": "w36", "categoria": "Destilados", "nome": "Ballantine's Sweet Blend (700ml)", "preco": null, "ordem": 336, "fotoId": "40df7c11adb50e238e7a25a88f77b763"}, {"id": "w37", "categoria": "Whiskies", "nome": "Jack Daniel's Old No. 7 (200ml)", "preco": null, "ordem": 337, "fotoId": "f149c55149660334f95fcab5adbf1cb6"}, {"id": "w38", "categoria": "Whiskies", "nome": "Jack Daniel's Gentleman Jack (1L)", "preco": null, "ordem": 338, "fotoId": "965ce55626570b30881aae2c707e0ae2"}, {"id": "w39", "categoria": "Whiskies", "nome": "Yamazaki 12 anos (700ml)", "preco": null, "ordem": 339, "fotoId": "2de7255cf61da4e8fef957e4ccd8a2ea"}, {"id": "w40", "categoria": "Whiskies", "nome": "Johnnie Walker Gold Label Reserve (750ml)", "preco": null, "ordem": 340, "fotoId": "271b48763f4f12e6aeb2817338f4c5e0"}];
+  async function start(){
+    buildChips();
+    bindControls();
+    state.items = ITENS_FIXOS.map(function(x){ return Object.assign({}, x); });
+    state.canEdit = false;
+    state.loaded = true;
+    render();
+  }
+
+  start();
+})();
+</script>
+
+</body></html>

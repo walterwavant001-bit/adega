@@ -403,8 +403,10 @@
    "ordem": 103,
    "nome": "Black de menta",
    "categoria": "Cigarros e acessórios",
-   "preco": null,
-   "foto": "fotos/dbe58d48822c298ff2b69b36f3f7d310.png"
+   "preco": 16.0,
+   "foto": "fotos/dbe58d48822c298ff2b69b36f3f7d310.png",
+   "preco_status": "estimativa - confirmar antes de vender",
+   "obs": "estimativa; confirmar marca/SKU"
   },
   {
    "ordem": 104,
@@ -445,8 +447,10 @@
    "ordem": 112,
    "nome": "Pacotinho (1)",
    "categoria": "Cigarros e acessórios",
-   "preco": null,
-   "foto": "fotos/947b09cbe8cb2656974d04a6724c72f0.png"
+   "preco": 7.5,
+   "foto": "fotos/947b09cbe8cb2656974d04a6724c72f0.png",
+   "preco_status": "estimativa - confirmar antes de vender",
+   "obs": "mínimo legal por vintena; confirmar o que contém"
   },
   {
    "ordem": 113,
@@ -732,8 +736,10 @@
    "ordem": 217,
    "nome": "Kent Red Twist",
    "categoria": "Cigarros e acessórios",
-   "preco": null,
-   "foto": "fotos/beae1d4c3457747ffd912bb30e0a3715.png"
+   "preco": 15.0,
+   "foto": "fotos/beae1d4c3457747ffd912bb30e0a3715.png",
+   "preco_status": "estimativa - confirmar antes de vender",
+   "obs": "estimativa; conferir tabela da marca"
   },
   {
    "ordem": 218,
@@ -851,15 +857,19 @@
    "ordem": 234,
    "nome": "Camel Double",
    "categoria": "Cigarros e acessórios",
-   "preco": null,
-   "foto": "fotos/cab6c1141929432854c03fc9082fa425.png"
+   "preco": 17.0,
+   "foto": "fotos/cab6c1141929432854c03fc9082fa425.png",
+   "preco_status": "estimativa - confirmar antes de vender",
+   "obs": "estimativa; conferir tabela da marca"
   },
   {
    "ordem": 235,
    "nome": "Dunhill Double Refresh",
    "categoria": "Cigarros e acessórios",
-   "preco": null,
-   "foto": "fotos/0d031a90a14a68a9aeb7e568ae4e3be5.png"
+   "preco": 17.0,
+   "foto": "fotos/0d031a90a14a68a9aeb7e568ae4e3be5.png",
+   "preco_status": "estimativa - confirmar antes de vender",
+   "obs": "estimativa; conferir tabela da marca"
   },
   {
    "ordem": 236,
@@ -921,15 +931,19 @@
    "ordem": 244,
    "nome": "Marlboro Blue Ice",
    "categoria": "Cigarros e acessórios",
-   "preco": null,
-   "foto": "fotos/62233f3e55b2c0c0b13a4366baba3c50.png"
+   "preco": 18.0,
+   "foto": "fotos/62233f3e55b2c0c0b13a4366baba3c50.png",
+   "preco_status": "estimativa - confirmar antes de vender",
+   "obs": "referência de linha especial"
   },
   {
    "ordem": 245,
    "nome": "Chesterfield Melancia",
    "categoria": "Cigarros e acessórios",
-   "preco": null,
-   "foto": "fotos/74492c65d491c6a742bcd9cda2296e97.png"
+   "preco": 13.0,
+   "foto": "fotos/74492c65d491c6a742bcd9cda2296e97.png",
+   "preco_status": "estimativa - confirmar antes de vender",
+   "obs": "referência de tabela/mercado"
   },
   {
    "ordem": 246,
@@ -949,15 +963,19 @@
    "ordem": 248,
    "nome": "Rothmans Vermelho",
    "categoria": "Cigarros e acessórios",
-   "preco": null,
-   "foto": "fotos/5245fe1c2b90a03928b0e7202560614c.png"
+   "preco": 13.0,
+   "foto": "fotos/5245fe1c2b90a03928b0e7202560614c.png",
+   "preco_status": "estimativa - confirmar antes de vender",
+   "obs": "referência de tabela/mercado"
   },
   {
    "ordem": 249,
    "nome": "Marlboro Double",
    "categoria": "Cigarros e acessórios",
-   "preco": null,
-   "foto": "fotos/0749e01656a1790f61812d5f24e282df.png"
+   "preco": 13.0,
+   "foto": "fotos/0749e01656a1790f61812d5f24e282df.png",
+   "preco_status": "estimativa - confirmar antes de vender",
+   "obs": "referência de tabela/mercado"
   },
   {
    "ordem": 250,
@@ -1523,526 +1541,676 @@
    "ordem": 341,
    "nome": "L&M First Cut Blue",
    "categoria": "Cigarros e acessórios",
-   "preco": null,
-   "foto": "fotos/1e3cf8824cfbf67520450f09086cd80c.png"
+   "preco": 12.0,
+   "foto": "fotos/1e3cf8824cfbf67520450f09086cd80c.png",
+   "preco_status": "estimativa - confirmar antes de vender",
+   "obs": "referência de tabela/mercado"
   },
   {
    "ordem": 342,
    "nome": "L&M Blue Box Fine Cut",
    "categoria": "Cigarros e acessórios",
-   "preco": null,
-   "foto": "fotos/7206c81884170869759b9bc96120a5fb.png"
+   "preco": 12.0,
+   "foto": "fotos/7206c81884170869759b9bc96120a5fb.png",
+   "preco_status": "estimativa - confirmar antes de vender",
+   "obs": "referência de tabela/mercado"
   },
   {
    "ordem": 343,
    "nome": "L&M Kretek Cravo (fechado)",
    "categoria": "Cigarros e acessórios",
-   "preco": null,
-   "foto": "fotos/b5b3d4ad623a3721803c83c57d99dd3a.png"
+   "preco": 17.0,
+   "foto": "fotos/b5b3d4ad623a3721803c83c57d99dd3a.png",
+   "preco_status": "estimativa - confirmar antes de vender",
+   "obs": "estimativa; confirmar SKU"
   },
   {
    "ordem": 344,
    "nome": "L&M First Cut Silver KS C/10",
    "categoria": "Cigarros e acessórios",
-   "preco": null,
-   "foto": "fotos/8806c264c1ecf567a5e8e59d4e8c8973.png"
+   "preco": 110.0,
+   "foto": "fotos/8806c264c1ecf567a5e8e59d4e8c8973.png",
+   "preco_status": "estimativa - confirmar antes de vender",
+   "obs": "pack c/10 — estimativa"
   },
   {
    "ordem": 345,
    "nome": "L&M Red Box First Cut",
    "categoria": "Cigarros e acessórios",
-   "preco": null,
-   "foto": "fotos/9e52c20c855e44d575f9c873cb7a1edc.png"
+   "preco": 12.0,
+   "foto": "fotos/9e52c20c855e44d575f9c873cb7a1edc.png",
+   "preco_status": "estimativa - confirmar antes de vender",
+   "obs": "referência de tabela/mercado"
   },
   {
    "ordem": 346,
    "nome": "L&M Black Ice",
    "categoria": "Cigarros e acessórios",
-   "preco": null,
-   "foto": "fotos/7f77f9fe3a5ee8d78ec4f20f2c3fc76c.png"
+   "preco": 12.0,
+   "foto": "fotos/7f77f9fe3a5ee8d78ec4f20f2c3fc76c.png",
+   "preco_status": "estimativa - confirmar antes de vender",
+   "obs": "referência de tabela/mercado"
   },
   {
    "ordem": 347,
    "nome": "L&M First Cut Silver Box",
    "categoria": "Cigarros e acessórios",
-   "preco": null,
-   "foto": "fotos/69978e0b1b4f21372d2ac7d7e05397c4.png"
+   "preco": 12.0,
+   "foto": "fotos/69978e0b1b4f21372d2ac7d7e05397c4.png",
+   "preco_status": "estimativa - confirmar antes de vender",
+   "obs": "referência de tabela/mercado"
   },
   {
    "ordem": 348,
    "nome": "L&M Kretek Cravo (caixa aberta)",
    "categoria": "Cigarros e acessórios",
-   "preco": null,
-   "foto": "fotos/f8086d2154bff14b12400f0306681b6a.png"
+   "preco": 17.0,
+   "foto": "fotos/f8086d2154bff14b12400f0306681b6a.png",
+   "preco_status": "estimativa - confirmar antes de vender",
+   "obs": "estimativa; confirmar SKU"
   },
   {
    "ordem": 349,
    "nome": "L&M Kretek Box",
    "categoria": "Cigarros e acessórios",
-   "preco": null,
-   "foto": "fotos/d59f62e78c45d804e1be0cdda2fa03c3.png"
+   "preco": 17.0,
+   "foto": "fotos/d59f62e78c45d804e1be0cdda2fa03c3.png",
+   "preco_status": "estimativa - confirmar antes de vender",
+   "obs": "estimativa; confirmar SKU"
   },
   {
    "ordem": 350,
    "nome": "L&M Blue Label Box",
    "categoria": "Cigarros e acessórios",
-   "preco": null,
-   "foto": "fotos/b9db948d4b6f1b16c20f28ade8b66ff5.png"
+   "preco": 12.0,
+   "foto": "fotos/b9db948d4b6f1b16c20f28ade8b66ff5.png",
+   "preco_status": "estimativa - confirmar antes de vender",
+   "obs": "referência de tabela/mercado"
   },
   {
    "ordem": 351,
    "nome": "Rothmans Blue",
    "categoria": "Cigarros e acessórios",
-   "preco": null,
-   "foto": "fotos/f561103a1c96ff76de0f82aa86b4ac09.png"
+   "preco": 13.0,
+   "foto": "fotos/f561103a1c96ff76de0f82aa86b4ac09.png",
+   "preco_status": "estimativa - confirmar antes de vender",
+   "obs": "referência de tabela/mercado"
   },
   {
    "ordem": 352,
    "nome": "Rothmans Red Maço",
    "categoria": "Cigarros e acessórios",
-   "preco": null,
-   "foto": "fotos/5245fe1c2b90a03928b0e7202560614c.png"
+   "preco": 13.0,
+   "foto": "fotos/5245fe1c2b90a03928b0e7202560614c.png",
+   "preco_status": "estimativa - confirmar antes de vender",
+   "obs": "referência de tabela/mercado"
   },
   {
    "ordem": 353,
    "nome": "Rothmans Double Click",
    "categoria": "Cigarros e acessórios",
-   "preco": null,
-   "foto": "fotos/7927cc396dff459694dffc3eb571b6a3.png"
+   "preco": 13.0,
+   "foto": "fotos/7927cc396dff459694dffc3eb571b6a3.png",
+   "preco_status": "estimativa - confirmar antes de vender",
+   "obs": "referência de tabela/mercado"
   },
   {
    "ordem": 354,
    "nome": "Rothmans Blue Global Box 20",
    "categoria": "Cigarros e acessórios",
-   "preco": null,
-   "foto": "fotos/da400cb164a4f63fab83fd612e3cf47e.png"
+   "preco": 13.0,
+   "foto": "fotos/da400cb164a4f63fab83fd612e3cf47e.png",
+   "preco_status": "estimativa - confirmar antes de vender",
+   "obs": "referência de tabela/mercado"
   },
   {
    "ordem": 355,
    "nome": "Rothmans of London Red Box",
    "categoria": "Cigarros e acessórios",
-   "preco": null,
-   "foto": "fotos/ec9fb0a6365383a295162c204ee31835.png"
+   "preco": 13.0,
+   "foto": "fotos/ec9fb0a6365383a295162c204ee31835.png",
+   "preco_status": "estimativa - confirmar antes de vender",
+   "obs": "referência de tabela/mercado"
   },
   {
    "ordem": 356,
    "nome": "Rothmans Blue Azul Global",
    "categoria": "Cigarros e acessórios",
-   "preco": null,
-   "foto": "fotos/7155a0962bd5f72a2fd6cc76389356c8.png"
+   "preco": 13.0,
+   "foto": "fotos/7155a0962bd5f72a2fd6cc76389356c8.png",
+   "preco_status": "estimativa - confirmar antes de vender",
+   "obs": "referência de tabela/mercado"
   },
   {
    "ordem": 357,
    "nome": "Rothmans Class Blue",
    "categoria": "Cigarros e acessórios",
-   "preco": null,
-   "foto": "fotos/3d3dfcf4e579a969925c9aa160baa2fe.png"
+   "preco": 13.0,
+   "foto": "fotos/3d3dfcf4e579a969925c9aa160baa2fe.png",
+   "preco_status": "estimativa - confirmar antes de vender",
+   "obs": "referência de tabela/mercado"
   },
   {
    "ordem": 358,
    "nome": "Rothmans Blue Maço",
    "categoria": "Cigarros e acessórios",
-   "preco": null,
-   "foto": "fotos/322a0084dc93dc2e8841ad89a71e8330.png"
+   "preco": 13.0,
+   "foto": "fotos/322a0084dc93dc2e8841ad89a71e8330.png",
+   "preco_status": "estimativa - confirmar antes de vender",
+   "obs": "referência de tabela/mercado"
   },
   {
    "ordem": 359,
    "nome": "Rothmans Red Maço (Gd)",
    "categoria": "Cigarros e acessórios",
-   "preco": null,
-   "foto": "fotos/143228dc51d289b0f7676ae0d180f2ca.png"
+   "preco": 13.0,
+   "foto": "fotos/143228dc51d289b0f7676ae0d180f2ca.png",
+   "preco_status": "estimativa - confirmar antes de vender",
+   "obs": "referência de tabela/mercado"
   },
   {
    "ordem": 360,
    "nome": "Rothmans Silver Box",
    "categoria": "Cigarros e acessórios",
-   "preco": null,
-   "foto": "fotos/d206451870939299bd4c69d9da619760.png"
+   "preco": 13.0,
+   "foto": "fotos/d206451870939299bd4c69d9da619760.png",
+   "preco_status": "estimativa - confirmar antes de vender",
+   "obs": "referência de tabela/mercado"
   },
   {
    "ordem": 361,
    "nome": "Rothmans Purple Boost",
    "categoria": "Cigarros e acessórios",
-   "preco": null,
-   "foto": "fotos/0ea0546a82a74b3fc502be6a996e8610.png"
+   "preco": 13.0,
+   "foto": "fotos/0ea0546a82a74b3fc502be6a996e8610.png",
+   "preco_status": "estimativa - confirmar antes de vender",
+   "obs": "referência de tabela/mercado"
   },
   {
    "ordem": 362,
    "nome": "Rothmans Red Global C/10 x1",
    "categoria": "Cigarros e acessórios",
-   "preco": null,
-   "foto": "fotos/88c03558b8736b7fce00a3b69e867f92.png"
+   "preco": 120.0,
+   "foto": "fotos/88c03558b8736b7fce00a3b69e867f92.png",
+   "preco_status": "estimativa - confirmar antes de vender",
+   "obs": "pack c/10 — estimativa"
   },
   {
    "ordem": 363,
    "nome": "Lucky Strike Doble Fresh Box 10x",
    "categoria": "Cigarros e acessórios",
-   "preco": null,
-   "foto": "fotos/ee7f5220b4127f35289e494d25bbc8b6.png"
+   "preco": 150.0,
+   "foto": "fotos/ee7f5220b4127f35289e494d25bbc8b6.png",
+   "preco_status": "estimativa - confirmar antes de vender",
+   "obs": "pack c/10 — estimativa"
   },
   {
    "ordem": 364,
    "nome": "Lucky Strike Mint Box",
    "categoria": "Cigarros e acessórios",
-   "preco": null,
-   "foto": "fotos/1b9282452a105eac8f421ba3d1ab3a0f.png"
+   "preco": 15.0,
+   "foto": "fotos/1b9282452a105eac8f421ba3d1ab3a0f.png",
+   "preco_status": "estimativa - confirmar antes de vender",
+   "obs": "estimativa; conferir tabela da marca"
   },
   {
    "ordem": 365,
    "nome": "Lucky Strike Blue American Original",
    "categoria": "Cigarros e acessórios",
-   "preco": null,
-   "foto": "fotos/de6f2dcbcae1c88fe92b8622bddba777.png"
+   "preco": 15.0,
+   "foto": "fotos/de6f2dcbcae1c88fe92b8622bddba777.png",
+   "preco_status": "estimativa - confirmar antes de vender",
+   "obs": "estimativa; conferir tabela da marca"
   },
   {
    "ordem": 366,
    "nome": "Lucky Strike Red Original Box 10",
    "categoria": "Cigarros e acessórios",
-   "preco": null,
-   "foto": "fotos/f2fcde8583f426e59d07030eb0a37e5b.png"
+   "preco": 15.0,
+   "foto": "fotos/f2fcde8583f426e59d07030eb0a37e5b.png",
+   "preco_status": "estimativa - confirmar antes de vender",
+   "obs": "estimativa; conferir tabela da marca"
   },
   {
    "ordem": 367,
    "nome": "Djarum Black Vermelho (maço)",
    "categoria": "Cigarros e acessórios",
-   "preco": null,
-   "foto": "fotos/f66d868628c55e19d1c3a897a9952307.png"
+   "preco": 22.0,
+   "foto": "fotos/f66d868628c55e19d1c3a897a9952307.png",
+   "preco_status": "estimativa - confirmar antes de vender",
+   "obs": "estimativa; confirmar SKU"
   },
   {
    "ordem": 368,
    "nome": "Djarum Black Kretek Menthol (caixa aberta)",
    "categoria": "Cigarros e acessórios",
-   "preco": null,
-   "foto": "fotos/40b6e32e93dc0cd7865003d20ea48e82.png"
+   "preco": 22.0,
+   "foto": "fotos/40b6e32e93dc0cd7865003d20ea48e82.png",
+   "preco_status": "estimativa - confirmar antes de vender",
+   "obs": "estimativa; confirmar SKU"
   },
   {
    "ordem": 369,
    "nome": "Djarum Black Kretek Menthol (caixa 20)",
    "categoria": "Cigarros e acessórios",
-   "preco": null,
-   "foto": "fotos/a60485c5b49f18b6b55811918418839f.png"
+   "preco": 22.0,
+   "foto": "fotos/a60485c5b49f18b6b55811918418839f.png",
+   "preco_status": "estimativa - confirmar antes de vender",
+   "obs": "estimativa; confirmar SKU"
   },
   {
    "ordem": 370,
    "nome": "Djarum Black Verde Menta (maço)",
    "categoria": "Cigarros e acessórios",
-   "preco": null,
-   "foto": "fotos/2eed753275e90a8a7c4148eb4acf9374.png"
+   "preco": 22.0,
+   "foto": "fotos/2eed753275e90a8a7c4148eb4acf9374.png",
+   "preco_status": "estimativa - confirmar antes de vender",
+   "obs": "estimativa; confirmar SKU"
   },
   {
    "ordem": 371,
    "nome": "Djarum Black Red (display C/10)",
    "categoria": "Cigarros e acessórios",
-   "preco": null,
-   "foto": "fotos/3e02fcc25f5cca015aceb3775ca7f811.png"
+   "preco": 220.0,
+   "foto": "fotos/3e02fcc25f5cca015aceb3775ca7f811.png",
+   "preco_status": "estimativa - confirmar antes de vender",
+   "obs": "display/pack c/10 — estimativa"
   },
   {
    "ordem": 372,
    "nome": "Djarum Black Jade (Kretek Menthol)",
    "categoria": "Cigarros e acessórios",
-   "preco": null,
-   "foto": "fotos/068a2bec79784ba29de1376de308bd87.png"
+   "preco": 22.0,
+   "foto": "fotos/068a2bec79784ba29de1376de308bd87.png",
+   "preco_status": "estimativa - confirmar antes de vender",
+   "obs": "estimativa; confirmar SKU"
   },
   {
    "ordem": 373,
    "nome": "Djarum Black Kretek (SuperTem)",
    "categoria": "Cigarros e acessórios",
-   "preco": null,
-   "foto": "fotos/445626aa2078c4b7dd61ab2b6b19074b.png"
+   "preco": 22.0,
+   "foto": "fotos/445626aa2078c4b7dd61ab2b6b19074b.png",
+   "preco_status": "estimativa - confirmar antes de vender",
+   "obs": "estimativa; confirmar SKU"
   },
   {
    "ordem": 374,
    "nome": "Chesterfield Remix Fresh Mint (maço)",
    "categoria": "Cigarros e acessórios",
-   "preco": null,
-   "foto": "fotos/1f0e69612aa0c9bc1b35ce3adc6394c4.png"
+   "preco": 13.0,
+   "foto": "fotos/1f0e69612aa0c9bc1b35ce3adc6394c4.png",
+   "preco_status": "estimativa - confirmar antes de vender",
+   "obs": "referência de tabela/mercado"
   },
   {
    "ordem": 375,
    "nome": "Chesterfield Azul Original Blue",
    "categoria": "Cigarros e acessórios",
-   "preco": null,
-   "foto": "fotos/8912c4e0ac70368c3153b1bdc003c36e.png"
+   "preco": 13.0,
+   "foto": "fotos/8912c4e0ac70368c3153b1bdc003c36e.png",
+   "preco_status": "estimativa - confirmar antes de vender",
+   "obs": "referência de tabela/mercado"
   },
   {
    "ordem": 376,
    "nome": "Chesterfield Original Laranja",
    "categoria": "Cigarros e acessórios",
-   "preco": null,
-   "foto": "fotos/f2af5852be87a3e6a2b019b16ee2d82e.png"
+   "preco": 13.0,
+   "foto": "fotos/f2af5852be87a3e6a2b019b16ee2d82e.png",
+   "preco_status": "estimativa - confirmar antes de vender",
+   "obs": "referência de tabela/mercado"
   },
   {
    "ordem": 377,
    "nome": "Chesterfield Remix Blossom",
    "categoria": "Cigarros e acessórios",
-   "preco": null,
-   "foto": "fotos/3f86ad5334f9566c5e606a973687f04d.png"
+   "preco": 13.0,
+   "foto": "fotos/3f86ad5334f9566c5e606a973687f04d.png",
+   "preco_status": "estimativa - confirmar antes de vender",
+   "obs": "referência de tabela/mercado"
   },
   {
    "ordem": 378,
    "nome": "Chesterfield R. Beat CX20U",
    "categoria": "Cigarros e acessórios",
-   "preco": null,
-   "foto": "fotos/19226d449e5e8df2810f0e701a2cfc2a.png"
+   "preco": 13.0,
+   "foto": "fotos/19226d449e5e8df2810f0e701a2cfc2a.png",
+   "preco_status": "estimativa - confirmar antes de vender",
+   "obs": "referência de tabela/mercado"
   },
   {
    "ordem": 379,
    "nome": "Chesterfield Box Blue",
    "categoria": "Cigarros e acessórios",
-   "preco": null,
-   "foto": "fotos/60769af9d7cfbb0852977386c0f754b5.png"
+   "preco": 13.0,
+   "foto": "fotos/60769af9d7cfbb0852977386c0f754b5.png",
+   "preco_status": "estimativa - confirmar antes de vender",
+   "obs": "referência de tabela/mercado"
   },
   {
    "ordem": 380,
    "nome": "Chesterfield Remix Wild",
    "categoria": "Cigarros e acessórios",
-   "preco": null,
-   "foto": "fotos/fb2274b9bb092182dc6c1bc2573bcedf.png"
+   "preco": 13.0,
+   "foto": "fotos/fb2274b9bb092182dc6c1bc2573bcedf.png",
+   "preco_status": "estimativa - confirmar antes de vender",
+   "obs": "referência de tabela/mercado"
   },
   {
    "ordem": 381,
    "nome": "Chesterfield Remix Purple (Box)",
    "categoria": "Cigarros e acessórios",
-   "preco": null,
-   "foto": "fotos/926628a08f2a7fb99fd34e52f3bb49e4.png"
+   "preco": 13.0,
+   "foto": "fotos/926628a08f2a7fb99fd34e52f3bb49e4.png",
+   "preco_status": "estimativa - confirmar antes de vender",
+   "obs": "referência de tabela/mercado"
   },
   {
    "ordem": 382,
    "nome": "Chesterfield Terras Brasileiras",
    "categoria": "Cigarros e acessórios",
-   "preco": null,
-   "foto": "fotos/60c2eaa5a1895598424d45c602661e10.png"
+   "preco": 13.0,
+   "foto": "fotos/60c2eaa5a1895598424d45c602661e10.png",
+   "preco_status": "estimativa - confirmar antes de vender",
+   "obs": "referência de tabela/mercado"
   },
   {
    "ordem": 383,
    "nome": "Box Silver Chesterfield",
    "categoria": "Cigarros e acessórios",
-   "preco": null,
-   "foto": "fotos/ff18459dfc260c6f54e76a5c51ce82a3.png"
+   "preco": 13.0,
+   "foto": "fotos/ff18459dfc260c6f54e76a5c51ce82a3.png",
+   "preco_status": "estimativa - confirmar antes de vender",
+   "obs": "referência de tabela/mercado"
   },
   {
    "ordem": 384,
    "nome": "Camel Kretek Menthol (cravo)",
    "categoria": "Cigarros e acessórios",
-   "preco": null,
-   "foto": "fotos/5c4c16181ab92cdb2e572b0ba9394277.png"
+   "preco": 17.0,
+   "foto": "fotos/5c4c16181ab92cdb2e572b0ba9394277.png",
+   "preco_status": "estimativa - confirmar antes de vender",
+   "obs": "estimativa; confirmar SKU"
   },
   {
    "ordem": 385,
    "nome": "Camel Double Purple Beach",
    "categoria": "Cigarros e acessórios",
-   "preco": null,
-   "foto": "fotos/cab6c1141929432854c03fc9082fa425.png"
+   "preco": 17.0,
+   "foto": "fotos/cab6c1141929432854c03fc9082fa425.png",
+   "preco_status": "estimativa - confirmar antes de vender",
+   "obs": "estimativa; conferir tabela da marca"
   },
   {
    "ordem": 386,
    "nome": "Camel Filters Natural",
    "categoria": "Cigarros e acessórios",
-   "preco": null,
-   "foto": "fotos/a99581655a53b98e4f3785960bfb71cc.png"
+   "preco": 17.0,
+   "foto": "fotos/a99581655a53b98e4f3785960bfb71cc.png",
+   "preco_status": "estimativa - confirmar antes de vender",
+   "obs": "estimativa; conferir tabela da marca"
   },
   {
    "ordem": 387,
    "nome": "Camel Kretek Berry (cravo)",
    "categoria": "Cigarros e acessórios",
-   "preco": null,
-   "foto": "fotos/31e1d7b27daa013d1ba3cb4b6086ae0f.png"
+   "preco": 17.0,
+   "foto": "fotos/31e1d7b27daa013d1ba3cb4b6086ae0f.png",
+   "preco_status": "estimativa - confirmar antes de vender",
+   "obs": "estimativa; confirmar SKU"
   },
   {
    "ordem": 388,
    "nome": "Camel Blue Display C/10",
    "categoria": "Cigarros e acessórios",
-   "preco": null,
-   "foto": "fotos/0b987749c825b2a4c9bba1e91455aa4c.png"
+   "preco": 170.0,
+   "foto": "fotos/0b987749c825b2a4c9bba1e91455aa4c.png",
+   "preco_status": "estimativa - confirmar antes de vender",
+   "obs": "display/pack c/10 — estimativa"
   },
   {
    "ordem": 389,
    "nome": "Camel Amarelo Box (Filters)",
    "categoria": "Cigarros e acessórios",
-   "preco": null,
-   "foto": "fotos/ada957c56b46b56a41297e4490c87eb8.png"
+   "preco": 17.0,
+   "foto": "fotos/ada957c56b46b56a41297e4490c87eb8.png",
+   "preco_status": "estimativa - confirmar antes de vender",
+   "obs": "estimativa; conferir tabela da marca"
   },
   {
    "ordem": 390,
    "nome": "Camel Cravo Option (Tcheres)",
    "categoria": "Cigarros e acessórios",
-   "preco": null,
-   "foto": "fotos/001ed9d9571d2211d99576c83359a75b.png"
+   "preco": 17.0,
+   "foto": "fotos/001ed9d9571d2211d99576c83359a75b.png",
+   "preco_status": "estimativa - confirmar antes de vender",
+   "obs": "estimativa; confirmar SKU"
   },
   {
    "ordem": 391,
    "nome": "Marlboro Red Selection (maço 20)",
    "categoria": "Cigarros e acessórios",
-   "preco": null,
-   "foto": "fotos/64837632d4c10efe08ca831c0f8d7a03.png"
+   "preco": 13.0,
+   "foto": "fotos/64837632d4c10efe08ca831c0f8d7a03.png",
+   "preco_status": "estimativa - confirmar antes de vender",
+   "obs": "referência de tabela/mercado"
   },
   {
    "ordem": 392,
    "nome": "Marlboro Forest Fusion (maço)",
    "categoria": "Cigarros e acessórios",
-   "preco": null,
-   "foto": "fotos/82970e78a03d4856c57d7b905161fe57.png"
+   "preco": 18.0,
+   "foto": "fotos/82970e78a03d4856c57d7b905161fe57.png",
+   "preco_status": "estimativa - confirmar antes de vender",
+   "obs": "referência de linha especial"
   },
   {
    "ordem": 393,
    "nome": "Marlboro Double Fusion Tropical",
    "categoria": "Cigarros e acessórios",
-   "preco": null,
-   "foto": "fotos/0749e01656a1790f61812d5f24e282df.png"
+   "preco": 18.0,
+   "foto": "fotos/0749e01656a1790f61812d5f24e282df.png",
+   "preco_status": "estimativa - confirmar antes de vender",
+   "obs": "referência de linha especial"
   },
   {
    "ordem": 394,
    "nome": "Marlboro Blue Selection (maço 20)",
    "categoria": "Cigarros e acessórios",
-   "preco": null,
-   "foto": "fotos/0bf7f58ff815c6be5f454f6ebe209080.png"
+   "preco": 13.0,
+   "foto": "fotos/0bf7f58ff815c6be5f454f6ebe209080.png",
+   "preco_status": "estimativa - confirmar antes de vender",
+   "obs": "referência de tabela/mercado"
   },
   {
    "ordem": 395,
    "nome": "Marlboro Gold Light (maço)",
    "categoria": "Cigarros e acessórios",
-   "preco": null,
-   "foto": "fotos/1e0389179b36d6931c6f00da8d128c04.png"
+   "preco": 17.0,
+   "foto": "fotos/1e0389179b36d6931c6f00da8d128c04.png",
+   "preco_status": "estimativa - confirmar antes de vender",
+   "obs": "estimativa"
   },
   {
    "ordem": 396,
    "nome": "Marlboro Red Selection Box",
    "categoria": "Cigarros e acessórios",
-   "preco": null,
-   "foto": "fotos/a0fceb1a00144655d66aa89242bf32d1.png"
+   "preco": 13.0,
+   "foto": "fotos/a0fceb1a00144655d66aa89242bf32d1.png",
+   "preco_status": "estimativa - confirmar antes de vender",
+   "obs": "referência de tabela/mercado"
   },
   {
    "ordem": 397,
    "nome": "Winston Vermelho Classic (maço)",
    "categoria": "Cigarros e acessórios",
-   "preco": null,
-   "foto": "fotos/e4560c96639c8b1dcab88b91172c08b9.png"
+   "preco": 13.0,
+   "foto": "fotos/e4560c96639c8b1dcab88b91172c08b9.png",
+   "preco_status": "estimativa - confirmar antes de vender",
+   "obs": "referência de tabela/mercado"
   },
   {
    "ordem": 398,
    "nome": "Winston Blue Hands",
    "categoria": "Cigarros e acessórios",
-   "preco": null,
-   "foto": "fotos/0d9398415025d16886bab26d5d436a31.png"
+   "preco": 13.0,
+   "foto": "fotos/0d9398415025d16886bab26d5d436a31.png",
+   "preco_status": "estimativa - confirmar antes de vender",
+   "obs": "referência de tabela/mercado"
   },
   {
    "ordem": 399,
    "nome": "Winston Purple Mint",
    "categoria": "Cigarros e acessórios",
-   "preco": null,
-   "foto": "fotos/35dfb34d07bda2175539f95fa46f43dd.png"
+   "preco": 13.0,
+   "foto": "fotos/35dfb34d07bda2175539f95fa46f43dd.png",
+   "preco_status": "estimativa - confirmar antes de vender",
+   "obs": "referência de tabela/mercado"
   },
   {
    "ordem": 400,
    "nome": "Winston Blue Hands Tabaco",
    "categoria": "Cigarros e acessórios",
-   "preco": null,
-   "foto": "fotos/d484b383aa82d2b47e6514510703b38b.png"
+   "preco": 13.0,
+   "foto": "fotos/d484b383aa82d2b47e6514510703b38b.png",
+   "preco_status": "estimativa - confirmar antes de vender",
+   "obs": "referência de tabela/mercado"
   },
   {
    "ordem": 401,
    "nome": "Winston Silver",
    "categoria": "Cigarros e acessórios",
-   "preco": null,
-   "foto": "fotos/1f14ab03dc267ee44f5e0b6457053c64.png"
+   "preco": 13.0,
+   "foto": "fotos/1f14ab03dc267ee44f5e0b6457053c64.png",
+   "preco_status": "estimativa - confirmar antes de vender",
+   "obs": "referência de tabela/mercado"
   },
   {
    "ordem": 402,
    "nome": "Dunhill Carlton Blend Box 10x1",
    "categoria": "Cigarros e acessórios",
-   "preco": null,
-   "foto": "fotos/01beb69b2d01e8fe9699b1c949224b37.png"
+   "preco": 17.0,
+   "foto": "fotos/01beb69b2d01e8fe9699b1c949224b37.png",
+   "preco_status": "estimativa - confirmar antes de vender",
+   "obs": "estimativa; conferir tabela da marca"
   },
   {
    "ordem": 403,
    "nome": "Dunhill Double Refresh (maço)",
    "categoria": "Cigarros e acessórios",
-   "preco": null,
-   "foto": "fotos/0d031a90a14a68a9aeb7e568ae4e3be5.png"
+   "preco": 17.0,
+   "foto": "fotos/0d031a90a14a68a9aeb7e568ae4e3be5.png",
+   "preco_status": "estimativa - confirmar antes de vender",
+   "obs": "estimativa; conferir tabela da marca"
   },
   {
    "ordem": 404,
    "nome": "Dunhill Evoque Essence (cereja)",
    "categoria": "Cigarros e acessórios",
-   "preco": null,
-   "foto": "fotos/a5f4e2533bacec0606f7ce51ffba3406.png"
+   "preco": 17.0,
+   "foto": "fotos/a5f4e2533bacec0606f7ce51ffba3406.png",
+   "preco_status": "estimativa - confirmar antes de vender",
+   "obs": "estimativa; conferir tabela da marca"
   },
   {
    "ordem": 405,
    "nome": "Dunhill Carlton Blend Box",
    "categoria": "Cigarros e acessórios",
-   "preco": null,
-   "foto": "fotos/094d40c33ff63b76953af9dea4ac76ff.png"
+   "preco": 17.0,
+   "foto": "fotos/094d40c33ff63b76953af9dea4ac76ff.png",
+   "preco_status": "estimativa - confirmar antes de vender",
+   "obs": "estimativa; conferir tabela da marca"
   },
   {
    "ordem": 406,
    "nome": "Carlton King Size Flip Open Box",
    "categoria": "Cigarros e acessórios",
-   "preco": null,
-   "foto": "fotos/75c48eae8fb3c8cff574539b2f4305e5.png"
+   "preco": 17.0,
+   "foto": "fotos/75c48eae8fb3c8cff574539b2f4305e5.png",
+   "preco_status": "estimativa - confirmar antes de vender",
+   "obs": "estimativa; conferir tabela da marca"
   },
   {
    "ordem": 407,
    "nome": "Kent Blue Up Maço",
    "categoria": "Cigarros e acessórios",
-   "preco": null,
-   "foto": "fotos/ba746701a177904824a06e59ad73dd5b.png"
+   "preco": 15.0,
+   "foto": "fotos/ba746701a177904824a06e59ad73dd5b.png",
+   "preco_status": "estimativa - confirmar antes de vender",
+   "obs": "estimativa; conferir tabela da marca"
   },
   {
    "ordem": 408,
    "nome": "Kent Boost Menthol (maço)",
    "categoria": "Cigarros e acessórios",
-   "preco": null,
-   "foto": "fotos/167ec311e7f894f7d72ddda27d0412c0.png"
+   "preco": 15.0,
+   "foto": "fotos/167ec311e7f894f7d72ddda27d0412c0.png",
+   "preco_status": "estimativa - confirmar antes de vender",
+   "obs": "estimativa; conferir tabela da marca"
   },
   {
    "ordem": 409,
    "nome": "Kent Free Red (maço)",
    "categoria": "Cigarros e acessórios",
-   "preco": null,
-   "foto": "fotos/a0ffa87019d83fd06e8a350535f87061.png"
+   "preco": 15.0,
+   "foto": "fotos/a0ffa87019d83fd06e8a350535f87061.png",
+   "preco_status": "estimativa - confirmar antes de vender",
+   "obs": "estimativa; conferir tabela da marca"
   },
   {
    "ordem": 410,
    "nome": "Kent Vermelho M",
    "categoria": "Cigarros e acessórios",
-   "preco": null,
-   "foto": "fotos/5bdd29692098cc8e8f44796477f0ea32.png"
+   "preco": 15.0,
+   "foto": "fotos/5bdd29692098cc8e8f44796477f0ea32.png",
+   "preco_status": "estimativa - confirmar antes de vender",
+   "obs": "estimativa; conferir tabela da marca"
   },
   {
    "ordem": 411,
    "nome": "Kent Access Silver (maço)",
    "categoria": "Cigarros e acessórios",
-   "preco": null,
-   "foto": "fotos/068e0648119b2fe643b2be183d295263.png"
+   "preco": 15.0,
+   "foto": "fotos/068e0648119b2fe643b2be183d295263.png",
+   "preco_status": "estimativa - confirmar antes de vender",
+   "obs": "estimativa; conferir tabela da marca"
   },
   {
    "ordem": 412,
    "nome": "Kent Red Maço 702/260",
    "categoria": "Cigarros e acessórios",
-   "preco": null,
-   "foto": "fotos/beae1d4c3457747ffd912bb30e0a3715.png"
+   "preco": 15.0,
+   "foto": "fotos/beae1d4c3457747ffd912bb30e0a3715.png",
+   "preco_status": "estimativa - confirmar antes de vender",
+   "obs": "estimativa; conferir tabela da marca"
   },
   {
    "ordem": 413,
    "nome": "Kent Pro Silver Box",
    "categoria": "Cigarros e acessórios",
-   "preco": null,
-   "foto": "fotos/d515a07b8d062ccce180f9cdb8fcb3b5.png"
+   "preco": 15.0,
+   "foto": "fotos/d515a07b8d062ccce180f9cdb8fcb3b5.png",
+   "preco_status": "estimativa - confirmar antes de vender",
+   "obs": "estimativa; conferir tabela da marca"
   },
   {
    "ordem": 414,
    "nome": "Dunhill Mix Refresh (maço)",
    "categoria": "Cigarros e acessórios",
-   "preco": null,
-   "foto": "fotos/440787b7ff5cb582f476cabd5d823859.png"
+   "preco": 17.0,
+   "foto": "fotos/440787b7ff5cb582f476cabd5d823859.png",
+   "preco_status": "estimativa - confirmar antes de vender",
+   "obs": "estimativa; conferir tabela da marca"
   },
   {
    "ordem": 415,
    "nome": "Dunhill Insignia Red Box",
    "categoria": "Cigarros e acessórios",
-   "preco": null,
-   "foto": "fotos/88868896dcd3e1631b520adcace9fbcd.png"
+   "preco": 17.0,
+   "foto": "fotos/88868896dcd3e1631b520adcace9fbcd.png",
+   "preco_status": "estimativa - confirmar antes de vender",
+   "obs": "estimativa; conferir tabela da marca"
   },
   {
    "ordem": 416,
@@ -2097,29 +2265,37 @@
    "ordem": 423,
    "nome": "L.A Menthol (maço)",
    "categoria": "Cigarros e acessórios",
-   "preco": null,
-   "foto": "fotos/3ad6846a0a71a4efdbabe019b77dc7e6.png"
+   "preco": 12.0,
+   "foto": "fotos/3ad6846a0a71a4efdbabe019b77dc7e6.png",
+   "preco_status": "estimativa - confirmar antes de vender",
+   "obs": "referência de tabela/mercado"
   },
   {
    "ordem": 424,
    "nome": "Djarum LA Nacional Menthol",
    "categoria": "Cigarros e acessórios",
-   "preco": null,
-   "foto": "fotos/be95bd5c3830032894bbcab8ce378c25.png"
+   "preco": 22.0,
+   "foto": "fotos/be95bd5c3830032894bbcab8ce378c25.png",
+   "preco_status": "estimativa - confirmar antes de vender",
+   "obs": "estimativa; confirmar SKU"
   },
   {
    "ordem": 425,
    "nome": "L.A Menthol Kretek Clove",
    "categoria": "Cigarros e acessórios",
-   "preco": null,
-   "foto": "fotos/e392f395ce0ad4ded4711ecce39b56d9.png"
+   "preco": 17.0,
+   "foto": "fotos/e392f395ce0ad4ded4711ecce39b56d9.png",
+   "preco_status": "estimativa - confirmar antes de vender",
+   "obs": "estimativa; confirmar SKU"
   },
   {
    "ordem": 426,
    "nome": "L.A Menta UN",
    "categoria": "Cigarros e acessórios",
-   "preco": null,
-   "foto": "fotos/34bc1e73c1a91022eb458e09d2364767.png"
+   "preco": 12.0,
+   "foto": "fotos/34bc1e73c1a91022eb458e09d2364767.png",
+   "preco_status": "estimativa - confirmar antes de vender",
+   "obs": "referência de tabela/mercado"
   },
   {
    "ordem": 427,

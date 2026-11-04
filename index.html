@@ -1,56 +1,11 @@
-<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}
-
-/* ---- tema preto futurista e letras verdes ---- */
-:root{
-  --bg:#030604; --panel:rgba(4,18,9,.8); --line:rgba(57,255,20,.28);
-  --cyan:#39ff14; --magenta:#1fbf3a; --lime:#7dff5a; --fg:#b8ffc8; --muted:#6fbf7f; --glow:#39ff14;
-}
-body{
-  background:
-    radial-gradient(900px 480px at 50% -8%,rgba(57,255,20,.10),transparent 62%),
-    linear-gradient(180deg,#000 0%,#020503 100%) !important;
-  background-attachment:fixed;
-  color:var(--fg);
-}
-body::before{
-  background-image:repeating-linear-gradient(90deg,rgba(57,255,20,.06) 0 1px,transparent 1px 9px),repeating-linear-gradient(0deg,rgba(57,255,20,.04) 0 2px,transparent 2px 14px) !important;
-}
-h1{color:#39ff14 !important;filter:drop-shadow(0 0 22px rgba(57,255,20,.45))}
-.tag{color:#39ff14;border-color:rgba(57,255,20,.35);background:rgba(57,255,20,.06)}
-.scan{background:linear-gradient(90deg,#008f11,#39ff14,#b6ffc8,#39ff14,#008f11,#008f11,#39ff14,#b6ffc8,#39ff14,#008f11,#008f11) !important;box-shadow:0 0 14px #39ff14 !important}
-.masthead::before{filter:grayscale(1) sepia(1) hue-rotate(75deg) saturate(2.4) brightness(.95) contrast(1.05) !important}
-@keyframes brilho{0%,100%{text-shadow:0 0 6px #39ff14,0 0 14px rgba(57,255,20,.5)}50%{text-shadow:0 0 14px #39ff14,0 0 30px rgba(57,255,20,.9)}}
-.ouro-gota,.bolinha-ouro{background:radial-gradient(circle,#e6ffe9 0%,#39ff14 45%,#00b33c 72%,transparent 74%) !important;box-shadow:0 0 8px #39ff14,0 0 18px #39ff14 !important}
-.bolinha-ouro{background:radial-gradient(circle at 35% 30%,#e6ffe9 0%,#39ff14 40%,#00b33c 75%,#004d1a 100%) !important}
-.foto-brilho{background:linear-gradient(105deg,transparent 30%,rgba(57,255,20,.85) 50%,transparent 70%) !important;background-size:250% 100%;background-repeat:no-repeat}
-.btn{background:#39ff14;color:#021a06;box-shadow:0 0 18px rgba(57,255,20,.35)}
-.addcart{background:#39ff14;color:#021a06;box-shadow:0 6px 16px -8px rgba(57,255,20,.7)}
-.pr{color:#7dff5a;text-shadow:0 0 12px rgba(57,255,20,.4)}
-.btn-maq{background:#39ff14;color:#021a06;box-shadow:0 0 22px rgba(57,255,20,.35)}
-.btn-cartao{color:#39ff14;border-color:#39ff14}
-.foot{color:var(--muted)}
-input,select,textarea{color:var(--fg)}
-
-/* ---- ajuste visual: mostrar a parede de vinhos e whiskies ---- */
-.masthead::before{
-  background:
-    linear-gradient(180deg,rgba(0,0,0,0) 45%,rgba(0,0,0,.45) 100%),
-    url("4fd792a8b0a0bce9042aaecc7f0e12e9.png") center 30%/cover no-repeat !important;
-  filter:brightness(.9) contrast(1.05) saturate(.95) !important;
-  mask-image:linear-gradient(to bottom,#000 82%,transparent);
-  -webkit-mask-image:linear-gradient(to bottom,#000 82%,transparent);
-}
-.masthead::after{
-  content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;
-  background:radial-gradient(ellipse 72% 40% at 50% 40%,rgba(0,0,0,.82) 0%,rgba(0,0,0,.5) 55%,transparent 100%);
-}
-.tag{box-shadow:0 0 16px rgba(57,255,20,.25)}
-h1{text-shadow:0 0 22px rgba(0,0,0,.85)}
-
-</style></head><body>
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style><script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
+<script src="firebase-shim.js"></script>
+</head><body>
 <meta name="claude:viewport-fit-sides" content="cover">
 <title>Adega do Wavant</title>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Space+Grotesk:wght@400;500;700&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Space+Grotesk:wght@400;500;700&family=Dancing+Script:wght@700&display=swap">
 <style>
 /* Futuro-retrô: fundo espacial escuro, grade néon, vidro fosco e brilho ciano/magenta.
    Cada item ganha uma ilustração de embalagem com gradiente (não é foto). */
@@ -84,7 +39,8 @@ body::before{ /* grade em perspectiva */
   mask-image:linear-gradient(to bottom,rgba(0,0,0,.9),transparent 75%);
 }
 .wrap{position:relative;z-index:1;max-width:1120px;margin:0 auto;padding-block:0 64px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
-.scan{height:2px;margin-top:14px;background:linear-gradient(90deg,transparent,var(--cyan),transparent);box-shadow:0 0 14px var(--cyan);animation:scan 4s ease-in-out infinite}
+.scan{height:3px;margin-top:14px;background:linear-gradient(90deg,#B8860B,#FFD700,#F3E5AB,#D4AF37,#FFC300,#B8860B,#FFD700,#F3E5AB,#D4AF37,#FFC300,#B8860B);background-size:200% 100%;box-shadow:0 0 14px #FFD700;animation:scan 4s ease-in-out infinite,corre-cor 3s linear infinite}
+@keyframes corre-cor{from{background-position:0 0}to{background-position:-200% 0}}
 @keyframes scan{0%,100%{opacity:.35}50%{opacity:1}}
 
 .hero{text-align:center;padding:34px 0 10px}
@@ -94,21 +50,69 @@ body::before{ /* grade em perspectiva */
 .tag{display:inline-block;font:500 12px "Space Grotesk",sans-serif;letter-spacing:.3em;text-transform:uppercase;color:var(--cyan);border:1px solid var(--line);padding:7px 14px;border-radius:999px;background:rgba(0,229,255,.05)}
 h1{
   font:900 clamp(34px,9vw,84px)/1 Orbitron,system-ui,sans-serif;letter-spacing:.04em;margin:20px 0 10px;text-transform:uppercase;text-wrap:balance;
-  color:#2aa8ff;
+  color:#D4AF37;
   filter:drop-shadow(0 0 22px rgba(242,196,109,.35));
 }
+.ticker-title{overflow:hidden;white-space:nowrap;width:100%;text-wrap:nowrap}
+.ticker-track{display:inline-flex;align-items:baseline;animation:ticker 12s linear infinite,piscar 1.2s ease-in-out infinite}
+.ticker-group{display:inline-flex;align-items:baseline;flex:0 0 auto;padding-right:2em}
+.ticker-group .sp{display:inline-block;width:.45em}
+.ticker-group span{display:inline-block;animation:onda 1.2s ease-in-out infinite,brilho 1.6s ease-in-out infinite;animation-delay:calc(var(--i,0) * -0.08s),calc(var(--i,0) * -0.1s)}
+@keyframes onda{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+@keyframes brilho{0%,100%{text-shadow:0 0 6px #FFD700,0 0 14px rgba(255,215,0,.5)}50%{text-shadow:0 0 14px #FFD700,0 0 30px rgba(255,215,0,.9)}}
+@keyframes ticker{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+@keyframes piscar{0%,100%{opacity:1}50%{opacity:.5}}
+.ouro-gota{position:fixed;width:var(--s,6px);height:var(--s,6px);border-radius:50%;pointer-events:none;z-index:9999;background:radial-gradient(circle,#fffbe0 0%,#ffd700 45%,#ffb300 72%,transparent 74%);box-shadow:0 0 8px #ffd700,0 0 18px #ffc400;animation:ouro-cai 1.1s ease-in both}
+@keyframes ouro-cai{0%{transform:translate(0,0) scale(.6);opacity:0}15%{opacity:1}100%{transform:translate(var(--dx,0px),var(--dy,170px)) scale(1.15);opacity:0}}
+.foto-brilho{position:absolute;inset:0;z-index:2;pointer-events:none;border-radius:inherit;background:linear-gradient(105deg,transparent 30%,rgba(255,215,0,.85) 50%,transparent 70%);background-size:250% 100%;background-repeat:no-repeat;mix-blend-mode:screen;animation:varre 1.2s linear infinite}
+@keyframes varre{from{background-position:150% 0}to{background-position:-150% 0}}
+.bolinha-ouro{position:fixed;border-radius:50%;pointer-events:none;z-index:9999;background:radial-gradient(circle at 35% 30%,#fffbe0 0%,#ffd700 40%,#D4AF37 75%,#8a6d1d 100%);box-shadow:0 0 14px #ffd700,0 0 28px rgba(255,215,0,.6);animation:bolinha-sobe var(--t,3s) ease-out both}
+@keyframes bolinha-sobe{0%{transform:translate(0,0) scale(.4);opacity:0}15%{opacity:1}100%{transform:translate(var(--dx,0px),var(--dy,-60vh)) scale(1);opacity:0}}
+.pago-ok{position:fixed;inset:0;z-index:10000;display:grid;place-items:center;background:rgba(10,6,2,.5);pointer-events:none}
+.pago-ok-card{display:grid;justify-items:center;gap:14px;padding:28px 32px;border-radius:24px;background:rgba(20,12,4,.88);border:2px solid #33d17a;box-shadow:0 0 40px rgba(51,209,122,.5);animation:pago-entra .6s ease-out both}
+.pago-ok-card svg{width:96px;height:96px}
+.pago-ok-card b{font:900 22px Orbitron,sans-serif;color:#33d17a;letter-spacing:.04em;text-align:center}
+@keyframes pago-entra{0%{transform:scale(.6);opacity:0}100%{transform:scale(1);opacity:1}}
+.beijo-canto{position:fixed;right:12px;bottom:12px;font-size:24px;z-index:50;pointer-events:none;animation:beijo 2.4s ease-in-out infinite}
+@keyframes beijo{0%,100%{transform:scale(1)}50%{transform:scale(1.18)}}
+.link-pag{display:grid;gap:6px;margin-top:8px}
+.item.esgotado .art img,.item.esgotado .art svg{filter:grayscale(1) brightness(.6);opacity:.55}
+.selo-esgotado{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%) rotate(-12deg);z-index:3;color:#ff2a2a;font:700 36px/1 "Dancing Script",cursive;text-shadow:0 0 3px #000,0 0 14px rgba(255,42,42,.7);white-space:nowrap;pointer-events:none}
+.risco-esgotado{position:absolute;inset:0;width:100%;height:100%;z-index:2;pointer-events:none}
+.art.fundo-ouro{background:#ffffff}
+.item .art{background:#ffffff}
+.item .art img{mix-blend-mode:normal;filter:none}
+.art.fundo-ouro img{mix-blend-mode:normal;filter:none}
+.item .art::after{display:none}
+@keyframes brilhoOuro{0%,55%{transform:translateX(-100%)}100%{transform:translateX(100%)}}
+.esg-linha .cart-name{color:#ff2a2a}
+.esg-tag{font:700 20px/1.1 "Dancing Script",cursive;color:#ff2a2a;text-shadow:0 0 8px rgba(255,42,42,.5)}
+.item.esgotado .art .risco-esgotado{filter:none;opacity:1}
+.risco-esgotado line{stroke:#ff2a2a;stroke-width:4;vector-effect:non-scaling-stroke;filter:drop-shadow(0 0 4px rgba(255,42,42,.8))}
+.item.esgotado .addcart{background:#4a4a4a;color:#d8d8d8;box-shadow:none;cursor:not-allowed}
+.item.esgotado .addcart:hover{filter:none}
+.item.esgotado .pr{color:#d8d8d8;text-shadow:none}
+.link-pag input{width:100%;min-width:0;font:400 13px "Space Grotesk",sans-serif;color:var(--fg);background:rgba(0,0,0,.4);border:1px solid var(--line);border-radius:8px;padding:8px 10px;box-sizing:border-box}
 .sub{font:500 13px Orbitron,sans-serif;letter-spacing:.2em;color:var(--muted);margin:0;text-transform:uppercase}
 .intro{color:var(--muted);max-width:62ch;margin:16px auto 0;text-align:center;font-size:15px}
 .bar{margin:30px 0 6px;display:grid;gap:12px;padding:14px;border:1px solid var(--line);border-radius:16px;background:rgba(8,12,22,.6);backdrop-filter:blur(10px)}
 .search{width:100%;font:400 16px "Space Grotesk",sans-serif;color:var(--fg);background:rgba(0,0,0,.35);border:1px solid var(--line);border-radius:10px;padding:13px 16px}
 .search::placeholder{color:var(--muted)}
+.search-wrap{position:relative}
+.search-wrap .search{padding-right:112px}
+.search-btn{position:absolute;right:6px;top:50%;transform:translateY(-50%);padding:8px 14px;font-size:13px;min-height:0}
 .chips{display:flex;flex-wrap:wrap;gap:8px}
+.marcas{margin-top:10px}
+.marcas[hidden]{display:none}
 .chip{font:500 13px "Space Grotesk",sans-serif;color:var(--fg);background:transparent;border:1px solid var(--line);border-radius:999px;padding:7px 14px;cursor:pointer;transition:.2s}
 .chip:hover{border-color:var(--cyan)}
 .chip[aria-pressed="true"]{background:linear-gradient(90deg,var(--cyan),var(--magenta));border-color:transparent;color:#05060b;font-weight:700;box-shadow:0 0 18px rgba(0,229,255,.35)}
 .chip:focus-visible,.btn:focus-visible,.search:focus-visible,input:focus-visible,select:focus-visible{outline:2px solid var(--cyan);outline-offset:2px}
 .toolbar{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;min-height:1.6em;margin-top:6px}
 .status{font-size:14px;color:var(--muted);margin:0}
+.carrinho-botoes{display:grid;grid-template-columns:1fr 1fr;gap:8px;width:100%;align-items:stretch}
+.carrinho-botoes .btn{font-size:12px;letter-spacing:.04em;padding:10px 12px;line-height:1.25;min-width:0}
+@media (min-width:640px){ .carrinho-botoes{width:auto;grid-template-columns:none;grid-auto-flow:column} }
 .btn{font:700 13px Orbitron,sans-serif;letter-spacing:.08em;text-transform:uppercase;color:#05060b;background:var(--cyan);border:0;border-radius:10px;padding:11px 18px;cursor:pointer;box-shadow:0 0 18px rgba(0,229,255,.35)}
 .btn[aria-pressed="true"]{background:var(--magenta);color:#fff;box-shadow:0 0 18px rgba(255,46,154,.45)}
 .btn.small{font-size:11px;padding:8px 10px;margin-top:2px;width:100%}
@@ -174,6 +178,64 @@ h1{
 .item.lista.whisky .art svg{width:auto;height:150px}
 .item.poster .buy{padding:0 10px}
 .cart{scroll-margin-top:24px;padding:20px 20px 16px;background:var(--panel);border:1px solid var(--line);border-radius:16px}
+.cart-par{display:grid;gap:24px;margin-top:40px}
+.cart-par>.group{margin-top:0}
+@media (min-width:900px){.cart-par{grid-template-columns:1fr 1fr;align-items:start}}
+.chat-intro{font-size:14px;margin:4px 0 12px;opacity:.85}
+.chat-list{list-style:none;margin:0 0 12px;padding:4px;max-height:340px;overflow-y:auto;display:flex;flex-direction:column;gap:8px}
+.chat-msg{border:1px solid var(--line);border-radius:12px;padding:8px 10px;font-size:14px;max-width:92%;background:rgba(255,255,255,.04);word-wrap:break-word}
+.chat-msg.meu{align-self:flex-end;border-color:#d4af37}
+.chat-msg small{display:block;opacity:.7;font-size:12px;margin-bottom:2px}
+.chat-msg{display:flex;gap:10px;align-items:flex-start}
+.chat-msg .chat-corpo{flex:1;min-width:0}
+.chat-foto{width:38px;height:38px;border-radius:50%;flex:none;object-fit:cover;background:rgba(242,196,109,.15);border:1px solid var(--line)}
+.chat-msg .apagar{margin-left:8px;font-size:12px;background:none;border:0;color:#f87171;text-decoration:underline;cursor:pointer;padding:0}
+.chat-form{display:flex;gap:8px}
+.chat-form input{flex:1;min-width:0;padding:10px 12px;font:inherit;color:inherit;background:transparent;border:1px solid var(--line);border-radius:10px}
+.chat-cartao{width:100%;display:flex;align-items:center;gap:14px;background:none;border:0;color:inherit;font:inherit;text-align:left;cursor:pointer;padding:4px 0}
+.chat-robo{display:inline-flex;flex:none;width:60px;height:60px;align-items:center;justify-content:center;border-radius:16px;background:rgba(242,196,109,.12);border:1px solid var(--line);color:#f2c46d}
+.chat-cartao-txt{display:flex;flex-direction:column;gap:2px;flex:1;min-width:0}
+.chat-cartao-txt strong{font-size:17px}
+.chat-cartao-txt small{opacity:.75}
+.chat-seta{font-size:22px;opacity:.7}
+.chat-pagina{position:fixed;inset:0;z-index:9990;display:flex;flex-direction:column;background:var(--bg);color:inherit;padding:16px 20px;overflow:hidden}
+.chat-pagina[hidden]{display:none}
+.chat-top{display:flex;align-items:center;gap:16px;flex-wrap:wrap;max-width:900px;width:100%;margin:0 auto 8px}
+.chat-top h2{margin:0;font-size:22px;display:flex;align-items:center;gap:10px}
+.chat-robo-pq{display:inline-flex;color:#f2c46d}
+.chat-pagina .chat-intro{max-width:900px;width:100%;margin:0 auto 8px}
+.chat-pagina .chat-list{flex:1;min-height:0;max-height:none;max-width:900px;width:100%;margin:0 auto;padding:8px}
+.chat-pagina .chat-msg{font-size:16px;padding:12px 14px;max-width:80%}
+.chat-pagina .chat-form{max-width:900px;width:100%;margin:12px auto 0}
+.chat-pagina .chat-form input{font-size:16px;padding:14px 16px}
+.chat-ferr{display:flex;gap:6px;max-width:900px;width:100%;margin:0 auto 8px;align-items:center}
+.chat-ico{flex:none;width:44px;height:44px;border-radius:12px;border:1px solid var(--line);background:rgba(255,255,255,.04);font-size:20px;cursor:pointer;color:inherit;padding:0}
+.chat-ico.gravando{background:#b91c1c;border-color:#b91c1c}
+.chat-emojis{display:flex;flex-wrap:wrap;gap:4px;max-width:900px;width:100%;margin:0 auto 8px;padding:8px;border:1px solid var(--line);border-radius:12px;background:var(--panel);box-sizing:border-box}
+.chat-emoji{width:40px;height:40px;font-size:22px;border:0;background:none;cursor:pointer;border-radius:8px}
+.chat-itens{max-width:900px;width:100%;margin:0 auto 8px;padding:10px;border:1px solid var(--line);border-radius:12px;background:var(--panel);box-sizing:border-box}
+.chat-itens input{width:100%;box-sizing:border-box;padding:10px 12px;font:inherit;color:inherit;background:transparent;border:1px solid var(--line);border-radius:10px;margin-bottom:8px}
+.chat-item-lista{list-style:none;margin:0;padding:0;max-height:240px;overflow-y:auto}
+.chat-item-lista button{width:100%;text-align:left;background:none;border:0;border-bottom:1px solid var(--line);color:inherit;font:inherit;padding:10px 4px;cursor:pointer;display:flex;justify-content:space-between;gap:10px}
+.chat-resposta{max-width:900px;width:100%;margin:0 auto 8px;display:flex;justify-content:space-between;align-items:center;gap:10px;padding:8px 10px;border-left:3px solid #d4af37;background:var(--panel);border-radius:8px;font-size:14px;box-sizing:border-box}
+.chat-digitando{max-width:900px;width:100%;margin:0 auto 6px;font-size:13px;opacity:.8}
+.chat-dia{align-self:center;font-size:12px;opacity:.7;padding:4px 10px;border:1px solid var(--line);border-radius:999px}
+.chat-citacao{border-left:3px solid #d4af37;padding:4px 8px;margin:4px 0;font-size:13px;opacity:.85;background:rgba(255,255,255,.03);border-radius:6px}
+.chat-acoes{display:flex;flex-wrap:wrap;gap:6px;margin-top:6px;align-items:center}
+.chat-acoes button{border:1px solid var(--line);background:none;color:inherit;border-radius:999px;padding:2px 9px;font-size:13px;cursor:pointer}
+.chat-acoes button[aria-pressed="true"]{border-color:#d4af37;background:rgba(212,175,55,.18)}
+.chat-audio{width:100%;max-width:280px;margin-top:4px}
+.chat-item{display:flex;gap:10px;align-items:center}
+.chat-item-foto{width:64px;height:64px;object-fit:contain;border-radius:8px;background:#fff;flex:none}
+.chat-item-info{display:flex;flex-direction:column;gap:4px;min-width:0}
+.chat-item-info .btn{align-self:flex-start;font-size:12px;padding:6px 10px}
+.chat-perfil input[type=checkbox]{display:inline-block;width:auto;margin:2px 8px 0 0}
+.chat-aceite{display:flex;align-items:flex-start}
+.chat-pagina .cart-empty{max-width:900px;width:100%;margin:0 auto}
+.chat-perfil{max-width:900px;width:100%;margin:0 auto 12px;padding:14px 16px;border:1px solid var(--line);border-radius:12px;background:var(--panel)}
+.chat-perfil h3{margin:0 0 10px;font-size:18px}
+.chat-perfil label{display:block;margin-bottom:10px;font-size:14px}
+.chat-perfil input{display:block;width:100%;margin-top:4px;padding:10px 12px;font:inherit;color:inherit;background:transparent;border:1px solid var(--line);border-radius:10px;box-sizing:border-box}
 .cart-empty{color:var(--muted);margin:4px 0 0;font-size:15px}
 .cart-list{list-style:none;margin:0;padding:0}
 .cart-row{display:grid;grid-template-columns:minmax(0,1fr);gap:10px;padding:14px 0;border-bottom:1px solid var(--line);align-items:center}
@@ -200,6 +262,14 @@ h1{
 .addform h2{font:700 15px Orbitron,sans-serif;letter-spacing:.16em;text-transform:uppercase;color:var(--magenta);margin:0}
 .addform .fields{display:grid;gap:8px;grid-template-columns:minmax(0,1fr)}
 .addform input,.addform select{font:400 16px "Space Grotesk",sans-serif;color:var(--fg);background:rgba(0,0,0,.4);border:1px solid var(--line);border-radius:8px;padding:10px 12px;box-sizing:border-box;width:100%;min-width:0}
+.addform .foto-add{grid-column:1/-1;display:grid;gap:6px;font:500 13px "Space Grotesk",sans-serif;color:var(--muted)}
+.addform .foto-add input{padding:8px 10px;font-size:14px}
+.apagar-item{margin-top:6px;font-size:12px;padding:8px 10px;border-color:#ff4d6d;color:#ff4d6d;justify-self:start}
+.apagar-item.confirmar{background:#b00020;color:#fff;border-color:#b00020}
+.bib-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(120px,1fr));gap:10px}
+.bib-grid figure{margin:0;background:#fff;border-radius:10px;padding:6px}
+.bib-grid img{width:100%;aspect-ratio:1/1;object-fit:contain;display:block}
+.bib-grid figcaption{font-size:11px;color:#333;word-break:break-word;margin-top:4px}
 .empty-state{text-align:center;padding:44px 16px;color:var(--muted);border:1px dashed var(--line);border-radius:16px}
 .empty-state strong{display:block;color:var(--cyan);font:700 18px Orbitron,sans-serif;margin-bottom:6px}
 .foot{margin-top:48px;text-align:center;color:var(--muted);font:500 11px Orbitron,sans-serif;letter-spacing:.24em;text-transform:uppercase}
@@ -207,7 +277,7 @@ h1{
   .bar{grid-template-columns:minmax(0,1fr) auto;align-items:center}
   .addform .fields{grid-template-columns:minmax(0,2fr) minmax(0,1fr) minmax(0,1fr) auto}
 }
-@media (prefers-reduced-motion:reduce){ .scan{animation:none} .item{transition:none} h1{animation:none} }
+@media (prefers-reduced-motion:reduce){ .scan{animation:none} .item{transition:none} h1{animation:none} .ticker-track,.ticker-group span,.scan{animation:none!important} }
 
 /* ---- finalizar pedido ---- */
 .cart-acts{display:flex;gap:10px;flex-wrap:wrap}
@@ -265,6 +335,12 @@ h1{
 .pedido-txt textarea{width:100%;box-sizing:border-box;margin-top:8px;font:400 12px/1.4 ui-monospace,Menlo,monospace;color:var(--fg);background:rgba(0,0,0,.4);border:1px dashed var(--line);border-radius:8px;padding:10px;min-height:160px}
 .btn-enviar{display:block;margin-top:16px;text-align:center;text-decoration:none;font:700 14px Orbitron,sans-serif;letter-spacing:.06em;text-transform:uppercase;color:#05210f;background:#25d366;border-radius:12px;padding:15px 18px;box-shadow:0 0 22px rgba(37,211,102,.35)}
 .btn-enviar[aria-disabled="true"]{opacity:.5;box-shadow:none}
+.btn-maq{display:block;margin-top:10px;text-align:center;text-decoration:none;font:700 14px Orbitron,sans-serif;letter-spacing:.06em;text-transform:uppercase;color:#1b120c;background:#FFD700;border-radius:12px;padding:15px 18px;box-shadow:0 0 22px rgba(255,215,0,.35)}
+.btn-maq[aria-disabled="true"]{opacity:.5;box-shadow:none}
+.btn-cartao{display:block;margin-top:10px;text-align:center;text-decoration:none;font:700 14px Orbitron,sans-serif;letter-spacing:.06em;text-transform:uppercase;color:#FFD700;background:transparent;border:1px solid #FFD700;border-radius:12px;padding:14px 18px}
+.btn-cartao[hidden]{display:none!important}
+.btn-cartao[aria-disabled="true"]{opacity:.5}
+.voltar{display:inline-block;margin:0 0 14px;padding:10px 14px;font-size:12px}
 .btn-enviar:focus-visible{outline:2px solid var(--cyan);outline-offset:3px}
 .ck-note{font-size:13px;color:var(--muted);margin:10px 0 0;text-align:center}
 .planilha-wrap{margin-top:12px;overflow-x:auto;-webkit-overflow-scrolling:touch;border:1px solid var(--line);border-radius:12px;background:rgba(0,0,0,.25)}
@@ -279,41 +355,282 @@ h1{
 .btn.verde{background:#25d366;color:#05210f;box-shadow:0 0 18px rgba(37,211,102,.35);font-size:11px;padding:9px 12px;margin:0 6px 4px 0;white-space:nowrap}
 .btn.verde:disabled{opacity:.5;cursor:default;box-shadow:none}
 .btn.mini{font-size:11px;padding:7px 10px;margin:0 6px 4px 0;white-space:nowrap;box-shadow:none}
+.edit-ico{width:30px;height:30px;min-width:30px;padding:0;border-radius:50%;font-size:14px;line-height:1;display:inline-flex;align-items:center;justify-content:center;opacity:.8;cursor:pointer;background:rgba(0,0,0,.35);border:1px solid var(--line);color:var(--fg)}
+.shorts-pagina{position:fixed;inset:0;z-index:9991;display:flex;flex-direction:column;background:#000;color:#fff}
+.shorts-topo{display:flex;align-items:center;justify-content:space-between;gap:8px;padding:10px 14px;background:rgba(0,0,0,.85)}
+.shorts-topo strong{font-size:15px}
+.shorts-msg{margin:0;padding:6px 14px;font-size:13px;background:rgba(0,0,0,.85);color:#f2c46d}
+.shorts-admin{display:grid;gap:8px;padding:10px 14px;background:#161616}
+.shorts-arq{font-size:13px;color:#f2c46d}
+.shorts-admin input[type=text],.shorts-com-form input{width:100%;box-sizing:border-box;padding:10px 12px;border-radius:10px;border:1px solid #444;background:#000;color:#fff;font:inherit}
+.shorts-feed{flex:1;min-height:0;overflow-y:auto;scroll-snap-type:y mandatory;overscroll-behavior:contain}
+.short{position:relative;height:100%;scroll-snap-align:start;scroll-snap-stop:always;background:#000;overflow:hidden}
+.short-video{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;background:#000}
+.short-info{position:absolute;left:14px;right:84px;bottom:24px;font-size:15px;text-shadow:0 1px 3px #000}
+.short-info p{margin:0}
+.short-acoes{position:absolute;right:12px;bottom:90px;display:flex;flex-direction:column;align-items:center;gap:16px}
+.short-acao{display:flex;flex-direction:column;align-items:center;gap:4px}
+.short-btn{width:50px;height:50px;border-radius:50%;border:1px solid rgba(255,255,255,.22);background:rgba(18,18,18,.42);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);color:#fff;display:flex;align-items:center;justify-content:center;cursor:pointer;padding:0}
+.short-btn svg{width:24px;height:24px;fill:none;stroke:currentColor;stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round}
+.short-btn.ativo{color:#ff4d6d;border-color:rgba(255,77,109,.55)}
+.short-btn.ativo svg path{fill:currentColor}
+.short-acao .n{font-size:12px;font-weight:600;color:#fff;text-shadow:0 1px 3px #000;min-height:14px}
+.shorts-som{display:flex;align-items:center;gap:6px}
+.shorts-som svg{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.shorts-coment{position:absolute;left:0;right:0;bottom:0;max-height:62%;display:flex;flex-direction:column;gap:8px;padding:12px 14px;background:#151515;border-radius:14px 14px 0 0}
+.shorts-coment-topo{display:flex;justify-content:space-between;align-items:center}
+.shorts-com-lista{list-style:none;margin:0;padding:0;overflow-y:auto;flex:1;min-height:90px}
+.shorts-com-lista li{padding:6px 0;border-bottom:1px solid #333;font-size:14px}
+.shorts-com-form{display:flex;gap:8px}
+.shorts-com-form input{flex:1;min-width:0}
+.shorts-topo .btn{padding:8px 12px;font-size:12px;letter-spacing:.04em;min-height:0;white-space:nowrap}
+.shorts-msg:empty{display:none}
+
+/* ---- tema preto futurista e letras verdes ---- */
+:root{
+  --bg:#030604; --panel:rgba(4,18,9,.8); --line:rgba(57,255,20,.28);
+  --cyan:#39ff14; --magenta:#1fbf3a; --lime:#7dff5a; --fg:#b8ffc8; --muted:#6fbf7f; --glow:#39ff14;
+}
+body{
+  background:
+    radial-gradient(900px 480px at 50% -8%,rgba(57,255,20,.10),transparent 62%),
+    linear-gradient(180deg,#000 0%,#020503 100%) !important;
+  background-attachment:fixed;
+  color:var(--fg);
+}
+body::before{
+  background-image:repeating-linear-gradient(90deg,rgba(57,255,20,.06) 0 1px,transparent 1px 9px),repeating-linear-gradient(0deg,rgba(57,255,20,.04) 0 2px,transparent 2px 14px) !important;
+}
+h1{color:#39ff14 !important;filter:drop-shadow(0 0 22px rgba(57,255,20,.45))}
+.tag{color:#39ff14;border-color:rgba(57,255,20,.35);background:rgba(57,255,20,.06)}
+.scan{background:linear-gradient(90deg,#008f11,#39ff14,#b6ffc8,#39ff14,#008f11,#008f11,#39ff14,#b6ffc8,#39ff14,#008f11,#008f11) !important;box-shadow:0 0 14px #39ff14 !important}
+.masthead::before{filter:grayscale(1) sepia(1) hue-rotate(75deg) saturate(2.4) brightness(.95) contrast(1.05) !important}
+@keyframes brilho{0%,100%{text-shadow:0 0 6px #39ff14,0 0 14px rgba(57,255,20,.5)}50%{text-shadow:0 0 14px #39ff14,0 0 30px rgba(57,255,20,.9)}}
+.ouro-gota,.bolinha-ouro{background:radial-gradient(circle,#e6ffe9 0%,#39ff14 45%,#00b33c 72%,transparent 74%) !important;box-shadow:0 0 8px #39ff14,0 0 18px #39ff14 !important}
+.bolinha-ouro{background:radial-gradient(circle at 35% 30%,#e6ffe9 0%,#39ff14 40%,#00b33c 75%,#004d1a 100%) !important}
+.foto-brilho{background:linear-gradient(105deg,transparent 30%,rgba(57,255,20,.85) 50%,transparent 70%) !important;background-size:250% 100%;background-repeat:no-repeat}
+.btn{background:#39ff14;color:#021a06;box-shadow:0 0 18px rgba(57,255,20,.35)}
+.addcart{background:#39ff14;color:#021a06;box-shadow:0 6px 16px -8px rgba(57,255,20,.7)}
+.pr{color:#7dff5a;text-shadow:0 0 12px rgba(57,255,20,.4)}
+.btn-maq{background:#39ff14;color:#021a06;box-shadow:0 0 22px rgba(57,255,20,.35)}
+.btn-cartao{color:#39ff14;border-color:#39ff14}
+.foot{color:var(--muted)}
+input,select,textarea{color:var(--fg)}
+
+/* ---- ajuste visual: mostrar a parede de vinhos e whiskies ---- */
+.masthead::before{
+  background:
+    linear-gradient(180deg,rgba(0,0,0,0) 45%,rgba(0,0,0,.45) 100%),
+    url("4fd792a8b0a0bce9042aaecc7f0e12e9.png") center 30%/cover no-repeat !important;
+  filter:brightness(.9) contrast(1.05) saturate(.95) !important;
+  mask-image:linear-gradient(to bottom,#000 82%,transparent);
+  -webkit-mask-image:linear-gradient(to bottom,#000 82%,transparent);
+}
+.masthead::after{
+  content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;
+  background:radial-gradient(ellipse 72% 40% at 50% 40%,rgba(0,0,0,.82) 0%,rgba(0,0,0,.5) 55%,transparent 100%);
+}
+.tag{box-shadow:0 0 16px rgba(57,255,20,.25)}
+h1{text-shadow:0 0 22px rgba(0,0,0,.85)}
 </style>
 
 <div class="wrap">
   <div class="masthead"><div class="masthead-in">
   <header class="hero">
     <span class="tag">Pré-inauguração · Lista de preços</span>
-    <h1 id="titulo">Adega do Wavant</h1>
+    <h1 id="titulo" class="ticker-title" aria-label="Adega do Wavant"><span class="ticker-track"><span class="ticker-group">Adega do Wavant</span><span class="ticker-group" aria-hidden="true">Adega do Wavant</span></span></h1>
 <script>
 (function(){
   var h = document.getElementById('titulo');
   if (!h) return;
-  var text = h.textContent;
-  h.textContent = '';
   var letters = [];
-  for (var i = 0; i < text.length; i++) {
-    var ch = text.charAt(i);
-    if (ch === ' ') { h.appendChild(document.createTextNode(' ')); continue; }
-    var s = document.createElement('span');
-    s.textContent = ch;
-    h.appendChild(s);
-    letters.push(s);
+  var grupos = h.querySelectorAll('.ticker-group');
+  for (var g = 0; g < grupos.length; g++) {
+    var grp = grupos[g];
+    var text = grp.textContent;
+    grp.textContent = '';
+    for (var i = 0; i < text.length; i++) {
+      var ch = text.charAt(i);
+      if (ch === ' ') { var sp = document.createElement('span'); sp.className = 'sp'; grp.appendChild(sp); continue; }
+      var s = document.createElement('span');
+      s.textContent = ch;
+      s.style.setProperty('--i', letters.length);
+      grp.appendChild(s);
+      letters.push(s);
+    }
   }
-  var HEAD = '#b6ffc8';
-  var TRAIL = ['#39ff14', '#14c23a', '#0b7a26', '#14c23a', '#39ff14', '#6dff4a', '#00b33c'];
+  // Só tons de ouro: do mais forte ao mais claro
+  var PALETA = ['#e9ffef', '#b6ffc8', '#6dff4a', '#39ff14', '#14c23a', '#0b7a26', '#14c23a', '#39ff14', '#6dff4a', '#b6ffc8'];
   var n = letters.length, step = 0;
   function paint() {
     for (var k = 0; k < n; k++) {
-      var age = ((step - k) % n + n) % n;
-      letters[k].style.color = age === 0 ? HEAD : TRAIL[(age - 1) % TRAIL.length];
+      letters[k].style.color = PALETA[(k + step) % PALETA.length];
     }
   }
   paint();
   var still = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  if (!still) setInterval(function() { step = (step + 1) % n; paint(); }, 3000);
+  if (!still) setInterval(function() { step = (step + 1) % PALETA.length; paint(); }, 450);
 })();
+</script>
+<script>
+(function(){
+  if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  document.addEventListener('click', function(e){
+    var t = e.target && e.target.closest ? e.target.closest('.addcart, #pagarBtn') : null;
+    if (!t) return;
+    var r = t.getBoundingClientRect();
+    for (var i = 0; i < 26; i++) {
+      var p = document.createElement('span');
+      p.className = 'ouro-gota';
+      p.style.setProperty('--s', (4 + Math.random() * 6) + 'px');
+      p.style.setProperty('--dx', ((Math.random() - 0.5) * 60) + 'px');
+      p.style.left = (r.left + Math.random() * r.width) + 'px';
+      p.style.top = (r.top - 90 - Math.random() * 40) + 'px';
+      p.style.animationDelay = (Math.random() * 0.4) + 's';
+      document.body.appendChild(p);
+      setTimeout(function(el){ return function(){ el.remove(); }; }(p), 1900);
+    }
+  }, true);
+})();
+</script>
+<script>
+(function(){
+  if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  var CORES = ['#39ff14', '#00ff9c', '#b6ffc8', '#7dff5a', '#e6ffe9', '#b6ff3b'];
+  var DURACAO = 1800;
+  var canvas = null, ctx = null, foguetes = [], pecas = [], fim = 0, ultimo = 0, rodando = false;
+  function aleat(a, b){ return a + Math.random() * (b - a); }
+  function escolhe(){ return CORES[Math.floor(Math.random() * CORES.length)]; }
+  function explode(x, y){
+    var n = 60 + Math.floor(Math.random() * 30), cor = escolhe();
+    for (var i = 0; i < n; i++){
+      var a = Math.random() * Math.PI * 2, v = aleat(1.2, 5.2);
+      pecas.push({ x: x, y: y, vx: Math.cos(a) * v, vy: Math.sin(a) * v, vida: 0, max: aleat(55, 95), cor: Math.random() < 0.75 ? cor : escolhe(), r: aleat(1.6, 3.2) });
+    }
+  }
+  function lanca(){
+    foguetes.push({ x: aleat(0.1, 0.9) * canvas.width, y: canvas.height, vy: -aleat(9, 13), alvo: aleat(0.12, 0.5) * canvas.height });
+  }
+  function quadro(){
+    var agora = performance.now();
+    if (agora > fim + 1500) { canvas.remove(); canvas = null; ctx = null; rodando = false; foguetes = []; pecas = []; return; }
+    if (agora < fim && agora - ultimo > 280) { lanca(); if (Math.random() < 0.5) lanca(); ultimo = agora; }
+    ctx.globalCompositeOperation = 'destination-out';
+    ctx.fillStyle = 'rgba(0,0,0,0.22)';
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+    ctx.globalCompositeOperation = 'lighter';
+    for (var f = foguetes.length - 1; f >= 0; f--){
+      var fg = foguetes[f];
+      fg.y += fg.vy; fg.vy += 0.12;
+      ctx.fillStyle = '#b6ff3b';
+      ctx.beginPath(); ctx.arc(fg.x, fg.y, 2, 0, Math.PI * 2); ctx.fill();
+      if (fg.y <= fg.alvo || fg.vy >= 0){ explode(fg.x, fg.y); foguetes.splice(f, 1); }
+    }
+    for (var p = pecas.length - 1; p >= 0; p--){
+      var q = pecas[p];
+      q.vida++;
+      q.x += q.vx; q.y += q.vy; q.vx *= 0.985; q.vy = q.vy * 0.985 + 0.045;
+      var k = 1 - q.vida / q.max;
+      if (k <= 0){ pecas.splice(p, 1); continue; }
+      ctx.globalAlpha = k;
+      ctx.fillStyle = q.cor;
+      ctx.beginPath(); ctx.arc(q.x, q.y, q.r, 0, Math.PI * 2); ctx.fill();
+    }
+    ctx.globalAlpha = 1; ctx.shadowBlur = 0;
+    if (agora < fim || foguetes.length || pecas.length) requestAnimationFrame(quadro);
+    else { canvas.remove(); canvas = null; ctx = null; rodando = false; }
+  }
+  function brilhoTela(){
+    var tela = document.createElement('div');
+    tela.setAttribute('aria-hidden', 'true');
+    tela.style.cssText = 'position:fixed;inset:0;pointer-events:none;z-index:9997;background:radial-gradient(ellipse at 50% 40%,rgba(57,255,20,.5),rgba(0,179,60,.2) 45%,transparent 75%)';
+    document.body.appendChild(tela);
+    var anim = tela.animate([
+      { opacity: 0 }, { opacity: 1, offset: 0.1 }, { opacity: 0.55, offset: 0.3 },
+      { opacity: 0.95, offset: 0.5 }, { opacity: 0.5, offset: 0.7 }, { opacity: 0.85, offset: 0.9 }, { opacity: 0 }
+    ], { duration: 6000, fill: 'forwards' });
+    anim.onfinish = function(){ tela.remove(); };
+  }
+  function fogos(){
+    if (rodando) return;
+    rodando = true;
+    canvas = document.createElement('canvas');
+    canvas.setAttribute('aria-hidden', 'true');
+    canvas.style.cssText = 'position:fixed;left:0;top:0;width:100vw;height:100vh;pointer-events:none;z-index:9998';
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+    document.body.appendChild(canvas);
+    ctx = canvas.getContext('2d');
+    brilhoTela();
+    fim = performance.now() + DURACAO;
+    ultimo = 0;
+    lanca();
+    requestAnimationFrame(quadro);
+  }
+  // Foto do item: brilho dourado que varre a imagem e chuva de luz por cima dela
+  function fotoBrilha(art){
+    var s = document.createElement('span');
+    s.className = 'foto-brilho';
+    s.setAttribute('aria-hidden', 'true');
+    art.appendChild(s);
+    var r = art.getBoundingClientRect();
+    var t0 = performance.now();
+    var id = setInterval(function(){
+      for (var i = 0; i < 2; i++) {
+        var p = document.createElement('span');
+        p.className = 'ouro-gota';
+        p.style.setProperty('--s', aleat(4, 8) + 'px');
+        p.style.setProperty('--dx', aleat(-20, 20) + 'px');
+        p.style.setProperty('--dy', (r.height + 40) + 'px');
+        p.style.left = (r.left + Math.random() * r.width) + 'px';
+        p.style.top = (r.top + aleat(-10, 10)) + 'px';
+        document.body.appendChild(p);
+        setTimeout(function(el){ return function(){ el.remove(); }; }(p), 1500);
+      }
+      if (performance.now() - t0 > 5500) { clearInterval(id); setTimeout(function(){ s.remove(); }, 400); }
+    }, 70);
+  }
+  document.addEventListener('click', function(e){
+    var t = e.target && e.target.closest ? e.target.closest('.addcart, #pagarBtn, #enviarBtn, #maqBtn') : null;
+    if (!t) return;
+    if (t.classList && t.classList.contains('addcart')) {
+      var card = t.closest('.item');
+      var art = card ? card.querySelector('.art') : null;
+      if (art) fotoBrilha(art);
+    }
+    var ev = e;
+    setTimeout(function(){ if (!ev.defaultPrevented) fogos(); }, 60);
+  }, true);
+})();
+</script>
+<script>
+// Tela de pagamento efetuado: bolinhas douradas sobem pela tela e aparece um verde "Pagamento efetuado."
+window.pagamentoEfetuado = function(){
+  var reduz = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (!reduz) {
+    for (var i = 0; i < 90; i++){
+      var b = document.createElement('span');
+      b.className = 'bolinha-ouro';
+      var d = 8 + Math.random() * 22;
+      b.style.width = d + 'px';
+      b.style.height = d + 'px';
+      b.style.left = (Math.random() * 100) + 'vw';
+      b.style.top = (60 + Math.random() * 40) + 'vh';
+      b.style.setProperty('--dx', ((Math.random() - 0.5) * 80) + 'px');
+      b.style.setProperty('--dy', (-(40 + Math.random() * 50)) + 'vh');
+      b.style.setProperty('--t', (2.2 + Math.random() * 1.8) + 's');
+      b.style.animationDelay = (Math.random() * 1.2) + 's';
+      document.body.appendChild(b);
+      setTimeout(function(el){ return function(){ el.remove(); }; }(b), 5200);
+    }
+  }
+  var ov = document.createElement('div');
+  ov.className = 'pago-ok';
+  ov.setAttribute('role', 'status');
+  ov.innerHTML = '<div class="pago-ok-card"><svg viewBox="0 0 96 96" aria-hidden="true"><circle cx="48" cy="48" r="44" fill="none" stroke="#33d17a" stroke-width="6"/><path d="M28 50 L42 64 L70 36" fill="none" stroke="#33d17a" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/></svg><b>Pagamento efetuado.</b></div>';
+  document.body.appendChild(ov);
+  setTimeout(function(){ ov.remove(); }, 4000);
+};
 </script>
     <p class="sub">Bebidas geladas · Variedade extensa · Narguilé &amp; fumaça</p>
     <div class="scan" aria-hidden="true"></div>
@@ -321,19 +638,44 @@ h1{
   </header>
 
   <section class="bar" aria-label="Busca e filtros">
-    <input id="q" class="search" type="search" placeholder="Buscar item pelo nome" aria-label="Buscar item pelo nome">
+    <div class="search-wrap">
+      <input id="q" class="search" type="search" enterkeyhint="search" placeholder="Buscar item pelo nome" aria-label="Buscar item pelo nome">
+      <button id="qBtn" class="btn search-btn" type="button">Buscar</button>
+    </div>
     <div id="editWrap" hidden>
-      <button id="editBtn" class="btn" type="button" aria-pressed="false">Editar catálogo</button>
+      <button id="editBtn" class="edit-ico" type="button" aria-pressed="false" aria-label="Editar catálogo" title="Editar catálogo">✏️</button>
     </div>
     <div id="chips" class="chips" style="grid-column:1/-1" role="group" aria-label="Categorias"></div>
+    <div id="marcas" class="chips marcas" style="grid-column:1/-1" role="group" aria-label="Marcas de cigarro" hidden></div>
   </section>
 
   <div class="toolbar">
     <p id="status" class="status" role="status" aria-live="polite"></p>
-    <button id="cartBtn" class="btn" type="button">Carrinho vazio</button>
+    <div class="carrinho-botoes"><button id="cartBtn" class="btn" type="button">Carrinho vazio</button><button id="sairEdBtn" class="btn ghost" type="button">← Voltar ao catálogo</button><button id="esgAbrirBtn" class="btn ghost" type="button" hidden>Marcar esgotados</button><button id="cartTopClear" class="btn ghost" type="button" hidden>Limpar carrinho</button></div>
   </div>
 
   </div></div>
+
+  <section id="esgWrap" class="addform" hidden aria-label="Esgotar item">
+    <h2>Esgotar item</h2>
+    <div id="esgGate" class="fields">
+      <input id="gateSenha" type="password" placeholder="Senha para abrir" aria-label="Senha para abrir" autocomplete="new-password">
+      <button id="gateBtn" class="btn" type="button">Abrir</button>
+    </div>
+    <div id="esgPainel" hidden>
+      <div class="fields">
+        <select id="esgItem" aria-label="Item"></select>
+        <input id="esgSenha" type="password" placeholder="Senha" aria-label="Senha" autocomplete="new-password">
+        <button id="esgBtn" class="btn" type="button">Marcar como esgotado</button>
+      </div>
+      <div class="fields">
+        <input id="esgNome" type="text" placeholder="Nome do item" aria-label="Nome do item">
+        <input id="esgPreco" type="text" inputmode="decimal" placeholder="Preço (ex.: 12,50)" aria-label="Preço">
+        <button id="esgPrecoBtn" class="btn" type="button">Salvar nome e preço</button>
+      </div>
+    </div>
+    <p class="ck-note">Escolha o item, digite a senha e aperte o botão. Se o item já estiver esgotado, o botão volta a vender.</p>
+  </section>
 
   <main id="list"></main>
 
@@ -343,10 +685,36 @@ h1{
       <select id="addCat" aria-label="Categoria"></select>
       <input id="addNome" type="text" placeholder="Nome do item" aria-label="Nome do item" required>
       <input id="addPreco" type="text" inputmode="decimal" placeholder="Preço (ex.: 12,50)" aria-label="Preço por unidade">
+      <label class="foto-add">Foto do item (opcional)
+        <input id="addFoto" type="file" accept="image/*" aria-label="Foto do item">
+      </label>
       <button class="btn" type="submit">Adicionar</button>
     </form>
   </section>
 
+  <section id="bibliotecaWrap" class="addform" hidden aria-label="Biblioteca de fotos">
+    <h2>Biblioteca de fotos</h2>
+    <label class="foto-add">Carregar fotos do computador ou do celular
+      <input id="bibFile" type="file" accept="image/*" multiple>
+    </label>
+    <p id="bibStatus" class="ck-note"></p>
+    <div id="bibGrid" class="bib-grid"></div>
+  </section>
+
+  <section id="importWrap" class="addform" hidden aria-label="Importar planilha de preços">
+    <h2>Importar planilha de preços</h2>
+    <label class="foto-add">Escolher a planilha (.xlsx)
+      <input id="impFile" type="file" accept=".xlsx">
+    </label>
+    <div class="fields">
+      <input id="impSenha" type="password" placeholder="Senha" aria-label="Senha para importar" autocomplete="new-password">
+      <button id="impLerBtn" class="btn" type="button">Ler planilha</button>
+      <button id="impSalvarBtn" class="btn" type="button" disabled>Trocar os preços pela planilha</button>
+    </div>
+    <p id="impResumo" class="ck-note"></p>
+  </section>
+
+  <div class="cart-par">
   <section id="carrinho" class="group cart" aria-labelledby="cartTitle">
     <h2 id="cartTitle">Seu carrinho</h2>
     <p id="cartEmpty" class="cart-empty">Nenhum item ainda. Toque em “Adicionar ao carrinho” em qualquer bebida.</p>
@@ -364,18 +732,120 @@ h1{
     </div>
   </section>
 
+  <section id="shorts" class="group cart chat" aria-label="Vídeos da adega" hidden>
+    <button id="shortsAbrir" class="chat-cartao" type="button" aria-haspopup="dialog">
+      <span class="chat-robo" aria-hidden="true"><svg viewBox="0 0 64 64" width="44" height="44"><rect x="12" y="12" width="40" height="40" rx="10" fill="none" stroke="currentColor" stroke-width="3"/><path d="M28 24 L42 32 L28 40 Z" fill="#f2c46d"/></svg></span>
+      <span class="chat-cartao-txt"><strong>Vídeos da adega</strong><small id="shortsResumo">Assista, curta e compartilhe</small></span>
+      <span class="chat-seta" aria-hidden="true">→</span>
+    </button>
+  </section>
+  <section id="chat" class="group cart chat" aria-label="Bate-papo da adega" hidden>
+    <button id="chatAbrir" class="chat-cartao" type="button" aria-haspopup="dialog">
+      <span class="chat-robo"><svg class="robo-svg" viewBox="0 0 64 64" width="44" height="44" aria-hidden="true"><line x1="32" y1="8" x2="32" y2="15" stroke="currentColor" stroke-width="3" stroke-linecap="round"/><circle cx="32" cy="6" r="3.5" fill="#f2c46d"/><rect x="12" y="15" width="40" height="32" rx="10" fill="none" stroke="currentColor" stroke-width="3"/><circle cx="24" cy="29" r="4.5" fill="#f2c46d"/><circle cx="40" cy="29" r="4.5" fill="#f2c46d"/><path d="M24 39 Q32 44 40 39" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"/><rect x="20" y="51" width="24" height="7" rx="3" fill="currentColor" opacity=".6"/></svg></span>
+      <span class="chat-cartao-txt"><strong id="chatTitle">Bate-papo da adega</strong><small id="chatResumo">Converse com outros clientes</small></span>
+      <span class="chat-seta" aria-hidden="true">→</span>
+    </button>
+  </section>
+  </div>
+
+  <div id="shortsPagina" class="shorts-pagina" role="dialog" aria-modal="true" aria-label="Vídeos da adega" hidden>
+    <div class="shorts-topo">
+      <button id="shortsFechar" class="btn ghost" type="button">← Voltar</button>
+      <strong>Vídeos da adega</strong>
+      <button id="shortsSom" class="btn ghost shorts-som" type="button"><span>Som</span></button>
+    </div>
+    <p id="shortsMsg" class="shorts-msg" hidden></p>
+    <div id="shortsAdmin" class="shorts-admin" hidden>
+      <label class="shorts-arq">Gravar ou escolher o vídeo (até 1 minuto e 15 segundos)
+        <input id="shortsArq" type="file" accept="video/*">
+      </label>
+      <input id="shortsLegenda" type="text" maxlength="120" placeholder="Legenda (opcional)" aria-label="Legenda do vídeo">
+      <button id="shortsPublicar" class="btn" type="button">Publicar vídeo</button>
+    </div>
+    <div id="shortsFeed" class="shorts-feed"></div>
+    <p id="shortsVazio" class="shorts-msg" hidden>Nenhum vídeo publicado ainda.</p>
+    <div id="shortsComentarios" class="shorts-coment" hidden>
+      <div class="shorts-coment-topo"><strong>Comentários</strong><button id="shortsComFechar" class="btn ghost" type="button">Fechar</button></div>
+      <ul id="shortsComLista" class="shorts-com-lista"></ul>
+      <form id="shortsComForm" class="shorts-com-form" autocomplete="off">
+        <input id="shortsComTxt" type="text" maxlength="200" placeholder="Escreva um comentário" aria-label="Escreva um comentário">
+        <button class="btn" type="submit">Enviar</button>
+      </form>
+      <p id="shortsComAviso" class="shorts-msg"></p>
+    </div>
+  </div>
+  <div id="chatPagina" class="chat-pagina" role="dialog" aria-modal="true" aria-labelledby="chatPaginaTitulo" hidden>
+    <header class="chat-top">
+      <button id="chatFechar" class="btn ghost" type="button">← Voltar</button>
+      <button id="chatPerfilBtn" class="btn ghost" type="button">Meu perfil</button>
+      <h2 id="chatPaginaTitulo"><span class="chat-robo-pq"><svg class="robo-svg" viewBox="0 0 64 64" width="44" height="44" aria-hidden="true"><line x1="32" y1="8" x2="32" y2="15" stroke="currentColor" stroke-width="3" stroke-linecap="round"/><circle cx="32" cy="6" r="3.5" fill="#f2c46d"/><rect x="12" y="15" width="40" height="32" rx="10" fill="none" stroke="currentColor" stroke-width="3"/><circle cx="24" cy="29" r="4.5" fill="#f2c46d"/><circle cx="40" cy="29" r="4.5" fill="#f2c46d"/><path d="M24 39 Q32 44 40 39" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"/><rect x="20" y="51" width="24" height="7" rx="3" fill="currentColor" opacity=".6"/></svg></span> Bate-papo da adega</h2>
+    </header>
+    <div id="chatPerfil" class="chat-perfil" hidden>
+      <h3>Meu perfil</h3>
+      <label>Seu nome
+        <input id="perfilNome" type="text" maxlength="30" placeholder="Ex.: Maria">
+      </label>
+      <label>Sua foto (opcional)
+        <input id="perfilFoto" type="file" accept="image/*">
+      </label>
+      <p id="perfilAviso" class="cart-note" hidden></p>
+      <div class="cart-acts">
+        <button id="perfilSalvar" class="btn" type="button">Salvar</button>
+        <button id="perfilCancelar" class="btn ghost" type="button">Cancelar</button>
+      </div>
+    </div>
+    <p class="chat-intro">Converse com outros clientes: combine encontros, conte piadas, tire dúvidas.</p>
+    <ul id="chatList" class="chat-list" aria-live="polite"></ul>
+    <p id="chatEmpty" class="cart-empty" hidden></p>
+    <div id="chatAdmin" class="chat-perfil" hidden>
+      <h3>Cadastros para liberar</h3>
+      <ul id="chatAdminLista" class="chat-item-lista"></ul>
+    </div>
+    <div id="chatCadastro" class="chat-perfil" hidden>
+      <h3>Cadastro para participar</h3>
+      <p class="cart-note">Seus dados ficam com a adega e servem para identificar quem participa do bate-papo.</p>
+      <label>Nome
+        <input id="cadNome" type="text" maxlength="30" autocomplete="given-name">
+      </label>
+      <label>Sobrenome
+        <input id="cadSobrenome" type="text" maxlength="40" autocomplete="family-name">
+      </label>
+      <label>Celular com DDD
+        <input id="cadCelular" type="tel" maxlength="16" placeholder="(11) 99999-9999" autocomplete="tel">
+      </label>
+      <label class="chat-aceite"><input id="cadAceito" type="checkbox"> Concordo que a adega use esses dados para identificar quem participa do bate-papo.</label>
+      <p id="cadAviso" class="cart-note" hidden></p>
+      <div class="cart-acts"><button id="cadEnviar" class="btn" type="button">Enviar cadastro</button></div>
+    </div>
+    <p id="chatAguarde" class="cart-empty" hidden></p>
+    <div id="chatResposta" class="chat-resposta" hidden><span id="chatRespostaTxt"></span><button id="chatRespostaX" class="apagar" type="button" aria-label="Cancelar resposta">×</button></div>
+    <p id="chatDigitando" class="chat-digitando" hidden></p>
+    <div id="chatEmojis" class="chat-emojis" hidden></div>
+    <div id="chatItens" class="chat-itens" hidden>
+      <input id="chatItemBusca" type="search" placeholder="Buscar item para enviar" aria-label="Buscar item para enviar">
+      <ul id="chatItemLista" class="chat-item-lista"></ul>
+    </div>
+    <div id="chatFerr" class="chat-ferr">
+      <button id="chatEmojiBtn" class="chat-ico" type="button" aria-label="Emojis">😀</button>
+      <button id="chatItemBtn" class="chat-ico" type="button" aria-label="Enviar item do catálogo">🛍️</button>
+      <button id="chatAudioBtn" class="chat-ico" type="button" aria-label="Gravar áudio" hidden>🎤</button>
+    </div>
+    <form id="chatForm" class="chat-form" autocomplete="off">
+      <input id="chatTxt" type="text" maxlength="300" placeholder="Escreva sua mensagem" aria-label="Escreva sua mensagem">
+      <button id="chatSend" class="btn" type="submit">Enviar</button>
+    </form>
+  </div>
+
   <section id="pagar" class="group checkout" aria-labelledby="pagarTitle" hidden>
     <h2 id="pagarTitle">Finalizar pedido</h2>
-    <p class="ck-intro">Preencha os dados, escolha o banco e toque em “Enviar pedido pelo WhatsApp”. O pedido abre no seu WhatsApp, pronto para você pagar e encaminhar.</p>
+    <button id="voltarBtn" class="btn ghost voltar" type="button">← Voltar para as bebidas</button>
+    <p class="ck-intro">Preencha os dados e escolha como quer pagar: <b>Pagar com Pix pelo WhatsApp</b> (escolha o banco), ou <b>Pagar na maquininha</b>, no caixa, sem precisar de banco.</p>
 
     <form id="pedidoForm" novalidate>
       <fieldset class="ck-block">
         <legend>1. Seu nome</legend>
         <label class="field">Nome e sobrenome
           <input id="pNome" type="text" autocomplete="name" placeholder="Ex.: Maria Silva">
-        </label>
-        <label class="field">Seu WhatsApp (com DDD)
-          <input id="pZap" type="tel" inputmode="tel" autocomplete="tel" placeholder="Ex.: (11) 99999-9999">
         </label>
       </fieldset>
 
@@ -420,7 +890,7 @@ h1{
       </fieldset>
 
       <fieldset class="ck-block">
-        <legend>3. Qual banco você usa</legend>
+        <legend>3. Qual banco você usa (só para Pix)</legend>
         <div id="bancos" class="bancos"></div>
       </fieldset>
 
@@ -442,13 +912,15 @@ h1{
       </div>
 
       <p id="pErro" class="pedido-erro" role="alert" hidden></p>
-      <a id="enviarBtn" class="btn-enviar" href="#" target="_blank" rel="noopener" aria-disabled="true">Enviar pedido pelo WhatsApp</a>
+      <a id="enviarBtn" class="btn-enviar" href="#" target="_blank" rel="noopener" aria-disabled="true">Pagar com Pix pelo WhatsApp</a>
+      <a id="maqBtn" class="btn-maq" href="#" target="_blank" rel="noopener" aria-disabled="true">Pagar na maquininha</a>
+      <a id="cartaoBtn" class="btn-cartao" href="#" rel="noopener" aria-disabled="true" hidden>Pagar com cartão (crédito ou débito)</a>
       <button id="pedidoCopy" class="btn ghost pedido-copy" type="button">Copiar pedido</button>
       <details class="pedido-txt">
         <summary>Ver texto do pedido</summary>
         <textarea id="pedidoTxt" readonly rows="10"></textarea>
       </details>
-      <p class="ck-note">O pedido abre no seu WhatsApp. Pague pelo Pix com o número que aparece no pedido e, depois, encaminhe a mensagem e o comprovante do pagamento para a Adega no WhatsApp <b>(11) 92619-0514</b>. Se o WhatsApp não abrir, toque em Copiar pedido e cole na conversa com você mesmo.</p>
+      <p class="ck-note">O pedido abre direto no WhatsApp da adega. Pague pelo Pix com o número que aparece no pedido e, depois, encaminhe a mensagem e o comprovante do pagamento para a Adega no WhatsApp <b>+55 11 93210-6728</b>. Se o WhatsApp não abrir, toque em Copiar pedido e cole na conversa com a adega.</p>
     </form>
   </section>
 
@@ -464,13 +936,32 @@ h1{
   </section>
 
   <p class="foot">Adega do Wavant · 2026</p>
+  <span class="beijo-canto" aria-hidden="true">💋</span>
 </div>
 
 <script>
 (function(){
-  var CATS = ["Whiskies","Destilados","Cachaças e vinhos","Energéticos","Cervejas","Bebidas mistas","Refrigerantes e sucos","Doces e salgadinhos","Cigarros e acessórios","Descartáveis","Chope"];
-  var state = { items: [], cat: "Todas", q: "", edit: false, canEdit: false, loaded: false };
+  var CATS = ["Whiskies","Destilados","Cachaças e vinhos","Energéticos","Cervejas","Bebidas mistas","Refrigerantes e sucos","Doces e salgadinhos","Cigarros e acessórios","Isqueiros","Sedas e papel","Descartáveis","Chope"];
+  var state = { items: [], cat: null, q: "", edit: false, canEdit: false, loaded: false, marca: null };
+  var CIG = "Cigarros e acessórios";
+  // Classifica o cigarro pela marca que aparece no nome (a primeira que bater vence).
+  var MARCAS = [
+    ["Marlboro", /marlboro/i], ["Camel", /camel/i], ["Lucky Strike", /lucky/i], ["Kent", /\bkent\b/i],
+    ["Dunhill", /dunhill/i], ["Carlton", /carlton/i], ["Chesterfield", /chesterfield/i], ["Rothmans", /rothmans/i],
+    ["L&M", /\bl\s?&\s?m\b|\blm\b/i], ["Winston", /winston/i], ["Djarum", /djarum/i], ["L.A", /\bl\.?\s?a\b/i],
+    ["Black", /\bblack\b/i], ["Gudang Garam", /gudang/i], ["Parliament", /parliament/i], ["Charutos", /charuto|titan/i],
+    ["Seda e papel", /seda|bem bolado|balada|\braw\b|zomo|smoking|pay ?pay|ceda/i]
+  ];
+  function marcaDe(nome){
+    var n = String(nome || "");
+    for (var i = 0; i < MARCAS.length; i++) { if (MARCAS[i][1].test(n)) return MARCAS[i][0]; }
+    return "Outros";
+  }
+  function ehMidia(x){ return /^data:image\//.test(x || "") || /^(fotos\/)?[a-f0-9]{32}(\.(png|jpe?g|webp))?$/i.test(x || ""); }
+  function mediaUrl(x){ if (!x) return ""; if (/^(data:|https?:)/.test(x)) return x; return /\.[a-z0-9]{3,4}$/i.test(x) ? x : x + ".png"; }
   var db = null;
+  var assetsNS = null;
+  var iniciarBiblioteca = null;
   var CART_KEY = "adega-carrinho";
   var $ = function(id){ return document.getElementById(id); };
   var uid = 0;
@@ -516,6 +1007,8 @@ h1{
     "Refrigerantes e sucos":["#1d4ed8","#e0f2fe","#1e40af"],
     "Doces e salgadinhos":  ["#ea580c","#fff7ed","#c2410c"],
     "Cigarros e acessórios":["#1e293b","#00e5ff","#00e5ff"],
+    "Isqueiros":["#b91c1c","#fef3c7","#7f1d1d"],
+    "Sedas e papel":["#166534","#f0fdf4","#14532d"],
     "Descartáveis":         ["#e2e8f0","#1e293b","#1e293b"],
     "Chope":                ["#c08a3e","#1b120c","#7a5a10"]
   };
@@ -543,6 +1036,7 @@ h1{
     var c = item.categoria;
     if (c === "Chope") return /torre|aluguel/i.test(n) ? "tower" : "barrel";
     if (c === "Descartáveis") return /balde/i.test(n) ? "bucket" : "cup";
+    if (c === "Isqueiros" || c === "Sedas e papel") return "small";
     if (c === "Cigarros e acessórios") return /isqueiro|f[óo]sforo|seda|pacotinho/i.test(n) ? "small" : "pack";
     if (c === "Doces e salgadinhos") return "bag";
     if (/lata/i.test(n)) return "can";
@@ -662,7 +1156,7 @@ h1{
       b.className = "chip";
       b.textContent = c;
       b.setAttribute("aria-pressed", String(state.cat === c));
-      b.addEventListener("click", function(){ state.cat = c; render(); });
+      b.addEventListener("click", function(){ state.cat = c; state.marca = null; render(); });
       box.appendChild(b);
     });
     var sel = $("addCat");
@@ -673,6 +1167,97 @@ h1{
       sel.appendChild(o);
     });
   }
+
+  // Importar planilha de preços (só Editor, só no modo de edição, com senha)
+  var impPlano = null;
+  function impAviso(txt){ $("impResumo").textContent = txt || ""; }
+  function carregarXlsx(){
+    if (window.XLSX) return Promise.resolve(window.XLSX);
+    return new Promise(function(resolve, reject){
+      var sc = document.createElement("script");
+      sc.src = "https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js";
+      sc.onload = function(){ if (window.XLSX) resolve(window.XLSX); else reject(new Error("xlsx")); };
+      sc.onerror = function(){ reject(new Error("xlsx")); };
+      document.head.appendChild(sc);
+    });
+  }
+  function senhaImportOk(v){
+    var norm = function(x){ return String(x || "").replace(/\s/g, "").toLowerCase(); };
+    return norm(v) !== "" && norm(v) === norm(SENHA_IMPORTAR);
+  }
+  function lerPreco(v){
+    if (typeof v === "number" && isFinite(v) && v >= 0) return Math.round(v * 100) / 100;
+    if (typeof v === "string" && v.trim() !== "") { var r = parsePreco(v); return (r.ok && r.value !== null) ? r.value : null; }
+    return null;
+  }
+  $("impLerBtn").addEventListener("click", function(){
+    var arq = $("impFile").files && $("impFile").files[0];
+    impPlano = null;
+    $("impSalvarBtn").disabled = true;
+    if (!arq) { impAviso("Escolha a planilha primeiro."); return; }
+    impAviso("Lendo a planilha…");
+    carregarXlsx().then(function(X){
+      return arq.arrayBuffer().then(function(buf){
+        var wb = X.read(buf, { type: "array" });
+        var aba = wb.SheetNames.indexOf("Preços sugeridos") >= 0 ? "Preços sugeridos" : wb.SheetNames[0];
+        var linhas = X.utils.sheet_to_json(wb.Sheets[aba], { header: 1, defval: null });
+        var cab = (linhas[0] || []).map(function(h){ return String(h || ""); });
+        var iNome = cab.findIndex(function(h){ return /produto/i.test(h); });
+        var iPreco = cab.findIndex(function(h){ return /pre.o/i.test(h); });
+        if (iNome < 0) iNome = 1;
+        if (iPreco < 0) iPreco = 2;
+        var porNome = {};
+        state.items.forEach(function(it){
+          var k = String(it.nome || "").trim();
+          (porNome[k] = porNome[k] || []).push(it);
+        });
+        var plano = [], iguais = 0, semPreco = 0, naoAchados = 0, repetidos = 0, vistos = {};
+        linhas.slice(1).forEach(function(l){
+          var nome = String((l && l[iNome]) || "").trim();
+          if (!nome) return;
+          var preco = lerPreco(l[iPreco]);
+          if (preco === null) { semPreco++; return; }
+          var achados = porNome[nome] || [];
+          if (achados.length === 0) { naoAchados++; return; }
+          if (achados.length > 1) { repetidos++; return; }
+          var it = achados[0];
+          if (vistos[it.id]) return;
+          vistos[it.id] = true;
+          if (it.preco !== null && it.preco !== undefined && Number(it.preco) === preco) { iguais++; return; }
+          plano.push({ id: it.id, nome: it.nome, de: it.preco, para: preco });
+        });
+        impPlano = plano;
+        impAviso(plano.length + " produto(s) vão trocar de preço. " + iguais + " já estão com o mesmo preço. " +
+          semPreco + " linha(s) sem preço na planilha (ficam como estão). " + naoAchados + " nome(s) não encontrado(s) no catálogo." +
+          (repetidos ? " " + repetidos + " nome(s) repetido(s), pulados." : ""));
+        $("impSalvarBtn").disabled = plano.length === 0;
+      });
+    }).catch(function(){
+      impAviso("Não consegui ler a planilha. Confira se é o arquivo .xlsx.");
+    });
+  });
+  $("impSalvarBtn").addEventListener("click", function(){
+    if (!impPlano || impPlano.length === 0) { impAviso("Leia a planilha antes."); return; }
+    if (!senhaImportOk($("impSenha").value)) { $("impSenha").value = ""; impAviso("Senha errada."); return; }
+    $("impSenha").value = "";
+    var plano = impPlano, total = plano.length, feitos = 0, falhas = 0;
+    $("impSalvarBtn").disabled = true;
+    $("impLerBtn").disabled = true;
+    impAviso("Trocando preços… 0 de " + total);
+    var grupos = [];
+    for (var i = 0; i < plano.length; i += 20) grupos.push(plano.slice(i, i + 20));
+    grupos.reduce(function(antes, grupo){
+      return antes.then(function(){
+        return Promise.all(grupo.map(function(x){
+          return db.collection("itens").doc(x.id).update({ preco: x.para }).then(function(){ feitos++; }, function(){ falhas++; });
+        })).then(function(){ impAviso("Trocando preços… " + (feitos + falhas) + " de " + total); });
+      });
+    }, Promise.resolve()).then(function(){
+      impAviso("Pronto: " + feitos + " preço(s) trocado(s)" + (falhas ? ", " + falhas + " não foram salvos" : "") + ".");
+      impPlano = null;
+      $("impLerBtn").disabled = false;
+    });
+  });
 
   function save(item, patch, msg){
     setStatus("Salvando…");
@@ -705,7 +1290,7 @@ h1{
     Object.keys(CART).forEach(function(id){
       var it = null;
       for (var i = 0; i < state.items.length; i++) { if (state.items[i].id === id) { it = state.items[i]; break; } }
-      if (it) { if (CART[id] > 0) out.push({ item: it, qtd: CART[id] }); }
+      if (it) { if (!it.esgotado && CART[id] > 0) out.push({ item: it, qtd: CART[id] }); }
       else if (state.loaded) { delete CART[id]; saveCart(); }
     });
     return out;
@@ -778,17 +1363,48 @@ h1{
       list.appendChild(li);
     });
 
-    var has = lines.length > 0;
+    var esgs = Object.keys(CART).map(function(id){
+      var it = state.items.filter(function(x){ return x.id === id && x.esgotado; })[0];
+      return it ? { item: it } : null;
+    }).filter(Boolean);
+    esgs.forEach(function(e){
+      var li = document.createElement("li");
+      li.className = "cart-row esg-linha";
+      var info = document.createElement("div");
+      info.className = "cart-info";
+      var nm = document.createElement("div");
+      nm.className = "cart-name";
+      nm.textContent = e.item.nome || "";
+      var tag = document.createElement("div");
+      tag.className = "esg-tag";
+      tag.textContent = "esgotado";
+      info.appendChild(nm);
+      info.appendChild(tag);
+      var rm = document.createElement("button");
+      rm.type = "button";
+      rm.className = "cart-rm";
+      rm.textContent = "×";
+      rm.setAttribute("aria-label", "Remover " + (e.item.nome || "") + " do carrinho");
+      rm.addEventListener("click", function(){ removeFromCart(e.item.id); });
+      li.appendChild(info);
+      li.appendChild(rm);
+      list.appendChild(li);
+    });
+
+    var has = lines.length > 0 || esgs.length > 0;
     $("cartEmpty").hidden = has;
     $("cartFoot").hidden = !has;
+    $("cartTopClear").hidden = !has;
     $("cartSum").textContent = fmt(sum);
-    $("cartNote").textContent = semPreco
-      ? (semPreco === 1 ? "1 item está sem preço definido e não entra no total." : semPreco + " itens estão sem preço definido e não entram no total.")
-      : "";
+    $("cartNote").textContent = esgs.length
+      ? "Tire do carrinho os itens esgotados (em vermelho) para poder pagar."
+      : (semPreco
+        ? (semPreco === 1 ? "1 item está sem preço definido e não entra no total." : semPreco + " itens estão sem preço definido e não entram no total.")
+        : "");
     $("cartBtn").textContent = count
       ? "Carrinho · " + count + (count === 1 ? " item" : " itens") + " · " + fmt(sum)
       : "Carrinho vazio";
-    $("pagarBtn").disabled = !has;
+    $("pagarBtn").disabled = lines.length === 0 || esgs.length > 0;
     if (!$("pagar").hidden) renderPedido();
   }
 
@@ -799,6 +1415,11 @@ h1{
   var PIX_BANCO = "PicPay";
   var codigoPedido = "";
   var uidCliente = null;
+  // Cartão de crédito/débito: deixado pronto, escondido. Mude para true quando a conta da empresa de pagamento estiver ligada.
+  var CARTAO_ATIVO = true;
+  // Senha para marcar um item como esgotado (ou voltar a vender). Troque por sua senha.
+  var SENHA_ESGOTADO = "anaclaras2";
+  var SENHA_IMPORTAR = "anaclaras2"; // senha para trocar os preços pela planilha; troque se quiser outra
   var PIX_CIDADE = "Embu das Artes";  // cidade do titular
   var TAXA = { mesa: 1, domicilio: 7, rua: 5, caixa: 0 };
   var BANCOS = [{"n":"Nubank","u":"https://play.google.com/store/apps/details?id=com.nu.production","img":"data:image/webp;base64,UklGRjwEAABXRUJQVlA4IDAEAABQGACdASpYAFgAPikSiEKhoSEU7FxQGAKEoAzqQm/H3wdx/4B+n/5b8pP6r2nvFV/ufVF8wH66erV6OfQA/V/rO/QK/Zn00PZb/an9qvZ01WuNf66ZTj8J+Q4UbgKafnoiOyIegU3Xf7OYFaw16BpxMMfHm9Ff8DZFa4U0cvogI0eAsuRNYvRd4ZXCNyDwyIBKij1bQh3ymy0qJnM1aIwZqYC1R78v0ci2el4wgPdl6anEzaLpW3WQAzF+cf2l7mWlYHwjwZcOb80TAAD+//8xDeaTiqEOaPsqygYzLTjSzXw0IHWTOpuLD+HrRqlPvfhE+T2AI+YDyC23/bJwjE1R6oDaJCZ0ivbirNdOb+F1295Mkg8M6JTktULg2vX22WgYf4KQ5GQgdwuuNV2fUtKSF5Csb7jAuu+T0qzucFrWDF4duAf1lQJqx6be39x4zdT/51l/KC3ssNQ6uoOJU5WG9tUUhkWzRGHIxw6/P8gs2kCQ/nQImO3oV24ZwzgpsD0dv/jhhAP1TCk7G1qU8ZTmdXpdh9J4SEwwV6Ns3YAig0MgWffCcAIfX3gBD2MO7/9iHjPh+OxmMMh9uggBPqf8n8rL/DX1vj5kmXKYifGRpbBQdsl15S5Fbuxmd2G0c+T6is4Q8OF4A9wGawLFDnQJc4FzpgxYkNhefjIFtuWayWw3xuUFuhlvspbq5EKPA5Eu0tHZxS/JH8/Yj+M5pplSjYhnTyxtf8HJc++u2f//g7v8yAD/3R3l7blJcvkmKrk7LiWmb3sX4z6v+lXR2Jl6bgmZA4Qw24vQ5P+yGHm5zqcn35gY8rNr0Eqf729gabZ+l76yPdVTLh6vcrPQVRMbqxlmeleTNSoV8yEPMa90u6VjZ1d6LfNpV70/WjdjDvI8sb5mf3QYkKtWYVHAWztCq3T6zdz9QjSq34z2X1hrQa129+ZLQp39o4oXySwjL00ld/X72i1TEJUhKGm5z0XT/QeqCQAF+6NOMo5AF4jtxTr2K70owIePitHLT2X7msMlGwSZchme9Rey4YuR6A+JFI+cLG0REPlbYAfGidsrMXHBud7AX5AvgV0sBFWnYaxFRof9eRGopUmI91jZMxNxVQc2yY3Df52ANi7YNsLyTyipwjCvOFsrGVlk7lZYMn0JzFreERqa1gZeBnxn2TeM18M/po4jdqe/FGvtOX+s/DleVsVaeOoWjbfYj6P/Q+GO0nSqOFPqthKfG2/R2b/GciMw+y5V3RnDrDT9acfqYU+e6O0PvZQG9saXZa+Rznncw4aoB+hp41Xx7wtXee+Ic8bEA9gLMGS0Rrhqd8IK9eSWP4HmZOe9JWlaYlIOGeypd6XA5t27GmTwlOWl6M8AlLIONamrWRqTSaEHJCDRCmEBE1jmGgGwG6KKa6RHIv+dAEkIUTdPRR0qBy6fwAAA"},{"n":"Banco Inter","u":"https://play.google.com/store/apps/details?id=br.com.intermedium","img":"data:image/webp;base64,UklGRsYCAABXRUJQVlA4ILoCAAAQEwCdASpYAFgAPikUiEMhoSERzARAGAKEsoBovwCfJ/reSMFO6f2Z/ID5C+iH8vbyDzAfrB+mfu8f5bojut59AD9YOtU/bz0cP/oA+hCmXxuJl+OsF6/49EpnDlBgsiIMTUZqUGw1Nzoxc6pkKi7mivveVQgAFIidA4pJfZFOzGhXuDTEOwu6ixpzr57btOcexYoNNbTJ3/1OVuGa2UpUAAD+//5iEVU7txaoqwzudMn+WouDrCn++QIC3cI6CNzcx8bzNR9Cq2uBYoB0sG4xd6ep/zb333QYWfPNUNDgSk1JEKxP5PaXhqJN+sD+mxi2bQrZ7nRFxVdwon4bR8JpN9TlhJcXTsnEuUJZ00vNAqTLkCesitKiOxdBnC3hze6n60S2fp0LU1pw0kBaCwDrf2Tvqdg1rFUkwVH9yZ30bPLH/PDLrzRJDDDKkNuU60d1JRvk3RZftaVHHI136Yv+MblsGyHxb//EJ0QyGicmz9/Z858vVx/GW7pCdgmdiv/m2fuSEM/8Tg5hHdi8flhgD7qBW/F/+iWWVb69Z+T8B05jdaj3uB3PiMrm4pp/2yL/MeXBLrQaFhpjdj9hH4B4BPqtm6m2rh2Fm8CcJyoxpmywrKheC6Apm6rLsL++ezGThV1a/qaEdr8pVwnvQy6IJ5ZOtJPJQLgGYLa/0rk9p5r9OhwwMlbp4j9lhAhk0g0Yay3BCaPA8pdzWNcgQZitlBpEb0/BhCPqV4u/atAh0IcLgXYDLB1/TFSj2qW3zJMXpMSxF2vHAEYofG8gWHZeyIlDiO0P0fdw5Lab0KmHjMsMSvtrzTA1E85JQFws9gcpDzkZS12K11iC2K/0Tp/3fXLmbGXINDElkm0YhVAg38Y62NEKzTS9mhOSxDkoD1CqMVuR8vWwQVxveDVEeN7BBlboQkZWAAAAAA=="},{"n":"C6 Bank","u":"https://play.google.com/store/apps/details?id=com.c6bank.app","img":"data:image/webp;base64,UklGRhIDAABXRUJQVlA4IAYDAADwFACdASpYAFgAPikUiEMhoSERzARgGAKEtIBqH6tLsNtnzAH6q6wB+s3sAdKXLZfxZyhL4D8ac/Z+RGWlezM4/7r30r/yVEIoqMCgNMCiUq5mlvT2T8oVKDnnr9kOVgZdi1SRAeVk/KeFBUSi1S8Y7bQqpdjAi4aIw87FvPrfPm8iXLf24iIDNHzR5fCRjDeeq0wCUazuQeDtABa1ab+7lw7LQOVdLkdFBphRrLEOwAD+//5iNX7958l7s0Q2ZuJLp65jb6iVAjYKTFXlvYFAknn6BejOYPQCznXtFGRqpROoXHH75/vzP6UPeXnDnBSxoGEwrsZqKNN54yEBnrdtWqf0xAoAQ8R8M6dMBlOFpzUZrZd2fn7mz6grv8xCTfbGMEP+0YpmhU+b7giHmCP766dhyLgms7E3xcHG/gWP40+jm0PfpumaThxHf7/D0xu33JFzPjmJUtOFZLg5x8vTyGX+GnL74o9O13KROQsskXTn/c2Y/uEl4l8fLUutYH9ODVw/jt/yWU37oAhDagEIDYVVDqyTmCuKFpTJfy5d5nSPQKtU8r+5CZxRtQ8xR2h5AkpZ22xPrk6z42fokgnDfjEC53Ani6ue3aSaw43ZRw1diETPZbhPSVqVvNYY664ECT/fBkuXvv00LxejT9Fl6F/V9xt91J1t/qqNt0xv7EtKdy26F9gMXYNA0bfFxBNAC86KsjYG7G+AxDNlhEg7AvjOG//4yTsWtBnkrNPtMN9cLHAKVrOHkvOcqpPGVE84PMCba2hQRTvTFiFiDIvE0ba5QCDAK0SJb6j8S5lhT9hPsyB2Yf2LLJr8SgeHMuLj7OuxPBjlTgjnnlWcw519hyNJs1aIj5GSuaRM9v5AN7xGE3V8519cxy6v16jjOkoObZRLZQftE0eAt6/miqmdpyaqR+mqRe6VDYVp4f4OIRuX4FuvIceoYVPdpA9a6yJ+D3SxRRVs4QhFiEuIXjb8Wrpyf7+H5GlLcgnERNm5kZ9u01rzQnwtsLPTJfAhjwLUAAAAAAA="},{"n":"PicPay","u":"https://play.google.com/store/apps/details?id=com.picpay","img":"data:image/webp;base64,UklGRgoEAABXRUJQVlA4IP4DAAAwFwCdASpYAFgAPikSiEKhoSETnfxsGAKEoAwn5AXx6U/mN95j9vWLQHY18SPpkeYD9Wf1j93n/D+q78ZvcA/ZXrTvQb/Zn03fZk/cr0ev/prJwI0IFIkciDiN5bIefAZA80s9TD8yJPwuq6tTA20EpPzSrp8vN5POlfoUWkXLMXln2n7hqJ61gryvzttUw6sM/m7imIp1b7h+zWVt91SlB8Ey6Rx/PqXUzlzAiQPDheSXYJ8NXDLh+U1PYIK5s62zAAD+//8xC50RePKd9vIaCJlxdbSyRVmcqMqsJtp4Fc/2otYCeQCWmsQt6KBQDd1h9UZHGwjzmJAxQx7xYQESwxQ+UVdSZoAYjx2z3vVuU37/89xsOGTwrmBuQ0V/Rgzt6yMDo/HrC4lp4vGJoba/qSr0zZ8zuRKW44ENm6diWwyEPrn4I+Z3r3P4ZOSP3+T/8OWf0302PPI5i7bvS+WEXCwOhTQOSeEZWz4TOFRdFrDbie10JlcICbNjem12uPl5LZ4z9lPBxodYNeWWzPHD8YYTMPz/jZW6k+Kx/98bx22zW5C+cGWlWgc2X9rw8UNrXfM56nwtYStDz+APTFxRYcHp3CdlQjTAMtO/vs60fzrbdCv9H1U2QuL/D+9wFjAqvkN84lwQfVNI79w+PAFqvi5WsGK+gk/1PQOOr83W4lOl074+P7uf+G86AQaz3CgY2PjPH/ifmSxH4GACnKULMIPdiHcpRxAdjnCGk+P8046xjnMDFjlQ3+AHNyI+URcSoLjjCDqF0kAsf2NPcT8WjzXhebmTL+0oVw/rt2xTA3tfOPdM/+spFqZhN3ftDb3l7xqstK//0tRWSbWuq2xvs7p3orXlz6TVYpiDoEN1hbD5ENHNZpywfvnHC/n67r/LLwhWPJCxiWXuVYcYwCEwnHSgAWowU/qb5PwKw+YO4+4BDahkoAb0kT+783FTe6dCW2fWgPN/rRUfy+eKyhYZupMVfZF9P5lIU/eY9qJ1u9H/agSlFeQEjFz+zXtHjhu54lv6lZXHxFE/M6bRaheiLdPmces86rO+UIcbF8DzI/tS1sIL5Ef3NoxQoW+ToDD8um7D1F+tfcPfDT5oBUSqmJMTQfqGRQGwCRkz4GnXqr78sigO0c8+nllSb9hojz/qk/NcCqBokKMwBq8P7vKyu6SmE65OPz157IMa1vrhDDW6kvVqnyuiqjyo+Jxy72/W2S0UK5YskT2HVeF3fXTmsuhpaJxOjHK06BIEeWrSOMjKrlMOzE5/qjjA2uabsUmIeLorqa18Ad6h1LrplFi38InF5J70y6Wn6gijGkxmbl0NQPyy45+qUhTPUE4VMXHb9AR1uypAjTpb7AAAAA=="},{"n":"Mercado Pago","u":"https://play.google.com/store/apps/details?id=com.mercadopago.wallet","img":"data:image/webp;base64,UklGRgIFAABXRUJQVlA4IPYEAAAwGgCdASpYAFgAPikSh0KhoQnOAkgMAUJQBk4RBvr0j/Mcs56h6w3r/r/Yd90m+b/ZL1Dfrx+t3u5+jX/C+oB/hv7p1qHoAfsd6Yv7YfCP+1H7d/AT+sv/gp075bIF2TvxGcDQQxNJ81ib24h/IguC54BvswK8jEMj3F0M3I4dzuW8pP3c7jZprtynIRx5AspHTjvsy9JEVZqhwgIkhCc9BC5vJJCp7QHLl1lkNxSE3ftTKa5gNeRKY7JYdgmG+nB6+QdFFaUFUg4+SataH3C5FD4sipPreKOAAAD+//6UKz7xqp7Hzp1G9nfzkbDC+UbGQ5qnJnqD0Fuo7mxqspY+P3aeLvMGx3FTgB+dus3dQXI2BbU6t/wOEJLQSaAnKtOt9sLQuvKwxWJRER7oP8Y174dnzquqw1e8AlTwgfaTDdst49OOqR7B0PpxKeinL1VJK7tYGSmyrfVD8RwlOef/ZMhH1WXvwkPhRiB9Drkc/465B7/eNd/OCZGPGXvlmfNvLrR4B+pN0C5abbeYe5sXc9CtGYFxo+JghT+16TQk96e7jyjJHhF4ytUY73iENdH2YKA2U7IBfxpUyty4jk4KmTaCRRdRT1ZA4T80NICv1ugVkSdiN/Jl42s/nJkQ62BgW7SeuzwA7oQZRs/d39lQ6/LDTPsv8/jws7xZRFgMpK9z6vVNso1vrFUej17r+hP5ygxwaWuXKjh+WTnnc08tbGR1JlFI0CXQnf+IbBdRPOmDoJ5Cl3+FowrNeJtw+bNDDF6yCCf6Cteg6Z4H6qe6a+4pmcyrAubYJebbXwYQLjcrmUSYDoF2OcXzpA3bv34VEzkcxCJ/2K+03WuROpSXaN15owvFYTWnLuL5JylPw6tpWK9+39KHtU3xgnV7zt/fvMZ8G0wmpouJU3oqKy30jz8uzQFw/sOw9ECt4jsc41jp/DYO5VOLqK+A9L0pEN9koDbAWmGfS4YrTzDavNq10A2X+hfh8vDFabSJ6tv2/82en5DiG02EzStnfMW4orn1GKQX6dQpLfcgSh3KhQKxy+OTnYBsGV8ZN1vANn9g/K9hXBc2f7teNjst19KX1opsxPL5EsKcpG10TEOWYnhGLmc359ldQyTULT4L11TGtCV85y/dgT8XkwbyEsPLaHGNNsJc0LSdg10VMiR6Lga/x4ehlzyDgfiDbc5z6/ams5O04GXPV2Rpt8V0EZTS/GVINYIKbu/K43ethCqDvj0ng2Pf+oeQFSICaOp69nQqxy8VSBTccybgxl8IqtDTtlQbb6CmDMhajtzIByshHbuvdLkohYS4TA1T+5F+CfpMC1BpvfVqN/cPu/xUXWtx/sVcFbzn7haG5Gv8HyPxjTK2bDwSk7Fjmzkch9HBw2PNubOX/R0SFzyORyrSGh+VNoHxigJJ8O9CqiNjEcP4GRVOwG93IXL9CEMz8gY5B3wurYZLcuVSdG4utzfEvmCw1sOOp+oHM/kbxCOz3KI20k7L/KprJ9fhz68f1ZGM7v/A5hFcnMRmthfzwCLa9yTEfWMqEkadEzaD8h+b22X5l86xYR9Gms8jPDsjOQQ59gRcI/v7T27x2nEcfAHQq9n3cg17zgsWLCWHiX1mPF0JaFo3hYL321XHTt3JtmfN1E2TBadVbWu/66As8AylsXv8Y+ptFI9kCVRzdYANEkooRDzgpKu2AAAA"},{"n":"PagBank","u":"https://play.google.com/store/apps/details?id=br.com.uol.ps.myaccount","img":"data:image/webp;base64,UklGRpwCAABXRUJQVlA4IJACAAAwEgCdASpYAFgAPikUiUMhoSERXVQgGAKEsoBnV6VeA13zyl/HPu5APVHtk/GS/qvtK9IB+gHAIeW37OP7L/sz7Sq5APxmBBpEqHkX4CpYpxFhkuJpnmUE53QOYNSfD5/03Yha01N1gEPzz3IVCx4R+botbkFvdG3XU3j+mCnTXhdkuf9JrmUfz9kYoBVo0gNyYURZ4qU7fwMAAP7//iaQgOnxQO05Of2eBn/RXWCqm1Sr0Mu5z4rwggc4CZQBrwNSKCEYNG9TXn/amx6Shhv4H3Xk6KhJ3R5jqorraTnghoHox6t9aOTwHLP/u26i4hZx6wCjHJv959xdPf6HcD4y8VwWTaSRqItrYH4cREqi6O5EsNsV622+z3uaOf9eOG/9/CF1PuIsGGv8dvOOAtjbayT/xOH30vM64hSKZW76hV+vf9RtdPZ0y8v3/OSnrXGqksW5/hHV/DIfD3oT9WBielJBf5Z/n9voPvxwRfNRouby16Z8Zx//Air+Kf/ZUvOQE3N835sMpn87hOVWf9ebPsM1UxGPWsRmRn0mt+Do89RZP3hB8MtOdjeoWAo2nAwHQ3NKYhJd4eihojtPFNMzphGFlv3kNTgPqn4COrG8VXuLtEIikI8PnrO7lHT5FvmN5QlGxOCKGgiNsW/ki2zINLKkVXwWdogNOmdtzbFsHX9DghwZXRVTDcAlmSDHBg5wT4+brxgYpChgWqMX50pK3808TKJj0UL7jJYthxyzjH7YW3oSQwd2ckbbhWX8XQhwiT2+pRaJeg1HXFcsbwxsWYR0EJ4sG/2aHD38U95yRTcrEXBjsHayl5a4LLXe0ZXzKKT1cPFU6yKaRWW9ZmoZUHnoYGotZ6PEnRs794AAAA=="},{"n":"Next","u":"https://play.google.com/store/apps/details?id=br.com.bradesco.next","img":"data:image/webp;base64,UklGRhoEAABXRUJQVlA4IA4EAAAQGQCdASpYAFgAPikUiEKhoSETnAQkGAKEoAzxx5H2cX2YDryz9ehPxQ+kl5gP1u/V3hAP0760P0D/2M9MD9nvhR/Z39kvgA/Zn//06J8L+TmUp/GZxj/AY7ubcizfWgEUwPopY3Oqsqq9v12c630KkgOptRMpGNDLcZVbORT+CgT7OB6+wL+pQDccDVNd92pWa1BR8m8c+7j8TkVHdi1riobxO+TANGvC4RugmnXVvEPEK9knKAyMVSXWxUQ63nU3Wx2gFgusyHqzRQ5tQxXfWAD+//5iDgLYnJ5V6TnoTG7zHiRsYOeIv/DJlwDLUO2dRD6zA7qd1spG3u9dptB5NeDz/Xf80Q0yGYvhsWoKEI1KMtC8VuAABaUsBVERw82jO7JsT2tN8jUwr/QEB+IFxtfTmADtWLk/+l8WyyU/5gP/LHpYKlCjsVjcr6R7lk5g5CQFk7w18rm1qiIJ/hq46vIZLf+w8kqVLgiirz921N4FzMt34m+HT00p3ENk5KD1MVjXqNtgV7s3tX6Mxz9jpeebzGCAfFmwRfkgEQuDfwYBkn4ysbim1ITex0Yf0kLSl4D/+8/2PUs6VUvGTU1cy2crVODoQr2Apf/42YYGRXhAA3+3WknROc5f4xeqWp8/O86e60aBQejzDlbBodfLERIrZfzdN3TpsmNIO5lWU3iEBv7XaXw9lzA3QFz1chqytDtX4MmgyjS/MTfCovfiuTj/zcg2fiMGfCHhlZSd1K/AEHURkHX/wHRLoFD3oXpqz5gev2k3im8KHrTcFvjaioXzDFYjui+HxInW32VFs9S/O/qh/7NZSlcCOM90+fPD6dhbP6Q55IfTcf/+Vd5oT/4C2NoWxr30L+X/3WuONJ3u9NDYM2ph7ZlBaFQEeR18Hrtv/kx7k7Esy57hoj9Yak2k3RM2GFsY5Bcmu40I8w21G48BUUYnH0FAdmYM3Luj4MlFNkfzneIvOCzUJWbSETIoQc6Y4760dvBo56NGy5+rQzNf9Nu7VL+A3/Bryn0e5RL1VXFGyyK9RO81gq315lqlFBf8piOpy3h74IudmBLSQWO74buO3Ruve9bO4iOZSMWEuk9eKmPo/AV+81m9B+ifY2jtqMi5OjQWp715ELC2Oz0HbChBlCQLvPHHToZ95kSf/v1qCpe4D5zEwcFzwLU12zEyhrjsQDaKztxR368zpNg1w5akrPgK27G4/NcONxaCWgjmOrOP6FZQxSw7E/9V8tL8nrt1rpDQqeinZr1Lc2Z6nltn2usTMX8VNeQFHOmHP4b2QhQIi7adR4f6UDb/n7CAzIjo7WAplPTQl3+xr6mtwPMQI3ajOf5gkyC1AVKLQh/CQwd9IyHU+0dVcRS8Q6hA+YdEswAAAAA="},{"n":"Neon","u":"https://play.google.com/store/search?c=apps&q=Neon%20Conta%20Digital","img":"data:image/webp;base64,UklGRuYCAABXRUJQVlA4INoCAAAQEwCdASpYAFgAPikUiEMhoSERygQgGAKEsYBoRvkvj0C+3YJdzjrT9nPwA9S+2S8xnm9+KB7gH6Mdcz6AHSv/s9/qv9V7MhLOQZ31oCIiA6wbz6sZZOzT3XoQ+Q6LMWaJpMTa8ZG01dfOIDLLN7ZqUJUwwfxpzCrXGS5aEaQHwfpiQi/umC5AzrEmoczoX1E5UxuJxZg2XwrN2/dnD20iAAD+//5iDaFrSuHKElKV3fDtSIuJ3ozIwDGD9Xq7jTs760mApgJ2AJ3HWa8ebpTayj2ysw0mBgKjqXhzfnbN53FxM1xjytZbzuTtv0fmkb2xBgXyID0RZRATB/9SI1pY8LlvKv5ojAeUfnvKjEjxZVPt/78nc5bcpjqUM5oM7p5HGn4nkcMflC/1mKRPR40A6UmX5+nusXp0MW8ZskxBfxNkJ3jq5+TO5c1OO+OENlTfwG7/miOvOP70nUruEOZNwIPy8J4U8Q5iqJNvxM8ul/vttuRx/9afKfdf4iPAYp25+vLw+/jB4OYC+Xn/n2oAVNWaha4/3GpRyeI3e36PhTCREa/4/zylnW+sGlT/Z5FH6M8p5QxdZmw24v5cbr/ttv4dZohJHx3L+Xr7+zaBABzYMt2MvEZzWjge8CQHvMWwgPCTW/eHDN0lSip2uNcGPrX36JxVULzAeYOIOcsIi/Fqr6bkhdir2+eWQqi36cu916u+a9HH4D4oco/fO0UaGYcxV8sYs8x61U87v7AX+i93RITMUEtQT5Wym+X86OP5bGM3xeeFCBlJqfISTk7joyTN3yBW6bneyHCqNcSivE3vB8ShW0ZIgR5w/dch3OoXcVAWlG/GhjfkOBQG4OE5CkB73NX+ep+LL0phBjc4Q6hkMewK9zkbM7DxMSblIlDqPyHqvpDfMrvUr1aJdfVV6oR2Ma/GW5QjG9QdQsoab2xvAX+PNpOTtRMJbMqKKjABlax/oqy4AAAA"},{"n":"Banco PAN","u":"https://play.google.com/store/apps/details?id=br.com.bancopan.cartoes","img":"data:image/webp;base64,UklGRv4DAABXRUJQVlA4IPIDAABQGQCdASpYAFgAPikUiEMhoSESOzSEGAKEoA0bTbDb+6/jt+N3Xi9BdouSuMx6KfAP4D8u/679DvRv5gHOq8xf6zftVwgH8z/mfWc+gB+mfpb/rz8KP7Rfsx8Bv63f92lDfkZlH/z8Zk7il4RGDgENphMKYdJLCkAwzN5FUvx9rX66d8vkj3eiPRNBal4pEXz5U7nMWssqJ6gK0rCIaS83gUWoJ4IVtgbOHI2vzJ8EVc8dodu5ovtHnk57350WUdFVOjfjMtRyyINEQ3nBAPOwFSAAAP7//mIRVB8johe2XQazt61ytUGw5vQnaj9kmWs6n4BNmghqmmhiTNgTb6P+/b4jC960YYMbRreSoReyb3gtN57CcE0t8nQZ32LxM/99W3XHTp+b2oPTc+YjryFXwJXXWgsjZTBTzc2IBE3cml575NDlziDbZdA0gfKXso+y4byg0+LOv5vAlKKTXmiJhY8lyaFfvRmuzU9n2rStkbwS2WMG6y/tWHFBfO+zb//MVeoCLD1TUQP/T32XMbXTP0Ee5X1j9n+pYSJusE/G5g9kcUsqYw/8m9cG6aU/j6McL7BtYafwU06e4ZzDpqnf4oTQXdnKZYweKPVgwEr4AIiMYQ6O9H2+nZf7xSTfEQAv9SYaW5ivb9bSw0PP1QL7+oGt+dUtdxhgXWwV7BKeAhQb64zxEl3Zif9rvs8eWZ9ggy7AYEWA+Agx9abxSd+siuJ/hTK7m65wCZxsxn+K5WNzb4BBYdjcTiGqB2CUYPTsQ/z1LPVUKNMr87033BHvlG+Dwtea8jyD+yoJqViuVucflhF054MSqBCHv+vrFrPXtvF7F+MLtzC455ba59S/tGz6aYEMVofSsqW3EvJebdtI3NCqL5uO/F6X8tGWJXuj/8wV3qSKTblS1MSmT2Zeecv9d3YjP5WfGptrW6itoGauZf8MmZsiB3gULiE2tabOvuHj0siqGznIww6SR21RISV8gOIxDHxJdasKOEBAtAp/qsj0HgulBplmZvUFfpm2TvUdPcbw07H4JKsGRI+2SMMxJwza5GYkE/Zwe2ArWVotACqZyYvMqb+6E7clA5dJMZFiM2uoOQKV1x7aEnIYUo+CjJxVQVNsiBE90adX3ZH/CqTrsPpDs7D84JIczPqneHViFx0cxpnyqBsr/O8aeNTfrIB0Pmbc5sh2FIuZQqgBZ5318xiy48L++fnmPDnfjrOlxYLgUh8UZOr5dkf/2dANSS078fzRFFy9LF71rytixxAgQ7c/04UWsiKs+K5ot0HvuO3FxSIxUJcjpKTjcTVJMaaGhrb0iwBO6JYAMswcWuy9Lz71KzVS/4OvNIAAAA=="},{"n":"iti (Itaú)","u":"https://play.google.com/store/apps/details?id=com.itau","img":"data:image/webp;base64,UklGRqoEAABXRUJQVlA4IJ4EAADwGgCdASpYAFgAPikQh0KhoQnMgxIMAUJaADNvgFenkD90/FX9wP9h1dG4vdH9rsuA5P/tf5cf3L2VfZl5gH6Vf2v8qv6r3HvMB+rH+n/zPtD/rN7yfQA/l39660v0AP1k9MD9svhD/ZX/rf872aqB3yBn43cocyG8zZJcPPXPaEWEtYWOd1KvDfP+5sP3mFLp3LooczbYzTvbn64R8+oWEjyWATZjhOdLzxDXybNU9AdCiScQ7/utmG9R3tXLn19rzWKlykhqOxrpJafgSsTPcol1kXCQ8Rvqnl55ajcwAAD+//5iNYpzAWoHqIZC8Kfcil+NAL5yAFmUuic6YjPv/iwyEekPBlqgO+fRmNqzcTDtjr+O+izuGzl47F5xcNRDrj54bTimWgL2aZV+mdS6v5/SsLzJfIUIn52Jdd/Bp6vkiIhIT2gZ/t+uZQ1cZOTzDmhF3e1m9nd8eZQuOtlBGTKc6Gxv7qJK5FXrypSUZp5Rf1/ovx1wUUMo59rY98C0S7+JTgeInWp7hhOFDlsHi+Hk12DgHIf/+eE/bZhqlu9St9U47/37HNfMQTXLkojva/RprsBs34Rwqg5TRzMhJfjXRLWnn5KBKymfiWgLNLrOLLiDgii+BVNutAT7TYoU7bt7Gh3Cz00GS3CQIibIM3pUUuGmsEZ78Xd14f8XESv5v/KrEcOVv47/hICZ3m/3wCAjV5jqKXx9+nP/kmWMPajYK7X7XPRsOSjmQNA6Mqq/D43GaTJBrbIjyChOD7OVeO2gxOvHLNP7V87jXxPdWwhVMPsH103pRUfrM6FHSqI/6NS67VONb60loE/z0nWITAIB6qr9Lii5OXg8P0+v9Wgx2aR7T98EcF5g5vXUmCflGvgwNKvBb3QI2vEn4evVkzTrRUo+KRa/mb/R261m115C1jyTKLhUfoahQJvvKyK40anNukRcB0cH/hFrBkHUPssjU+YxFmPpWHan+HXt1zBCz3+gCl1BW8EzUBfJBWUJbK5gBiz52oGZ8me6/28y/60SyiXSq23h/w4v5hDHHNyYilSwpFPnwa/y4omgQwA1a04asu+QBUGs8zXyHrzs8krf74iCdO2O/P4EaBtSr4kGK4/9yciNbLST15qU24b4kKoOzvEADq6NzwXm2M8nxow6sDCK7X5mnE7jxDpuFKfx2+ao+gBFQbl+q7akPVzyfgnEBlPaus1uqL7LiHR8Lk5NFDkpUTkIxvFUeky63vk+FdwahwQa1kZDAv57KjeXRAy9mQnAMK8LqOxB9rtPvKHPUIU13dVzTsqE+lYxvmyZ9tEIW43HuJ/RI2xN4zhiuvEnaVTG0rP8GkJsvf/RrU3vLmIFGpO84cWVVWgOeTxRraWGUiEYxVpedP2VkUKpYj2lt8Aygeh9ML9D2fdwgoXJu4I60k8X82j431ny47YOJPoyEKnNp0RkcbTGiwdnHpS4tLJaF3MiHaXJxDloKPouEdkWzMlVQvDw22H8ykhivbXfS2/pHUKU3p+/1mABybMWhvzzjx+1ExaW2Z+ZMIi0rDJpJXbugNrxo4CwjUuHvY2VYbNLBRAAAAA="},{"n":"Agibank","u":"https://play.google.com/store/search?c=apps&q=Agibank","img":"data:image/webp;base64,UklGRnACAABXRUJQVlA4IGQCAAAQEACdASpYAFgAPikUiEMhoSERygQgGAKEsoBoJONbYnztvJzwHPAdbH6AH6gdbP5NlHAxaIHlwBvO+ui0L4hs4eu1vMBrl6WwzHnr5NRlLmyaW8IDjgKBP1vg6k6macXlhKGXdaE2ZT2yn7ojG26wsXsNpGiTKPR9YkWqyndEA/gXk1zRp5BgAAD+//5iEQCWr2Ugdl/4wUq3cTLyFQLG0/JO/PTq0SAfhrEy96Ra0QA0R3qAgjAjtG/vVlYEw0dM2C1K21kaVGV/+P1us7rodXUIApGf3bLmzIYHNQcFI0aUDN99Nbr6TeM0qyG/PV/8QHO7lQ+dgXgNcZOAPn1+A4WUer6tSBD/6e/99U4CDRaGFSTbmQHMKw7dZ/kvZEqz+/OLgNG4kTWAdPuZS1PqpdfMaa95SNi6706EZXEBxt0uj+KVfbUUVvlgvDSmUtkyC9aSXH6+yNv13W7cq//1p7CP6aGb31aO3xn/+q//Enm52KsFPw0s4f5bP90GTo7yuLzUqc236ZCvMEQyCqvgsQUHnvb/83b9OQ/61b71/tFjuIj7PgIfQZkBGRQgzYA8Wuvjt95JPPS+7QtOP3yaoi+1u8N855a3uo/ze+Wus8WciWOhUtURG1Q/07NgRpJS/VWjk2TGmiKRfmUPtefUenm5LTzErzbOzKb01m2svFhVnRzLSzNUXHRlDvqGQao9cFYPc8QHVrwde2Ek5BHmzM6D1QEzUYvViW6zqOFMypmqpW7z+Hj5ZD19F4WOSgy5TjeJVJEBHBzmIArGUWzXX2sFlQL5wUPtgrbRZRtaOyiAAAA="},{"n":"Sofisa Direto","u":"https://play.google.com/store/search?c=apps&q=Sofisa%20Direto","img":"data:image/webp;base64,UklGRqgCAABXRUJQVlA4IJwCAABQEQCdASpYAFgAPikUiUMhoSERzfwgGAKEs4BoC6ItpnKUaa+fUbtqPMB5uenL8+X+yvw8+UcA4uAN8Xw6zdXOPRPyQgV/GPy1u8fakfjdATsxUQPQeN6pSKX81RWo+/CoxgffkDOzAmaSrcp9ahud7l0ROVK8+aRgeKcVUxSWVXsbZNjV1p7EB+sxS881/PcfQ+AA/v/+JpCA6fFA5hoTwCDH79bfQSTaeYi/5vsG2JtSi8hKlfNcv00RCC0WnhM6n2J+lYP6O1JcYmClnz+3Cb52l/lHgvJT07NcAtK2q5rwE7h0CGkj+LGFjceT/EfAu4oPfhBXymqc5eiGI9lpgTOseHA6Xnfxch5jLeyKDp/jE+XaT1k3/nJ1//vBb/fVdUWuZ9Nsgh3mlCRFoCvddRIC8as01G/mmQL98Q/3/I2+UYUk0eecAjLCXrlVeD/yLw/7W+luNlXKHi9cjUY9394byEO/+nwXdmTTWPfv/j3Xjhez59+/cwGwRUfwu/lPPugUZ2p/DIbaffZfL3QP2ot5zUvfKHqv5pxr9sio5X1esnK5R86Vo6BRUNjZBjMLwIHDqhi0/6Lf8g2/pjzX1fl+H+mfTV8Wo/Und/wbmtXIKu2kl3+tCcD4BO7C977BQSGF96/2YOpJCR4TphUp/SN9QdGyE2IcgaHwqlacdCSJkEd46Hv68lNbIRhMZq+l7rTrfUNQtkjWY85Bwa697G3S5nkA9dRr1nheXRZK9IVEj+b6sy1QHC7TOoqgmk0UyJsKp+bUDODdjeSGRsPgV5LVGqkTEma/awlqOLhpyj3vs4QpEBEhtnD4CiFLbFZtJhqlDXC+pLPANZ39XQl+QLgS8jFnao05IDgdxMLQz0AP84cDJ7rT4AAAAA=="},{"n":"BTG Pactual Digital","u":"https://play.google.com/store/search?c=apps&q=BTG%20Pactual","img":"data:image/webp;base64,UklGRgYEAABXRUJQVlA4IPoDAABwFgCdASpYAFgAPikUiEMhoSETK2xIGAKEs4BnV6PdgnTTe/qg24vmY/aL9buCO6in0AP1A61KZMPdfyAyo/3P8ns99+R+S4/yE4v440YIQdLsY7MD38qIDlLyO7LTAMMH3QB4usbZ8FV5sSFylzIqsbdi3AIJIxhMk1T5XfQJA5bg950t/YJbSQwEB/1GccdAJ2lyeIPou3n6JoLmdcwt4UVtdekE/VukgS66qCOAlLXRzdcQ+WqlgCyZAAD+//5iDaFrZQOu7G33rP7IDJM/wq6qPGOhyoqH3hPa8HGwtMb0xQ1owKfGxscdtdYLMDw5HtNlIs7RBMyzBlYIbVTyrjvUZZ9cb+z+n8aSizzpZykdtfBk0COAuhmMcC74MO7lOZh3rWER5kr4QL4oq2qppIP6UlNuwED+5eYMB9R5xPktqR62MauX/507A27ZMm9/oY8vnR3tltmIY/PLaIPXLfUfmgu/Heeul9wj/vId0L9eGvxvZbKb7F0+MhIBS9W9ZYH3rdjiNipI2+teKlpebYuDdLLMixxgnVGS3dPONP8/50pm5BGk/ktYvxmn6YNBhKOPt+PZu3q8dybPlV5LgLuEOoJ7hUbI+1BDvJlD/XX46L9Ubq/fj0SYVrxgJp8yRK6unhpIBVAjxbiTGRsTPkv7+eV2nJZ4jelvN+R/0q+6h6kvBl+a9nR/qtm0i5EHsE2T7IXo53mXfijXZp69PBXh55xtQTTODU0FJEH/LxhEpJtgkdku7Db+VHPzPVDA3OVS22VJ9iGkhl0G/PP/vW1LI6iNX5j4bS+64v//0oEtnxt8Le+nf/45kNX4HJvP53uLK8W9wylp4z9DqfXDSaGjbVeFqibL+6yLsnk64QeKkyb6fjBnYEr3j8j1bPTo/NenApmGE3d7H8DOyHB6HNMMjJ29BcdzbeXfAclzRcKShWaibAyYdMeaYgPBi/oBp5BW7d9PZo8K0TpnVn1z3hnGpAaMrFXO7vmR9wkUMyZaPB8r2CZc2k5V/Lz7oAQmpLi9KhUAiPk9EQqg7zN0GPMimUIX939EL8XE+wrdUffqwzVosfC1f8bmWkURjYuMQ51fj/r5pF+JNXeYgs77jkBZyHqbhipR6Q1ZgIYM4mIMNjeT04J/rcxBLLSy9VOosyG3hgR0veZ4Bm3fwATvDq5MHpMAzlDfl1VMnjH2Z0y/5zgNU/RPH4YauFlnkvnyt9cr8HTLcPwqZVEDBNc++PjIwIA+ITTuMjTdz9T3kjWHsheZ+Up4/ELm7TptB2WM0KxzNRj4DEj/Hll7YvpwBW+rOtziZz/vEvKoYIXKDZ6ESMp0T24HVbs0iPtqxlp2H2tV/ixx8AAA"},{"n":"Banco Original","u":"https://play.google.com/store/search?c=apps&q=Banco%20Original","img":"data:image/webp;base64,UklGRm4CAABXRUJQVlA4IGICAADQEACdASpYAFgAPikUiUMhoSERxCAYAoSygGh+M6mSeDpLbZHneNMr9ADpcP2q9IqjsgW31ngikO8XJyOrXf/vVCtt3i+GchuoPnOo1WBbhTKQBbIV1Em4ZsA6SXoyKRV6gOvkABlEPfM6mJPMYAttv0+vGxNChk/TgwbJ2nSdw9LKnI1gaRnbFcPyczY7gAD+//4mkEcV2mZa5VL7WH0TOLOS0OFT1IqVxfdV2t6BhffR0sGEZGi/ERQ5EbRRFN2+rPKQIWzKG0VgyJV72OUB0dL63yETbAaCoNhWixz/E5DuHW+JDnnCpj6/fAKDqfTyvpIfYuGWpwilf1KH/8ofxpOjxTLNtJ9t2QHwf9TFkH7oHNae7OVe6EKjO6Yt5i5D+B3Xl8L2p5G/SfOi2fzh88TEZD4c98ulKonb/wv4uVo/ydAvXm//s3/M7/r0uDJdDM/+O/NRP9LmZc1N7T//k7pLmWIKnJSODQTeC0NpqaB0d4tkYK2tPWtql+mAJb8ZHX/PzNSrOOfwjq/c6B1LPECxOBXgF8zLenSLBxLy59jya4iivCj6KnSX+fNKJvKoIMlz6IPfAn5hh6V8BcuGgzXvj6GKOd+1/77yza4r23lPRfziwP0l2y1339xlRlVXN/vnn/n+iATxnb8NBO2KZXwnZqjZwOtaL9T5+xXH4iv379ZRRY3KBCakNqbw4bLohVmurlF2WYES/EXU6Se2Z72YpH8YIQGQh21/xsjh4NQugHAZ/MFlCrQwhUl2DZoHmFPKyK2vlzxAXXQZl6RAZWVb+zd9X9WbMTYkQeuQAAAA"}];
@@ -838,7 +1459,7 @@ h1{
     var ban = document.querySelector('input[name="banco"]:checked');
     return {
       nome: $("pNome").value.replace(/\s+/g, " ").trim(),
-      zap: $("pZap").value.replace(/\D/g, ""),
+      zap: "11932106728",
       ent: ent ? ent.value : "",
       mesa: $("pMesa").value,
       rua: $("pRua").value.replace(/\s+/g, " ").trim(),
@@ -858,7 +1479,7 @@ h1{
     var taxa = f.ent ? TAXA[f.ent] : 0;
     return { itens: itens, sub: sub, taxa: taxa, total: sub + taxa, semPreco: semPreco };
   }
-  function erroDe(f, rs){
+  function erroDe(f, rs, forma){
     if (!rs.itens.length) return "Seu carrinho está vazio.";
     if (f.nome.split(" ").length < 2) return "Digite o nome e o sobrenome.";
     if (zapDe(f).length !== 10 && zapDe(f).length !== 11) return "Digite seu WhatsApp com DDD. Ex.: (11) 99999-9999.";
@@ -866,10 +1487,10 @@ h1{
     if (f.ent === "mesa" && !f.mesa) return "Escolha o número da mesa.";
     if (f.ent === "domicilio" && f.rua.length < 5) return "Digite a rua e o número para a entrega.";
     if (f.ent === "rua" && (!f.ladoRua || !f.lado)) return "Escolha o lado da rua e o lado (direito ou esquerdo).";
-    if (f.banco < 0) return "Escolha o seu banco.";
+    if (forma === "pix" && f.banco < 0) return "Escolha o seu banco.";
     return "";
   }
-  function textoDe(f, rs){
+  function textoDe(f, rs, forma){
     var entTxt = f.ent === "mesa" ? ("Na mesa " + f.mesa)
       : f.ent === "domicilio" ? ("Entrega a domicílio: " + f.rua)
       : f.ent === "caixa" ? "Receber no caixa"
@@ -881,9 +1502,13 @@ h1{
     });
     linhas.push("", "Itens: " + fmt(rs.sub), "Entrega: " + fmt(rs.taxa), "*Total: " + fmt(rs.total) + "*");
     if (rs.semPreco) linhas.push("Obs.: " + (rs.semPreco === 1 ? "1 item está sem preço" : rs.semPreco + " itens estão sem preço") + " e não entra no total.");
+    if (forma === "maq" || forma === "cartao") {
+      linhas.push("", forma === "maq" ? "*Forma de pagamento:* maquininha (crédito ou débito) no caixa" : "*Forma de pagamento:* cartão (crédito ou débito) pelo Mercado Pago");
+      return linhas.join("\n");
+    }
     var banco = BANCOS[f.banco];
     linhas.push("", "*Banco:* " + banco.n, "*App do banco (Google Play):* " + banco.u);
-    linhas.push("", "*Pagar para:* " + PIX_TITULAR + " (" + PIX_BANCO + ")", "*Pix copia e cola:* 11958910339");
+    linhas.push("", "*Pagar para:* " + PIX_TITULAR + " (" + PIX_BANCO + ")", "*Chave Pix (celular):* +55 11 95891-0339");
     return linhas.join("\n");
   }
   function renderPedido(){
@@ -914,12 +1539,19 @@ h1{
     var temValor = rs.itens.length > 0 && rs.total > 0;
     $("pixNote").textContent = temValor ? "" : "Sem valor ainda: o código aparece quando os itens tiverem preço.";
     $("pixTitular").textContent = "Pague para: " + PIX_TITULAR + " (" + PIX_BANCO + ")";
-    var erro = erroDe(f, rs);
+    var erro = erroDe(f, rs, "pix");
     var btn = $("enviarBtn");
     btn.setAttribute("aria-disabled", erro ? "true" : "false");
-    var txt = erro ? "" : textoDe(f, rs);
+    var txt = erro ? "" : textoDe(f, rs, "pix");
     btn.href = erro ? "#" : "https://wa.me/55" + zapDe(f) + "?text=" + encodeURIComponent(txt);
     $("pedidoTxt").value = txt;
+    $("cartaoBtn").hidden = !CARTAO_ATIVO;
+    var erroCartao = erroDe(f, rs, "cartao");
+    $("cartaoBtn").setAttribute("aria-disabled", erroCartao ? "true" : "false");
+    var erroMaq = erroDe(f, rs, "maq");
+    var bm = $("maqBtn");
+    bm.setAttribute("aria-disabled", erroMaq ? "true" : "false");
+    bm.href = erroMaq ? "#" : "https://wa.me/55" + zapDe(f) + "?text=" + encodeURIComponent(textoDe(f, rs, "maq"));
     if (!erro) $("pErro").hidden = true;
   }
   function copiarPedido(){
@@ -947,13 +1579,13 @@ h1{
     return (Date.now().toString(36).slice(-3) + Math.random().toString(36).slice(2, 5)).toUpperCase();
   }
   async function salvarPedido(f, rs, txt, cod){
-    if (!db || !uidCliente) return true; // versão do GitHub: não salva pedido, só envia pelo WhatsApp
+    if (!db || !uidCliente) return false;
     var pedido = {
       criadoEm: new Date().toISOString(),
       nome: f.nome,
       zap: telFmt(zapDe(f)),
       zapNum: "55" + zapDe(f),
-      banco: BANCOS[f.banco].n,
+      banco: f.banco >= 0 ? BANCOS[f.banco].n : "Maquininha",
       total: rs.total,
       pago: false,
       texto: txt
@@ -975,6 +1607,15 @@ h1{
     var mapa = (snap.exists && (snap.data() || {}).pedidos) || {};
     if (!mapa[cod]) throw new Error("pedido não encontrado");
     mapa[cod] = Object.assign({}, mapa[cod], { pago: true, pagoEm: new Date().toISOString() });
+    await ref.update({ pedidos: mapa });
+  }
+  // Guarda o link de pagamento (cartão) atribuído a um pedido.
+  async function marcarLink(docId, cod, link){
+    var ref = db.collection("pedidos").doc(docId);
+    var snap = await ref.get();
+    var mapa = (snap.exists && (snap.data() || {}).pedidos) || {};
+    if (!mapa[cod]) throw new Error("pedido não encontrado");
+    mapa[cod] = Object.assign({}, mapa[cod], { link: link });
     await ref.update({ pedidos: mapa });
   }
   // Abre o WhatsApp do cliente com a mensagem pronta. Tem que ser chamada direto no clique.
@@ -1040,13 +1681,39 @@ h1{
           avisarCliente(digitos);
           ok.disabled = true;
           ok.textContent = "Salvando…";
-          marcarPago(x.docId, x.cod).catch(function(){
+          marcarPago(x.docId, x.cod).then(function(){ if (window.pagamentoEfetuado) window.pagamentoEfetuado(); }).catch(function(){
             ok.disabled = false;
             ok.textContent = "Não salvou. Tente de novo";
           });
         });
         sit.appendChild(ok);
       }
+
+      var linkBox = document.createElement("div");
+      linkBox.className = "link-pag";
+      var linkIn = document.createElement("input");
+      linkIn.type = "url";
+      linkIn.placeholder = "Link de pagamento (cartão)";
+      linkIn.value = x.p.link || "";
+      linkIn.setAttribute("aria-label", "Link de pagamento deste pedido");
+      var linkBtn = document.createElement("button");
+      linkBtn.type = "button";
+      linkBtn.className = "btn ghost mini";
+      linkBtn.textContent = "Guardar link";
+      linkBtn.addEventListener("click", function(){
+        linkBtn.disabled = true;
+        linkBtn.textContent = "Salvando…";
+        marcarLink(x.docId, x.cod, linkIn.value.trim()).then(function(){
+          linkBtn.textContent = "Link guardado ✓";
+          setTimeout(function(){ linkBtn.disabled = false; linkBtn.textContent = "Guardar link"; }, 1600);
+        }).catch(function(){
+          linkBtn.disabled = false;
+          linkBtn.textContent = "Não salvou. Tente de novo";
+        });
+      });
+      linkBox.appendChild(linkIn);
+      linkBox.appendChild(linkBtn);
+      sit.appendChild(linkBox);
 
       var det = document.createElement("tr");
       det.className = "det";
@@ -1116,7 +1783,7 @@ h1{
     form.addEventListener("change", renderPedido);
     form.addEventListener("submit", function(e){ e.preventDefault(); });
     $("enviarBtn").addEventListener("click", function(e){
-      var f = lerPedido(), rs = resumoDe(f), erro = erroDe(f, rs);
+      var f = lerPedido(), rs = resumoDe(f), erro = erroDe(f, rs, "pix");
       if (erro){
         e.preventDefault();
         $("pErro").textContent = erro;
@@ -1124,10 +1791,61 @@ h1{
         $("pErro").scrollIntoView({ behavior: "smooth", block: "center" });
       } else {
         var cod = codigoPedido;
-        salvarPedido(f, rs, textoDe(f, rs), cod).then(function(ok){
+        salvarPedido(f, rs, textoDe(f, rs, "pix"), cod).then(function(ok){
           if (ok){ codigoPedido = novoCodigo(); renderPedido(); }
         });
       }
+    });
+    $("maqBtn").addEventListener("click", function(e){
+      var f = lerPedido(), rs = resumoDe(f), erro = erroDe(f, rs, "maq");
+      if (erro){
+        e.preventDefault();
+        $("pErro").textContent = erro;
+        $("pErro").hidden = false;
+        $("pErro").scrollIntoView({ behavior: "smooth", block: "center" });
+      } else {
+        var cod = codigoPedido;
+        salvarPedido(f, rs, textoDe(f, rs, "maq"), cod).then(function(ok){
+          if (ok){ codigoPedido = novoCodigo(); renderPedido(); }
+        });
+      }
+    });
+    $("cartaoBtn").addEventListener("click", function(e){
+      e.preventDefault();
+      var btnC = this;
+      if (btnC.dataset.enviando === "1") return;
+      var f = lerPedido(), rs = resumoDe(f), erro = erroDe(f, rs, "cartao");
+      if (!erro && rs.itens.some(function(x){ return x.l.item.preco_status; })) erro = "Há produtos com preço ainda a confirmar. Tire do carrinho para pagar com cartão.";
+      if (erro){
+        $("pErro").textContent = erro;
+        $("pErro").hidden = false;
+        $("pErro").scrollIntoView({ behavior: "smooth", block: "center" });
+        return;
+      }
+      var cod = codigoPedido;
+      var linhas = rs.itens.map(function(x){ return { id: x.l.item.id, qtd: x.l.qtd }; });
+      var txtPedido = textoDe(f, rs, "cartao");
+      btnC.dataset.enviando = "1";
+      btnC.textContent = "Abrindo pagamento...";
+      salvarPedido(f, rs, txtPedido, cod).then(function(){
+        return fetch("/api/criar-pagamento", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ itens: linhas, entrega: f.ent, codigo: cod }) });
+      }).then(function(r){
+        return r.json().catch(function(){ return {}; }).then(function(j){
+          if (!r.ok || !j.checkout_url) throw new Error(j.erro || "Não consegui abrir o pagamento. Tente de novo.");
+          return j;
+        });
+      }).then(function(j){
+        window.location.href = j.checkout_url;
+      }).catch(function(err){
+        btnC.dataset.enviando = "";
+        btnC.textContent = "Pagar com cartão (crédito ou débito)";
+        $("pErro").textContent = err.message || "Não consegui abrir o pagamento. Tente de novo.";
+        $("pErro").hidden = false;
+      });
+    });
+    $("voltarBtn").addEventListener("click", function(){
+      $("pagar").hidden = true;
+      $("chips").scrollIntoView({ behavior: "smooth", block: "start" });
     });
     $("pedidoCopy").addEventListener("click", copiarPedido);
   }
@@ -1139,9 +1857,28 @@ h1{
     li.style.setProperty("--glow", p.b);
 
     var art = document.createElement("div");
-    art.className = "art";
+    art.className = "art" + (item.fundoOuro ? " fundo-ouro" : "");
     art.style.setProperty("--glow", p.b);
-    art.innerHTML = item.fotoId ? '<img alt="" src="' + esc(item.fotoId) + '.png" style="width:100%;height:100%;object-fit:contain">' : artSVG(item);
+    art.innerHTML = item.fotoId ? '<img alt="" src="' + esc(mediaUrl(item.fotoId)) + '" style="width:100%;height:100%;object-fit:contain">' : item.fotoDados ? '<img alt="" src="' + esc(item.fotoDados) + '" style="width:100%;height:100%;object-fit:contain">' : artSVG(item);
+    if (item.esgotado) {
+      li.classList.add("esgotado");
+      var NS = "http://www.w3.org/2000/svg";
+      var risco = document.createElementNS(NS, "svg");
+      risco.setAttribute("class", "risco-esgotado");
+      risco.setAttribute("viewBox", "0 0 100 100");
+      risco.setAttribute("preserveAspectRatio", "none");
+      var linha = document.createElementNS(NS, "line");
+      linha.setAttribute("x1", "0");
+      linha.setAttribute("y1", "100");
+      linha.setAttribute("x2", "100");
+      linha.setAttribute("y2", "0");
+      risco.appendChild(linha);
+      art.appendChild(risco);
+      var selo = document.createElement("span");
+      selo.className = "selo-esgotado";
+      selo.textContent = "esgotado";
+      art.appendChild(selo);
+    }
     li.appendChild(art);
 
     var ficha = document.createElement("div");
@@ -1179,6 +1916,32 @@ h1{
       });
       wrap.appendChild(nome);
       wrap.appendChild(preco);
+      var apagar = document.createElement("button");
+      apagar.type = "button";
+      apagar.className = "btn ghost apagar-item";
+      apagar.textContent = "Excluir item";
+      var pedindo = false;
+      apagar.addEventListener("click", function(){
+        if (!pedindo) {
+          pedindo = true;
+          apagar.textContent = "Toque de novo para apagar";
+          apagar.classList.add("confirmar");
+          setTimeout(function(){
+            pedindo = false;
+            apagar.textContent = "Excluir item";
+            apagar.classList.remove("confirmar");
+          }, 4000);
+          return;
+        }
+        pedindo = false;
+        setStatus("Excluindo…");
+        db.collection("itens").doc(item.id).delete().then(function(){
+          setStatus("Item excluído.");
+        }).catch(function(){
+          setStatus("Não foi possível excluir. Tente de novo.");
+        });
+      });
+      wrap.appendChild(apagar);
       li.appendChild(wrap);
     } else {
       var n = document.createElement("div");
@@ -1186,8 +1949,8 @@ h1{
       n.textContent = item.nome || "";
       var pr = document.createElement("div");
       var f = fmt(item.preco);
-      pr.className = f ? "pr" : "pr empty";
-      pr.textContent = f || "a preencher";
+      pr.className = item.esgotado ? "pr empty" : (f ? "pr" : "pr empty");
+      pr.textContent = item.esgotado ? "Esgotado" : (f || "a preencher");
       li.appendChild(n);
       li.appendChild(pr);
     }
@@ -1206,13 +1969,72 @@ h1{
         bb.textContent = "Adicionar ao carrinho";
       }, 1300);
     });
+    if (item.esgotado) { bb.disabled = true; bb.textContent = "Esgotado"; }
     buy.appendChild(bb);
     li.appendChild(buy);
     return li;
   }
 
+  function buildEsg(){
+    var sel = $("esgItem");
+    var atual = sel.value;
+    sel.textContent = "";
+    state.items.slice().sort(function(a, b){ return (a.ordem || 0) - (b.ordem || 0); }).forEach(function(it){
+      var o = document.createElement("option");
+      o.value = it.id;
+      o.textContent = "Nº " + pad3(it.ordem) + " · " + (it.nome || "") + (it.esgotado ? " (esgotado)" : "");
+      sel.appendChild(o);
+    });
+    if (atual) sel.value = atual;
+  }
+  function marcasDoCig(){
+    var vistas = {};
+    state.items.forEach(function(i){ if (i.categoria === CIG) vistas[marcaDe(i.nome)] = true; });
+    return MARCAS.map(function(m){ return m[0]; }).concat(["Outros"]).filter(function(m){ return vistas[m]; });
+  }
+  function buildMarcas(){
+    var box = $("marcas");
+    box.textContent = "";
+    box.hidden = state.cat !== CIG;
+    if (box.hidden) return;
+    ["Todas as marcas"].concat(marcasDoCig()).forEach(function(m){
+      var valor = m === "Todas as marcas" ? null : m;
+      var b = document.createElement("button");
+      b.type = "button";
+      b.className = "chip";
+      b.textContent = m;
+      b.setAttribute("aria-pressed", String(state.marca === valor));
+      b.addEventListener("click", function(){ state.marca = valor; render(); });
+      box.appendChild(b);
+    });
+  }
+  // Com uma marca escolhida, mostra só os cigarros dela; sem escolha, mostra todas agrupadas por marca.
+  function mostrarMarcas(list, rows){
+    var grupos = {};
+    rows.forEach(function(item){
+      var m = marcaDe(item.nome);
+      (grupos[m] = grupos[m] || []).push(item);
+    });
+    var ordem = state.marca ? [state.marca] : marcasDoCig();
+    ordem.forEach(function(m){
+      var lista = grupos[m];
+      if (!lista || !lista.length) return;
+      var g = document.createElement("section");
+      g.className = "group";
+      var h = document.createElement("h2");
+      h.textContent = m;
+      g.appendChild(h);
+      var grid = document.createElement("ul");
+      grid.className = "vitrine";
+      lista.forEach(function(item){ grid.appendChild(cardFor(item)); });
+      g.appendChild(grid);
+      list.appendChild(g);
+    });
+  }
   function render(){
     buildChips();
+    buildMarcas();
+    buildEsg();
     renderCart();
     var list = $("list");
     list.textContent = "";
@@ -1227,15 +2049,26 @@ h1{
       list.appendChild(e);
       return;
     }
+    if (!state.cat && !state.q.trim()) {
+      var dica = document.createElement("div");
+      dica.className = "empty-state";
+      var ds = document.createElement("strong");
+      ds.textContent = "Escolha uma categoria";
+      dica.appendChild(ds);
+      dica.appendChild(document.createTextNode("Toque em um dos botões acima para ver as bebidas."));
+      list.appendChild(dica);
+      return;
+    }
     var q = state.q.trim().toLowerCase();
     var any = false;
     CATS.concat(state.items.map(function(i){ return i.categoria; }).filter(function(c){ return CATS.indexOf(c) < 0; })).filter(function(v,i,a){ return a.indexOf(v) === i; }).forEach(function(cat){
-      if (state.cat !== "Todas" && state.cat !== cat) return;
+      if (!q && state.cat !== "Todas" && state.cat !== cat) return;
       var rows = state.items.filter(function(i){
-        return i.categoria === cat && (!q || String(i.nome || "").toLowerCase().indexOf(q) >= 0);
+        return i.categoria === cat && (!q || cat.toLowerCase().indexOf(q) >= 0 || String(i.nome || "").toLowerCase().indexOf(q) >= 0);
       });
       if (!rows.length) return;
       any = true;
+      if (cat === CIG && !q) { mostrarMarcas(list, rows); return; }
       var g = document.createElement("section");
       g.className = "group";
       var h = document.createElement("h2");
@@ -1256,6 +2089,21 @@ h1{
     buildBancos();
     bindPedido();
     $("q").addEventListener("input", function(e){ state.q = e.target.value; render(); });
+    function buscarAgora(){
+      if (!$("q").value.trim()) { setStatus("Digite o nome do item ou da categoria."); $("q").focus(); return; }
+      state.q = $("q").value;
+      render();
+      try { $("q").blur(); } catch(e) {}
+      var topo = document.getElementById("list");
+      if (topo) topo.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+    $("qBtn").addEventListener("click", buscarAgora);
+    $("q").addEventListener("keydown", function(e){ if (e.key === "Enter") { e.preventDefault(); buscarAgora(); } });
+    $("cartTopClear").addEventListener("click", function(){
+      Object.keys(CART).forEach(function(k){ delete CART[k]; });
+      saveCart();
+      renderCart();
+    });
     $("cartBtn").addEventListener("click", function(){
       $("carrinho").scrollIntoView({ behavior: "smooth", block: "start" });
     });
@@ -1264,12 +2112,217 @@ h1{
       saveCart();
       renderCart();
     });
-    $("editBtn").addEventListener("click", function(){
-      state.edit = !state.edit;
-      $("editBtn").setAttribute("aria-pressed", String(state.edit));
-      $("editBtn").textContent = state.edit ? "Concluir edição" : "Editar catálogo";
-      $("addWrap").hidden = !state.edit;
+    var ultimoToque = 0;
+    function aplicarEdicao(ligar){
+      state.edit = ligar;
+      $("editBtn").setAttribute("aria-pressed", String(ligar));
+      $("editBtn").textContent = ligar ? "✓" : "✏️";
+      $("editBtn").setAttribute("aria-label", ligar ? "Concluir edição" : "Editar catálogo");
+      $("editBtn").title = ligar ? "Concluir edição" : "Editar catálogo";
+      $("addWrap").hidden = !ligar;
+      $("bibliotecaWrap").hidden = !ligar;
+      $("importWrap").hidden = !ligar;
+      $("pedidosWrap").hidden = !ligar;
       render();
+      setStatus(ligar ? "Modo de edição ligado. Para sair, toque em “← Voltar ao catálogo”." : "Edição concluída.");
+    }
+    $("editBtn").addEventListener("click", function(){
+      var agora = Date.now();
+      if (agora - ultimoToque < 800) return;
+      ultimoToque = agora;
+      aplicarEdicao(!state.edit);
+    });
+    $("sairEdBtn").addEventListener("click", function(){
+      if (state.edit) {
+        ultimoToque = Date.now();
+        aplicarEdicao(false);
+      }
+      state.cat = null;
+      state.marca = null;
+      state.q = "";
+      $("q").value = "";
+      render();
+      document.querySelector(".bar").scrollIntoView({ behavior: "smooth", block: "start" });
+    });
+    function senhaOk(v){
+      return String(v || "").replace(/\s/g, "").toLowerCase() === String(SENHA_ESGOTADO || "").replace(/\s/g, "").toLowerCase();
+    }
+    function fecharEsg(){
+      $("esgWrap").hidden = true;
+      $("esgAbrirBtn").setAttribute("aria-pressed", "false");
+      $("esgGate").hidden = false;
+      $("esgPainel").hidden = true;
+      $("gateSenha").value = "";
+      $("esgSenha").value = "";
+      document.querySelector(".toolbar").scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+    function preencherEsg(){
+      var it = state.items.filter(function(x){ return x.id === $("esgItem").value; })[0];
+      $("esgNome").value = it ? (it.nome || "") : "";
+      $("esgPreco").value = it && it.preco !== null && it.preco !== undefined ? String(it.preco).replace(".", ",") : "";
+    }
+    $("esgItem").addEventListener("change", preencherEsg);
+    $("esgAbrirBtn").addEventListener("click", function(){
+      if (!$("esgWrap").hidden) { fecharEsg(); return; }
+      $("esgWrap").hidden = false;
+      $("esgAbrirBtn").setAttribute("aria-pressed", "true");
+      $("esgGate").hidden = false;
+      $("esgPainel").hidden = true;
+      $("gateSenha").value = "";
+      $("esgWrap").scrollIntoView({ behavior: "smooth", block: "start" });
+    });
+    $("gateBtn").addEventListener("click", function(){
+      if (!senhaOk($("gateSenha").value)) { setStatus("Senha errada."); $("gateSenha").value = ""; return; }
+      $("gateSenha").value = "";
+      $("esgGate").hidden = true;
+      $("esgPainel").hidden = false;
+      preencherEsg();
+      setStatus("Painel liberado.");
+    });
+    $("esgPrecoBtn").addEventListener("click", function(){
+      var id = $("esgItem").value;
+      var it = state.items.filter(function(x){ return x.id === id; })[0];
+      if (!it) { setStatus("Escolha um item."); return; }
+      var nome = $("esgNome").value.trim();
+      if (!nome) { setStatus("Informe o nome do item."); return; }
+      var r = parsePreco($("esgPreco").value);
+      if (!r.ok) { setStatus("Use um valor como 12,50."); return; }
+      save(it, { nome: nome, preco: r.value }, "Nome e preço salvos.");
+    });
+    $("esgBtn").addEventListener("click", function(){
+      var id = $("esgItem").value;
+      var it = state.items.filter(function(x){ return x.id === id; })[0];
+      if (!it) { setStatus("Escolha um item."); return; }
+      if ($("esgSenha").value.replace(/\s/g, "").toLowerCase() !== SENHA_ESGOTADO.replace(/\s/g, "").toLowerCase()) { setStatus("Senha errada."); $("esgSenha").value = ""; return; }
+      var novo = !it.esgotado;
+      save(it, { esgotado: novo }, novo ? "Marcado como esgotado." : "Voltou a vender.");
+      fecharEsg();
+    });
+    // Lê a foto escolhida, reduz para 700 px e guarda como JPEG pequeno (fundo branco)
+    function lerFoto(arquivo){
+      return new Promise(function(resolve, reject){
+        var url = URL.createObjectURL(arquivo);
+        var img = new Image();
+        img.onload = function(){
+          try {
+            var w = img.naturalWidth, h = img.naturalHeight;
+            var s = Math.min(1, 700 / Math.max(w, h));
+            var cv = document.createElement("canvas");
+            cv.width = Math.max(1, Math.round(w * s));
+            cv.height = Math.max(1, Math.round(h * s));
+            var cx = cv.getContext("2d");
+            cx.fillStyle = "#ffffff";
+            cx.fillRect(0, 0, cv.width, cv.height);
+            cx.drawImage(img, 0, 0, cv.width, cv.height);
+            URL.revokeObjectURL(url);
+            resolve(cv.toDataURL("image/jpeg", 0.8));
+          } catch(e) { URL.revokeObjectURL(url); reject(new Error("foto")); }
+        };
+        img.onerror = function(){ URL.revokeObjectURL(url); reject(new Error("foto")); };
+        img.src = url;
+      });
+    }
+    // Biblioteca de fotos: reduz cada foto, guarda no site (assets) e registra na coleção "fotos"
+    function setBib(t){ $("bibStatus").textContent = t; }
+    function reduzirParaBlob(arquivo){
+      return new Promise(function(resolve, reject){
+        var url = URL.createObjectURL(arquivo);
+        var img = new Image();
+        img.onload = function(){
+          var w = img.naturalWidth, h = img.naturalHeight;
+          var s = Math.min(1, 1000 / Math.max(w, h));
+          var cv = document.createElement("canvas");
+          cv.width = Math.max(1, Math.round(w * s));
+          cv.height = Math.max(1, Math.round(h * s));
+          var cx = cv.getContext("2d");
+          cx.fillStyle = "#ffffff";
+          cx.fillRect(0, 0, cv.width, cv.height);
+          cx.drawImage(img, 0, 0, cv.width, cv.height);
+          URL.revokeObjectURL(url);
+          cv.toBlob(function(b){ if (b) resolve(b); else reject(new Error("foto")); }, "image/jpeg", 0.9);
+        };
+        img.onerror = function(){ URL.revokeObjectURL(url); reject(new Error("foto")); };
+        img.src = url;
+      });
+    }
+    function enviarFotos(arquivos){
+      if (!assetsNS) { setBib("Não foi possível guardar as fotos agora."); return; }
+      var lista = Array.prototype.slice.call(arquivos);
+      if (!lista.length) return;
+      var i = 0;
+      setBib("Guardando " + lista.length + " foto(s)…");
+      function proxima(){
+        if (i >= lista.length) { setBib("Fotos guardadas."); return; }
+        var arq = lista[i++];
+        reduzirParaBlob(arq).then(function(blob){
+          return assetsNS.upload(blob);
+        }).then(function(res){
+          return db.collection("fotos").add({ assetId: res.id, nomeArquivo: arq.name || "foto", criadoEm: Date.now() });
+        }).then(proxima).catch(function(err){
+          if (err && err.message === "foto") setBib("Não consegui ler a foto " + (arq.name || "") + ". Tente outra.");
+          else setBib("Não consegui guardar a foto " + (arq.name || "") + ". Tente de novo.");
+        });
+      }
+      proxima();
+    }
+    // Apaga a linha da biblioteca. A foto em si só é apagada do armazenamento
+    // se nenhum item do catálogo estiver usando essa mesma foto.
+    function apagarFoto(docId, assetId){
+      setBib("Apagando foto…");
+      db.collection("fotos").doc(docId).delete().then(function(){
+        var usadaNoCatalogo = state.items.some(function(i){ return i.fotoId === assetId; });
+        if (usadaNoCatalogo) { setBib("Foto tirada da biblioteca. Ela continua no catálogo, porque um item usa."); return null; }
+        if (!assetsNS) { setBib("Foto tirada da biblioteca."); return null; }
+        return assetsNS.delete(assetId).then(function(){ setBib("Foto apagada."); }, function(){
+          setBib("Foto tirada da biblioteca, mas o arquivo não pôde ser apagado agora.");
+        });
+      }).catch(function(){
+        setBib("Não consegui apagar a foto. Tente de novo.");
+      });
+    }
+    function renderBiblioteca(snap){
+      var grid = $("bibGrid");
+      grid.innerHTML = "";
+      var docs = snap.docs.filter(function(d){ return d.exists; });
+      docs.forEach(function(d){
+        var dados = d.data();
+        var fig = document.createElement("figure");
+        var img = document.createElement("img");
+        img.alt = "";
+        img.src = mediaUrl(dados.assetId);
+        var cap = document.createElement("figcaption");
+        cap.textContent = dados.nomeArquivo || "foto";
+        fig.appendChild(img);
+        fig.appendChild(cap);
+        var btn = document.createElement("button");
+        btn.type = "button";
+        btn.className = "btn ghost apagar-item";
+        btn.textContent = "Apagar foto";
+        btn.addEventListener("click", function(){
+          if (!btn.classList.contains("confirmar")) {
+            btn.classList.add("confirmar");
+            btn.textContent = "Toque de novo para apagar";
+            setTimeout(function(){
+              btn.classList.remove("confirmar");
+              btn.textContent = "Apagar foto";
+            }, 4000);
+            return;
+          }
+          apagarFoto(d.id, dados.assetId);
+        });
+        fig.appendChild(btn);
+        grid.appendChild(fig);
+      });
+      setBib(docs.length ? docs.length + " foto(s) guardada(s) no site." : "Nenhuma foto guardada ainda.");
+    }
+    iniciarBiblioteca = function(){
+      db.collection("fotos").orderBy("criadoEm").onSnapshot(renderBiblioteca, function(){
+        setBib("Não foi possível carregar as fotos.");
+      });
+    };
+    $("bibFile").addEventListener("change", function(){
+      enviarFotos(this.files);
+      this.value = "";
     });
     $("addForm").addEventListener("submit", function(e){
       e.preventDefault();
@@ -1278,30 +2331,773 @@ h1{
       if (!nome) { setStatus("Informe o nome do item."); return; }
       if (!r.ok) { setStatus("Use um valor como 12,50."); return; }
       setStatus("Adicionando…");
-      db.collection("itens").add({
-        categoria: $("addCat").value,
-        nome: nome,
-        preco: r.value,
-        ordem: Date.now()
+      var arq = $("addFoto").files && $("addFoto").files[0];
+      var lendoFoto = arq ? lerFoto(arq) : Promise.resolve(null);
+      lendoFoto.then(function(foto){
+        var dados = {
+          categoria: $("addCat").value,
+          nome: nome,
+          preco: r.value,
+          ordem: Date.now()
+        };
+        if (foto) dados.fotoDados = foto;
+        return db.collection("itens").add(dados);
       }).then(function(){
         $("addNome").value = "";
         $("addPreco").value = "";
+        $("addFoto").value = "";
         setStatus("Item adicionado.");
       }).catch(function(err){
+        if (err && err.message === "foto") { setStatus("Não consegui ler essa foto. Tente outra."); return; }
         setStatus(err && err.code === "quota_exceeded" ? "A lista chegou ao limite de itens." : "Não foi possível adicionar. Tente de novo.");
       });
     });
   }
 
-  // Versão do GitHub: catálogo fixo (preços e fotos vêm desta pasta).
-  var ITENS_FIXOS = [{"id": "i001", "categoria": "Whiskies", "nome": "Ballantine's (1L)", "preco": 100.5, "ordem": 1, "fotoId": "273bc8f33a2186af1477855164cac3c4"}, {"id": "i002", "categoria": "Whiskies", "nome": "Cavalo / White Horse (1L) (?)", "preco": 79.5, "ordem": 2, "fotoId": "65a4fbac556f67a0cb0a926225b6ca2e"}, {"id": "i003", "categoria": "Whiskies", "nome": "Johnnie Walker Red Label (1L)", "preco": 58.5, "ordem": 3, "fotoId": "5d3c4037b8b76d73759900041c74b763"}, {"id": "i004", "categoria": "Whiskies", "nome": "Johnnie Walker Black Label (1L)", "preco": 194.5, "ordem": 4, "fotoId": "f762d292c15c7da6962891a73a09e7f8"}, {"id": "i005", "categoria": "Whiskies", "nome": "Jack Daniel's Old No. 7 (1L)", "preco": 126.5, "ordem": 5, "fotoId": ""}, {"id": "i006", "categoria": "Whiskies", "nome": "Jack Daniel's Honey (1L)", "preco": 127.5, "ordem": 6, "fotoId": ""}, {"id": "i007", "categoria": "Whiskies", "nome": "Jack Daniel's Maçã Verde (1L)", "preco": 214.5, "ordem": 7, "fotoId": ""}, {"id": "i008", "categoria": "Whiskies", "nome": "Chivas Regal 12 anos (1L)", "preco": 153.5, "ordem": 8, "fotoId": "556602a5011f5dcc7115f73bc97a8482"}, {"id": "i009", "categoria": "Whiskies", "nome": "Old Parr 12 anos (1L)", "preco": 155.5, "ordem": 9, "fotoId": "dbaaabdd605e433fdfc7e43983b58e38"}, {"id": "i010", "categoria": "Whiskies", "nome": "Buchanan's 12 anos (1L)", "preco": 174.5, "ordem": 10, "fotoId": "89119761381c8cc2832f905cb6b30cf5"}, {"id": "i022", "categoria": "Whiskies", "nome": "Jack (sabor não legível)", "preco": null, "ordem": 22, "fotoId": "07853a5290e3f9cd94e15b8b6f2a3f76"}, {"id": "i048", "categoria": "Whiskies", "nome": "Mansão Maromba whisky (1L)", "preco": 34.49, "ordem": 48, "fotoId": ""}, {"id": "i049", "categoria": "Whiskies", "nome": "Atack zumbi (?)", "preco": null, "ordem": 49, "fotoId": ""}, {"id": "i050", "categoria": "Cachaças e vinhos", "nome": "Pitú (965ml)", "preco": 17.29, "ordem": 50, "fotoId": "8fc709c9e0186f338ff52a6989564d7c"}, {"id": "i051", "categoria": "Energéticos", "nome": "Energético Jack Power (2L)", "preco": 11, "ordem": 51, "fotoId": "4649f4bca6168eb57f3e68f2375e009a"}, {"id": "i052", "categoria": "Energéticos", "nome": "Red Bull lata 250ml", "preco": 8.5, "ordem": 52, "fotoId": "c8397a592d06184a2d7eb668d2099087"}, {"id": "i053", "categoria": "Energéticos", "nome": "Monster lata 473ml", "preco": 10.5, "ordem": 53, "fotoId": "8e96a49fd44f6e937b7f7d378103eebb"}, {"id": "i054", "categoria": "Energéticos", "nome": "Red Bull / Monster em garrafa 2L (outros sabores)", "preco": null, "ordem": 54, "fotoId": "7e9a2b45ef7e059095d3afa7ea689358"}, {"id": "i055", "categoria": "Cervejas", "nome": "Heineken long neck 330ml", "preco": 9.5, "ordem": 55, "fotoId": "f8e20c17c4660565608cd4deba852dcf"}, {"id": "i056", "categoria": "Cervejas", "nome": "Heineken sem álcool long neck 330ml", "preco": 12.99, "ordem": 56, "fotoId": "8a5c93c505e5e188030185f060b6a637"}, {"id": "i057", "categoria": "Cervejas", "nome": "Heineken lata 350ml", "preco": 10, "ordem": 57, "fotoId": "ef2dec8e4dce7b9a60c4919a506027e1"}, {"id": "i058", "categoria": "Cervejas", "nome": "Corona long neck 330ml", "preco": 10, "ordem": 58, "fotoId": "93777afd32971ef73219b5cb5c3c8a0b"}, {"id": "i059", "categoria": "Cervejas", "nome": "Corona Zero long neck 330ml", "preco": 10, "ordem": 59, "fotoId": "c1b156830a031556a58214378f76f105"}, {"id": "i060", "categoria": "Cervejas", "nome": "Stella Artois long neck 330ml", "preco": 9.5, "ordem": 60, "fotoId": "1510b97396f4fa731ed558b4eee6fd79"}, {"id": "i061", "categoria": "Cervejas", "nome": "Budweiser long neck 330ml", "preco": 9.5, "ordem": 61, "fotoId": "6f40e79a8c37b9b52e792225c959d6c1"}, {"id": "i062", "categoria": "Cervejas", "nome": "Brahma Duplo Malte lata 350ml", "preco": 4, "ordem": 62, "fotoId": "d9d85acbf82f73900d3bbcb4533de642"}, {"id": "i063", "categoria": "Cervejas", "nome": "Antarctica Original lata 350ml", "preco": 5, "ordem": 63, "fotoId": "4344c6808ee2dd1a9c0f779e6cc19820"}, {"id": "i064", "categoria": "Cervejas", "nome": "Amstel lata 350ml", "preco": 7.25, "ordem": 64, "fotoId": "682014a4e3afa65a4ba2fae901132436"}, {"id": "i065", "categoria": "Cervejas", "nome": "Itaipava latão 473ml", "preco": 7.5, "ordem": 65, "fotoId": "1c448928bf7866da37076073b21afdc8"}, {"id": "i066", "categoria": "Cervejas", "nome": "Império lata 269ml", "preco": 5.5, "ordem": 66, "fotoId": "22540118fbb6251cefa68033d8c44bd9"}, {"id": "i067", "categoria": "Cervejas", "nome": "Spaten long neck 355ml", "preco": 12.5, "ordem": 67, "fotoId": "6e095de99978a32a59d14c2658fdbd55"}, {"id": "i068", "categoria": "Cervejas", "nome": "Skol Beats Senses (azul, 269ml)", "preco": 11.5, "ordem": 68, "fotoId": "abf43c0891110be5c4e483d6a1169eab"}, {"id": "i069", "categoria": "Cervejas", "nome": "Skol Beats Red Mix (vermelha, 269ml)", "preco": 11.5, "ordem": 69, "fotoId": "0cd8ef2bd5f47f955736f48b45a76283"}, {"id": "i070", "categoria": "Cervejas", "nome": "Antarctica Cerveja Preta", "preco": null, "ordem": 70, "fotoId": "e48a7d5181b9fde0612f535f6da81398"}, {"id": "i071", "categoria": "Cervejas", "nome": "Petra (?)", "preco": null, "ordem": 71, "fotoId": "1fff695ab14097217c6946ff9cf41866"}, {"id": "i072", "categoria": "Cervejas", "nome": "Kaiser (?)", "preco": null, "ordem": 72, "fotoId": "278f3b66c97a1a23c065df3d06ff30b1"}, {"id": "i073", "categoria": "Cervejas", "nome": "Skol original (?)", "preco": 1, "ordem": 73, "fotoId": "21d5a80cf2e257f4b7969d4503d6da6d"}, {"id": "i074", "categoria": "Cervejas", "nome": "Bud Light (?)", "preco": null, "ordem": 74, "fotoId": "90cb2e341c2aafce2642a77c77dce9e5"}, {"id": "i075", "categoria": "Bebidas mistas", "nome": "51 Ice (sabores) 275ml", "preco": 8.5, "ordem": 75, "fotoId": "59ee0e4aedb7c19ec28a64b140807ceb"}, {"id": "i076", "categoria": "Bebidas mistas", "nome": "Smirnoff Ice 275ml", "preco": 10.5, "ordem": 76, "fotoId": "49af162c0ac9302623c85221c079d3dd"}, {"id": "i077", "categoria": "Cachaças e vinhos", "nome": "Vinho tinto suave (1L)", "preco": 28.5, "ordem": 77, "fotoId": "0693614b6c6e62b7efc89a14ae727d13"}, {"id": "i078", "categoria": "Cachaças e vinhos", "nome": "Vinho (2L)", "preco": 58.91, "ordem": 78, "fotoId": "3ab269cb4b4b141d3b674f7268eb2dda"}, {"id": "i079", "categoria": "Refrigerantes e sucos", "nome": "Coca-Cola lata 350ml", "preco": 3.8, "ordem": 79, "fotoId": "ca5a66ccf82f2ec85a5ad5908c3d3431"}, {"id": "i080", "categoria": "Refrigerantes e sucos", "nome": "Coca-Cola Sem Açúcar / Zero lata 350ml", "preco": 5.3, "ordem": 80, "fotoId": "42457ff59621e79c81e89bdc823433f5"}, {"id": "i081", "categoria": "Refrigerantes e sucos", "nome": "Guaraná Antarctica lata 350ml (fardo de 12)", "preco": 2.89, "ordem": 81, "fotoId": "7c274ec1d16884f281034affedf3e977"}, {"id": "i082", "categoria": "Refrigerantes e sucos", "nome": "Fanta laranja lata 350ml", "preco": 3.5, "ordem": 82, "fotoId": "21c4d03b55475140e01008a74b0063bc"}, {"id": "i083", "categoria": "Refrigerantes e sucos", "nome": "Fanta uva lata 350ml", "preco": 3.5, "ordem": 83, "fotoId": "5a6797b5a3f1cc4e47c4fba0bd80fc85"}, {"id": "i084", "categoria": "Refrigerantes e sucos", "nome": "Sprite lata 350ml", "preco": 3.5, "ordem": 84, "fotoId": "d00fd311b324cdbe5c48a09c257c6f38"}, {"id": "i085", "categoria": "Refrigerantes e sucos", "nome": "Dolly guaraná lata 350ml (fardo de 12)", "preco": 4.13, "ordem": 85, "fotoId": "47fa47713041d75ac1b21f44345027c4"}, {"id": "i086", "categoria": "Refrigerantes e sucos", "nome": "Dolly laranja (?)", "preco": null, "ordem": 86, "fotoId": "f0ce8d8537aa80f8e301494e864694b8"}, {"id": "i087", "categoria": "Refrigerantes e sucos", "nome": "Dolly limão (?)", "preco": null, "ordem": 87, "fotoId": "9d5399b29aba305540ce8aa982003b7b"}, {"id": "i088", "categoria": "Refrigerantes e sucos", "nome": "Laranjinha (?)", "preco": null, "ordem": 88, "fotoId": "9b07559855f58abb9202a9c5aa5b83d1"}, {"id": "i089", "categoria": "Refrigerantes e sucos", "nome": "Guaraná (Delinho sabores) (?)", "preco": null, "ordem": 89, "fotoId": "7e3d587068e339c3de2d4ed8039822a6"}, {"id": "i090", "categoria": "Refrigerantes e sucos", "nome": "Suco Del Valle sabores (1L)", "preco": 14.5, "ordem": 90, "fotoId": "e605ac9f5212b9a3ea93ee52cc7f6797"}, {"id": "i091", "categoria": "Refrigerantes e sucos", "nome": "Suco de laranja (1L, Maguary)", "preco": 12.4, "ordem": 91, "fotoId": "58b586828d95eb60e5ea5c69ac9872af"}, {"id": "i092", "categoria": "Doces e salgadinhos", "nome": "Halls (display de 21, menta)", "preco": 2.21, "ordem": 92, "fotoId": "d9ba05cc184e05f15a34e2698969ac98"}, {"id": "i093", "categoria": "Doces e salgadinhos", "nome": "Trident (display de 21)", "preco": 2.98, "ordem": 93, "fotoId": "aa798a5bad762d0b210de02cf9330684"}, {"id": "i094", "categoria": "Doces e salgadinhos", "nome": "Trident (pacote 8g)", "preco": 3.64, "ordem": 94, "fotoId": "5a23556a45e5bbd45d7b970d468a4a23"}, {"id": "i095", "categoria": "Doces e salgadinhos", "nome": "Pururuca (?)", "preco": null, "ordem": 95, "fotoId": "f900c7257fae486592cf4721ad247e3e"}, {"id": "i096", "categoria": "Doces e salgadinhos", "nome": "Lobitos (?)", "preco": null, "ordem": 96, "fotoId": "f262f87582dda44d05eb2de3fbd7b33c"}, {"id": "i097", "categoria": "Doces e salgadinhos", "nome": "Ouriço branco (?)", "preco": null, "ordem": 97, "fotoId": "835e17e3d4ae156fbcc90d3600ca3b0a"}, {"id": "i098", "categoria": "Doces e salgadinhos", "nome": "Palito sabores (?)", "preco": null, "ordem": 98, "fotoId": "379f25c7ba4efbff525935f0bf2b77d1"}, {"id": "i099", "categoria": "Doces e salgadinhos", "nome": "Palito / ovo (?)", "preco": null, "ordem": 99, "fotoId": "700394b3667afa7c15bdb12103bec3ff"}, {"id": "i100", "categoria": "Cigarros e acessórios", "nome": "Hollywood", "preco": null, "ordem": 100, "fotoId": "2df0f51e51bdb608337855dca7a5a277"}, {"id": "i101", "categoria": "Cigarros e acessórios", "nome": "Hollywood vermelho e branco", "preco": null, "ordem": 101, "fotoId": "dc24f7e8e4fbaf90e9dc99cff38751c5"}, {"id": "i102", "categoria": "Cigarros e acessórios", "nome": "Marlboro", "preco": 17.5, "ordem": 102, "fotoId": "fde2f6cdb7a03e48739b2f57010b6f55"}, {"id": "i103", "categoria": "Cigarros e acessórios", "nome": "Black de menta", "preco": null, "ordem": 103, "fotoId": "0587d8b974b6fcf59d2cf42dd0b49582"}, {"id": "i104", "categoria": "Cigarros e acessórios", "nome": "LM", "preco": 13.5, "ordem": 104, "fotoId": "98b6dd25d34d12aa00e2b1a6ccd24726"}, {"id": "i105", "categoria": "Cigarros e acessórios", "nome": "Lucky Strike", "preco": 12.5, "ordem": 105, "fotoId": "decc903501d3a387c3118d709f15e710"}, {"id": "i106", "categoria": "Cigarros e acessórios", "nome": "EYT (?)", "preco": null, "ordem": 106, "fotoId": "3acb7652ba40544caeb2e9b8b9ac9918"}, {"id": "i107", "categoria": "Cigarros e acessórios", "nome": "Chesterfield", "preco": 15.5, "ordem": 107, "fotoId": "9bdac353fa9d38ef95b940ae0de63b14"}, {"id": "i108", "categoria": "Cigarros e acessórios", "nome": "Good (?)", "preco": null, "ordem": 108, "fotoId": "79fa298fce1562a92cb880e56f07219d"}, {"id": "i109", "categoria": "Cigarros e acessórios", "nome": "Isqueiro", "preco": 7.5, "ordem": 109, "fotoId": "3803845099c752ab963b539032fa48ea"}, {"id": "i110", "categoria": "Cigarros e acessórios", "nome": "Fósforo", "preco": null, "ordem": 110, "fotoId": "4853277afd9779da16937b240f91c073"}, {"id": "i111", "categoria": "Cigarros e acessórios", "nome": "Seda solta", "preco": null, "ordem": 111, "fotoId": "b4cb072494bcdb28ee8478921f3fe36c"}, {"id": "i112", "categoria": "Cigarros e acessórios", "nome": "Pacotinho (1)", "preco": null, "ordem": 112, "fotoId": "947b09cbe8cb2656974d04a6724c72f0"}, {"id": "i113", "categoria": "Descartáveis", "nome": "Copo 700 ml (pacote de 50)", "preco": 1.22, "ordem": 113, "fotoId": "e31fbd7d4cc9c1f61c2503245e986e80"}, {"id": "i114", "categoria": "Descartáveis", "nome": "Copo 500 ml (pacote de 50)", "preco": 0.97, "ordem": 114, "fotoId": "8cbfdb5bd8375b0f3f360481e6df1d9b"}, {"id": "i115", "categoria": "Descartáveis", "nome": "Copo 300 ml (pacote de 100)", "preco": 0.67, "ordem": 115, "fotoId": "41efe52511f7d2102f9c72c23c614283"}, {"id": "i116", "categoria": "Descartáveis", "nome": "Copo 180 ml (pacote de 100)", "preco": 0.6, "ordem": 116, "fotoId": "634dbf0603dc61295d9b9083c0470eca"}, {"id": "i117", "categoria": "Descartáveis", "nome": "Copo 100 ml de papel (pacote de 100)", "preco": 0.88, "ordem": 117, "fotoId": "35a421dbbc39e22230c2a63f615e53f1"}, {"id": "i118", "categoria": "Descartáveis", "nome": "Copo 50 ml de café, plástico (pacote de 100)", "preco": 0.62, "ordem": 118, "fotoId": "b322bcdc2545f55cf1ef0be572c20dc4"}, {"id": "i119", "categoria": "Descartáveis", "nome": "Copo 1.000 ml", "preco": null, "ordem": 119, "fotoId": "e6b8a741d136e26e7b3341bcfb4a473e"}, {"id": "i120", "categoria": "Descartáveis", "nome": "Balde 500 ml", "preco": null, "ordem": 120, "fotoId": "f7ab9df6d9dc8f11c43bea56e51e66d7"}, {"id": "i121", "categoria": "Descartáveis", "nome": "Balde 1.000 ml", "preco": null, "ordem": 121, "fotoId": "700087605a530b0ea630bc177d67611a"}, {"id": "i122", "categoria": "Chope", "nome": "Torre de chope 4L (Hopr)", "preco": 325.5, "ordem": 122, "fotoId": "839be142f9c20086aaa6455f095dc6d5"}, {"id": "i123", "categoria": "Chope", "nome": "Chope em barril (por litro, Brahma)", "preco": 19.98, "ordem": 123, "fotoId": "bf50980d85d6c1b2af6ad981d3fe5d2c"}, {"id": "i124", "categoria": "Chope", "nome": "Aluguel de torre de chope", "preco": null, "ordem": 124, "fotoId": "d2e949e77640e39efbc6e90f600b76c8"}, {"id": "i125", "categoria": "Energéticos", "nome": "Monster Zero (473ml)", "preco": 10.5, "ordem": 125, "fotoId": "e94908e6f44965882ea96c9db51e751a"}, {"id": "i126", "categoria": "Energéticos", "nome": "Monster Mango Loco (473ml)", "preco": 10.5, "ordem": 126, "fotoId": "55c7965c2fe4e82ae3b15b2651b45bb3"}, {"id": "i127", "categoria": "Energéticos", "nome": "Monster Energy (473ml)", "preco": 10.5, "ordem": 127, "fotoId": "d70354bd68bea6c87b1f466f887bd67f"}, {"id": "i128", "categoria": "Energéticos", "nome": "Red Bull Sugarfree (250ml)", "preco": 8.5, "ordem": 128, "fotoId": "dcaad444861f3f77a05f2bf1bf7f015a"}, {"id": "i129", "categoria": "Energéticos", "nome": "Red Bull Red Edition (Melancia) (250ml)", "preco": 8.5, "ordem": 129, "fotoId": "ca57bed407faa467e7e327c7aa6c6991"}, {"id": "i130", "categoria": "Energéticos", "nome": "Red Bull Tropical (250ml)", "preco": 8.5, "ordem": 130, "fotoId": "72d2b92733e1206521d174261763255d"}, {"id": "i131", "categoria": "Energéticos", "nome": "Red Bull Purple Edition (Açaí) (250ml)", "preco": 8.5, "ordem": 131, "fotoId": "373a720b38efb220c558f8ccaf83da8b"}, {"id": "i132", "categoria": "Energéticos", "nome": "Monster Ultra Rosa (473ml)", "preco": 10.5, "ordem": 132, "fotoId": "abb5138506625cb880faa35926769e63"}, {"id": "i133", "categoria": "Energéticos", "nome": "Monster Ultra (473ml)", "preco": 10.5, "ordem": 133, "fotoId": "41498797bcc3ff3e0aaf98dff188e161"}, {"id": "i134", "categoria": "Energéticos", "nome": "Monster Ultra Laranja (473ml)", "preco": 10.5, "ordem": 134, "fotoId": "a12abc44d0ddac37ddd2a0f6340b74e3"}, {"id": "i135", "categoria": "Energéticos", "nome": "Monster Ultra Paradise (473ml)", "preco": 10.5, "ordem": 135, "fotoId": "7265fc3d122a46eb4b2d46c3f3532e6e"}, {"id": "i136", "categoria": "Energéticos", "nome": "Baly Energético (473ml)", "preco": 8.5, "ordem": 136, "fotoId": "1d5399954322d07241a49021f13d9db9"}, {"id": "c201", "categoria": "Cigarros e acessórios", "nome": "Camel Blue", "preco": 14.5, "ordem": 201, "fotoId": "59252490252a7c2c215a511ef58d6854"}, {"id": "c202", "categoria": "Cigarros e acessórios", "nome": "Marlboro Gold Selection", "preco": 13.5, "ordem": 202, "fotoId": "71d9bb0cb456e694de641d60f0f300c3"}, {"id": "c203", "categoria": "Cigarros e acessórios", "nome": "Winston Vermelho Classic", "preco": 13.5, "ordem": 203, "fotoId": "b9792868b87e9d99a1a70f813d364b7f"}, {"id": "c204", "categoria": "Cigarros e acessórios", "nome": "Gudang Garam Importado", "preco": 45.5, "ordem": 204, "fotoId": "cc2a261a9c52800af70af74d26f40e8b"}, {"id": "c205", "categoria": "Cigarros e acessórios", "nome": "Bic Pequeno", "preco": 6.5, "ordem": 205, "fotoId": "bbac3613798f4eceff5bc433d1fb3143"}, {"id": "c206", "categoria": "Cigarros e acessórios", "nome": "Winston Azul", "preco": 13.5, "ordem": 206, "fotoId": "7ace12e22d80dfe9328611a03344f54d"}, {"id": "c207", "categoria": "Cigarros e acessórios", "nome": "Lucky Strike Fresh Ice", "preco": 17.5, "ordem": 207, "fotoId": "f65a4b62966e3011b6c8cef128ec4075"}, {"id": "c208", "categoria": "Cigarros e acessórios", "nome": "Dunhill Azul", "preco": 17.5, "ordem": 208, "fotoId": "fc1251495242b3bb5676589639133c69"}, {"id": "c209", "categoria": "Cigarros e acessórios", "nome": "Marlboro Gold", "preco": 17.5, "ordem": 209, "fotoId": "68669e6e4f2280326b57decfba222c44"}, {"id": "c210", "categoria": "Cigarros e acessórios", "nome": "Charuto Titan Chocolate Avulso", "preco": 17.5, "ordem": 210, "fotoId": "27ccb3ab50ac9429a5aaf9787df6af69"}, {"id": "c211", "categoria": "Cigarros e acessórios", "nome": "Charuto Titan Avulso", "preco": 17.5, "ordem": 211, "fotoId": "5c053b4fc00c47314eecc7677a572c05"}, {"id": "c212", "categoria": "Cigarros e acessórios", "nome": "Charuto Titan Chocolate Caixa 5un", "preco": 85.5, "ordem": 212, "fotoId": "f17d3be4e5011633c9d0e113ccc982c8"}, {"id": "c213", "categoria": "Cigarros e acessórios", "nome": "Charuto Titan Tradicional Caixa 5un", "preco": 85.5, "ordem": 213, "fotoId": "f7890c2453fd0089b2f9b0f68bb4fee4"}, {"id": "c214", "categoria": "Cigarros e acessórios", "nome": "Lucky Strike Melancia", "preco": 15.5, "ordem": 214, "fotoId": "20bad91551d6c0825d439be513049674"}, {"id": "c215", "categoria": "Cigarros e acessórios", "nome": "Winston Vermelho Red 8", "preco": 13.5, "ordem": 215, "fotoId": "de8a35c6eba93040908d5b1b1d733294"}, {"id": "c216", "categoria": "Cigarros e acessórios", "nome": "Kent Mix Purple Twist", "preco": 15.5, "ordem": 216, "fotoId": "3f2c7396c73b9f5e3dfaecd2612df884"}, {"id": "c217", "categoria": "Cigarros e acessórios", "nome": "Kent Red Twist", "preco": null, "ordem": 217, "fotoId": "c13ae3978956bca0d8b7615dbf378e59"}, {"id": "c218", "categoria": "Cigarros e acessórios", "nome": "Marlboro Red Selection", "preco": 13.5, "ordem": 218, "fotoId": "7144b7e1ae7d56498c3bf3df451eddf3"}, {"id": "c219", "categoria": "Cigarros e acessórios", "nome": "Dunhill Ice Refresh", "preco": 17.5, "ordem": 219, "fotoId": "d47aaec568df678cc7a1ac9d64cfff01"}, {"id": "c220", "categoria": "Cigarros e acessórios", "nome": "Chesterfield Azul Terras Brasileiras", "preco": 14.5, "ordem": 220, "fotoId": "c55d8a37b59176f11599dfe588549be5"}, {"id": "c221", "categoria": "Cigarros e acessórios", "nome": "Dunhill Mix Refresh", "preco": 17.5, "ordem": 221, "fotoId": "ad7ebe0c42f74025df10749f63365a53"}, {"id": "c222", "categoria": "Cigarros e acessórios", "nome": "Black Vermelho", "preco": 25.5, "ordem": 222, "fotoId": "af89df8350f4aeb551fc733fe6199dde"}, {"id": "c223", "categoria": "Cigarros e acessórios", "nome": "Lucky Strike Purple Mix 1871", "preco": 15.5, "ordem": 223, "fotoId": "4c30f21625afe7965fc18f1b00b781a4"}, {"id": "c224", "categoria": "Cigarros e acessórios", "nome": "LA Menta", "preco": 23.5, "ordem": 224, "fotoId": "6253eed6ec88546245f6757a3dc92fc1"}, {"id": "c225", "categoria": "Cigarros e acessórios", "nome": "Chesterfield Remix Fresh Mint", "preco": 15.5, "ordem": 225, "fotoId": "38a808eb0e602a64975b1a18643bd452"}, {"id": "c226", "categoria": "Cigarros e acessórios", "nome": "LM Kretek", "preco": 17.5, "ordem": 226, "fotoId": "4629ca4ba051b8de6bacfe41eec660d6"}, {"id": "c227", "categoria": "Cigarros e acessórios", "nome": "Camel Kretek Berry", "preco": 20.5, "ordem": 227, "fotoId": "933ea701b3e12350ed5e08ceffc72fd6"}, {"id": "c228", "categoria": "Cigarros e acessórios", "nome": "Camel Melancia", "preco": 17.5, "ordem": 228, "fotoId": "e5205155195e6314fa9852102b4409a5"}, {"id": "c229", "categoria": "Cigarros e acessórios", "nome": "Camel Amarelo", "preco": 14.5, "ordem": 229, "fotoId": "307f453d96fa354608863931bd1fbb78"}, {"id": "c230", "categoria": "Cigarros e acessórios", "nome": "Gift", "preco": 6.5, "ordem": 230, "fotoId": "ea9ad0b43a5545313ceb459faa6cb1b5"}, {"id": "c231", "categoria": "Cigarros e acessórios", "nome": "Camel Kretek Menthol", "preco": 20.5, "ordem": 231, "fotoId": "73aa98193ded2034264a351ada176ff2"}, {"id": "c232", "categoria": "Cigarros e acessórios", "nome": "Marlboro Melancia", "preco": 17.5, "ordem": 232, "fotoId": "56936482fa162b5cc043a98c733721bd"}, {"id": "c233", "categoria": "Cigarros e acessórios", "nome": "Marlboro Filter Plus", "preco": 15.5, "ordem": 233, "fotoId": "e170ececd324e4bf2e59a19aaa1b7943"}, {"id": "c234", "categoria": "Cigarros e acessórios", "nome": "Camel Double", "preco": null, "ordem": 234, "fotoId": "48a9bcb147bf617c2410ca804d7c099b"}, {"id": "c235", "categoria": "Cigarros e acessórios", "nome": "Dunhill Double Refresh", "preco": null, "ordem": 235, "fotoId": "607d2ba15fd591dc659f3a954d5a6cf9"}, {"id": "c236", "categoria": "Cigarros e acessórios", "nome": "Parliament", "preco": 19.5, "ordem": 236, "fotoId": "290c63623296673d1867cf067c82e035"}, {"id": "c237", "categoria": "Cigarros e acessórios", "nome": "Marlboro Kretek Mint", "preco": 17.5, "ordem": 237, "fotoId": "d8c65d79b56fb3b8b30299432f134a51"}, {"id": "c238", "categoria": "Cigarros e acessórios", "nome": "Chesterfield Remix Purple", "preco": 15.5, "ordem": 238, "fotoId": "c483dbeb6acf9b608f91a1c80dcd69fb"}, {"id": "c239", "categoria": "Cigarros e acessórios", "nome": "Black Ice", "preco": 25.5, "ordem": 239, "fotoId": "e52e34fad84485a2b04f4dd5ba4721a9"}, {"id": "c240", "categoria": "Cigarros e acessórios", "nome": "Lucky Strike Mint", "preco": 17.5, "ordem": 240, "fotoId": "cd415445c50600a131c2c660809263bd"}, {"id": "c241", "categoria": "Cigarros e acessórios", "nome": "Rothmans Prata", "preco": 14.5, "ordem": 241, "fotoId": "006f23bdd15704173c1c4fd0c8510c1c"}, {"id": "c242", "categoria": "Cigarros e acessórios", "nome": "Lucky Strike Double", "preco": 17.5, "ordem": 242, "fotoId": "1cba28308ae34ebfdf4c9d5fd52fbba4"}, {"id": "c243", "categoria": "Cigarros e acessórios", "nome": "Rothmans Global Vermelho", "preco": 13.5, "ordem": 243, "fotoId": "821eab5f4a3560fcfbf3aca68e740190"}, {"id": "c244", "categoria": "Cigarros e acessórios", "nome": "Marlboro Blue Ice", "preco": null, "ordem": 244, "fotoId": "62233f3e55b2c0c0b13a4366baba3c50"}, {"id": "c245", "categoria": "Cigarros e acessórios", "nome": "Chesterfield Melancia", "preco": null, "ordem": 245, "fotoId": "74492c65d491c6a742bcd9cda2296e97"}, {"id": "c246", "categoria": "Cigarros e acessórios", "nome": "Kent Azul", "preco": 13.5, "ordem": 246, "fotoId": "b36d7c3da2503cebdc6f0952ee568753"}, {"id": "c247", "categoria": "Cigarros e acessórios", "nome": "Rothmans Azul", "preco": 14.5, "ordem": 247, "fotoId": "0e9b82e1674009ff6adbd96abdafb331"}, {"id": "c248", "categoria": "Cigarros e acessórios", "nome": "Rothmans Vermelho", "preco": null, "ordem": 248, "fotoId": "549d7afe496831fa1ac979c1260fcd70"}, {"id": "c249", "categoria": "Cigarros e acessórios", "nome": "Marlboro Double", "preco": null, "ordem": 249, "fotoId": "6c36d404a520b519e7f7eb1d4965dfe8"}, {"id": "d001", "categoria": "Doces e salgadinhos", "nome": "Bala de hortelã (30x600g)", "preco": null, "ordem": 250, "fotoId": "301da607d2aa5ba06421b103c55ad3ef"}, {"id": "d002", "categoria": "Doces e salgadinhos", "nome": "Bala de banana (30x500g)", "preco": null, "ordem": 251, "fotoId": "40bc69b078f8a1d4ac7014b308b01c9c"}, {"id": "d003", "categoria": "Doces e salgadinhos", "nome": "Bala amendoim crocante (30x500g)", "preco": null, "ordem": 252, "fotoId": "7ba0f4e55a14eaed6ffb32c565716888"}, {"id": "d004", "categoria": "Doces e salgadinhos", "nome": "Bala de hortelã mastigável (30x500g)", "preco": null, "ordem": 253, "fotoId": "77197a9f5e60c1cd057f30ee96b45070"}, {"id": "d005", "categoria": "Doces e salgadinhos", "nome": "Bala frutas sortidas (30x600g)", "preco": null, "ordem": 254, "fotoId": "cbbe5c9aae528631427ed39ca4a6540b"}, {"id": "d006", "categoria": "Doces e salgadinhos", "nome": "Bala de hortelã (50x300g)", "preco": null, "ordem": 255, "fotoId": "c1280b5797946d17875d8af9be66a3fc"}, {"id": "d007", "categoria": "Doces e salgadinhos", "nome": "Wafer Danubio chocolate branco (50x75g)", "preco": null, "ordem": 256, "fotoId": "6e651ba7c00c51e9535549a8218bc8bd"}, {"id": "d008", "categoria": "Doces e salgadinhos", "nome": "Wafer Surf morango (50x75g)", "preco": null, "ordem": 257, "fotoId": "cef919d21fc9f3f0584afaf5fc125e0c"}, {"id": "d009", "categoria": "Doces e salgadinhos", "nome": "Wafer Danny doce de leite (50x75g)", "preco": null, "ordem": 258, "fotoId": "f7df186e25ba3024f09754289b5df140"}, {"id": "d010", "categoria": "Doces e salgadinhos", "nome": "Wafer Danubio chocolate (50x75g)", "preco": null, "ordem": 259, "fotoId": "ee0c0b45e1f352be23ff1b86ad8a6b6b"}, {"id": "b001", "categoria": "Whiskies", "nome": "Kit Whisky Johnnie Walker Red Label (kit)", "preco": 209.02, "ordem": 260, "fotoId": "e1898e3d546a532ece9af31adcec79e3"}, {"id": "b002", "categoria": "Destilados", "nome": "Vodka Absolut Natural 1000ml", "preco": 104.88, "ordem": 261, "fotoId": "957daa07c9e378e0e52e67daabb4633b"}, {"id": "b003", "categoria": "Destilados", "nome": "Beefeater Blackberry 700ml", "preco": 115.97, "ordem": 262, "fotoId": ""}, {"id": "b004", "categoria": "Destilados", "nome": "Gin Tanqueray Ten", "preco": 199.22, "ordem": 263, "fotoId": "0b59881e6943f937f0f83b146dd98791"}, {"id": "b005", "categoria": "Refrigerantes e sucos", "nome": "Refrigerante Guaraná Antarctica Zero", "preco": 3.6, "ordem": 264, "fotoId": "6b9e09c1ee5965d5448515e2aa7509ea"}, {"id": "b006", "categoria": "Refrigerantes e sucos", "nome": "Guaraná Antarctica 200ml (pack com 12)", "preco": 20.58, "ordem": 265, "fotoId": "71b7566f523d69aea6a94c46f11affb7"}, {"id": "b007", "categoria": "Refrigerantes e sucos", "nome": "Água Tônica Antarctica lata 350ml", "preco": 4.34, "ordem": 266, "fotoId": "5560ce6c9cc8b1a56ff48d7abf693380"}, {"id": "b008", "categoria": "Refrigerantes e sucos", "nome": "Água Tônica Antarctica Zero 1L", "preco": 7.93, "ordem": 267, "fotoId": "427a0d38af635365e0c68bd8528d7a45"}, {"id": "b009", "categoria": "Refrigerantes e sucos", "nome": "Refrigerante Guaraná Antarctica 1L", "preco": 6.17, "ordem": 268, "fotoId": "baa1a9c38bb65e8e0e0944ef210a5029"}, {"id": "b010", "categoria": "Energéticos", "nome": "Red Bull Morango e Pêssego 250ml", "preco": 9.58, "ordem": 269, "fotoId": "f9ac4db75e543df1448f8f98ecddfb87"}, {"id": "b011", "categoria": "Energéticos", "nome": "Red Bull 473ml", "preco": 14.48, "ordem": 270, "fotoId": "ea031c19652357d95be57d4ad3809397"}, {"id": "b012", "categoria": "Refrigerantes e sucos", "nome": "Guaracrac Guaraná 290ml", "preco": 2.96, "ordem": 271, "fotoId": "f072e3c3a898acc362809496b1738171"}, {"id": "b013", "categoria": "Refrigerantes e sucos", "nome": "Guaracrac Guaraná (pack com 24)", "preco": 47.14, "ordem": 272, "fotoId": "0707e0ad9c2a8c2c5d378b3a4acff08b"}, {"id": "b014", "categoria": "Refrigerantes e sucos", "nome": "Suco Del Valle Laranja 1L", "preco": 9.35, "ordem": 273, "fotoId": "e45044e44a42036b2c5af0e37d96ae4f"}, {"id": "b015", "categoria": "Refrigerantes e sucos", "nome": "Suco Del Valle Uva 1L", "preco": 9, "ordem": 274, "fotoId": "36c2f58cb4c0b85fc78eb6da2635fc56"}, {"id": "b016", "categoria": "Refrigerantes e sucos", "nome": "Ice Tea Leão Pêssego 300ml", "preco": 5.2, "ordem": 275, "fotoId": "e056552a59a7007ef314e9d712ffbd4e"}, {"id": "b017", "categoria": "Refrigerantes e sucos", "nome": "Guaravita 290ml", "preco": 2.87, "ordem": 276, "fotoId": "61ee11ac46209986562b1b96c8e856f3"}, {"id": "b018", "categoria": "Bebidas mistas", "nome": "Lata Skol Beats Zodiac Elemento Água", "preco": 5.65, "ordem": 277, "fotoId": ""}, {"id": "b019", "categoria": "Bebidas mistas", "nome": "Skol Beats Tropical Long Neck 269ml", "preco": 6.6, "ordem": 278, "fotoId": "00dc0016b64ec3079cd4ab7205deab06"}, {"id": "b020", "categoria": "Bebidas mistas", "nome": "Lata Skol Beats Zodiac Elemento Terra", "preco": 6.15, "ordem": 279, "fotoId": ""}, {"id": "b021", "categoria": "Bebidas mistas", "nome": "Skol Beats GT 269ml Long Neck (gelado)", "preco": 7.61, "ordem": 280, "fotoId": "141f0ddafcfb6436ab93db5515232032"}, {"id": "b022", "categoria": "Chope", "nome": "Cerveja Heineken Premium barril 5L", "preco": 84.46, "ordem": 281, "fotoId": "4ad0de87edcdcb90440a2c76f46ef3b7"}, {"id": "b023", "categoria": "Chope", "nome": "Cerveja Heineken barril (gelado)", "preco": 120.28, "ordem": 282, "fotoId": "cc4bc6a123adf9c4c0f98bc88d4b01a4"}, {"id": "b024", "categoria": "Chope", "nome": "Chopp Brahma Claro 100L + chopeira", "preco": 1649.03, "ordem": 283, "fotoId": "5ce7ab8e92c0bff2d9c6158bdeff4dcc"}, {"id": "b025", "categoria": "Chope", "nome": "Chopp Brahma Claro 50L + chopeira", "preco": 813.17, "ordem": 284, "fotoId": "85aea1d846d1ed0fb818b70fd0c5066c"}, {"id": "b026", "categoria": "Chope", "nome": "Chopp Brahma Claro 50L (só barril)", "preco": 732.7, "ordem": 285, "fotoId": "01a9771f91d83c94a1d3ffba9ac91040"}, {"id": "b027", "categoria": "Cachaças e vinhos", "nome": "Chopp de vinho Pink Moon 2L (gelado)", "preco": 22.45, "ordem": 286, "fotoId": "aef9f18b06b2c0caa78cc04b88bf22ec"}, {"id": "b028", "categoria": "Cachaças e vinhos", "nome": "Vinho Tinto Santa Helena Cabernet Sauvignon 750ml", "preco": 29.7, "ordem": 287, "fotoId": "d6a107a05bbb295c0965b2359d2f5fb4"}, {"id": "b029", "categoria": "Cachaças e vinhos", "nome": "Vinho Branco Galioto Suave 1L", "preco": 18.87, "ordem": 288, "fotoId": "d471bb1bb4390f7f378ff245d319d7c8"}, {"id": "b030", "categoria": "Cachaças e vinhos", "nome": "Vinho Rosé Casal Garcia 750ml (gelado)", "preco": 55.96, "ordem": 289, "fotoId": "decdbbeba0fdbca027eae576d3f6e09a"}, {"id": "b031", "categoria": "Cachaças e vinhos", "nome": "Vinho Branco Verde Casal Garcia 750ml", "preco": 56.23, "ordem": 290, "fotoId": "a6347ba08bd9175dbc7b4db236153bd4"}, {"id": "b032", "categoria": "Cachaças e vinhos", "nome": "Vinho Concha y Toro Reservado Cabernet", "preco": 24.33, "ordem": 291, "fotoId": "abec903064aaedf37d575fccbfe81157"}, {"id": "b033", "categoria": "Cachaças e vinhos", "nome": "Vinho Cosecha Tarapacá Chardonnay", "preco": 31.58, "ordem": 292, "fotoId": "8122e16822f792f4035037df5d6d9047"}, {"id": "b034", "categoria": "Cervejas", "nome": "Cerveja Heineken Retornável 600ml (caixa com 24)", "preco": 206.51, "ordem": 293, "fotoId": "cfb5ade8c028f5de22f29e5208c4ad9c"}, {"id": "b035", "categoria": "Cervejas", "nome": "Cerveja Corona 473ml (pack com 12)", "preco": 72.52, "ordem": 294, "fotoId": "c7497435e203f3374c4421c28a8e5fb4"}, {"id": "b036", "categoria": "Cervejas", "nome": "Cerveja Budweiser 473ml (pack com 12)", "preco": 56.86, "ordem": 295, "fotoId": "80dc7f7ac02da2d09b28d91fa6603508"}, {"id": "b037", "categoria": "Cervejas", "nome": "Stella Artois Pure Gold long neck 330ml (caixa)", "preco": 163.55, "ordem": 296, "fotoId": "e3359dfa709f16b0df439dce5d42ac29"}, {"id": "b038", "categoria": "Cervejas", "nome": "Cerveja Spaten 473ml (pack com 12)", "preco": 57.54, "ordem": 297, "fotoId": "5014ec260a4e4d3d7cba241c46cb8f29"}, {"id": "b039", "categoria": "Cervejas", "nome": "Cerveja Antarctica Original retornável 300ml", "preco": 79.19, "ordem": 298, "fotoId": "5cfe2dddd341cac312f67984f27b233b"}, {"id": "w01", "categoria": "Whiskies", "nome": "Buffalo Trace Bourbon (750ml)", "preco": null, "ordem": 301, "fotoId": "69f8b8e7b227656c011bfa8393ef88cc"}, {"id": "w02", "categoria": "Whiskies", "nome": "Jameson Triple Distilled (750ml)", "preco": null, "ordem": 302, "fotoId": "4fb2bd77570991946ff57dce15002caa"}, {"id": "w03", "categoria": "Whiskies", "nome": "Hibiki Japanese Harmony (700ml)", "preco": null, "ordem": 303, "fotoId": "c6e60b75bac7f4ea1ece3ee8e09c7b4f"}, {"id": "w04", "categoria": "Whiskies", "nome": "Royal Salute 21 anos (700ml)", "preco": null, "ordem": 304, "fotoId": "70769c1033a3e345bfcf99997f3a90ef"}, {"id": "w05", "categoria": "Whiskies", "nome": "Jameson Irish Whiskey (1L)", "preco": null, "ordem": 305, "fotoId": "3b8ac11246b491a0d4c686312baddc90"}, {"id": "w06", "categoria": "Whiskies", "nome": "Jim Beam Black 7 anos (1L)", "preco": null, "ordem": 306, "fotoId": "b9246b0c308e888d05e55bbdd3096f37"}, {"id": "w07", "categoria": "Whiskies", "nome": "Jack Daniel's Old No. 7 Mini (50ml)", "preco": null, "ordem": 307, "fotoId": "8882378fe36ab227b94c83cb2a434659"}, {"id": "w08", "categoria": "Whiskies", "nome": "Grant's Blended (1L)", "preco": null, "ordem": 308, "fotoId": "2ac02d079410383674522a0b0175cd84"}, {"id": "w09", "categoria": "Whiskies", "nome": "Ballantine's Finest (750ml)", "preco": null, "ordem": 309, "fotoId": "8aabb21b33c8e9b9df936dc9135a443e"}, {"id": "w10", "categoria": "Whiskies", "nome": "Maker's Mark Kentucky Straight (750ml)", "preco": null, "ordem": 310, "fotoId": "7104e6a5a1c3359881f7f222d893c29f"}, {"id": "w11", "categoria": "Whiskies", "nome": "Macallan Double Cask 12 anos (700ml)", "preco": null, "ordem": 311, "fotoId": "c49cac0cffca33a835d2f24f40371d4b"}, {"id": "w12", "categoria": "Whiskies", "nome": "Jim Beam Rye (700ml)", "preco": null, "ordem": 312, "fotoId": "a35756a59418a08351318e98ec603b87"}, {"id": "w13", "categoria": "Whiskies", "nome": "Jim Beam Honey (1L)", "preco": null, "ordem": 313, "fotoId": "4bb2b3e719b0c42b7a3f505e3cb76584"}, {"id": "w14", "categoria": "Whiskies", "nome": "Johnnie Walker Blonde (750ml)", "preco": null, "ordem": 314, "fotoId": "67461740029052e2c3129455966db4a7"}, {"id": "w15", "categoria": "Whiskies", "nome": "Black & White (1L)", "preco": null, "ordem": 315, "fotoId": "68052bbcc95e7cb1f1d34b1a816df017"}, {"id": "w16", "categoria": "Whiskies", "nome": "Jack Daniel's Tennessee Fire (1L)", "preco": null, "ordem": 316, "fotoId": "1a4e8fab6711d97618f1329587552dd0"}, {"id": "w17", "categoria": "Whiskies", "nome": "Johnnie Walker Black Label (750ml)", "preco": null, "ordem": 317, "fotoId": "8125e9591f0939d9eb5f45bc891b7bc9"}, {"id": "w18", "categoria": "Whiskies", "nome": "Kit Box Jack Daniel's Mel Honey com 2 copos", "preco": null, "ordem": 318, "fotoId": "ee1552f54cd8cec206f1f0175edce454"}, {"id": "w19", "categoria": "Whiskies", "nome": "Old Parr 12 anos Scotch (500ml)", "preco": null, "ordem": 319, "fotoId": "a021c001876043db6f9a6ae088f28227"}, {"id": "w20", "categoria": "Whiskies", "nome": "Johnnie Walker Black Label (500ml)", "preco": null, "ordem": 320, "fotoId": "276dde7150cba8e709b676f66366a30e"}, {"id": "w21", "categoria": "Whiskies", "nome": "Jack Daniel's Honey (375ml)", "preco": null, "ordem": 321, "fotoId": "c402d0cbd05404628fb22b8c9ff89899"}, {"id": "w22", "categoria": "Whiskies", "nome": "Macallan Sherry Oak Cask 12 anos (700ml)", "preco": null, "ordem": 322, "fotoId": "3c8a28d4df32aaa1496e547326a0f1d9"}, {"id": "w23", "categoria": "Whiskies", "nome": "White Horse Cavalo Branco (500ml)", "preco": null, "ordem": 323, "fotoId": "e80e1f5b4ddde252518a63830090d852"}, {"id": "w24", "categoria": "Whiskies", "nome": "Cesta Whisky Jack Daniel's (maleta)", "preco": null, "ordem": 324, "fotoId": "e3153a5542c209a3006efaa93cc6eb03"}, {"id": "w25", "categoria": "Whiskies", "nome": "Cutty Sark (1L)", "preco": null, "ordem": 325, "fotoId": "4f15e0eb402451248046cd15d1ed9d6a"}, {"id": "w26", "categoria": "Whiskies", "nome": "Woodford Reserve Bourbon (750ml)", "preco": null, "ordem": 326, "fotoId": "b1ab7cd9748197cd34e0cdd7df3c3ede"}, {"id": "w27", "categoria": "Whiskies", "nome": "Wild Turkey 101 Bourbon (700ml)", "preco": null, "ordem": 327, "fotoId": "b7f0ba5090200018a3059744af9dd7e5"}, {"id": "w28", "categoria": "Whiskies", "nome": "Buchanan's Deluxe 12 anos (750ml)", "preco": null, "ordem": 328, "fotoId": "dc93435300d9edc235610e257024d97c"}, {"id": "w29", "categoria": "Destilados", "nome": "Ballantine's Sunshine Abacaxi (700ml)", "preco": null, "ordem": 329, "fotoId": "93fe8b849b3500b5d4d951d9b5924a70"}, {"id": "w30", "categoria": "Whiskies", "nome": "Laphroaig 10 anos (750ml)", "preco": null, "ordem": 330, "fotoId": "4eb320794bafec0647fa6bb734bb48bf"}, {"id": "w31", "categoria": "Whiskies", "nome": "Macallan Double Cask 15 anos (700ml)", "preco": null, "ordem": 331, "fotoId": "e0f2c2ce52e43ef2503e7c945b9dfd90"}, {"id": "w32", "categoria": "Whiskies", "nome": "Jim Beam White Bourbon (1L)", "preco": null, "ordem": 332, "fotoId": "547a247364ed468047d3974539651ffe"}, {"id": "w33", "categoria": "Whiskies", "nome": "Chivas Regal 12 anos (750ml)", "preco": null, "ordem": 333, "fotoId": "0e973df06d6a1f7ae157d9653e2ba97e"}, {"id": "w34", "categoria": "Whiskies", "nome": "Dewar's 12 anos (750ml)", "preco": null, "ordem": 334, "fotoId": "b1c4035c51e8a6a5d90730e4cdf9453b"}, {"id": "w35", "categoria": "Whiskies", "nome": "Old Parr 12 anos (750ml)", "preco": null, "ordem": 335, "fotoId": "8524bdb136d145727fdf0bf6b151ce2f"}, {"id": "w36", "categoria": "Destilados", "nome": "Ballantine's Sweet Blend (700ml)", "preco": null, "ordem": 336, "fotoId": "40df7c11adb50e238e7a25a88f77b763"}, {"id": "w37", "categoria": "Whiskies", "nome": "Jack Daniel's Old No. 7 (200ml)", "preco": null, "ordem": 337, "fotoId": "f149c55149660334f95fcab5adbf1cb6"}, {"id": "w38", "categoria": "Whiskies", "nome": "Jack Daniel's Gentleman Jack (1L)", "preco": null, "ordem": 338, "fotoId": "965ce55626570b30881aae2c707e0ae2"}, {"id": "w39", "categoria": "Whiskies", "nome": "Yamazaki 12 anos (700ml)", "preco": null, "ordem": 339, "fotoId": "2de7255cf61da4e8fef957e4ccd8a2ea"}, {"id": "w40", "categoria": "Whiskies", "nome": "Johnnie Walker Gold Label Reserve (750ml)", "preco": null, "ordem": 340, "fotoId": "271b48763f4f12e6aeb2817338f4c5e0"}];
   async function start(){
     buildChips();
     bindControls();
-    state.items = ITENS_FIXOS.map(function(x){ return Object.assign({}, x); });
-    state.canEdit = false;
-    state.loaded = true;
+    var c = window.claude;
+    db = c ? await c.use("db") : null;
+    if (!db) {
+      setStatus("Catálogo indisponível nesta visualização.");
+      state.loaded = true;
+      render();
+      return;
+    }
+    try {
+      var user = await c.use("user");
+      state.canEdit = user ? !!(await Promise.resolve(user.canEdit())) : false;
+    } catch(e) { state.canEdit = false; }
+    try { uidCliente = user ? await user.id() : null; } catch(e) { uidCliente = null; }
+    if (db) iniciarChat(user);
+    if (db) iniciarVideos();
+    if (state.canEdit) {
+      $("editWrap").hidden = false;
+      $("esgAbrirBtn").hidden = false;
+      try { assetsNS = await c.use("assets"); } catch(e) { assetsNS = null; }
+      if (iniciarBiblioteca) iniciarBiblioteca();
+      db.collection("pedidos").onSnapshot(renderPedidos, function(){
+        $("pedidosStatus").textContent = "Não foi possível carregar os pedidos.";
+      });
+    }
+    db.collection("itens").orderBy("ordem").onSnapshot(function(snap){
+      state.items = snap.docs.filter(function(d){ return d.exists; }).map(function(d){
+        return Object.assign({ id: d.id }, d.data());
+      });
+      state.loaded = true;
+      render();
+    }, function(){
+      setStatus("Não foi possível carregar a lista. Recarregue a página.");
+    });
     render();
+  }
+
+  // Bate-papo: as mensagens ficam na coleção "chat" do banco e aparecem ao vivo para quem tem acesso ao site.
+  var chatUser = null, chatNomes = {}, chatMsgs = [], chatPerfis = {}, chatAssets = null;
+  function perfilAviso(txt){ $("perfilAviso").textContent = txt || ""; $("perfilAviso").hidden = !txt; }
+  function chatAviso(txt){ $("chatEmpty").textContent = txt || ""; $("chatEmpty").hidden = !txt; }
+  var chatResposta = null, chatGravador = null, digitandoDocs = [], digitandoUlt = 0;
+  var EMOJIS = ["😀","😂","😍","😎","🥳","👍","👏","🙏","🔥","🍻","🥃","🍺","🎉","😋","🤣","❤️","😜","🚬"];
+  var REACOES = ["👍","❤️","😂"];
+  function nomeDe(uid){
+    var pf = chatPerfis[uid] || {}; var info = chatNomes[uid] || {};
+    return pf.nome || info.name || "Cliente";
+  }
+  function fotoDe(uid){
+    var pf = chatPerfis[uid] || {}; var info = chatNomes[uid] || {};
+    return ehMidia(pf.fotoId) ? mediaUrl(pf.fotoId) : (info.avatar || "");
+  }
+  function rotuloDia(ms){
+    var d = new Date(ms), hoje = new Date(), ontem = new Date(); ontem.setDate(hoje.getDate() - 1);
+    if (d.toDateString() === hoje.toDateString()) return "Hoje";
+    if (d.toDateString() === ontem.toDateString()) return "Ontem";
+    return d.toLocaleDateString("pt-BR", { day: "2-digit", month: "2-digit", year: "numeric" });
+  }
+  function reagir(m, emoji){
+    var mapa = Object.assign({}, m.reacoes || {});
+    if (mapa[uidCliente] === emoji) delete mapa[uidCliente]; else mapa[uidCliente] = emoji;
+    db.collection("chat").doc(m.id).update({ reacoes: mapa }).catch(function(){});
+  }
+  function atualizarResposta(){
+    $("chatResposta").hidden = !chatResposta;
+    $("chatRespostaTxt").textContent = chatResposta ? "Respondendo a " + chatResposta.nome + ": " + chatResposta.texto : "";
+  }
+  function desenharChat(){
+    var ul = $("chatList");
+    ul.innerHTML = "";
+    chatAviso(chatMsgs.length ? "" : "Ainda não tem mensagens. Puxa assunto!");
+    var diaAnt = "";
+    chatMsgs.forEach(function(m){
+      var meu = m.uid && m.uid === uidCliente;
+      var dia = m.criadoEm ? rotuloDia(m.criadoEm) : "";
+      if (dia && dia !== diaAnt) {
+        var sep = document.createElement("li"); sep.className = "chat-dia"; sep.textContent = dia; ul.appendChild(sep);
+        diaAnt = dia;
+      }
+      var li = document.createElement("li");
+      li.className = "chat-msg" + (meu ? " meu" : "");
+      var foto = document.createElement("img");
+      foto.className = "chat-foto"; foto.alt = "";
+      var src = fotoDe(m.uid);
+      if (src) foto.src = src; else foto.hidden = true;
+      var corpo = document.createElement("div");
+      corpo.className = "chat-corpo";
+      var cab = document.createElement("small");
+      var hora = m.criadoEm ? new Date(m.criadoEm).toLocaleTimeString("pt-BR", { hour: "2-digit", minute: "2-digit" }) : "";
+      cab.textContent = nomeDe(m.uid) + (hora ? " · " + hora : "");
+      corpo.appendChild(cab);
+      if (m.resposta) {
+        var cit = document.createElement("div"); cit.className = "chat-citacao";
+        cit.textContent = (m.resposta.nome || "") + ": " + (m.resposta.texto || "");
+        corpo.appendChild(cit);
+      }
+      if (m.tipo === "item" && m.item) {
+        var card = document.createElement("div"); card.className = "chat-item";
+        var im = document.createElement("img"); im.className = "chat-item-foto"; im.alt = "";
+        if (ehMidia(m.item.fotoId)) im.src = mediaUrl(m.item.fotoId); else im.hidden = true;
+        var info = document.createElement("div"); info.className = "chat-item-info";
+        var nm = document.createElement("strong"); nm.textContent = m.item.nome || "Item";
+        var pr = document.createElement("span"); pr.textContent = fmt(m.item.preco) || "Preço a confirmar";
+        var ver = document.createElement("button"); ver.type = "button"; ver.className = "btn ghost"; ver.textContent = "Ver no catálogo";
+        ver.addEventListener("click", function(){
+          fecharChatPagina();
+          var q = $("q"); if (q) { q.value = m.item.nome || ""; q.dispatchEvent(new Event("input")); }
+          window.scrollTo({ top: 0, behavior: "smooth" });
+        });
+        info.appendChild(nm); info.appendChild(pr); info.appendChild(ver);
+        card.appendChild(im); card.appendChild(info);
+        corpo.appendChild(card);
+      } else if (m.tipo === "audio" && m.audioId) {
+        var au = document.createElement("audio");
+        au.className = "chat-audio"; au.controls = true; au.preload = "none";
+        au.src = mediaUrl(m.audioId);
+        corpo.appendChild(au);
+      } else {
+        var texto = document.createElement("span");
+        texto.textContent = m.texto || "";
+        corpo.appendChild(texto);
+      }
+      var acoes = document.createElement("div"); acoes.className = "chat-acoes";
+      REACOES.forEach(function(e){
+        var n = 0, eu = false, mapa = m.reacoes || {};
+        Object.keys(mapa).forEach(function(k){ if (mapa[k] === e) n++; });
+        if (mapa[uidCliente] === e) eu = true;
+        var bt = document.createElement("button"); bt.type = "button";
+        bt.textContent = e + (n ? " " + n : "");
+        bt.setAttribute("aria-pressed", eu ? "true" : "false");
+        bt.addEventListener("click", function(){ reagir(m, e); });
+        acoes.appendChild(bt);
+      });
+      var resp = document.createElement("button"); resp.type = "button"; resp.textContent = "↩ Responder";
+      resp.addEventListener("click", function(){
+        chatResposta = { id: m.id, nome: nomeDe(m.uid), texto: String(m.texto || (m.tipo === "item" ? "[item] " + ((m.item && m.item.nome) || "") : "[áudio]")).slice(0, 80) };
+        atualizarResposta();
+        $("chatTxt").focus();
+      });
+      acoes.appendChild(resp);
+      if (state.canEdit) {
+        var ap = document.createElement("button");
+        ap.type = "button"; ap.textContent = "apagar";
+        ap.addEventListener("click", function(){
+          db.collection("chat").doc(m.id).delete().catch(function(){ chatAviso("Não foi possível apagar."); });
+        });
+        acoes.appendChild(ap);
+      }
+      corpo.appendChild(acoes);
+      li.appendChild(foto);
+      li.appendChild(corpo);
+      ul.appendChild(li);
+    });
+    ul.scrollTop = ul.scrollHeight;
+    var n = chatMsgs.length;
+    $("chatResumo").textContent = n ? (n + (n === 1 ? " mensagem" : " mensagens")) : "Ainda sem mensagens";
+  }
+  var meuCadastro = null, aprovados = {}, cadastrosAdm = [];
+  function cadAviso(txt){ $("cadAviso").textContent = txt || ""; $("cadAviso").hidden = !txt; }
+  function atualizarAcesso(){
+    var pode = !!uidCliente && (state.canEdit || (aprovados[uidCliente] || {}).aprovado === true);
+    $("chatFerr").hidden = !pode;
+    $("chatForm").hidden = !pode;
+    if (!pode) $("chatResposta").hidden = true;
+    $("chatCadastro").hidden = pode || !uidCliente || !!meuCadastro;
+    $("chatAguarde").hidden = pode || (!!uidCliente && !meuCadastro);
+    $("chatAguarde").textContent = uidCliente ? "Cadastro enviado. Aguarde a adega liberar seu acesso." : "Entre na sua conta para participar do bate-papo.";
+  }
+  function desenharAdmin(){
+    var ul = $("chatAdminLista"); ul.innerHTML = "";
+    if (!cadastrosAdm.length) { var vazio = document.createElement("li"); vazio.textContent = "Nenhum cadastro ainda."; ul.appendChild(vazio); return; }
+    cadastrosAdm.forEach(function(c){
+      var ap = aprovados[c.id] || {};
+      var st = ap.aprovado === true ? "Liberado" : (ap.aprovado === false ? "Bloqueado" : "Aguardando");
+      var li = document.createElement("li");
+      li.style.cssText = "padding:8px 0;border-bottom:1px solid var(--line);display:flex;flex-direction:column;gap:6px";
+      var txt = document.createElement("span");
+      txt.textContent = (c.nome || "") + " " + (c.sobrenome || "") + " · " + (c.celular || "") + " · " + st;
+      var liberar = document.createElement("button"); liberar.type = "button"; liberar.className = "btn ghost"; liberar.textContent = "Liberar";
+      liberar.addEventListener("click", function(){
+        db.collection("aprovados").doc(c.id).set({ aprovado: true, em: Date.now() }).catch(function(){ chatAviso("Não consegui liberar."); });
+      });
+      var bloquear = document.createElement("button"); bloquear.type = "button"; bloquear.className = "btn ghost"; bloquear.textContent = "Bloquear";
+      bloquear.addEventListener("click", function(){
+        db.collection("aprovados").doc(c.id).set({ aprovado: false, em: Date.now() }).catch(function(){ chatAviso("Não consegui bloquear."); });
+      });
+      li.appendChild(txt); li.appendChild(liberar); li.appendChild(bloquear);
+      ul.appendChild(li);
+    });
+  }
+  function calcularDigitando(){
+    var agora = Date.now(), nomes = [];
+    digitandoDocs.forEach(function(x){
+      if (x.id !== uidCliente && agora - (x.ts || 0) < 4000) nomes.push(x.nome || "Alguém");
+    });
+    $("chatDigitando").textContent = nomes.length ? (nomes.join(", ") + (nomes.length === 1 ? " está digitando…" : " estão digitando…")) : "";
+    $("chatDigitando").hidden = !nomes.length;
+  }
+  function avisarDigitando(){
+    var agora = Date.now();
+    if (!uidCliente || agora - digitandoUlt < 2000) return;
+    digitandoUlt = agora;
+    db.collection("digitando").doc(uidCliente).set({ nome: nomeDe(uidCliente), ts: agora }).catch(function(){});
+  }
+  function enviarItem(it){
+    db.collection("chat").add({
+      tipo: "item",
+      item: { nome: it.nome || "", preco: (it.preco === undefined ? null : it.preco), fotoId: it.fotoId || null },
+      uid: uidCliente || "anonimo", criadoEm: Date.now()
+    }).then(function(){ $("chatItens").hidden = true; })
+      .catch(function(){ chatAviso("Não consegui enviar o item."); });
+  }
+  function desenharItens(){
+    var q = String($("chatItemBusca").value || "").toLowerCase().trim();
+    var ul = $("chatItemLista"); ul.innerHTML = "";
+    (state.items || []).filter(function(it){ return !q || String(it.nome || "").toLowerCase().indexOf(q) >= 0; })
+      .slice(0, 80).forEach(function(it){
+        var li = document.createElement("li");
+        var bt = document.createElement("button"); bt.type = "button";
+        var nm = document.createElement("span"); nm.textContent = it.nome || "";
+        var pr = document.createElement("span"); pr.textContent = fmt(it.preco) || "a confirmar";
+        bt.appendChild(nm); bt.appendChild(pr);
+        bt.addEventListener("click", function(){ enviarItem(it); });
+        li.appendChild(bt); ul.appendChild(li);
+      });
+  }
+  function toggleGravacao(){
+    if (chatGravador) { chatGravador.stop(); return; }
+    if (!chatAssets) { chatAviso("Não consigo enviar áudio nesta visualização."); return; }
+    if (!navigator.mediaDevices || !window.MediaRecorder) { chatAviso("Seu navegador não consegue gravar áudio aqui."); return; }
+    navigator.mediaDevices.getUserMedia({ audio: true }).then(function(stream){
+      var partes = [], t0 = Date.now(), rec;
+      try { rec = new MediaRecorder(stream, { mimeType: "audio/webm" }); } catch(e) { rec = new MediaRecorder(stream); }
+      chatGravador = rec;
+      $("chatAudioBtn").classList.add("gravando");
+      chatAviso("Gravando… toque de novo no 🎤 para enviar.");
+      rec.ondataavailable = function(e){ if (e.data && e.data.size) partes.push(e.data); };
+      rec.onstop = function(){
+        stream.getTracks().forEach(function(t){ t.stop(); });
+        chatGravador = null;
+        $("chatAudioBtn").classList.remove("gravando");
+        if (!partes.length) { chatAviso("Não gravou nada. Tente de novo."); return; }
+        var dur = Math.max(1, Math.round((Date.now() - t0) / 1000));
+        var blob = new Blob(partes, { type: "video/webm" });
+        chatAviso("Enviando áudio…");
+        chatAssets.upload(blob).then(function(res){
+          return db.collection("chat").add({ tipo: "audio", audioId: res.id, duracao: dur, uid: uidCliente || "anonimo", criadoEm: Date.now() });
+        }).then(function(){ chatAviso(""); })
+          .catch(function(){ chatAviso("Não consegui enviar o áudio. Tente de novo."); });
+      };
+      rec.start();
+    }).catch(function(){ chatAviso("Permita o uso do microfone para gravar o áudio."); });
+  }
+  function resolverNomes(){
+    var ids = [], vistos = {};
+    chatMsgs.forEach(function(m){
+      if (m.uid && m.uid !== "anonimo" && !vistos[m.uid]) { vistos[m.uid] = true; ids.push(m.uid); }
+    });
+    if (!chatUser || !ids.length) return;
+    Promise.resolve(chatUser.profiles(ids)).then(function(ps){
+      ids.forEach(function(id){
+        var pr = (ps && ps[id]) || {};
+        chatNomes[id] = { name: pr.name || "Cliente", avatar: pr.avatarUrl || "" };
+      });
+      desenharChat();
+    }).catch(function(){});
+  }
+
+  // ---- Vídeos da adega (até 1 minuto e 15 segundos, com curtir, comentar e compartilhar) ----
+  var shortsList = [], shortsCurtidas = {}, shortsComs = [], shortsEl = {}, shortsObs = null, shortsSom = true, shortsComAtual = null, shortsConfirma = null;
+  function shortsAviso(txt){ $("shortsMsg").textContent = txt || ""; $("shortsMsg").hidden = !txt; }
+  function comAviso(txt){ $("shortsComAviso").textContent = txt || ""; }
+  function podeChat(){ return !!uidCliente && (state.canEdit || (aprovados[uidCliente] || {}).aprovado === true); }
+  function contarCurtidas(id){
+    var n = 0;
+    Object.keys(shortsCurtidas).forEach(function(u){ if ((shortsCurtidas[u] || {})["v_" + id] === true) n++; });
+    return n;
+  }
+  function curtiu(id){ return !!uidCliente && (shortsCurtidas[uidCliente] || {})["v_" + id] === true; }
+  function comentariosDe(id){
+    return shortsComs.filter(function(c){ return c.videoId === id; }).sort(function(a, b){ return (a.criadoEm || 0) - (b.criadoEm || 0); });
+  }
+  function atualizarContagens(){
+    shortsList.forEach(function(s){
+      var e = shortsEl[s.id];
+      if (!e) return;
+      var ok = curtiu(s.id);
+      e.btnCurtir.classList.toggle("ativo", ok);
+      e.btnCurtir.setAttribute("aria-pressed", String(ok));
+      e.nCurtir.textContent = String(contarCurtidas(s.id));
+      e.nCom.textContent = String(comentariosDe(s.id).length);
+    });
+  }
+  function curtirVideo(id){
+    if (!podeChat()) { shortsAviso("Entre na sua conta e aguarde a liberação para curtir."); return; }
+    var chave = "v_" + id;
+    var novo = !curtiu(id);
+    var ref = db.collection("curtidas").doc(uidCliente);
+    var patch = {}; patch[chave] = novo;
+    ref.update(patch).catch(function(){
+      var base = Object.assign({}, shortsCurtidas[uidCliente] || {});
+      base[chave] = novo;
+      return ref.set(base);
+    }).catch(function(){ shortsAviso("Não deu para curtir agora. Tente de novo."); });
+  }
+  function compartilharVideo(s){
+    var dados = { title: "Vídeos da adega", text: s.legenda || "Veja este vídeo da Adega do Wavant", url: location.href };
+    if (navigator.share) { navigator.share(dados).catch(function(){}); return; }
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(location.href).then(function(){ shortsAviso("Link copiado. Mande para quem quiser."); }, function(){ shortsAviso("Não consegui copiar o link."); });
+    } else { shortsAviso("Copie o endereço da página para compartilhar."); }
+  }
+  function apagarVideo(s){
+    if (!state.canEdit) return;
+    if (shortsConfirma !== s.id) { shortsConfirma = s.id; shortsAviso("Toque de novo em 🗑️ para apagar este vídeo."); setTimeout(function(){ if (shortsConfirma === s.id) shortsConfirma = null; }, 5000); return; }
+    shortsConfirma = null;
+    db.collection("shorts").doc(s.id).delete().then(function(){
+      shortsAviso("Vídeo apagado.");
+      if (s.assetId && assetsNS && assetsNS.delete) { try { assetsNS.delete(s.assetId).catch(function(){}); } catch(e) {} }
+    }).catch(function(){ shortsAviso("Não consegui apagar agora."); });
+  }
+  function abrirComentarios(id){
+    shortsComAtual = id;
+    $("shortsComentarios").hidden = false;
+    comAviso(podeChat() ? "" : "Entre na sua conta e aguarde a liberação para comentar.");
+    desenharComentarios();
+  }
+  function fecharComentarios(){ $("shortsComentarios").hidden = true; shortsComAtual = null; }
+  function desenharComentarios(){
+    var ul = $("shortsComLista");
+    ul.textContent = "";
+    if (!shortsComAtual) return;
+    var lista = comentariosDe(shortsComAtual);
+    if (!lista.length) { var vazio = document.createElement("li"); vazio.textContent = "Nenhum comentário ainda."; ul.appendChild(vazio); }
+    lista.forEach(function(c){
+      var li = document.createElement("li");
+      var quem = document.createElement("strong");
+      quem.textContent = nomeDe(c.uid) + ": ";
+      li.appendChild(quem);
+      li.appendChild(document.createTextNode(c.texto || ""));
+      ul.appendChild(li);
+    });
+    ul.scrollTop = ul.scrollHeight;
+  }
+  function enviarComentario(e){
+    e.preventDefault();
+    if (!shortsComAtual) return;
+    if (!podeChat()) { comAviso("Entre na sua conta e aguarde a liberação para comentar."); return; }
+    var t = String($("shortsComTxt").value || "").replace(/\s+/g, " ").trim().slice(0, 200);
+    if (!t) { comAviso("Escreva o comentário."); return; }
+    db.collection("shorts_comentarios").add({ videoId: shortsComAtual, uid: uidCliente, texto: t, criadoEm: Date.now() }).then(function(){
+      $("shortsComTxt").value = "";
+      comAviso("");
+    }).catch(function(){ comAviso("Não deu para enviar. Confira se você tem acesso de Colaborador no Compartilhar."); });
+  }
+  var ICONES = {
+    coracao: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20.5s-7.5-4.6-9.6-9.1C1.1 8.2 3 4.5 6.6 4.5c2.1 0 3.4 1.2 4.4 2.5 1-1.3 2.3-2.5 4.4-2.5 3.6 0 5.5 3.7 4.2 6.9-2.1 4.5-9.6 9.1-9.6 9.1z"/></svg>',
+    comentario: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 11.5a7.5 7.5 0 0 1-11.2 6.5L4 19.5l1.4-4.2A7.5 7.5 0 1 1 20 11.5z"/></svg>',
+    compartilhar: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v12"/><path d="M7.5 7.5 12 3l4.5 4.5"/><path d="M5 12v6.5A1.5 1.5 0 0 0 6.5 20h11a1.5 1.5 0 0 0 1.5-1.5V12"/></svg>',
+    lixeira: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16"/><path d="M9.5 7V4.8h5V7"/><path d="M6.5 7l.9 12.2a1.5 1.5 0 0 0 1.5 1.3h6.2a1.5 1.5 0 0 0 1.5-1.3L17.5 7"/><path d="M10.5 11v5.5M13.5 11v5.5"/></svg>',
+    tocar: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l10.5-6.5z" fill="currentColor"/></svg>',
+    pausar: '<svg viewBox="0 0 24 24" aria-hidden="true"><rect x="6.5" y="5" width="3.8" height="14" rx="1.2" fill="currentColor"/><rect x="13.7" y="5" width="3.8" height="14" rx="1.2" fill="currentColor"/></svg>',
+    somLigado: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9.5h3.5L12 5.5v13l-4.5-4H4z"/><path d="M15.5 9a4 4 0 0 1 0 6M18 6.5a7.5 7.5 0 0 1 0 11"/></svg>',
+    somDesligado: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9.5h3.5L12 5.5v13l-4.5-4H4z"/><path d="M16 9.5l5 5M21 9.5l-5 5"/></svg>'
+  };
+  function atualizarBotaoSom(){
+    var b = $("shortsSom");
+    b.innerHTML = (shortsSom ? ICONES.somLigado : ICONES.somDesligado) + '<span>Som</span>';
+    b.setAttribute("aria-label", shortsSom ? "Desligar o som" : "Ligar o som");
+  }
+  function criarShort(s){
+    var el = document.createElement("article");
+    el.className = "short";
+    var v = document.createElement("video");
+    v.className = "short-video";
+    v.src = s.url || (mediaUrl(s.assetId));
+    v.loop = true; v.muted = true; v.playsInline = true; v.preload = "metadata";
+    v.setAttribute("playsinline", "");
+    el.appendChild(v);
+    var info = document.createElement("div");
+    info.className = "short-info";
+    var leg = document.createElement("p");
+    leg.textContent = s.legenda || "";
+    info.appendChild(leg);
+    el.appendChild(info);
+    var acoes = document.createElement("div");
+    acoes.className = "short-acoes";
+    function acao(icone, rotulo, quando){
+      var wrap = document.createElement("div");
+      wrap.className = "short-acao";
+      var b = document.createElement("button");
+      b.type = "button"; b.className = "short-btn"; b.title = rotulo; b.setAttribute("aria-label", rotulo);
+      b.innerHTML = ICONES[icone];
+      b.addEventListener("click", quando);
+      var n = document.createElement("span");
+      n.className = "n";
+      wrap.appendChild(b); wrap.appendChild(n);
+      acoes.appendChild(wrap);
+      return { b: b, n: n };
+    }
+    var pausa = acao("pausar", "Pausar", function(){
+      if (v.paused) { var p = v.play(); if (p && p.catch) p.catch(function(){}); } else { v.pause(); }
+    });
+    function atualizarPausa(){
+      var rot = v.paused ? "Tocar" : "Pausar";
+      pausa.b.innerHTML = v.paused ? ICONES.tocar : ICONES.pausar;
+      pausa.b.title = rot; pausa.b.setAttribute("aria-label", rot);
+    }
+    v.addEventListener("play", atualizarPausa);
+    v.addEventListener("pause", atualizarPausa);
+    v.addEventListener("click", function(){ pausa.b.click(); });
+    atualizarPausa();
+    var cur = acao("coracao", "Curtir", function(){ curtirVideo(s.id); });
+    var com = acao("comentario", "Comentários", function(){ abrirComentarios(s.id); });
+    acao("compartilhar", "Compartilhar", function(){ compartilharVideo(s); });
+    if (state.canEdit) { acao("lixeira", "Apagar vídeo", function(){ apagarVideo(s); }); }
+    el.appendChild(acoes);
+    if (shortsObs) shortsObs.observe(el);
+    return { el: el, v: v, btnCurtir: cur.b, nCurtir: cur.n, nCom: com.n };
+  }
+  function desenharShorts(){
+    var feed = $("shortsFeed");
+    var ids = {};
+    shortsList.forEach(function(s){ ids[s.id] = true; });
+    Object.keys(shortsEl).forEach(function(id){
+      if (!ids[id]) {
+        if (shortsObs) shortsObs.unobserve(shortsEl[id].el);
+        shortsEl[id].v.pause();
+        shortsEl[id].el.remove();
+        delete shortsEl[id];
+      }
+    });
+    shortsList.forEach(function(s, i){
+      if (!shortsEl[s.id]) shortsEl[s.id] = criarShort(s);
+      var el = shortsEl[s.id].el;
+      if (feed.children[i] !== el) feed.insertBefore(el, feed.children[i] || null);
+    });
+    $("shortsVazio").hidden = shortsList.length > 0;
+    $("shortsResumo").textContent = shortsList.length === 0 ? "Em breve novos vídeos" : (shortsList.length === 1 ? "1 vídeo para ver" : shortsList.length + " vídeos para ver");
+    atualizarContagens();
+  }
+  function abrirShorts(){ $("shortsPagina").hidden = false; }
+  function fecharShorts(){
+    $("shortsPagina").hidden = true;
+    fecharComentarios();
+    Object.keys(shortsEl).forEach(function(id){ shortsEl[id].v.pause(); });
+  }
+  // Comprime o vídeo no próprio navegador (1,2 Mbps), em tempo real: leva o mesmo tempo que o vídeo tem.
+  // Tudo que mexe com áudio e vídeo começa aqui, ainda dentro do toque no botão (celulares exigem isso).
+  function comprimirVideo(arq, progresso){
+    return new Promise(function(resolve, reject){
+      var AC = window.AudioContext || window.webkitAudioContext;
+      if (!window.MediaRecorder || !AC || !document.createElement("canvas").captureStream) { reject(new Error("sem-suporte")); return; }
+      var tipo = ["video/webm;codecs=vp8,opus", "video/webm", "video/mp4"].filter(function(t){ return MediaRecorder.isTypeSupported(t); })[0];
+      if (!tipo) { reject(new Error("sem-suporte")); return; }
+      var ac = null, url = null, gravador = null, rodando = false;
+      // Solta tudo (áudio, gravador, arquivo temporário) para a próxima tentativa funcionar
+      function limpar(){
+        rodando = false;
+        try { if (gravador && gravador.state !== "inactive") gravador.stop(); } catch(e) {}
+        try { if (ac) ac.close(); } catch(e) {}
+        ac = null;
+        if (url) { URL.revokeObjectURL(url); url = null; }
+      }
+      function falhar(motivo){ limpar(); reject(new Error(motivo)); }
+      try {
+        ac = new AC();
+        if (ac.state === "suspended") { ac.resume().catch(function(){}); }
+      } catch(e) { falhar("sem-suporte"); return; }
+      var v = document.createElement("video");
+      v.playsInline = true; v.preload = "auto"; v.setAttribute("playsinline", "");
+      url = URL.createObjectURL(arq);
+      v.src = url;
+      v.onerror = function(){ falhar("video"); };
+      // Pede a reprodução já no toque: é o que libera o vídeo no celular
+      var pedido = v.play(); if (pedido && pedido.catch) pedido.catch(function(){});
+      function preparar(){
+        var dur = v.duration;
+        if (!isFinite(dur) || dur <= 0) { falhar("video"); return; }
+        if (dur > 75.5) { falhar("longo"); return; }
+        if (!v.videoWidth || !v.videoHeight) { falhar("video"); return; }
+        var esc = Math.min(1, 720 / Math.max(v.videoWidth, v.videoHeight));
+        var cw = Math.max(2, Math.round(v.videoWidth * esc / 2) * 2), ch = Math.max(2, Math.round(v.videoHeight * esc / 2) * 2);
+        var cv = document.createElement("canvas"); cv.width = cw; cv.height = ch;
+        var g = cv.getContext("2d");
+        var partes = [];
+        try {
+          if (ac.state === "suspended") { ac.resume().catch(function(){}); }
+          var fonte = ac.createMediaElementSource(v);
+          var destino = ac.createMediaStreamDestination();
+          fonte.connect(destino);
+          var fluxo = cv.captureStream(30);
+          destino.stream.getAudioTracks().forEach(function(t){ fluxo.addTrack(t); });
+          gravador = new MediaRecorder(fluxo, { mimeType: tipo, videoBitsPerSecond: 1200000, audioBitsPerSecond: 96000 });
+        } catch(e) { falhar("gravar"); return; }
+        rodando = true;
+        gravador.ondataavailable = function(e){ if (e.data && e.data.size) partes.push(e.data); };
+        gravador.onstop = function(){
+          rodando = false;
+          try { if (ac) ac.close(); } catch(e) {}
+          ac = null;
+          if (url) { URL.revokeObjectURL(url); url = null; }
+          resolve(new Blob(partes, { type: tipo.split(";")[0] }));
+        };
+        function quadro(){
+          if (!rodando) return;
+          try { g.drawImage(v, 0, 0, cw, ch); } catch(e) {}
+          if (progresso) progresso(v.currentTime, dur);
+          requestAnimationFrame(quadro);
+        }
+        v.onended = function(){ if (gravador && gravador.state !== "inactive") gravador.stop(); };
+        gravador.start(1000);
+        v.play().then(function(){ quadro(); }).catch(function(){ falhar("video"); });
+      }
+      v.onloadedmetadata = function(){
+        if (isFinite(v.duration) && v.duration > 0) { preparar(); return; }
+        // Gravações do navegador costumam não trazer a duração: vai até o fim para descobri-la
+        v.onseeked = function(){
+          v.onseeked = function(){ v.onseeked = null; if (isFinite(v.duration) && v.duration > 0) preparar(); else falhar("video"); };
+          v.currentTime = 0;
+        };
+        v.currentTime = 1e101;
+      };
+    });
+  }
+  function publicarVideo(){
+    if (!state.canEdit) return;
+    var arq = $("shortsArq").files && $("shortsArq").files[0];
+    if (!arq) { shortsAviso("Escolha um vídeo primeiro."); return; }
+    if (!assetsNS) { shortsAviso("Não consegui guardar o vídeo agora. Recarregue a página."); return; }
+    var legenda = String($("shortsLegenda").value || "").replace(/\s+/g, " ").trim().slice(0, 120);
+    $("shortsPublicar").disabled = true;
+    shortsAviso("Preparando o vídeo…");
+    comprimirVideo(arq, function(t, d){ shortsAviso("Comprimindo… " + Math.floor(t) + " de " + Math.round(d) + " s. Não feche nem bloqueie a tela."); })
+      .then(function(blob){
+        if (blob.size > 20 * 1024 * 1024) { throw new Error("grande"); }
+        shortsAviso("Enviando o vídeo…");
+        return assetsNS.upload(blob).then(function(res){
+          return db.collection("shorts").add({ assetId: res.id, url: res.url || (mediaUrl(res.id)), legenda: legenda, criadoEm: Date.now() });
+        });
+      })
+      .then(function(){
+        shortsAviso("Vídeo publicado. Ele já aparece para os clientes.");
+        $("shortsArq").value = "";
+        $("shortsLegenda").value = "";
+      })
+      .catch(function(e){
+        var m = e && e.message;
+        shortsAviso(m === "longo" ? "O vídeo passa de 1 minuto e 15 segundos. Corte e tente de novo." :
+                    m === "grande" ? "O vídeo ficou grande demais. Tente um mais curto." :
+                    m === "sem-suporte" ? "Este navegador não consegue preparar o vídeo. Tente pelo Chrome ou Safari atualizado." :
+                    m === "video" ? "Não consegui abrir este vídeo. Tente outro vídeo." :
+                    m === "gravar" ? "O celular não conseguiu preparar o vídeo. Tente de novo com a tela aberta." :
+                    "Não deu para publicar. Tente de novo. Motivo: " + (m || "desconhecido"));
+      })
+      .then(function(){ $("shortsPublicar").disabled = false; });
+  }
+  function iniciarVideos(){
+    $("shorts").hidden = false;
+    $("shortsAdmin").hidden = !state.canEdit;
+    atualizarBotaoSom();
+    if ("IntersectionObserver" in window) {
+      shortsObs = new IntersectionObserver(function(entradas){
+        entradas.forEach(function(en){
+          var v = en.target.querySelector("video");
+          if (!v) return;
+          if (en.isIntersecting && en.intersectionRatio >= 0.6) {
+            v.muted = !shortsSom;
+            var p = v.play();
+            if (p && p.catch) p.catch(function(){ v.muted = true; var q = v.play(); if (q && q.catch) q.catch(function(){}); });
+          } else { v.pause(); }
+        });
+      }, { root: $("shortsFeed"), threshold: [0, 0.6] });
+    }
+    db.collection("shorts").orderBy("criadoEm", "desc").limit(100).onSnapshot(function(snap){
+      shortsList = snap.docs.filter(function(d){ return d.exists; }).map(function(d){ return Object.assign({ id: d.id }, d.data()); });
+      desenharShorts();
+    }, function(){ $("shortsResumo").textContent = "Não foi possível carregar agora."; });
+    db.collection("curtidas").onSnapshot(function(snap){
+      var mapa = {};
+      snap.docs.forEach(function(d){ if (d.exists) mapa[d.id] = d.data(); });
+      shortsCurtidas = mapa;
+      atualizarContagens();
+    }, function(){});
+    db.collection("shorts_comentarios").orderBy("criadoEm", "desc").limit(500).onSnapshot(function(snap){
+      shortsComs = snap.docs.filter(function(d){ return d.exists; }).map(function(d){ return Object.assign({ id: d.id }, d.data()); });
+      atualizarContagens();
+      desenharComentarios();
+    }, function(){});
+    $("shortsAbrir").addEventListener("click", abrirShorts);
+    $("shortsFechar").addEventListener("click", fecharShorts);
+    $("shortsSom").addEventListener("click", function(){
+      shortsSom = !shortsSom;
+      atualizarBotaoSom();
+      Object.keys(shortsEl).forEach(function(id){ shortsEl[id].v.muted = !shortsSom; });
+    });
+    $("shortsComFechar").addEventListener("click", fecharComentarios);
+    $("shortsComForm").addEventListener("submit", enviarComentario);
+    $("shortsArq").addEventListener("change", function(){
+      var f = $("shortsArq").files && $("shortsArq").files[0];
+      shortsAviso(f ? "Vídeo escolhido: " + f.name + ". Agora toque em Publicar." : "");
+    });
+    $("shortsPublicar").addEventListener("click", publicarVideo);
+    document.addEventListener("keydown", function(e){
+      if (e.key !== "Escape") return;
+      if (!$("shortsComentarios").hidden) fecharComentarios();
+      else if (!$("shortsPagina").hidden) fecharShorts();
+    });
+  }
+  function abrirChatPagina(){
+    $("chatPagina").hidden = false;
+    var ul = $("chatList"); ul.scrollTop = ul.scrollHeight;
+    $("chatTxt").focus();
+  }
+  function fecharChatPagina(){ $("chatPagina").hidden = true; }
+  function iniciarChat(user){
+    chatUser = user;
+    $("chat").hidden = false;
+    db.collection("perfis").onSnapshot(function(snap){
+      var mapa = {};
+      snap.docs.forEach(function(d){ if (d.exists) mapa[d.id] = d.data(); });
+      chatPerfis = mapa;
+      desenharChat();
+    }, function(){});
+    Promise.resolve(window.claude ? window.claude.use("assets") : null)
+      .then(function(ns){ chatAssets = ns || null; }).catch(function(){ chatAssets = null; });
+    function avisoFoto(){
+      perfilAviso(chatAssets ? "Toque em \"Escolher arquivo\" para mandar a foto." : "Foto não disponível agora. Você pode salvar só o nome.");
+    }
+    $("chatPerfilBtn").addEventListener("click", function(){
+      $("perfilNome").value = (chatPerfis[uidCliente] || {}).nome || "";
+      $("perfilFoto").value = "";
+      avisoFoto();
+      $("chatPerfil").hidden = false;
+      $("perfilNome").focus();
+      if (!chatAssets) {
+        Promise.resolve(window.claude ? window.claude.use("assets") : null)
+          .then(function(ns){ chatAssets = ns || null; avisoFoto(); })
+          .catch(function(){ chatAssets = null; avisoFoto(); });
+      }
+    });
+    $("perfilFoto").addEventListener("change", function(){
+      var f = $("perfilFoto").files && $("perfilFoto").files[0];
+      perfilAviso(f ? "Foto escolhida: " + f.name + ". Agora toque em Salvar." : "");
+    });
+    $("perfilCancelar").addEventListener("click", function(){ $("chatPerfil").hidden = true; });
+    $("perfilSalvar").addEventListener("click", function(){
+      var nome = String($("perfilNome").value || "").replace(/\s+/g, " ").trim().slice(0, 30);
+      var arq = $("perfilFoto").files && $("perfilFoto").files[0];
+      if (!uidCliente) { perfilAviso("Entre na sua conta para salvar o perfil."); return; }
+      if (!nome) { perfilAviso("Digite seu nome."); return; }
+      var antes = (chatPerfis[uidCliente] || {}).fotoId || null;
+      var pronto = (arq && chatAssets) ? chatAssets.upload(arq).then(function(res){ return res.id; }) : Promise.resolve(antes);
+      perfilAviso("Salvando…");
+      pronto.then(function(fotoId){
+        return db.collection("perfis").doc(uidCliente).set({ nome: nome, fotoId: fotoId || null, atualizadoEm: Date.now() });
+      }).then(function(){
+        perfilAviso("");
+        $("chatPerfil").hidden = true;
+      }).catch(function(){ perfilAviso("Não deu para salvar. Tente de novo."); });
+    });
+    $("chatAbrir").addEventListener("click", abrirChatPagina);
+    $("chatFechar").addEventListener("click", fecharChatPagina);
+    document.addEventListener("keydown", function(e){ if (e.key === "Escape" && !$("chatPagina").hidden) fecharChatPagina(); });
+    db.collection("chat").orderBy("criadoEm", "desc").limit(100).onSnapshot(function(snap){
+      chatMsgs = snap.docs.filter(function(d){ return d.exists; }).map(function(d){
+        return Object.assign({ id: d.id }, d.data());
+      }).reverse();
+      desenharChat();
+      resolverNomes();
+    }, function(){ chatAviso("Não foi possível carregar o bate-papo."); });
+    $("chatForm").addEventListener("submit", function(e){
+      e.preventDefault();
+      var txt = String($("chatTxt").value || "").replace(/\s+/g, " ").trim();
+      if (!txt) return;
+      var doc = { tipo: "texto", texto: txt.slice(0, 300), uid: uidCliente || "anonimo", criadoEm: Date.now() };
+      if (chatResposta) doc.resposta = { nome: chatResposta.nome, texto: chatResposta.texto };
+      db.collection("chat").add(doc).then(function(){
+        $("chatTxt").value = "";
+        chatResposta = null; atualizarResposta();
+      }).catch(function(){
+        chatAviso("Não deu para enviar. Confira se você tem acesso de Colaborador no Compartilhar.");
+      });
+    });
+    $("chatRespostaX").addEventListener("click", function(){ chatResposta = null; atualizarResposta(); });
+    $("chatTxt").addEventListener("input", avisarDigitando);
+    EMOJIS.forEach(function(em){
+      var bt = document.createElement("button");
+      bt.type = "button"; bt.className = "chat-emoji"; bt.textContent = em;
+      bt.addEventListener("click", function(){
+        var t = $("chatTxt"); var ini = t.selectionStart || t.value.length; var fim = t.selectionEnd || ini;
+        t.value = t.value.slice(0, ini) + em + t.value.slice(fim);
+        t.focus(); t.setSelectionRange(ini + em.length, ini + em.length);
+      });
+      $("chatEmojis").appendChild(bt);
+    });
+    $("chatEmojiBtn").addEventListener("click", function(){
+      $("chatEmojis").hidden = !$("chatEmojis").hidden; $("chatItens").hidden = true;
+    });
+    $("chatItemBtn").addEventListener("click", function(){
+      $("chatItens").hidden = !$("chatItens").hidden; $("chatEmojis").hidden = true;
+      if (!$("chatItens").hidden) { desenharItens(); $("chatItemBusca").focus(); }
+    });
+    $("chatItemBusca").addEventListener("input", desenharItens);
+    $("chatAudioBtn").addEventListener("click", toggleGravacao);
+    db.collection("digitando").onSnapshot(function(snap){
+      digitandoDocs = snap.docs.filter(function(d){ return d.exists; }).map(function(d){
+        var x = d.data() || {}; return { id: d.id, nome: x.nome, ts: x.ts };
+      });
+      calcularDigitando();
+    }, function(){});
+    setInterval(calcularDigitando, 2000);
+    $("chatAdmin").hidden = !state.canEdit;
+    db.collection("aprovados").onSnapshot(function(snap){
+      var mapa = {}; snap.docs.forEach(function(d){ if (d.exists) mapa[d.id] = d.data(); });
+      aprovados = mapa; atualizarAcesso(); desenharAdmin();
+    }, function(){});
+    if (uidCliente) db.collection("cadastros").doc(uidCliente).onSnapshot(function(snap){
+      meuCadastro = snap.exists ? snap.data() : null; atualizarAcesso();
+    }, function(){});
+    if (state.canEdit) db.collection("cadastros").onSnapshot(function(snap){
+      cadastrosAdm = snap.docs.filter(function(d){ return d.exists; }).map(function(d){ return Object.assign({ id: d.id }, d.data()); });
+      desenharAdmin();
+    }, function(){});
+    $("cadEnviar").addEventListener("click", function(){
+      var nome = String($("cadNome").value || "").replace(/\s+/g, " ").trim().slice(0, 30);
+      var sobrenome = String($("cadSobrenome").value || "").replace(/\s+/g, " ").trim().slice(0, 40);
+      var cel = String($("cadCelular").value || "").replace(/\D/g, "");
+      if (!uidCliente) { cadAviso("Entre na sua conta para se cadastrar."); return; }
+      if (!nome || !sobrenome) { cadAviso("Digite seu nome e seu sobrenome."); return; }
+      if (cel.length !== 10 && cel.length !== 11) { cadAviso("Digite o celular com DDD."); return; }
+      if (!$("cadAceito").checked) { cadAviso("Marque a opção para concordar com o uso dos dados."); return; }
+      cadAviso("Enviando…");
+      var agora = Date.now();
+      db.collection("cadastros").doc(uidCliente).set({ nome: nome, sobrenome: sobrenome, celular: cel, aceitou: true, criadoEm: agora })
+        .then(function(){
+          return db.collection("perfis").doc(uidCliente).set({ nome: nome + " " + sobrenome, fotoId: (chatPerfis[uidCliente] || {}).fotoId || null, atualizadoEm: agora });
+        })
+        .then(function(){ cadAviso(""); })
+        .catch(function(e){ cadAviso("Não deu para enviar o cadastro. Tente de novo. Motivo: " + ((e && (e.code || e.message)) || "desconhecido")); });
+    });
+    atualizarAcesso();
   }
 
   start();

@@ -1,0 +1,93 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // Logado = qualquer visitante (entra de forma anônima).
+    function logado() {
+      return request.auth != null;
+    }
+    // Dono = login com Google, com o e-mail do dono confirmado.
+    function dono() {
+      return logado()
+        && request.auth.token.firebase.sign_in_provider == 'google.com'
+        && request.auth.token.email == 'walterwavant001@gmail.com'
+        && request.auth.token.email_verified == true;
+    }
+
+    // Catálogo: todos leem; só o dono altera preços, nomes e esgotados.
+    match /itens/{id} {
+      allow read: if true;
+      allow write: if dono();
+    }
+
+    // Biblioteca de fotos do dono.
+    match /fotos/{id} {
+      allow read: if true;
+      allow write: if dono();
+    }
+
+    // Pedidos: cada cliente grava e lê o próprio; o dono lê todos.
+    match /pedidos/{uid} {
+      allow read, create, update: if logado() && (request.auth.uid == uid || dono());
+      allow delete: if dono();
+    }
+
+    // Cadastro: a própria pessoa grava; o dono lê.
+    match /cadastros/{uid} {
+      allow read: if logado() && (request.auth.uid == uid || dono());
+      allow create, update: if logado() && request.auth.uid == uid;
+      allow delete: if dono();
+    }
+
+    // Perfil público do cliente (nome e foto no chat).
+    match /perfis/{uid} {
+      allow read: if logado();
+      allow create, update: if logado() && request.auth.uid == uid;
+      allow delete: if dono();
+    }
+
+    // "Fulano está digitando..."
+    match /digitando/{uid} {
+      allow read: if logado();
+      allow write: if logado() && request.auth.uid == uid;
+    }
+
+    // Liberação de contas no chat: só o dono.
+    match /aprovados/{uid} {
+      allow read: if logado();
+      allow write: if dono();
+    }
+
+    // Curtidas dos shorts.
+    match /curtidas/{uid} {
+      allow read: if logado();
+      allow create, update: if logado() && request.auth.uid == uid;
+      allow delete: if dono();
+    }
+
+    // Chat: qualquer pessoa logada escreve; apagar é do dono ou de quem escreveu.
+    match /chat/{id} {
+      allow read: if logado();
+      allow create, update: if logado();
+      allow delete: if dono() || (logado() && resource.data.uid == request.auth.uid);
+    }
+
+    // Shorts (vídeos): todos veem; só o dono envia e apaga.
+    match /shorts/{id} {
+      allow read: if true;
+      allow create, update, delete: if dono();
+    }
+
+    // Comentários dos shorts.
+    match /shorts_comentarios/{id} {
+      allow read: if true;
+      allow create: if logado();
+      allow delete: if dono();
+    }
+
+    // Tudo que não está listado acima fica fechado.
+    match /{document=**} {
+      allow read, write: if false;
+    }
+  }
+}

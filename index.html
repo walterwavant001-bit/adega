@@ -1,6 +1,55 @@
-<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}
+
+/* ---- tema preto futurista e letras verdes ---- */
+:root{
+  --bg:#030604; --panel:rgba(4,18,9,.8); --line:rgba(57,255,20,.28);
+  --cyan:#39ff14; --magenta:#1fbf3a; --lime:#7dff5a; --fg:#b8ffc8; --muted:#6fbf7f; --glow:#39ff14;
+}
+body{
+  background:
+    radial-gradient(900px 480px at 50% -8%,rgba(57,255,20,.10),transparent 62%),
+    linear-gradient(180deg,#000 0%,#020503 100%) !important;
+  background-attachment:fixed;
+  color:var(--fg);
+}
+body::before{
+  background-image:repeating-linear-gradient(90deg,rgba(57,255,20,.06) 0 1px,transparent 1px 9px),repeating-linear-gradient(0deg,rgba(57,255,20,.04) 0 2px,transparent 2px 14px) !important;
+}
+h1{color:#39ff14 !important;filter:drop-shadow(0 0 22px rgba(57,255,20,.45))}
+.tag{color:#39ff14;border-color:rgba(57,255,20,.35);background:rgba(57,255,20,.06)}
+.scan{background:linear-gradient(90deg,#008f11,#39ff14,#b6ffc8,#39ff14,#008f11,#008f11,#39ff14,#b6ffc8,#39ff14,#008f11,#008f11) !important;box-shadow:0 0 14px #39ff14 !important}
+.masthead::before{filter:grayscale(1) sepia(1) hue-rotate(75deg) saturate(2.4) brightness(.95) contrast(1.05) !important}
+@keyframes brilho{0%,100%{text-shadow:0 0 6px #39ff14,0 0 14px rgba(57,255,20,.5)}50%{text-shadow:0 0 14px #39ff14,0 0 30px rgba(57,255,20,.9)}}
+.ouro-gota,.bolinha-ouro{background:radial-gradient(circle,#e6ffe9 0%,#39ff14 45%,#00b33c 72%,transparent 74%) !important;box-shadow:0 0 8px #39ff14,0 0 18px #39ff14 !important}
+.bolinha-ouro{background:radial-gradient(circle at 35% 30%,#e6ffe9 0%,#39ff14 40%,#00b33c 75%,#004d1a 100%) !important}
+.foto-brilho{background:linear-gradient(105deg,transparent 30%,rgba(57,255,20,.85) 50%,transparent 70%) !important;background-size:250% 100%;background-repeat:no-repeat}
+.btn{background:#39ff14;color:#021a06;box-shadow:0 0 18px rgba(57,255,20,.35)}
+.addcart{background:#39ff14;color:#021a06;box-shadow:0 6px 16px -8px rgba(57,255,20,.7)}
+.pr{color:#7dff5a;text-shadow:0 0 12px rgba(57,255,20,.4)}
+.btn-maq{background:#39ff14;color:#021a06;box-shadow:0 0 22px rgba(57,255,20,.35)}
+.btn-cartao{color:#39ff14;border-color:#39ff14}
+.foot{color:var(--muted)}
+input,select,textarea{color:var(--fg)}
+
+/* ---- ajuste visual: mostrar a parede de vinhos e whiskies ---- */
+.masthead::before{
+  background:
+    linear-gradient(180deg,rgba(0,0,0,0) 45%,rgba(0,0,0,.45) 100%),
+    url("4fd792a8b0a0bce9042aaecc7f0e12e9.png") center 30%/cover no-repeat !important;
+  filter:brightness(.9) contrast(1.05) saturate(.95) !important;
+  mask-image:linear-gradient(to bottom,#000 82%,transparent);
+  -webkit-mask-image:linear-gradient(to bottom,#000 82%,transparent);
+}
+.masthead::after{
+  content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;
+  background:radial-gradient(ellipse 72% 40% at 50% 40%,rgba(0,0,0,.82) 0%,rgba(0,0,0,.5) 55%,transparent 100%);
+}
+.tag{box-shadow:0 0 16px rgba(57,255,20,.25)}
+h1{text-shadow:0 0 22px rgba(0,0,0,.85)}
+
+</style></head><body>
 <meta name="claude:viewport-fit-sides" content="cover">
-<title>Adega dos Brutos</title>
+<title>Adega do Wavant</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Space+Grotesk:wght@400;500;700&display=swap">
 <style>
 /* Futuro-retrô: fundo espacial escuro, grade néon, vidro fosco e brilho ciano/magenta.
@@ -236,7 +285,7 @@ h1{
   <div class="masthead"><div class="masthead-in">
   <header class="hero">
     <span class="tag">Pré-inauguração · Lista de preços</span>
-    <h1 id="titulo">Adega dos Brutos</h1>
+    <h1 id="titulo">Adega do Wavant</h1>
 <script>
 (function(){
   var h = document.getElementById('titulo');
@@ -252,8 +301,8 @@ h1{
     h.appendChild(s);
     letters.push(s);
   }
-  var HEAD = '#2aa8ff';
-  var TRAIL = ['#ff4fa3', '#33d17a', '#ffe81f', '#ff8a1f', '#ff3b3b', '#b35cff', '#5b5bff'];
+  var HEAD = '#b6ffc8';
+  var TRAIL = ['#39ff14', '#14c23a', '#0b7a26', '#14c23a', '#39ff14', '#6dff4a', '#00b33c'];
   var n = letters.length, step = 0;
   function paint() {
     for (var k = 0; k < n; k++) {
@@ -414,7 +463,7 @@ h1{
     </div>
   </section>
 
-  <p class="foot">Adega dos Brutos · 2026</p>
+  <p class="foot">Adega do Wavant · 2026</p>
 </div>
 
 <script>
@@ -825,7 +874,7 @@ h1{
       : f.ent === "domicilio" ? ("Entrega a domicílio: " + f.rua)
       : f.ent === "caixa" ? "Receber no caixa"
       : ("Na rua: " + f.ladoRua + ", " + f.lado + (f.ref ? " (referência: " + f.ref + ")" : ""));
-    var linhas = ["*Pedido — Adega dos Brutos*", "*Nº do pedido:* " + codigoPedido, "", "*Cliente:* " + f.nome, "*WhatsApp:* " + telFmt(zapDe(f)),
+    var linhas = ["*Pedido — Adega do Wavant*", "*Nº do pedido:* " + codigoPedido, "", "*Cliente:* " + f.nome, "*WhatsApp:* " + telFmt(zapDe(f)),
       "*Entrega:* " + entTxt + " (" + fmt(rs.taxa) + ")", "", "*Itens:*"];
     rs.itens.forEach(function(x){
       linhas.push("• " + x.l.qtd + "x " + x.l.item.nome + (x.t === null ? " (preço a confirmar)" : " — " + fmt(x.t)));

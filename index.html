@@ -1249,7 +1249,7 @@ window.pagamentoEfetuado = function(){
     grupos.reduce(function(antes, grupo){
       return antes.then(function(){
         return Promise.all(grupo.map(function(x){
-          return db.collection("itens").doc(x.id).update({ preco: x.para }).then(function(){ feitos++; }, function(){ falhas++; });
+          return db.collection("itens").doc(x.id).update({ preco: x.para, preco_status: null }).then(function(){ feitos++; }, function(){ falhas++; });
         })).then(function(){ impAviso("Trocando preços… " + (feitos + falhas) + " de " + total); });
       });
     }, Promise.resolve()).then(function(){
@@ -1261,6 +1261,7 @@ window.pagamentoEfetuado = function(){
 
   function save(item, patch, msg){
     setStatus("Salvando…");
+    if (patch && patch.preco !== undefined) patch.preco_status = null;
     db.collection("itens").doc(item.id).update(patch).then(function(){
       setStatus(msg || "Salvo.");
     }).catch(function(){
